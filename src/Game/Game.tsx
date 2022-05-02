@@ -59,7 +59,7 @@ export const Game = () => {
         >
           Lingwars
         </Typography>
-        <Waveform url={new URL(langUrl, import.meta.url).href} />
+        <Waveform url={langUrl} />
         {choices &&
           choices?.map(
             (c) =>
