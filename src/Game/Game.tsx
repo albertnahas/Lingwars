@@ -5,7 +5,7 @@ import { Waveform } from "../molecules/Waveform/Waveform";
 import langauges from "../data/languages.json";
 import files from "../data/files.json";
 import _ from "lodash";
-import { Alert, Button, Container } from "@mui/material";
+import { Alert, Button, Container, Typography } from "@mui/material";
 
 export const Game = () => {
   const [lang, setLang] = useState<any>();
@@ -51,6 +51,14 @@ export const Game = () => {
   return (
     <>
       <Container>
+        <Typography
+          component="h1"
+          variant="h2"
+          color="text.secondary"
+          sx={{ m: 3 }}
+        >
+          Lingwars
+        </Typography>
         <Waveform url={new URL(langUrl, import.meta.url).href} />
         {choices &&
           choices?.map(
