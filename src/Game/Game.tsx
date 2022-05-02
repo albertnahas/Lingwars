@@ -6,11 +6,17 @@ import langauges from "../data/languages.json";
 import files from "../data/files.json";
 import _ from "lodash";
 import { Alert, Button, Container, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 
 export const Game = () => {
   const [lang, setLang] = useState<any>();
   const [answer, setAnswer] = useState<any>();
   const [choices, setChoices] = useState<any[]>();
+
+  const [score, setScore] = useState(0);
+  const [level, setLevel] = useState(1);
+
+  const maxLevel = 10;
 
   const langUrl = useMemo<string>(
     () =>
@@ -40,12 +46,31 @@ export const Game = () => {
     setChoices(_.shuffle(langChoices));
   }, [lang]);
 
-  useEffect(() => {}, [answer]);
+  useEffect(() => {
+    if (!answer) return;
+    if (answer.name === lang.name) {
+      setScore((s) => s + 1);
+    }
+  }, [answer]);
 
   const onClickNext = () => {
     setLang(null);
     setChoices([]);
     setAnswer(null);
+    setLevel((l) => l + 1);
+  };
+
+  const getEval = () => {
+    switch (true) {
+      case score < 4:
+        return "still have a lot to learn";
+      case score < 6:
+        return "have a good knowledge!";
+      case score < 8:
+        return "are a polyglot!!";
+      default:
+        return "are unstoppable!!!";
+    }
   };
 
   return (
@@ -61,6 +86,7 @@ export const Game = () => {
         </Typography>
         <Waveform url={langUrl} />
         {choices &&
+          !answer &&
           choices?.map(
             (c) =>
               c && (
@@ -79,9 +105,24 @@ export const Game = () => {
             <Alert severity={answer.name === lang.name ? "success" : "error"}>
               {lang.name}
             </Alert>
-            <Button variant="contained" sx={{ mt: 1 }} onClick={onClickNext}>
-              Next
-            </Button>
+            {level < maxLevel && (
+              <Button variant="contained" sx={{ mt: 1 }} onClick={onClickNext}>
+                Next
+              </Button>
+            )}
+            {level >= maxLevel && (
+              <Box sx={{ mt: 2 }}>
+                <Typography variant="h6" color="primary.light">Done! you {getEval()}</Typography>
+              </Box>
+            )}
+
+            <Box sx={{ mt: 2 }}>
+              {!!score && (
+                <Typography variant="body1">
+                  Your score: {score}/{level}
+                </Typography>
+              )}
+            </Box>
           </>
         )}
       </Container>

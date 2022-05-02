@@ -59,7 +59,7 @@ export const Waveform = ({ url }: { url: string }) => {
 
     waveform.current?.load(waveformRef.current || "");
     setPlaying(false)
-    
+
     return () => {
       waveform.current?.destroy();
     };
