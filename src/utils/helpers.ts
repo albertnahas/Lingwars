@@ -4,4 +4,17 @@
 //     return lan
 // })
 
-export {}
+export const getLevelLabel = (level: number) => {
+    switch (level) {
+        case 1:
+            return "Easy";
+        case 2:
+            return "Medium";
+        case 3:
+            return "Hard";
+        case 4:
+            return "Expert";
+        default:
+            return "Impossible";
+    }
+};
