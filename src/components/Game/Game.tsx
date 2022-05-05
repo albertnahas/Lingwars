@@ -19,7 +19,7 @@ export const Game = () => {
 
   const [score, setScore] = useState(0);
   const [turn, setTurn] = useState(1);
-  const [level, setLevel] = useState();
+  const [level, setLevel] = useState(0);
 
   const maxLevelTurn = 10;
   const maxLevels = 5;
@@ -45,7 +45,7 @@ export const Game = () => {
   console.log(allLangs.filter((l) => l?.rank).length);
 
   const levelLangs = useMemo(
-    () => allLangs.slice(0, level * (allLangs.length / maxLevels)),
+    () => allLangs.slice(0, (level) * (allLangs.length / maxLevels)),
     [level]
   );
 
