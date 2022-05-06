@@ -8,11 +8,17 @@ import _, { kebabCase } from "lodash";
 import { Alert, Button, Container, Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { Language } from "../../types/language";
-import { getLevelLabel } from "../../utils/helpers";
+import {
+  getLanguageCountries,
+  getLanguageInfo,
+  getLevelLabel,
+} from "../../utils/helpers";
 import { LevelDialog } from "../../molecules/LevelDialog/LevelDialog";
+import { WorldDiagram } from "../../icons/worldDiagram";
 
 export const Game = () => {
   const [lang, setLang] = useState<any>();
+  const [langInfo, setLangInfo] = useState<any>();
   const [answer, setAnswer] = useState<any>();
   const [choices, setChoices] = useState<any[]>();
   const [openLevelsDialog, setOpenLevelsDialog] = React.useState(true);
@@ -35,17 +41,8 @@ export const Game = () => {
     "rank"
   );
 
-  console.log(langauges.length);
-  console.log(
-    langauges.filter(
-      (l) => l?.rank && !allLangs.find((al) => al?.code1 === l.code1)
-    )
-  );
-  console.log(allLangs.length);
-  console.log(allLangs.filter((l) => l?.rank).length);
-
   const levelLangs = useMemo(
-    () => allLangs.slice(0, (level) * (allLangs.length / maxLevels)),
+    () => allLangs.slice(0, level * (allLangs.length / maxLevels)),
     [level]
   );
 
@@ -59,12 +56,28 @@ export const Game = () => {
     [lang]
   );
 
+  const langCountries = useMemo<string[]>(
+    () => (lang ? getLanguageCountries(lang).map((c) => c.Country) : []),
+    [lang]
+  );
+
   useEffect(() => {
     if (!level) return;
     if (lang) return;
     const randomLang = _.sample(levelLangs);
     setLang(randomLang);
   }, [lang, level]);
+
+  useEffect(() => {
+    if (!lang) return;
+    getLanguageInfo(lang)
+      .then((res) => res.json())
+      .then((res) => {
+        for (const page in res.query.pages) {
+          setLangInfo(res.query.pages[page]);
+        }
+      });
+  }, [lang]);
 
   useEffect(() => {
     if (!lang) return;
@@ -170,8 +183,27 @@ export const Game = () => {
                 </Typography>
               )}
             </Box>
+            {langCountries && (
+              <Box sx={{ my: 2 }}>
+                <WorldDiagram
+                  highlights={langCountries}
+                  style={{ width: "100%", height: 400 }}
+                />
+              </Box>
+            )}
+            {langInfo && (
+              <>
+                <Typography variant="h6" sx={{ my: 2, textAlign: "center" }}>
+                  {langInfo.title}
+                </Typography>
+                <Typography variant="body2" sx={{ my: 1 }}>
+                  {langInfo.extract}
+                </Typography>
+              </>
+            )}
           </>
         )}
+
         <LevelDialog
           selectedValue={level}
           open={openLevelsDialog}

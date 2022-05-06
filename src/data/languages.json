@@ -25,13 +25,13 @@
     },
     {
         "name": "Adygei",
-        "all names": "Adyghe; Adygei",
+        "all names": "Adyghe;Adygei",
         "code1": "ady",
         "code2": ""
     },
     {
         "name": "Adyghe",
-        "all names": "Adyghe; Adygei",
+        "all names": "Adyghe;Adygei",
         "code1": "ady",
         "code2": ""
     },
@@ -88,7 +88,7 @@
     },
     {
         "name": "Alemannic",
-        "all names": "Swiss German; Alemannic; Alsatian",
+        "all names": "Swiss German;Alemannic;Alsatian",
         "code1": "gsw",
         "code2": ""
     },
@@ -106,7 +106,7 @@
     },
     {
         "name": "Alsatian",
-        "all names": "Swiss German; Alemannic; Alsatian",
+        "all names": "Swiss German;Alemannic;Alsatian",
         "code1": "gsw",
         "code2": ""
     },
@@ -172,7 +172,7 @@
     },
     {
         "name": "Aromanian",
-        "all names": "Aromanian; Arumanian; Macedo-Romanian",
+        "all names": "Aromanian;Arumanian;Macedo-Romanian",
         "code1": "rup",
         "code2": ""
     },
@@ -184,7 +184,7 @@
     },
     {
         "name": "Arumanian",
-        "all names": "Aromanian; Arumanian; Macedo-Romanian",
+        "all names": "Aromanian;Arumanian;Macedo-Romanian",
         "code1": "rup",
         "code2": ""
     },
@@ -199,13 +199,13 @@
     },
     {
         "name": "Asturian",
-        "all names": "Asturian; Bable; Leonese; Asturleonese",
+        "all names": "Asturian;Bable;Leonese;Asturleonese",
         "code1": "ast",
         "code2": ""
     },
     {
         "name": "Asturleonese",
-        "all names": "Asturian; Bable; Leonese; Asturleonese",
+        "all names": "Asturian;Bable;Leonese;Asturleonese",
         "code1": "ast",
         "code2": ""
     },
@@ -265,7 +265,7 @@
     },
     {
         "name": "Bable",
-        "all names": "Asturian; Bable; Leonese; Asturleonese",
+        "all names": "Asturian;Bable;Leonese;Asturleonese",
         "code1": "ast",
         "code2": ""
     },
@@ -337,13 +337,13 @@
     },
     {
         "name": "Bedawiyet",
-        "all names": "Beja; Bedawiyet",
+        "all names": "Beja;Bedawiyet",
         "code1": "bej",
         "code2": ""
     },
     {
         "name": "Beja",
-        "all names": "Beja; Bedawiyet",
+        "all names": "Beja;Bedawiyet",
         "code1": "bej",
         "code2": ""
     },
@@ -400,13 +400,13 @@
     },
     {
         "name": "Bilin",
-        "all names": "Blin; Bilin",
+        "all names": "Blin;Bilin",
         "code1": "byn",
         "code2": ""
     },
     {
         "name": "Bini",
-        "all names": "Bini; Edo",
+        "all names": "Bini;Edo",
         "code1": "bin",
         "code2": ""
     },
@@ -418,31 +418,31 @@
     },
     {
         "name": "Blin",
-        "all names": "Blin; Bilin",
+        "all names": "Blin;Bilin",
         "code1": "byn",
         "code2": ""
     },
     {
         "name": "Bliss",
-        "all names": "Blissymbols; Blissymbolics; Bliss",
+        "all names": "Blissymbols;Blissymbolics;Bliss",
         "code1": "zbl",
         "code2": ""
     },
     {
         "name": "Blissymbolics",
-        "all names": "Blissymbols; Blissymbolics; Bliss",
+        "all names": "Blissymbols;Blissymbolics;Bliss",
         "code1": "zbl",
         "code2": ""
     },
     {
         "name": "Blissymbols",
-        "all names": "Blissymbols; Blissymbolics; Bliss",
+        "all names": "Blissymbols;Blissymbolics;Bliss",
         "code1": "zbl",
         "code2": ""
     },
     {
         "name": "Bokmål, Norwegian",
-        "all names": "Bokmål, Norwegian; Norwegian Bokmål",
+        "all names": "Bokmål, Norwegian;Norwegian Bokmål",
         "code1": "nob",
         "code2": "nb"
     },
@@ -499,13 +499,13 @@
     },
     {
         "name": "Castilian",
-        "all names": "Spanish; Castilian",
+        "all names": "Spanish;Castilian",
         "code1": "spa",
         "code2": "es"
     },
     {
         "name": "Catalan",
-        "all names": "Catalan; Valencian",
+        "all names": "Catalan;Valencian",
         "code1": "cat",
         "code2": "ca"
     },
@@ -577,7 +577,7 @@
         "native": "12",
         "percentage": 0.17,
         "name": "Chewa",
-        "all names": "Chichewa; Chewa; Nyanja",
+        "all names": "Chichewa;Chewa;Nyanja",
         "code1": "nya",
         "code2": "ny"
     },
@@ -595,7 +595,7 @@
     },
     {
         "name": "Chichewa",
-        "all names": "Chichewa; Chewa; Nyanja",
+        "all names": "Chichewa;Chewa;Nyanja",
         "code1": "nya",
         "code2": "ny"
     },
@@ -613,7 +613,7 @@
     },
     {
         "name": "Chipewyan",
-        "all names": "Chipewyan; Dene Suline",
+        "all names": "Chipewyan;Dene Suline",
         "code1": "chp",
         "code2": ""
     },
@@ -625,19 +625,19 @@
     },
     {
         "name": "Chuang",
-        "all names": "Zhuang; Chuang",
+        "all names": "Zhuang;Chuang",
         "code1": "zha",
         "code2": "za"
     },
     {
         "name": "Church Slavic",
-        "all names": "Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic",
+        "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
         "code1": "chu",
         "code2": "cu"
     },
     {
         "name": "Church Slavonic",
-        "all names": "Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic",
+        "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
         "code1": "chu",
         "code2": "cu"
     },
@@ -655,13 +655,13 @@
     },
     {
         "name": "Classical Nepal Bhasa",
-        "all names": "Classical Newari; Old Newari; Classical Nepal Bhasa",
+        "all names": "Classical Newari;Old Newari;Classical Nepal Bhasa",
         "code1": "nwc",
         "code2": ""
     },
     {
         "name": "Classical Newari",
-        "all names": "Classical Newari; Old Newari; Classical Nepal Bhasa",
+        "all names": "Classical Newari;Old Newari;Classical Nepal Bhasa",
         "code1": "nwc",
         "code2": ""
     },
@@ -673,7 +673,7 @@
     },
     {
         "name": "Cook Islands Maori",
-        "all names": "Rarotongan; Cook Islands Maori",
+        "all names": "Rarotongan;Cook Islands Maori",
         "code1": "rar",
         "code2": ""
     },
@@ -733,13 +733,13 @@
     },
     {
         "name": "Crimean Tatar",
-        "all names": "Crimean Tatar; Crimean Turkish",
+        "all names": "Crimean Tatar;Crimean Turkish",
         "code1": "crh",
         "code2": ""
     },
     {
         "name": "Crimean Turkish",
-        "all names": "Crimean Tatar; Crimean Turkish",
+        "all names": "Crimean Tatar;Crimean Turkish",
         "code1": "crh",
         "code2": ""
     },
@@ -793,25 +793,25 @@
     },
     {
         "name": "Dene Suline",
-        "all names": "Chipewyan; Dene Suline",
+        "all names": "Chipewyan;Dene Suline",
         "code1": "chp",
         "code2": ""
     },
     {
         "name": "Dhivehi",
-        "all names": "Divehi; Dhivehi; Maldivian",
+        "all names": "Divehi;Dhivehi;Maldivian",
         "code1": "div",
         "code2": "dv"
     },
     {
         "name": "Dimili",
-        "all names": "Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki",
+        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
         "code1": "zza",
         "code2": ""
     },
     {
         "name": "Dimli",
-        "all names": "Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki",
+        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
         "code1": "zza",
         "code2": ""
     },
@@ -823,7 +823,7 @@
     },
     {
         "name": "Divehi",
-        "all names": "Divehi; Dhivehi; Maldivian",
+        "all names": "Divehi;Dhivehi;Maldivian",
         "code1": "div",
         "code2": "dv"
     },
@@ -856,7 +856,7 @@
         "native": "21",
         "percentage": 0.32,
         "name": "Dutch",
-        "all names": "Dutch; Flemish",
+        "all names": "Dutch;Flemish",
         "code1": "dut/nld",
         "code2": "nl"
     },
@@ -886,7 +886,7 @@
     },
     {
         "name": "Edo",
-        "all names": "Bini; Edo",
+        "all names": "Bini;Edo",
         "code1": "bin",
         "code2": ""
     },
@@ -994,7 +994,7 @@
         "native": "28",
         "percentage": 0.42,
         "name": "Filipino",
-        "all names": "Filipino; Pilipino",
+        "all names": "Filipino;Pilipino",
         "code1": "fil",
         "code2": ""
     },
@@ -1012,7 +1012,7 @@
     },
     {
         "name": "Flemish",
-        "all names": "Dutch; Flemish",
+        "all names": "Dutch;Flemish",
         "code1": "dut/nld",
         "code2": "nl"
     },
@@ -1066,7 +1066,7 @@
     },
     {
         "name": "Gaelic",
-        "all names": "Gaelic; Scottish Gaelic",
+        "all names": "Gaelic;Scottish Gaelic",
         "code1": "gla",
         "code2": "gd"
     },
@@ -1123,7 +1123,7 @@
     },
     {
         "name": "German, Low",
-        "all names": "Low German; Low Saxon; German, Low; Saxon, Low",
+        "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
         "code1": "nds",
         "code2": ""
     },
@@ -1147,7 +1147,7 @@
     },
     {
         "name": "Gikuyu",
-        "all names": "Kikuyu; Gikuyu",
+        "all names": "Kikuyu;Gikuyu",
         "code1": "kik",
         "code2": "ki"
     },
@@ -1195,7 +1195,7 @@
     },
     {
         "name": "Greenlandic",
-        "all names": "Kalaallisut; Greenlandic",
+        "all names": "Kalaallisut;Greenlandic",
         "code1": "kal",
         "code2": "kl"
     },
@@ -1231,7 +1231,7 @@
         "native": "9.6",
         "percentage": 0.15,
         "name": "Haitian",
-        "all names": "Haitian; Haitian Creole",
+        "all names": "Haitian;Haitian Creole",
         "code1": "hat",
         "code2": "ht"
     },
@@ -1240,7 +1240,7 @@
         "native": "9.6",
         "percentage": 0.15,
         "name": "Haitian Creole",
-        "all names": "Haitian; Haitian Creole",
+        "all names": "Haitian;Haitian Creole",
         "code1": "hat",
         "code2": "ht"
     },
@@ -1282,7 +1282,7 @@
     },
     {
         "name": "Himachali languages",
-        "all names": "Himachali languages; Western Pahari languages",
+        "all names": "Himachali languages;Western Pahari languages",
         "code1": "him",
         "code2": ""
     },
@@ -1312,7 +1312,7 @@
         "native": "8.4",
         "percentage": 0.13,
         "name": "Hmong",
-        "all names": "Hmong; Mong",
+        "all names": "Hmong;Mong",
         "code1": "hmn",
         "code2": ""
     },
@@ -1372,7 +1372,7 @@
     },
     {
         "name": "Imperial Aramaic (700-300 BCE)",
-        "all names": "Official Aramaic (700-300 BCE); Imperial Aramaic (700-300 BCE)",
+        "all names": "Official Aramaic (700-300 BCE);Imperial Aramaic (700-300 BCE)",
         "code1": "arc",
         "code2": ""
     },
@@ -1417,7 +1417,7 @@
     },
     {
         "name": "Interlingue",
-        "all names": "Interlingue; Occidental",
+        "all names": "Interlingue;Occidental",
         "code1": "ile",
         "code2": "ie"
     },
@@ -1492,7 +1492,7 @@
     },
     {
         "name": "Jingpho",
-        "all names": "Kachin; Jingpho",
+        "all names": "Kachin;Jingpho",
         "code1": "kac",
         "code2": ""
     },
@@ -1522,19 +1522,19 @@
     },
     {
         "name": "Kachin",
-        "all names": "Kachin; Jingpho",
+        "all names": "Kachin;Jingpho",
         "code1": "kac",
         "code2": ""
     },
     {
         "name": "Kalaallisut",
-        "all names": "Kalaallisut; Greenlandic",
+        "all names": "Kalaallisut;Greenlandic",
         "code1": "kal",
         "code2": "kl"
     },
     {
         "name": "Kalmyk",
-        "all names": "Kalmyk; Oirat",
+        "all names": "Kalmyk;Oirat",
         "code1": "xal",
         "code2": ""
     },
@@ -1561,7 +1561,7 @@
     },
     {
         "name": "Kapampangan",
-        "all names": "Pampanga; Kapampangan",
+        "all names": "Pampanga;Kapampangan",
         "code1": "pam",
         "code2": ""
     },
@@ -1630,13 +1630,13 @@
     },
     {
         "name": "Khotanese",
-        "all names": "Khotanese; Sakan",
+        "all names": "Khotanese;Sakan",
         "code1": "kho",
         "code2": ""
     },
     {
         "name": "Kikuyu",
-        "all names": "Kikuyu; Gikuyu",
+        "all names": "Kikuyu;Gikuyu",
         "code1": "kik",
         "code2": "ki"
     },
@@ -1657,25 +1657,25 @@
     },
     {
         "name": "Kirdki",
-        "all names": "Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki",
+        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
         "code1": "zza",
         "code2": ""
     },
     {
         "name": "Kirghiz",
-        "all names": "Kirghiz; Kyrgyz",
+        "all names": "Kirghiz;Kyrgyz",
         "code1": "kir",
         "code2": "ky"
     },
     {
         "name": "Kirmanjki",
-        "all names": "Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki",
+        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
         "code1": "zza",
         "code2": ""
     },
     {
         "name": "Klingon",
-        "all names": "Klingon; tlhIngan-Hol",
+        "all names": "Klingon;tlhIngan-Hol",
         "code1": "tlh",
         "code2": ""
     },
@@ -1729,7 +1729,7 @@
     },
     {
         "name": "Kuanyama",
-        "all names": "Kuanyama; Kwanyama",
+        "all names": "Kuanyama;Kwanyama",
         "code1": "kua",
         "code2": "kj"
     },
@@ -1762,13 +1762,13 @@
     },
     {
         "name": "Kwanyama",
-        "all names": "Kuanyama; Kwanyama",
+        "all names": "Kuanyama;Kwanyama",
         "code1": "kua",
         "code2": "kj"
     },
     {
         "name": "Kyrgyz",
-        "all names": "Kirghiz; Kyrgyz",
+        "all names": "Kirghiz;Kyrgyz",
         "code1": "kir",
         "code2": "ky"
     },
@@ -1816,13 +1816,13 @@
     },
     {
         "name": "Leonese",
-        "all names": "Asturian; Bable; Leonese; Asturleonese",
+        "all names": "Asturian;Bable;Leonese;Asturleonese",
         "code1": "ast",
         "code2": ""
     },
     {
         "name": "Letzeburgesch",
-        "all names": "Luxembourgish; Letzeburgesch",
+        "all names": "Luxembourgish;Letzeburgesch",
         "code1": "ltz",
         "code2": "lb"
     },
@@ -1834,19 +1834,19 @@
     },
     {
         "name": "Limburgan",
-        "all names": "Limburgan; Limburger; Limburgish",
+        "all names": "Limburgan;Limburger;Limburgish",
         "code1": "lim",
         "code2": "li"
     },
     {
         "name": "Limburger",
-        "all names": "Limburgan; Limburger; Limburgish",
+        "all names": "Limburgan;Limburger;Limburgish",
         "code1": "lim",
         "code2": "li"
     },
     {
         "name": "Limburgish",
-        "all names": "Limburgan; Limburger; Limburgish",
+        "all names": "Limburgan;Limburger;Limburgish",
         "code1": "lim",
         "code2": "li"
     },
@@ -1870,13 +1870,13 @@
     },
     {
         "name": "Low German",
-        "all names": "Low German; Low Saxon; German, Low; Saxon, Low",
+        "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
         "code1": "nds",
         "code2": ""
     },
     {
         "name": "Low Saxon",
-        "all names": "Low German; Low Saxon; German, Low; Saxon, Low",
+        "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
         "code1": "nds",
         "code2": ""
     },
@@ -1936,13 +1936,13 @@
     },
     {
         "name": "Luxembourgish",
-        "all names": "Luxembourgish; Letzeburgesch",
+        "all names": "Luxembourgish;Letzeburgesch",
         "code1": "ltz",
         "code2": "lb"
     },
     {
         "name": "Macedo-Romanian",
-        "all names": "Aromanian; Arumanian; Macedo-Romanian",
+        "all names": "Aromanian;Arumanian;Macedo-Romanian",
         "code1": "rup",
         "code2": ""
     },
@@ -2014,7 +2014,7 @@
     },
     {
         "name": "Maldivian",
-        "all names": "Divehi; Dhivehi; Maldivian",
+        "all names": "Divehi;Dhivehi;Maldivian",
         "code1": "div",
         "code2": "dv"
     },
@@ -2071,13 +2071,13 @@
     },
     {
         "name": "Mapuche",
-        "all names": "Mapudungun; Mapuche",
+        "all names": "Mapudungun;Mapuche",
         "code1": "arn",
         "code2": ""
     },
     {
         "name": "Mapudungun",
-        "all names": "Mapudungun; Mapuche",
+        "all names": "Mapudungun;Mapuche",
         "code1": "arn",
         "code2": ""
     },
@@ -2131,13 +2131,13 @@
     },
     {
         "name": "Mi'kmaq",
-        "all names": "Mi'kmaq; Micmac",
+        "all names": "Mi'kmaq;Micmac",
         "code1": "mic",
         "code2": ""
     },
     {
         "name": "Micmac",
-        "all names": "Mi'kmaq; Micmac",
+        "all names": "Mi'kmaq;Micmac",
         "code1": "mic",
         "code2": ""
     },
@@ -2167,13 +2167,13 @@
     },
     {
         "name": "Moldavian",
-        "all names": "Romanian; Moldavian; Moldovan",
+        "all names": "Romanian;Moldavian;Moldovan",
         "code1": "rum/ron",
         "code2": "ro"
     },
     {
         "name": "Moldovan",
-        "all names": "Romanian; Moldavian; Moldovan",
+        "all names": "Romanian;Moldavian;Moldovan",
         "code1": "rum/ron",
         "code2": "ro"
     },
@@ -2185,7 +2185,7 @@
     },
     {
         "name": "Mong",
-        "all names": "Hmong; Mong",
+        "all names": "Hmong;Mong",
         "code1": "hmn",
         "code2": ""
     },
@@ -2248,25 +2248,25 @@
     },
     {
         "name": "Navaho",
-        "all names": "Navajo; Navaho",
+        "all names": "Navajo;Navaho",
         "code1": "nav",
         "code2": "nv"
     },
     {
         "name": "Navajo",
-        "all names": "Navajo; Navaho",
+        "all names": "Navajo;Navaho",
         "code1": "nav",
         "code2": "nv"
     },
     {
         "name": "Ndebele, North",
-        "all names": "Ndebele, North; North Ndebele",
+        "all names": "Ndebele, North;North Ndebele",
         "code1": "nde",
         "code2": "nd"
     },
     {
         "name": "Ndebele, South",
-        "all names": "Ndebele, South; South Ndebele",
+        "all names": "Ndebele, South;South Ndebele",
         "code1": "nbl",
         "code2": "nr"
     },
@@ -2284,7 +2284,7 @@
     },
     {
         "name": "Nepal Bhasa",
-        "all names": "Nepal Bhasa; Newari",
+        "all names": "Nepal Bhasa;Newari",
         "code1": "new",
         "code2": ""
     },
@@ -2299,7 +2299,7 @@
     },
     {
         "name": "Newari",
-        "all names": "Nepal Bhasa; Newari",
+        "all names": "Nepal Bhasa;Newari",
         "code1": "new",
         "code2": ""
     },
@@ -2329,7 +2329,7 @@
     },
     {
         "name": "No linguistic content",
-        "all names": "No linguistic content; Not applicable",
+        "all names": "No linguistic content;Not applicable",
         "code1": "zxx",
         "code2": ""
     },
@@ -2353,7 +2353,7 @@
     },
     {
         "name": "North Ndebele",
-        "all names": "Ndebele, North; North Ndebele",
+        "all names": "Ndebele, North;North Ndebele",
         "code1": "nde",
         "code2": "nd"
     },
@@ -2371,7 +2371,7 @@
     },
     {
         "name": "Northern Sotho",
-        "all names": "Pedi; Sepedi; Northern Sotho",
+        "all names": "Pedi;Sepedi;Northern Sotho",
         "code1": "nso",
         "code2": ""
     },
@@ -2383,19 +2383,19 @@
     },
     {
         "name": "Norwegian Bokmål",
-        "all names": "Bokmål, Norwegian; Norwegian Bokmål",
+        "all names": "Bokmål, Norwegian;Norwegian Bokmål",
         "code1": "nob",
         "code2": "nb"
     },
     {
         "name": "Norwegian Nynorsk",
-        "all names": "Norwegian Nynorsk; Nynorsk, Norwegian",
+        "all names": "Norwegian Nynorsk;Nynorsk, Norwegian",
         "code1": "nno",
         "code2": "nn"
     },
     {
         "name": "Not applicable",
-        "all names": "No linguistic content; Not applicable",
+        "all names": "No linguistic content;Not applicable",
         "code1": "zxx",
         "code2": ""
     },
@@ -2407,7 +2407,7 @@
     },
     {
         "name": "Nuosu",
-        "all names": "Sichuan Yi; Nuosu",
+        "all names": "Sichuan Yi;Nuosu",
         "code1": "iii",
         "code2": "ii"
     },
@@ -2419,7 +2419,7 @@
     },
     {
         "name": "Nyanja",
-        "all names": "Chichewa; Chewa; Nyanja",
+        "all names": "Chichewa;Chewa;Nyanja",
         "code1": "nya",
         "code2": "ny"
     },
@@ -2431,7 +2431,7 @@
     },
     {
         "name": "Nynorsk, Norwegian",
-        "all names": "Norwegian Nynorsk; Nynorsk, Norwegian",
+        "all names": "Norwegian Nynorsk;Nynorsk, Norwegian",
         "code1": "nno",
         "code2": "nn"
     },
@@ -2449,7 +2449,7 @@
     },
     {
         "name": "Occidental",
-        "all names": "Interlingue; Occidental",
+        "all names": "Interlingue;Occidental",
         "code1": "ile",
         "code2": "ie"
     },
@@ -2467,13 +2467,13 @@
     },
     {
         "name": "Official Aramaic (700-300 BCE)",
-        "all names": "Official Aramaic (700-300 BCE); Imperial Aramaic (700-300 BCE)",
+        "all names": "Official Aramaic (700-300 BCE);Imperial Aramaic (700-300 BCE)",
         "code1": "arc",
         "code2": ""
     },
     {
         "name": "Oirat",
-        "all names": "Kalmyk; Oirat",
+        "all names": "Kalmyk;Oirat",
         "code1": "xal",
         "code2": ""
     },
@@ -2485,25 +2485,25 @@
     },
     {
         "name": "Old Bulgarian",
-        "all names": "Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic",
+        "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
         "code1": "chu",
         "code2": "cu"
     },
     {
         "name": "Old Church Slavonic",
-        "all names": "Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic",
+        "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
         "code1": "chu",
         "code2": "cu"
     },
     {
         "name": "Old Newari",
-        "all names": "Classical Newari; Old Newari; Classical Nepal Bhasa",
+        "all names": "Classical Newari;Old Newari;Classical Nepal Bhasa",
         "code1": "nwc",
         "code2": ""
     },
     {
         "name": "Old Slavonic",
-        "all names": "Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic",
+        "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
         "code1": "chu",
         "code2": "cu"
     },
@@ -2533,13 +2533,13 @@
     },
     {
         "name": "Ossetian",
-        "all names": "Ossetian; Ossetic",
+        "all names": "Ossetian;Ossetic",
         "code1": "oss",
         "code2": "os"
     },
     {
         "name": "Ossetic",
-        "all names": "Ossetian; Ossetic",
+        "all names": "Ossetian;Ossetic",
         "code1": "oss",
         "code2": "os"
     },
@@ -2569,7 +2569,7 @@
     },
     {
         "name": "Pampanga",
-        "all names": "Pampanga; Kapampangan",
+        "all names": "Pampanga;Kapampangan",
         "code1": "pam",
         "code2": ""
     },
@@ -2581,7 +2581,7 @@
     },
     {
         "name": "Panjabi",
-        "all names": "Panjabi; Punjabi",
+        "all names": "Panjabi;Punjabi",
         "code1": "pan",
         "code2": "pa"
     },
@@ -2602,13 +2602,13 @@
         "native": "39",
         "percentage": 0.58,
         "name": "Pashto",
-        "all names": "Pushto; Pashto",
+        "all names": "Pushto;Pashto",
         "code1": "pus",
         "code2": "ps"
     },
     {
         "name": "Pedi",
-        "all names": "Pedi; Sepedi; Northern Sotho",
+        "all names": "Pedi;Sepedi;Northern Sotho",
         "code1": "nso",
         "code2": ""
     },
@@ -2641,7 +2641,7 @@
     },
     {
         "name": "Pilipino",
-        "all names": "Filipino; Pilipino",
+        "all names": "Filipino;Pilipino",
         "code1": "fil",
         "code2": ""
     },
@@ -2686,13 +2686,13 @@
         "native": "95 (100)",
         "percentage": 1.44,
         "name": "Punjabi",
-        "all names": "Panjabi; Punjabi",
+        "all names": "Panjabi;Punjabi",
         "code1": "pan",
         "code2": "pa"
     },
     {
         "name": "Pushto",
-        "all names": "Pushto; Pashto",
+        "all names": "Pushto;Pashto",
         "code1": "pus",
         "code2": "ps"
     },
@@ -2719,7 +2719,7 @@
     },
     {
         "name": "Rarotongan",
-        "all names": "Rarotongan; Cook Islands Maori",
+        "all names": "Rarotongan;Cook Islands Maori",
         "code1": "rar",
         "code2": ""
     },
@@ -2740,7 +2740,7 @@
         "native": "24",
         "percentage": 0.37,
         "name": "Romanian",
-        "all names": "Romanian; Moldavian; Moldovan",
+        "all names": "Romanian;Moldavian;Moldovan",
         "code1": "rum/ron",
         "code2": "ro"
     },
@@ -2773,7 +2773,7 @@
     },
     {
         "name": "Sakan",
-        "all names": "Khotanese; Sakan",
+        "all names": "Khotanese;Sakan",
         "code1": "kho",
         "code2": ""
     },
@@ -2839,7 +2839,7 @@
     },
     {
         "name": "Saxon, Low",
-        "all names": "Low German; Low Saxon; German, Low; Saxon, Low",
+        "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
         "code1": "nds",
         "code2": ""
     },
@@ -2851,7 +2851,7 @@
     },
     {
         "name": "Scottish Gaelic",
-        "all names": "Gaelic; Scottish Gaelic",
+        "all names": "Gaelic;Scottish Gaelic",
         "code1": "gla",
         "code2": "gd"
     },
@@ -2869,7 +2869,7 @@
     },
     {
         "name": "Sepedi",
-        "all names": "Pedi; Sepedi; Northern Sotho",
+        "all names": "Pedi;Sepedi;Northern Sotho",
         "code1": "nso",
         "code2": ""
     },
@@ -2905,7 +2905,7 @@
     },
     {
         "name": "Sichuan Yi",
-        "all names": "Sichuan Yi; Nuosu",
+        "all names": "Sichuan Yi;Nuosu",
         "code1": "iii",
         "code2": "ii"
     },
@@ -2947,13 +2947,13 @@
         "native": "16",
         "percentage": 0.25,
         "name": "Sinhala",
-        "all names": "Sinhala; Sinhalese",
+        "all names": "Sinhala;Sinhalese",
         "code1": "sin",
         "code2": "si"
     },
     {
         "name": "Sinhalese",
-        "all names": "Sinhala; Sinhalese",
+        "all names": "Sinhala;Sinhalese",
         "code1": "sin",
         "code2": "si"
     },
@@ -3034,7 +3034,7 @@
     },
     {
         "name": "Sotho, Northern",
-        "all names": "Pedi; Sepedi; Northern Sotho",
+        "all names": "Pedi;Sepedi;Northern Sotho",
         "code1": "nso",
         "code2": ""
     },
@@ -3052,7 +3052,7 @@
     },
     {
         "name": "South Ndebele",
-        "all names": "Ndebele, South; South Ndebele",
+        "all names": "Ndebele, South;South Ndebele",
         "code1": "nbl",
         "code2": "nr"
     },
@@ -3073,7 +3073,7 @@
         "native": "390 (405)",
         "percentage": 5.85,
         "name": "Spanish",
-        "all names": "Spanish; Castilian",
+        "all names": "Spanish;Castilian",
         "code1": "spa",
         "code2": "es"
     },
@@ -3139,7 +3139,7 @@
     },
     {
         "name": "Swiss German",
-        "all names": "Swiss German; Alemannic; Alsatian",
+        "all names": "Swiss German;Alemannic;Alsatian",
         "code1": "gsw",
         "code2": ""
     },
@@ -3259,7 +3259,7 @@
     },
     {
         "name": "tlhIngan-Hol",
-        "all names": "Klingon; tlhIngan-Hol",
+        "all names": "Klingon;tlhIngan-Hol",
         "code1": "tlh",
         "code2": ""
     },
@@ -3379,7 +3379,7 @@
     },
     {
         "name": "Uighur",
-        "all names": "Uighur; Uyghur",
+        "all names": "Uighur;Uyghur",
         "code1": "uig",
         "code2": "ug"
     },
@@ -3430,7 +3430,7 @@
         "native": "8.2",
         "percentage": 0.12,
         "name": "Uyghur",
-        "all names": "Uighur; Uyghur",
+        "all names": "Uighur;Uyghur",
         "code1": "uig",
         "code2": "ug"
     },
@@ -3451,7 +3451,7 @@
     },
     {
         "name": "Valencian",
-        "all names": "Catalan; Valencian",
+        "all names": "Catalan;Valencian",
         "code1": "cat",
         "code2": "ca"
     },
@@ -3520,19 +3520,19 @@
     },
     {
         "name": "Western Pahari languages",
-        "all names": "Himachali languages; Western Pahari languages",
+        "all names": "Himachali languages;Western Pahari languages",
         "code1": "him",
         "code2": ""
     },
     {
         "name": "Wolaitta",
-        "all names": "Wolaitta; Wolaytta",
+        "all names": "Wolaitta;Wolaytta",
         "code1": "wal",
         "code2": ""
     },
     {
         "name": "Wolaytta",
-        "all names": "Wolaitta; Wolaytta",
+        "all names": "Wolaitta;Wolaytta",
         "code1": "wal",
         "code2": ""
     },
@@ -3604,13 +3604,13 @@
     },
     {
         "name": "Zaza",
-        "all names": "Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki",
+        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
         "code1": "zza",
         "code2": ""
     },
     {
         "name": "Zazaki",
-        "all names": "Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki",
+        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
         "code1": "zza",
         "code2": ""
     },
@@ -3625,7 +3625,7 @@
         "native": "16",
         "percentage": 0.24,
         "name": "Zhuang",
-        "all names": "Zhuang; Chuang",
+        "all names": "Zhuang;Chuang",
         "code1": "zha",
         "code2": "za"
     },

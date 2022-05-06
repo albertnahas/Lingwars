@@ -4,6 +4,11 @@
 //     return lan
 // })
 
+import { Language } from "../types/language";
+import countries from "../data/countries.json"
+
+const wikipediaURL = 'https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&explaintext&redirects=1&titles=';
+
 export const getLevelLabel = (level: number) => {
     switch (level) {
         case 1:
@@ -18,3 +23,13 @@ export const getLevelLabel = (level: number) => {
             return "Impossible";
     }
 };
+
+export const getLanguageCountries = (language?: Language) => {
+    return countries.filter(c => c["Official language"].split(';').find(l => language?.["all names"].split(';').find(name => name === l)))
+}
+
+export const getLanguageInfo = (language?: Language) => {
+    return fetch(wikipediaURL + encodeURIComponent(`${language?.name} language`), {
+        method: "GET"
+    })
+}
