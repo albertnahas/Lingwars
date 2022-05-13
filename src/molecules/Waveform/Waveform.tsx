@@ -31,7 +31,7 @@ export const PlayButton = styled("button")`
   outline: none;
   cursor: pointer;
   padding-bottom: 3px;
-  margin-right:5px;
+  margin-right: 5px;
   &:hover {
     background: #ddd;
   }
@@ -39,6 +39,7 @@ export const PlayButton = styled("button")`
 
 export const Waveform = ({ url }: { url: string }) => {
   const [playing, setPlaying] = useState(false);
+  const [disabled, setDisabled] = useState(true);
   const waveform = useRef<WaveSurfer>();
   const waveformRef = useRef<HTMLMediaElement>(null);
 
@@ -58,7 +59,13 @@ export const Waveform = ({ url }: { url: string }) => {
     });
 
     waveform.current?.load(waveformRef.current || "");
-    setPlaying(false)
+    setPlaying(false);
+
+    // waveform.current?.on("ready", function () {
+    //   setDisabled(false);
+    //   setPlaying(true);
+    //   waveform.current?.play();
+    // });
 
     return () => {
       waveform.current?.destroy();

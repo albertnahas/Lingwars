@@ -12,10 +12,14 @@
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.3",
+    "@paypal/react-paypal-js": "^7.6.0",
     "@reduxjs/toolkit": "^1.8.1",
     "firebase": "^8.10.0",
     "firebase-admin": "^10.1.0",
+    "formik": "^2.2.9",
     "lodash": "^4.17.21",
+    "material-ui-confirm": "^3.0.4",
+    "moment": "^2.29.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-h5-audio-player": "^3.8.4",
@@ -24,7 +28,8 @@
     "react-with-firebase-auth": "^1.4.1",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5",
-    "wavesurfer.js": "^6.1.0"
+    "wavesurfer.js": "^6.1.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.182",
