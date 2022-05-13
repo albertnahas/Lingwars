@@ -192,7 +192,7 @@ export const Game = () => {
               color="text.secondary"
               sx={{ m: 3 }}
             >
-              {p.displayName}: {p.score}
+              {p.displayName}: {p.score}/{p.turn}
             </Typography>
           ))}
         {displayGame && (
