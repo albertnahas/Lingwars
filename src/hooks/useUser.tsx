@@ -8,20 +8,6 @@ export const useUser = () => {
   const currentUser = useSelector(userSelector);
 
   const updateUser = (user: User) => {
-    try {
-      if (user.weight != currentUser?.weight) {
-        user.weightRecords = [
-          ...(user.weightRecords || []),
-          {
-            weight: user.weight || 0,
-            date: firebase.firestore.Timestamp.fromDate(new Date()),
-          },
-        ];
-      }
-    } catch (error) {
-      console.error(error);
-    }
-
     return firebase
       .firestore()
       .collection("users")
