@@ -3,7 +3,8 @@ import "react-h5-audio-player/lib/styles.css";
 import { Waveform } from "../../molecules/Waveform/Waveform";
 import files from "../../data/files.json";
 import _ from "lodash";
-import { Alert, Button, Container, Divider, Typography } from "@mui/material";
+import { Alert, Button, Container, Divider, IconButton, Tooltip, Typography } from "@mui/material";
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import { Box } from "@mui/system";
 import { Language } from "../../types/language";
 import { getLanguageCountries, getLanguageInfo } from "../../utils/helpers";
@@ -13,6 +14,7 @@ import { Timer } from "../../atoms/Timer/Timer";
 export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   const [langInfo, setLangInfo] = useState<any>();
   const [showInfo, setShowInfo] = useState<boolean>(false);
+  const [showHint, setShowHint] = useState<boolean>(false);
   const [answer, setAnswer] = useState<any>();
   const [time, setTime] = useState(0);
 
@@ -71,6 +73,13 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
           </Typography>
         </Box>
         <Waveform url={langUrl} />
+        {!answer && (
+          <Tooltip title="Give me a hint" placement="left" arrow>
+            <IconButton onClick={() => setShowHint(sh => !sh)} >
+              <TipsAndUpdatesIcon />
+            </IconButton>
+          </Tooltip>
+        )}
         {choices &&
           !answer &&
           choices?.map(
@@ -86,6 +95,11 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
                 </Button>
               )
           )}
+        {langInfo && showHint && (
+          <Alert sx={{ mt: 2 }} severity="info">
+            {langInfo.extract}
+          </Alert>
+        )}
         {answer && (
           <>
             <Alert
