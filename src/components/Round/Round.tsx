@@ -5,11 +5,19 @@ import files from "../../data/files.json";
 import _ from "lodash";
 import { Alert, Button, Container, Divider, IconButton, Tooltip, Typography } from "@mui/material";
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
-import { Box } from "@mui/system";
+import { Box, styled } from "@mui/system";
 import { Language } from "../../types/language";
 import { getLanguageCountries, getLanguageInfo } from "../../utils/helpers";
 import { WorldDiagram } from "../../icons/worldDiagram";
 import { Timer } from "../../atoms/Timer/Timer";
+
+export const BoxContainer = styled("div")`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
 
 export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   const [langInfo, setLangInfo] = useState<any>();
@@ -79,12 +87,12 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
             {/* round score: {Math.round(100 / (time || 1))} */}
           </Typography>
         </Box>
-        <Box>
+        <BoxContainer>
           <Waveform url={langUrl} />
           {!answer && (
             <Tooltip
               title={tooltipTitle}
-              placement="left"
+              placement="top"
               arrow
               onClick={() => {
                 setShowHint(true);
@@ -92,7 +100,9 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
               }}
             >
               <span>
-                <IconButton color="primary"
+                <IconButton
+                  size="large"
+                  color="primary"
                   disabled={showHint}
                   sx={{ cursor: showHint ? 'not-allowed !important' : 'pointer' }}
                 >
@@ -101,7 +111,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
               </span>
             </Tooltip>
           )}
-        </Box>
+        </BoxContainer>
         {choices &&
           !answer &&
           choices?.map(

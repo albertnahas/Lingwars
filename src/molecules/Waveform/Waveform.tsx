@@ -4,13 +4,13 @@ import WaveSurfer from "wavesurfer.js";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import PauseIcon from "@mui/icons-material/Pause";
 
-export const WaveformContianer = styled("div")`
+export const WaveformContainer = styled("div")`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 100px;
-  width: 100%;
+  width: 95%;
   background: transparent;
 `;
 
@@ -78,12 +78,12 @@ export const Waveform = ({ url }: { url: string }) => {
   };
 
   return (
-    <WaveformContianer>
+    <WaveformContainer>
       <PlayButton onClick={handlePlay}>
         {!playing ? <PlayArrowIcon color="primary" /> : <PauseIcon />}
       </PlayButton>
       <Wave id="waveform" />
       <audio ref={waveformRef} id="track" src={url} />
-    </WaveformContianer>
+    </WaveformContainer>
   );
 };
