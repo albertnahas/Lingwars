@@ -10,7 +10,7 @@ export interface Challenge {
     createdAt?: firebase.firestore.Timestamp
     finishedAt?: firebase.firestore.Timestamp
     scores?: object
-    players?: object
+    players?: number
 }
 
 export interface Player {
@@ -32,4 +32,9 @@ export interface RoundScore {
     turn?: number
     correct?: boolean
     time?: number
+}
+
+export interface ChallengeSetup {
+    players?: number
+    level?: number
 }

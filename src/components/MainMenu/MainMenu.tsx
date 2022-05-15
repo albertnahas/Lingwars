@@ -1,22 +1,21 @@
 import React, { FC, useEffect } from "react";
 import { useTheme } from "@mui/system";
 import { Box, Button, Stack, Typography } from "@mui/material";
-import { Logo } from "../../icons/logo";
 import { useNavigate } from "react-router-dom";
 import { ChallengeDialog } from "../../molecules/ChallengeDialog/ChallengeDialog";
 import firebase from "../../config";
 import { useDispatch, useSelector } from "react-redux";
 import { userSelector } from "../../store/userSlice";
-import { LevelDialog } from "../../molecules/LevelDialog/LevelDialog";
+import { GameDialog } from "../../molecules/GameDialog/GameDialog";
 import { setChallenge } from "../../store/challengeSlice";
+import { ChallengeSetup } from "../../types/challenge";
 
 export var MainMenu: FC<Props> = function (props) {
   const theme = useTheme();
   const navigate = useNavigate();
 
   const [challengeId, setChallengeId] = React.useState<string>();
-  const [level, setLevel] = React.useState<number>(0);
-  const [single, setSingle] = React.useState<boolean>(false);
+  const [initialSetup, setInitialSetup] = React.useState<ChallengeSetup>();
 
   const [openLevelsDialog, setOpenLevelsDialog] = React.useState(false);
   const [openChallengeDialog, setOpenChallengeDialog] = React.useState(false);
@@ -30,34 +29,35 @@ export var MainMenu: FC<Props> = function (props) {
   }, [challengeId]);
 
   useEffect(() => {
-    if (level) {
-      if (single) {
-        dispatch(setChallenge({ level }));
+    if (initialSetup) {
+      setOpenLevelsDialog(true);
+    }
+  }, [initialSetup]);
+
+  const onCreateGame = (setup?: ChallengeSetup) => {
+    setOpenLevelsDialog(false);
+    setInitialSetup(undefined);
+
+    if (!setup) return;
+
+    if (setup.level) {
+      if (setup.players === 1) {
+        dispatch(setChallenge({ ...setup }));
         navigate(`/play`);
       } else {
-        createChallenge(level);
+        createChallenge(setup);
       }
     }
-  }, [level, single]);
-
-  const onSelectLevel = (l: number) => {
-    setLevel(l);
-    setOpenLevelsDialog(false);
   };
 
-  const onClickChallenge = () => {
-    setSingle(false);
-    setOpenLevelsDialog(true);
-  };
-
-  const createChallenge = (cLevel?: number) => {
+  const createChallenge = (setup?: ChallengeSetup) => {
     firebase
       .firestore()
       .collection("challenges")
       .add({
         uid: user?.uid || null,
-        level: cLevel,
         rounds: 10,
+        ...setup,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(function (docRef) {
@@ -69,9 +69,12 @@ export var MainMenu: FC<Props> = function (props) {
       });
   };
 
-  const onStartSingle = () => {
-    setSingle(true);
-    setOpenLevelsDialog(true);
+  const onClickSinglePlayer = () => {
+    setInitialSetup({ level: 1, players: 1 });
+  };
+
+  const onClickMultiplayer = () => {
+    setInitialSetup({ level: 1, players: 2 });
   };
 
   const onStartChallenge = () => {
@@ -100,29 +103,33 @@ export var MainMenu: FC<Props> = function (props) {
           color="primary"
           aria-label="single player"
           variant="outlined"
-          onClick={onStartSingle}
+          onClick={onClickSinglePlayer}
         >
           Single Player
         </Button>
         <Button
           color="primary"
-          aria-label="single player"
+          aria-label="multi player"
           variant="outlined"
-          onClick={onClickChallenge}
+          onClick={onClickMultiplayer}
         >
           Multiplayer
         </Button>
       </Stack>
-      <LevelDialog
-        selectedValue={level}
-        open={openLevelsDialog}
-        onClose={onSelectLevel}
-      />
-      <ChallengeDialog
-        challengeId={challengeId}
-        open={openChallengeDialog}
-        onClose={onStartChallenge}
-      />
+      {initialSetup && (
+        <GameDialog
+          setup={initialSetup}
+          open={openLevelsDialog}
+          onClose={onCreateGame}
+        />
+      )}
+      {challengeId && (
+        <ChallengeDialog
+          challengeId={challengeId}
+          open={openChallengeDialog}
+          onClose={onStartChallenge}
+        />
+      )}
     </Box>
   );
 };

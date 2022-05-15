@@ -49,8 +49,11 @@ export const Game: FC<Props> = ({
 
   const displayGame =
     !challenge || !challenge.id || (players && players?.length > 1);
+
   const waitingForPlayers =
-    challenge && challenge.id && (!players || players?.length < 2);
+    challenge &&
+    challenge.id &&
+    (!players || players?.length < (challenge.players || 2));
 
   const renderPlayers = () => (
     <Stack spacing={5} direction="row" sx={{ justifyContent: "center" }}>
