@@ -13,6 +13,7 @@ import { Timer } from "../../atoms/Timer/Timer";
 
 export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   const [langInfo, setLangInfo] = useState<any>();
+  const [tooltipTitle, setTooltipTitle] = useState<string>('Give me a hint');
   const [showInfo, setShowInfo] = useState<boolean>(false);
   const [showHint, setShowHint] = useState<boolean>(false);
   const [answer, setAnswer] = useState<any>();
@@ -78,14 +79,29 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
             {/* round score: {Math.round(100 / (time || 1))} */}
           </Typography>
         </Box>
-        <Waveform url={langUrl} />
-        {!answer && (
-          <Tooltip title="Give me a hint" placement="left" arrow>
-            <IconButton onClick={() => setShowHint(sh => !sh)} >
-              <TipsAndUpdatesIcon />
-            </IconButton>
-          </Tooltip>
-        )}
+        <Box>
+          <Waveform url={langUrl} />
+          {!answer && (
+            <Tooltip
+              title={tooltipTitle}
+              placement="left"
+              arrow
+              onClick={() => {
+                setShowHint(true);
+                setTooltipTitle('You can only use one hint per round');
+              }}
+            >
+              <span>
+                <IconButton color="primary"
+                  disabled={showHint}
+                  sx={{ cursor: showHint ? 'not-allowed !important' : 'pointer' }}
+                >
+                  <TipsAndUpdatesIcon />
+                </IconButton>
+              </span>
+            </Tooltip>
+          )}
+        </Box>
         {choices &&
           !answer &&
           choices?.map(
