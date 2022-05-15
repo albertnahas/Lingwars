@@ -47,11 +47,17 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   useEffect(() => {
     if (!answer) return;
     onAnswer(answer, time);
+    setShowHint(false);
   }, [answer]);
 
   const onTimerChange = (t: number) => {
     setTime(t);
   };
+
+  const handleHint = (s: string) => {
+    let split = s.split('.');
+    return `${split[1].replace(langInfo.title, "this language")}.`;
+  }
 
   return (
     <>
@@ -97,7 +103,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
           )}
         {langInfo && showHint && (
           <Alert sx={{ mt: 2 }} severity="info">
-            {langInfo.extract}
+            {handleHint(langInfo.extract)}
           </Alert>
         )}
         {answer && (
