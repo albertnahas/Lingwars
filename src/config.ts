@@ -20,10 +20,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-if (location.hostname === 'localhost') {
-    firebase.firestore().useEmulator('localhost', 8080);
-    firebase.functions().useEmulator('localhost', 5001);
-}
+// if (location.hostname === 'localhost') {
+//     firebase.firestore().useEmulator('localhost', 8080);
+//     firebase.functions().useEmulator('localhost', 5001);
+// }
 const storage = firebase.storage();
 let messaging: any;
 

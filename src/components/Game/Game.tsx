@@ -1,176 +1,64 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { FC, useMemo } from "react";
 import "react-h5-audio-player/lib/styles.css";
-import { Waveform } from "../../molecules/Waveform/Waveform";
-import files from "../../data/files.json";
 import _ from "lodash";
-import { Alert, Button, Container, Divider, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { Language } from "../../types/language";
 import {
-  allLangs,
-  getEval,
-  getLanguageCountries,
-  getLanguageInfo,
-  getLevelLabel,
-  getRandomFromSeed,
-} from "../../utils/helpers";
-import { WorldDiagram } from "../../icons/worldDiagram";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { challengeSelector, setChallenge } from "../../store/challengeSlice";
-import firebase from "../../config";
-import { userSelector } from "../../store/userSlice";
+  Avatar,
+  Button,
+  Chip,
+  Container,
+  Divider,
+  Stack,
+  Typography,
+} from "@mui/material";
+import { Box } from "@mui/system";
+import { getEval } from "../../utils/helpers";
+import { Round } from "../Round/Round";
+import { Player, Score } from "../../types/challenge";
+import { User } from "../../types/user";
+import { UserCircle as UserCircleIcon } from "../../icons/user-circle";
+import { PlayerChip } from "./partials/PlayerChip";
 
-export const Game = () => {
-  let { gameId } = useParams();
+export const Game: FC<Props> = ({
+  score,
+  turn,
+  user,
+  challenge,
+  players,
+  showAnswer,
+  lang,
+  choices,
+  onClickNext,
+  onAnswer,
+}) => {
+  const maxScore = useMemo(() => {
+    if (!players || players.length < 2) return user?.displayName;
+    const mappedPlayers = players?.map((p: Player) => {
+      return { displayName: p?.displayName, score: p?.score?.timed };
+    });
+    return _.maxBy(mappedPlayers, "score")?.displayName;
+  }, [players]);
 
-  const [lang, setLang] = useState<any>();
-  const [langInfo, setLangInfo] = useState<any>();
-  const [answer, setAnswer] = useState<any>();
-  const [choices, setChoices] = useState<any[]>();
-
-  const [players, setPlayers] = useState<any[]>();
-
-  const [score, setScore] = useState(0);
-  const [turn, setTurn] = useState(1);
-  const challenge = useSelector(challengeSelector);
-  const user = useSelector(userSelector);
-
-  const dispatch = useDispatch();
-
-  const maxLevelTurn = 10;
-  const maxLevels = 5;
-
-  const levelLangs = useMemo(
+  const isGameDone = useMemo(
     () =>
-      allLangs.slice(
-        0,
-        (challenge?.level || 0) * (allLangs.length / maxLevels)
-      ),
-    [challenge]
+      players &&
+      challenge &&
+      challenge.id &&
+      players.every((p) => p.turn >= (challenge.rounds || 10)),
+    [players, challenge]
   );
 
-  const langUrl = useMemo<string>(
-    () =>
-      lang
-        ? `../data/audio/${_.sample(
-            files.filter((f) => f.split("/")[0] === lang.name)
-          )}`
-        : "",
-    [lang]
+  const displayGame =
+    !challenge || !challenge.id || (players && players?.length > 1);
+  const waitingForPlayers =
+    challenge && challenge.id && (!players || players?.length < 2);
+
+  const renderPlayers = () => (
+    <Stack spacing={5} direction="row" sx={{ justifyContent: "center" }}>
+      {players?.map((p, i) => (
+        <PlayerChip player={p} isWinning={maxScore === p.displayName} />
+      ))}
+    </Stack>
   );
-
-  const langCountries = useMemo<string[]>(
-    () => (lang ? getLanguageCountries(lang).map((c) => c.Country) : []),
-    [lang]
-  );
-
-  useEffect(() => {
-    let subscribe: any;
-    let subscribePlayers: any;
-    if (gameId) {
-      subscribe = firebase
-        .firestore()
-        .collection("challenges")
-        .doc(gameId)
-        .onSnapshot((querySnapshot: any) => {
-          if (!querySnapshot.exists) {
-            return;
-          }
-          const challengeData = querySnapshot.data();
-          dispatch(setChallenge({ id: gameId, ...challengeData }));
-          subscribePlayers = firebase
-            .firestore()
-            .collection(`challenges/${gameId}/players`)
-            .onSnapshot((querySnapshot: any) => {
-              let playersArr: any[] = [];
-              querySnapshot.forEach((doc: any) => {
-                playersArr.push({ id: doc.id, ...doc.data() });
-              });
-              setPlayers(playersArr);
-            });
-        });
-    } else {
-    }
-    return () => {
-      if (subscribe) {
-        subscribe();
-      }
-      if (subscribePlayers) {
-        subscribePlayers();
-      }
-    };
-  }, [gameId]);
-
-  useEffect(() => {
-    if (!challenge) return;
-    if (lang) return;
-    if (challenge.id && challenge.seed) {
-      const random = Math.floor(
-        getRandomFromSeed((challenge.seed || 0) + turn) * levelLangs.length
-      );
-      const randomLang = levelLangs[random];
-      setLang(randomLang);
-    } else {
-      const randomLang = _.sample(levelLangs);
-      setLang(randomLang);
-    }
-  }, [lang, challenge]);
-
-  useEffect(() => {
-    if (!lang) return;
-    getLanguageInfo(lang)
-      .then((res) => res.json())
-      .then((res) => {
-        for (const page in res.query.pages) {
-          setLangInfo(res.query.pages[page]);
-        }
-      });
-  }, [lang]);
-
-  useEffect(() => {
-    if (!lang) return;
-    let langChoices = _.sampleSize(levelLangs, 4);
-    while (langChoices.find((l) => l?.code1 === lang.code1)) {
-      langChoices = _.sampleSize(levelLangs, 4);
-    }
-    langChoices.push(lang);
-    setChoices(_.shuffle(langChoices));
-  }, [lang]);
-
-  useEffect(() => {
-    if (!answer) return;
-    if (answer.code1 === lang.code1) {
-      setScore((s) => s + 1);
-    }
-  }, [answer]);
-
-  useEffect(() => {
-    console.log(challenge);
-
-    if (!gameId || !challenge || !challenge.id || !user || !user.uid) return;
-    firebase
-      .firestore()
-      .collection(`challenges/${gameId}/players`)
-      .doc(user.uid)
-      .set({
-        displayName: user.displayName,
-        joinedAt: firebase.firestore.FieldValue.serverTimestamp(),
-        score,
-        turn,
-      });
-    console.log("writing data");
-  }, [user, turn, score, challenge]);
-
-  const onClickNext = () => {
-    setLang(null);
-    setChoices([]);
-    setAnswer(null);
-    setTurn((l) => l + 1);
-  };
-
-  const displayGame = !gameId || (players && players?.length > 1);
-  const waitingForPlayers = gameId && (!players || players?.length < 2);
 
   return (
     <>
@@ -183,46 +71,26 @@ export const Game = () => {
         >
           Lingwars
         </Typography>
-        {players &&
-          players.length > 1 &&
-          players.map((p, i) => (
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="text.secondary"
-              sx={{ m: 3 }}
-            >
-              {p.displayName}: {p.score}/{p.turn}
-            </Typography>
-          ))}
-        {displayGame && (
-          <>
-            <Typography
-              component="p"
-              variant="subtitle1"
-              color="primary"
-              sx={{ m: 3 }}
-            >
-              Level: {getLevelLabel(challenge?.level || 0)}
-            </Typography>
-            <Waveform url={langUrl} />
-            {choices &&
-              !answer &&
-              choices?.map(
-                (c) =>
-                  c && (
-                    <Button
-                      key={c.name}
-                      variant="outlined"
-                      sx={{ m: 1 }}
-                      onClick={() => setAnswer(c)}
-                    >
-                      {c.name}
-                    </Button>
-                  )
-              )}
+
+        {players && isGameDone && (
+          <Typography
+            component="p"
+            variant="h5"
+            color="success.main"
+            sx={{ m: 3 }}
+          >
+            {maxScore} is the winner!!
+          </Typography>
+        )}
+
+        {/* render players */}
+        {players && renderPlayers()}
+
+        {lang && displayGame && !isGameDone && (
+          <Box sx={{ my: 2 }}>
+            <Round lang={lang} choices={choices} onAnswer={onAnswer} />
             <Divider sx={{ my: 3 }} />
-          </>
+          </Box>
         )}
         {waitingForPlayers &&
           (challenge && challenge.id ? (
@@ -236,20 +104,17 @@ export const Game = () => {
               Invalid game link
             </Typography>
           ))}
-        {answer && (
+        {showAnswer && (
           <>
-            <Alert severity={answer.code1 === lang.code1 ? "success" : "error"}>
-              {lang.name}
-            </Alert>
-            {turn < maxLevelTurn && (
+            {turn < (challenge.rounds || 10) && (
               <Button variant="contained" sx={{ mt: 1 }} onClick={onClickNext}>
                 Next
               </Button>
             )}
-            {turn >= maxLevelTurn && (
+            {turn >= (challenge.rounds || 10) && (
               <Box sx={{ mt: 2 }}>
                 <Typography variant="h6" color="primary.light">
-                  Done! you {getEval(score, turn)}
+                  Done! you {getEval(score.accuracy, turn)}
                 </Typography>
               </Box>
             )}
@@ -257,31 +122,26 @@ export const Game = () => {
             <Box sx={{ mt: 2 }}>
               {!!score && (
                 <Typography variant="body1">
-                  Your score: {score}/{turn}
+                  Your score: {score.accuracy}/{turn}
                 </Typography>
               )}
             </Box>
-            {langCountries && (
-              <Box sx={{ my: 2 }}>
-                <WorldDiagram
-                  highlights={langCountries}
-                  style={{ width: "100%", height: 400 }}
-                />
-              </Box>
-            )}
-            {langInfo && (
-              <>
-                <Typography variant="h6" sx={{ my: 2, textAlign: "center" }}>
-                  {langInfo.title}
-                </Typography>
-                <Typography variant="body2" sx={{ my: 1 }}>
-                  {langInfo.extract}
-                </Typography>
-              </>
-            )}
           </>
         )}
       </Container>
     </>
   );
 };
+
+interface Props {
+  score: Score;
+  turn: number;
+  user?: User | null;
+  challenge: any;
+  players?: any[];
+  onClickNext: () => void;
+  showAnswer: boolean;
+  lang: any;
+  choices?: any[];
+  onAnswer: (answer: any) => void;
+}

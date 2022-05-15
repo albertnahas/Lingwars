@@ -18,7 +18,6 @@ const root = 'audio'
 const output = getFiles(`./${root}`).map(f => f.replace(`./${root}/`, ''))
 // stringify JSON Object
 var jsonContent = JSON.stringify(output);
-console.log(jsonContent);
 
 fs.writeFile("files.json", jsonContent, 'utf8', function (err) {
     if (err) {

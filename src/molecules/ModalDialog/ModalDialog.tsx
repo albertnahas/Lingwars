@@ -44,7 +44,6 @@ export default function ModalDialog(props: Props) {
           .split("#")
           .includes(encodeURIComponent(props.title || "") || "modal")
       ) {
-        console.log(props.title);
         props.setOpen(false);
       }
     };

@@ -18,7 +18,6 @@ import { AlertDialog } from "./molecules/AlertDialog/AlertDialog";
 import { useLocation } from "react-router";
 import { setSnackbar, snackbarSelector } from "./store/snackbarSlice";
 import { alertSelector, setAlertOpen } from "./store/alertSlice";
-import { challengeSelector } from "./store/challengeSlice";
 
 const firebaseAppAuth = firebase.auth();
 
@@ -113,8 +112,6 @@ const App = function ({
     dispatch(setSnackbar({ open: false, message: "" }));
   };
   
-  // const Nav: any = lazy(() => import('./components/Nav/Nav'));
-
   return currentUser === undefined ? (
     <SplashScreen />
   ) : (

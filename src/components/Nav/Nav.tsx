@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import { userSelector } from "../../store/userSlice";
 import { Home } from "../Home/Home";
 import { Game } from "../Game/Game";
+import { GameContainer } from "../Game/GameContainer";
 
 // const Wrapper = styled(Box)`
 //   text-align: center;
@@ -116,8 +117,8 @@ const Nav: FC<Props> = function ({
         />
         <Route element={<RequireAuth />}>
           {/* <Route path="/settings" element={<Settings />} /> */}
-          <Route path="/play" element={<Game />} />
-          <Route path="/play/:gameId" element={<Game />} />
+          <Route path="/play" element={<GameContainer />} />
+          <Route path="/play/:gameId" element={<GameContainer />} />
         </Route>
       </Routes>
     </Wrapper>

@@ -57,6 +57,7 @@ export var MainMenu: FC<Props> = function (props) {
       .add({
         uid: user?.uid || null,
         level: cLevel,
+        rounds: 10,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(function (docRef) {
