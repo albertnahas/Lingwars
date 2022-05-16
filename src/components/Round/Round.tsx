@@ -3,10 +3,16 @@ import "react-h5-audio-player/lib/styles.css";
 import { Waveform } from "../../molecules/Waveform/Waveform";
 import files from "../../data/files.json";
 import _ from "lodash";
-import { Alert, Button, Container, Divider, IconButton, Tooltip, Typography } from "@mui/material";
-import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+import {
+  Alert,
+  Button,
+  Container,
+  IconButton,
+  Tooltip,
+  Typography,
+} from "@mui/material";
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import { Box, styled } from "@mui/system";
-import { Language } from "../../types/language";
 import { getLanguageCountries, getLanguageInfo } from "../../utils/helpers";
 import { WorldDiagram } from "../../icons/worldDiagram";
 import { Timer } from "../../atoms/Timer/Timer";
@@ -41,8 +47,19 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
     [lang]
   );
 
+  const hint = useMemo<string>(() => {
+    if (!langInfo) return '';
+
+    const split = langInfo.extract.split(".");
+    const lang = langInfo.title;
+    return split.length > 0
+      ? `${split[1].replaceAll(lang, "this language")}.`
+      : "";
+  }, [langInfo]);
+
   useEffect(() => {
     if (!lang) return;
+
     getLanguageInfo(lang)
       .then((res) => res.json())
       .then((res) => {
@@ -54,6 +71,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
 
   useEffect(() => {
     if (!answer) return;
+
     onAnswer(answer, time);
     setShowHint(false);
   }, [answer]);
@@ -61,11 +79,6 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   const onTimerChange = (t: number) => {
     setTime(t);
   };
-
-  const getHint = (s: string) => {
-    const split = s.split('.');
-    if (split.length > 0) return `${split[1].replaceAll(langInfo.title, "this language")}.`;
-  }
 
   return (
     <>
@@ -90,7 +103,11 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
           <Waveform url={langUrl} />
           {!answer && (
             <Tooltip
-              title={showHint ? 'You can only use one hint per round' : 'Give me a hint'}
+              title={
+                showHint
+                  ? "You can only use one hint per round"
+                  : "Give me a hint"
+              }
               placement="top"
               arrow
               onClick={() => setShowHint(true)}
@@ -100,7 +117,9 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
                   size="large"
                   color="primary"
                   disabled={showHint}
-                  sx={{ cursor: showHint ? 'not-allowed !important' : 'pointer' }}
+                  sx={{
+                    cursor: showHint ? "not-allowed !important" : "pointer",
+                  }}
                 >
                   <TipsAndUpdatesIcon />
                 </IconButton>
@@ -125,7 +144,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
           )}
         {langInfo && showHint && (
           <Alert sx={{ mt: 2 }} severity="info">
-            {getHint(langInfo.extract)}
+            {hint}
           </Alert>
         )}
         {answer && (

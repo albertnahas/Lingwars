@@ -8,9 +8,9 @@ export const WaveformContainer = styled("div")`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100px;
-  width: 95%;
+  width: 100%;
   background: transparent;
 `;
 
@@ -31,7 +31,6 @@ export const PlayButton = styled("button")`
   outline: none;
   cursor: pointer;
   padding-bottom: 3px;
-  margin-right: 5px;
   &:hover {
     background: #ddd;
   }
