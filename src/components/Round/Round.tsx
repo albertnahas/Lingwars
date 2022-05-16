@@ -21,7 +21,6 @@ export const BoxContainer = styled("div")`
 
 export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   const [langInfo, setLangInfo] = useState<any>();
-  const [tooltipTitle, setTooltipTitle] = useState<string>('Give me a hint');
   const [showInfo, setShowInfo] = useState<boolean>(false);
   const [showHint, setShowHint] = useState<boolean>(false);
   const [answer, setAnswer] = useState<any>();
@@ -63,9 +62,9 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
     setTime(t);
   };
 
-  const handleHint = (s: string) => {
-    let split = s.split('.');
-    return `${split[1].replace(langInfo.title, "this language")}.`;
+  const getHint = (s: string) => {
+    const split = s.split('.');
+    if (split.length > 0) return `${split[1].replaceAll(langInfo.title, "this language")}.`;
   }
 
   return (
@@ -91,13 +90,10 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
           <Waveform url={langUrl} />
           {!answer && (
             <Tooltip
-              title={tooltipTitle}
+              title={showHint ? 'You can only use one hint per round' : 'Give me a hint'}
               placement="top"
               arrow
-              onClick={() => {
-                setShowHint(true);
-                setTooltipTitle('You can only use one hint per round');
-              }}
+              onClick={() => setShowHint(true)}
             >
               <span>
                 <IconButton
@@ -129,7 +125,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
           )}
         {langInfo && showHint && (
           <Alert sx={{ mt: 2 }} severity="info">
-            {handleHint(langInfo.extract)}
+            {getHint(langInfo.extract)}
           </Alert>
         )}
         {answer && (
