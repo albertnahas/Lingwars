@@ -3,16 +3,32 @@ import "react-h5-audio-player/lib/styles.css";
 import { Waveform } from "../../molecules/Waveform/Waveform";
 import files from "../../data/files.json";
 import _ from "lodash";
-import { Alert, Button, Container, Divider, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { Language } from "../../types/language";
+import {
+  Alert,
+  Button,
+  Container,
+  IconButton,
+  Tooltip,
+  Typography,
+} from "@mui/material";
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
+import { Box, styled } from "@mui/system";
 import { getLanguageCountries, getLanguageInfo } from "../../utils/helpers";
 import { WorldDiagram } from "../../icons/worldDiagram";
 import { Timer } from "../../atoms/Timer/Timer";
 
+export const BoxContainer = styled("div")`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
+
 export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   const [langInfo, setLangInfo] = useState<any>();
   const [showInfo, setShowInfo] = useState<boolean>(false);
+  const [showHint, setShowHint] = useState<boolean>(false);
   const [answer, setAnswer] = useState<any>();
   const [time, setTime] = useState(0);
 
@@ -31,8 +47,19 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
     [lang]
   );
 
+  const hint = useMemo<string>(() => {
+    if (!langInfo) return '';
+
+    const split = langInfo.extract.split(".");
+    const lang = langInfo.title;
+    return split.length > 0
+      ? `${split[1].replaceAll(lang, "this language")}.`
+      : "";
+  }, [langInfo]);
+
   useEffect(() => {
     if (!lang) return;
+
     getLanguageInfo(lang)
       .then((res) => res.json())
       .then((res) => {
@@ -44,7 +71,9 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
 
   useEffect(() => {
     if (!answer) return;
+
     onAnswer(answer, time);
+    setShowHint(false);
   }, [answer]);
 
   const onTimerChange = (t: number) => {
@@ -70,7 +99,34 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
             {/* round score: {Math.round(100 / (time || 1))} */}
           </Typography>
         </Box>
-        <Waveform url={langUrl} />
+        <BoxContainer>
+          <Waveform url={langUrl} />
+          {!answer && (
+            <Tooltip
+              title={
+                showHint
+                  ? "You can only use one hint per round"
+                  : "Give me a hint"
+              }
+              placement="top"
+              arrow
+              onClick={() => setShowHint(true)}
+            >
+              <span>
+                <IconButton
+                  size="large"
+                  color="primary"
+                  disabled={showHint}
+                  sx={{
+                    cursor: showHint ? "not-allowed !important" : "pointer",
+                  }}
+                >
+                  <TipsAndUpdatesIcon />
+                </IconButton>
+              </span>
+            </Tooltip>
+          )}
+        </BoxContainer>
         {choices &&
           !answer &&
           choices?.map(
@@ -86,6 +142,11 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
                 </Button>
               )
           )}
+        {langInfo && showHint && (
+          <Alert sx={{ mt: 2 }} severity="info">
+            {hint}
+          </Alert>
+        )}
         {answer && (
           <>
             <Alert
