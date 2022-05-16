@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from "react";
 import { useTheme } from "@mui/system";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography, Zoom } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ChallengeDialog } from "../../molecules/ChallengeDialog/ChallengeDialog";
 import firebase from "../../config";
@@ -83,10 +83,12 @@ export var MainMenu: FC<Props> = function (props) {
 
   return (
     <Box>
-      <img
-        width="200"
-        src="https://r2.community.samsung.com/t5/image/serverpage/image-id/2858216iF966CF430D380489/image-size/large?v=v2&px=999"
-      />
+      <Zoom in={true}>
+        <img
+          width="200"
+          src="https://r2.community.samsung.com/t5/image/serverpage/image-id/2858216iF966CF430D380489/image-size/large?v=v2&px=999"
+        />
+      </Zoom>
       <Typography
         variant="h4"
         aria-label="Lingwars"

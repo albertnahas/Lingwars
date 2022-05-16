@@ -18,6 +18,7 @@ import { AlertDialog } from "./molecules/AlertDialog/AlertDialog";
 import { useLocation } from "react-router";
 import { setSnackbar, snackbarSelector } from "./store/snackbarSlice";
 import { alertSelector, setAlertOpen } from "./store/alertSlice";
+import { SideDrawer } from "./components/SideDrawer/SideDrawer";
 
 const firebaseAppAuth = firebase.auth();
 
@@ -111,7 +112,7 @@ const App = function ({
     }
     dispatch(setSnackbar({ open: false, message: "" }));
   };
-  
+
   return currentUser === undefined ? (
     <SplashScreen />
   ) : (
@@ -132,7 +133,7 @@ const App = function ({
         signInWithFacebook={signInWithFacebook}
         signOut={signOutFromApp}
       />
-
+      <SideDrawer signOut={signOutFromApp} />
       <AlertDialog
         title={alertWidget.title}
         message={alertWidget.message}
