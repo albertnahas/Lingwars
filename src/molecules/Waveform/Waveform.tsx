@@ -60,11 +60,9 @@ export const Waveform = ({ url }: { url: string }) => {
     waveform.current?.load(waveformRef.current || "");
     setPlaying(false);
 
-    // waveform.current?.on("ready", function () {
-    //   setDisabled(false);
-    //   setPlaying(true);
-    //   waveform.current?.play();
-    // });
+    waveform.current?.on("ready", function () {
+      setDisabled(false);
+    });
 
     return () => {
       waveform.current?.destroy();
@@ -78,8 +76,8 @@ export const Waveform = ({ url }: { url: string }) => {
 
   return (
     <WaveformContainer>
-      <PlayButton onClick={handlePlay}>
-        {!playing ? <PlayArrowIcon color="primary" /> : <PauseIcon />}
+      <PlayButton onClick={handlePlay} disabled={disabled}>
+        {!playing ? <PlayArrowIcon color={ disabled ? "disabled" : "primary" } /> : <PauseIcon />}
       </PlayButton>
       <Wave id="waveform" />
       <audio ref={waveformRef} id="track" src={url} />
