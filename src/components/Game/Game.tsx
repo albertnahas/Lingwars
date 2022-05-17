@@ -29,6 +29,7 @@ export const Game: FC<Props> = ({
   choices,
   onClickNext,
   onAnswer,
+  onActiveChange
 }) => {
   const maxScore = useMemo(() => {
     if (!players || players.length < 2) return user?.displayName;
@@ -91,7 +92,7 @@ export const Game: FC<Props> = ({
 
         {lang && displayGame && !isGameDone && (
           <Box sx={{ my: 2 }}>
-            <Round lang={lang} choices={choices} onAnswer={onAnswer} />
+            <Round lang={lang} choices={choices} onAnswer={onAnswer} onActiveChange={onActiveChange} />
             <Divider sx={{ my: 3 }} />
           </Box>
         )}
@@ -147,4 +148,5 @@ interface Props {
   lang: any;
   choices?: any[];
   onAnswer: (answer: any) => void;
+  onActiveChange: () => void;
 }
