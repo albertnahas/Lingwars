@@ -36,7 +36,7 @@ export const PlayButton = styled("button")`
   }
 `;
 
-export const Waveform = ({ url }: { url: string }) => {
+export const Waveform = ({ url, onActiveChange }: { url: string, onActiveChange: any }) => {
   const [playing, setPlaying] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const waveform = useRef<WaveSurfer>();
@@ -63,6 +63,8 @@ export const Waveform = ({ url }: { url: string }) => {
     waveform.current?.on("ready", function () {
       setDisabled(false);
     });
+
+    waveform.current?.on("play", onActiveChange);
 
     return () => {
       waveform.current?.destroy();
