@@ -25,7 +25,7 @@ export const BoxContainer = styled("div")`
   width: 100%;
 `;
 
-export const Round: FC<Props> = ({ lang, choices, onAnswer, onActiveChange}) => {
+export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   const [langInfo, setLangInfo] = useState<any>();
   const [showInfo, setShowInfo] = useState<boolean>(false);
   const [showHint, setShowHint] = useState<boolean>(false);
@@ -197,5 +197,4 @@ interface Props {
   lang: any;
   choices?: any[];
   onAnswer: (answer: any, time?: number) => void;
-  onActiveChange: () => void;
 }
