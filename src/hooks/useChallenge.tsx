@@ -1,11 +1,9 @@
 import _ from "lodash";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import firebase from "../config";
 import { userSelector } from "../store/userSlice";
 import { challengeSelector, setChallenge } from "../store/challengeSlice";
-import { maxLevels } from "../utils/constants";
-import { allLangs } from "../utils/helpers";
 import { Score } from "../types/challenge";
 
 export const useChallenge = (gameId?: string) => {
@@ -14,6 +12,7 @@ export const useChallenge = (gameId?: string) => {
   const challenge = useSelector(challengeSelector);
 
   const [players, setPlayers] = useState<any[]>();
+  const [error, setError] = useState<string>();
 
   useEffect(() => {
     let subscribe: any;
@@ -25,6 +24,7 @@ export const useChallenge = (gameId?: string) => {
         .doc(gameId)
         .onSnapshot((querySnapshot: any) => {
           if (!querySnapshot.exists) {
+            setError("The challenge you're trying to join doesn't exist");
             return;
           }
           const challengeData = querySnapshot.data();
@@ -61,13 +61,14 @@ export const useChallenge = (gameId?: string) => {
       .collection(`challenges/${gameId}/players`)
       .doc(user.uid)
       .set({
+        id: user.uid,
         displayName: user.displayName,
-        photoURL: user.photoURL,
+        photoURL: user.photoURL || "",
         joinedAt: firebase.firestore.FieldValue.serverTimestamp(),
         score,
         turn,
       });
   };
 
-  return { players, writeScore };
+  return { players, writeScore, error };
 };

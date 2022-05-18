@@ -2,6 +2,7 @@ import { FC, useMemo } from "react";
 import "react-h5-audio-player/lib/styles.css";
 import _ from "lodash";
 import {
+  Alert,
   Avatar,
   Button,
   Chip,
@@ -29,6 +30,7 @@ export const Game: FC<Props> = ({
   choices,
   onClickNext,
   onAnswer,
+  error,
 }) => {
   const maxScore = useMemo(() => {
     if (!players || players.length < 2) return user?.displayName;
@@ -47,18 +49,17 @@ export const Game: FC<Props> = ({
     [players, challenge]
   );
 
-  const displayGame =
-    !challenge || !challenge.id || (players && players?.length > 1);
+  const displayGame = !error && (!challenge || !challenge.id || challenge.full);
 
-  const waitingForPlayers =
-    challenge &&
-    challenge.id &&
-    (!players || players?.length < (challenge.players || 2));
+  const waitingForPlayers = challenge && challenge.id && !challenge.full;
 
   const renderPlayers = () => (
-    <Stack spacing={5} direction="row" sx={{ justifyContent: "center" }}>
+    <Stack
+      direction="row"
+      sx={{ justifyContent: "center", flexWrap: "wrap", gap: 2 }}
+    >
       {players?.map((p, i) => (
-        <PlayerChip player={p} isWinning={maxScore === p.displayName} />
+        <PlayerChip player={p} key={i} isWinning={maxScore === p.displayName} />
       ))}
     </Stack>
   );
@@ -87,7 +88,7 @@ export const Game: FC<Props> = ({
         )}
 
         {/* render players */}
-        {players && renderPlayers()}
+        {displayGame && players && renderPlayers()}
 
         {lang && displayGame && !isGameDone && (
           <Box sx={{ my: 2 }}>
@@ -95,18 +96,15 @@ export const Game: FC<Props> = ({
             <Divider sx={{ my: 3 }} />
           </Box>
         )}
-        {waitingForPlayers &&
-          (challenge && challenge.id ? (
-            <Box sx={{ mt: 2 }}>
-              <Typography variant="h5" color="primary.light">
-                Waiting for players to join
-              </Typography>
-            </Box>
-          ) : (
-            <Typography component="p" variant="h5" color="error" sx={{ m: 3 }}>
-              Invalid game link
+        {waitingForPlayers && challenge && challenge.id && (
+          <Box sx={{ mt: 2 }}>
+            <Typography variant="h5" color="primary.light">
+              Waiting for players to join
             </Typography>
-          ))}
+          </Box>
+        )}
+        {!!error && <Alert severity="error">{error}</Alert>}
+
         {showAnswer && (
           <>
             {turn < (challenge.rounds || 10) && (
@@ -147,4 +145,5 @@ interface Props {
   lang: any;
   choices?: any[];
   onAnswer: (answer: any) => void;
+  error?: string;
 }
