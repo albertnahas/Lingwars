@@ -2,11 +2,11 @@ import { Chip, Avatar } from "@mui/material";
 import React, { FC } from "react";
 import { Player } from "../../../types/challenge";
 import { UserCircle as UserCircleIcon } from "../../../icons/user-circle";
+import NoAccountsIcon from '@mui/icons-material/NoAccounts';
 
 export const PlayerChip: FC<Props> = ({ player, isWinning }) => {
   return (
     <Chip
-      key={player.displayName}
       variant="outlined"
       color={isWinning ? "success" : "warning"}
       icon={
@@ -21,8 +21,8 @@ export const PlayerChip: FC<Props> = ({ player, isWinning }) => {
           <UserCircleIcon sx={{ color: "white" }} fontSize="small" />
         </Avatar>
       }
-      label={`${player.displayName}: ${player.score.timed || 0} | ${
-        player.score.accuracy || 0
+      label={`${player.displayName}: ${player.score?.timed || 0} | ${
+        player.score?.accuracy || 0
       } / ${player.turn}`}
     />
   );

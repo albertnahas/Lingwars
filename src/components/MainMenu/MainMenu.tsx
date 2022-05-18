@@ -3,19 +3,23 @@ import { useTheme } from "@mui/system";
 import { Box, Button, Stack, Typography, Zoom } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ChallengeDialog } from "../../molecules/ChallengeDialog/ChallengeDialog";
-import firebase from "../../config";
 import { useDispatch, useSelector } from "react-redux";
 import { userSelector } from "../../store/userSlice";
 import { GameDialog } from "../../molecules/GameDialog/GameDialog";
 import { setChallenge } from "../../store/challengeSlice";
 import { ChallengeSetup } from "../../types/challenge";
+import { useChallengeSetup } from "../../hooks/useChallengeSetup";
+import ModalDialog from "../../molecules/ModalDialog/ModalDialog";
+
+const defaultChallengeSetup = { level: 1, players: 1, live: false };
 
 export var MainMenu: FC<Props> = function (props) {
-  const theme = useTheme();
   const navigate = useNavigate();
 
-  const [challengeId, setChallengeId] = React.useState<string>();
   const [initialSetup, setInitialSetup] = React.useState<ChallengeSetup>();
+
+  const { challenge, pairing, createChallenge, requestChallenge } =
+    useChallengeSetup();
 
   const [openLevelsDialog, setOpenLevelsDialog] = React.useState(false);
   const [openChallengeDialog, setOpenChallengeDialog] = React.useState(false);
@@ -23,10 +27,14 @@ export var MainMenu: FC<Props> = function (props) {
   const user = useSelector(userSelector);
 
   useEffect(() => {
-    if (challengeId) {
-      setOpenChallengeDialog(true);
+    if (challenge) {
+      if (challenge.live) {
+        onStartChallenge();
+      } else {
+        setOpenChallengeDialog(true);
+      }
     }
-  }, [challengeId]);
+  }, [challenge]);
 
   useEffect(() => {
     if (initialSetup) {
@@ -38,47 +46,30 @@ export var MainMenu: FC<Props> = function (props) {
     setOpenLevelsDialog(false);
     setInitialSetup(undefined);
 
-    if (!setup) return;
+    if (!setup || !setup.level) return;
 
-    if (setup.level) {
-      if (setup.players === 1) {
-        dispatch(setChallenge({ ...setup }));
-        navigate(`/play`);
-      } else {
+    if (setup.players === 1) {
+      dispatch(setChallenge({ ...setup }));
+      navigate(`/play`);
+    } else {
+      if (!setup.live) {
         createChallenge(setup);
+      } else {
+        requestChallenge(setup);
       }
     }
   };
 
-  const createChallenge = (setup?: ChallengeSetup) => {
-    firebase
-      .firestore()
-      .collection("challenges")
-      .add({
-        uid: user?.uid || null,
-        rounds: 10,
-        ...setup,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      })
-      .then(function (docRef) {
-        console.log("Document written with ID: ", docRef.id);
-        setChallengeId(docRef.id);
-      })
-      .catch((e: any) => {
-        console.log(e);
-      });
-  };
-
   const onClickSinglePlayer = () => {
-    setInitialSetup({ level: 1, players: 1 });
+    setInitialSetup({ ...defaultChallengeSetup });
   };
 
   const onClickMultiplayer = () => {
-    setInitialSetup({ level: 1, players: 2 });
+    setInitialSetup({ ...defaultChallengeSetup, players: 2 });
   };
 
   const onStartChallenge = () => {
-    navigate(`/play/${challengeId}`);
+    navigate(`/play/${challenge?.id}`);
   };
 
   return (
@@ -125,13 +116,16 @@ export var MainMenu: FC<Props> = function (props) {
           onClose={onCreateGame}
         />
       )}
-      {challengeId && (
+      {challenge && (
         <ChallengeDialog
-          challengeId={challengeId}
+          challengeId={challenge?.id}
           open={openChallengeDialog}
           onClose={onStartChallenge}
         />
       )}
+      <ModalDialog open={pairing} setOpen={() => {}}>
+        <div>Pairing...</div>
+      </ModalDialog>
     </Box>
   );
 };
