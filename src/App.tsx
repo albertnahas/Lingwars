@@ -1,6 +1,6 @@
 /* eslint-disable no-debugger */
 import React, { useEffect, useState, Suspense, lazy, useRef } from "react";
-// import "./App.css";
+import "./App.css";
 import withFirebaseAuth from "react-with-firebase-auth";
 import { useDispatch, useSelector } from "react-redux";
 import firebase, { getToken, onMessageListener } from "./config";
