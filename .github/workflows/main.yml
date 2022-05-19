@@ -25,5 +25,7 @@ jobs:
             node:version: '14'
       - name: Install dependencies
         run: yarn       
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
+      - name: Cypress
+        run: npx cypress run-ct
+#       - name: Cypress run
+#         uses: cypress-io/github-action@v2
