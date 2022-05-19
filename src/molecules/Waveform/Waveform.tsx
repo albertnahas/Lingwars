@@ -43,7 +43,6 @@ export const Waveform = ({ url, onActive }: { url: string, onActive: any }) => {
   const waveformRef = useRef<HTMLMediaElement>(null);
 
   useEffect(() => {
-    const track = document.querySelector("#track");
 
     waveform.current = WaveSurfer.create({
       barWidth: 3,
@@ -69,6 +68,7 @@ export const Waveform = ({ url, onActive }: { url: string, onActive: any }) => {
     return () => {
       waveform.current?.destroy();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
   const handlePlay = () => {

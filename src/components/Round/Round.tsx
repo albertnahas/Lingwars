@@ -74,6 +74,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
 
     onAnswer(answer, time);
     setShowHint(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answer]);
 
   const onTimerChange = (t: number) => {

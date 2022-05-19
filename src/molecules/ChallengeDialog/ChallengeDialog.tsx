@@ -1,10 +1,7 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import Avatar from "@mui/material/Avatar";
-import List from "@mui/material/List";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import Typography from "@mui/material/Typography";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 import {
@@ -21,8 +18,6 @@ export interface ChallengeDialogProps {
   challengeId?: string;
   onClose: () => void;
 }
-
-const LEVELS_COUNT = 5;
 
 export function ChallengeDialog(props: ChallengeDialogProps) {
   const { onClose, challengeId, open } = props;

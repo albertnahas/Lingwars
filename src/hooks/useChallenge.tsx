@@ -1,15 +1,13 @@
-import _ from "lodash";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import firebase from "../config";
 import { userSelector } from "../store/userSlice";
-import { challengeSelector, setChallenge } from "../store/challengeSlice";
+import { setChallenge } from "../store/challengeSlice";
 import { Score } from "../types/challenge";
 
 export const useChallenge = (gameId?: string) => {
   const dispatch = useDispatch();
   const user = useSelector(userSelector);
-  const challenge = useSelector(challengeSelector);
 
   const [players, setPlayers] = useState<any[]>();
   const [error, setError] = useState<string>();
@@ -50,6 +48,7 @@ export const useChallenge = (gameId?: string) => {
         subscribePlayers();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameId]);
 
   const writeScore = (score: Score, turn: number) => {

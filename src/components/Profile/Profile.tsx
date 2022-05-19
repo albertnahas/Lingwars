@@ -1,5 +1,4 @@
-import React, { FC, useState } from "react";
-import ReactDOM from "react-dom";
+import { FC, useState } from "react";
 import {
   Container,
   Box,
@@ -9,58 +8,15 @@ import {
   Avatar,
 } from "@mui/material";
 import { useSelector } from "react-redux";
-import { styled } from "@mui/system";
 import { UserCircle as UserCircleIcon } from "../../icons/user-circle";
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog";
 import { DeleteAccountForm } from "./DeleteAccountForm";
 import { userSelector } from "../../store/userSlice";
-import _ from "lodash";
-
-const ProfilePhoto = styled("div")(({ theme }) => ({
-  position: "absolute",
-  left: 0,
-  right: 0,
-  margin: "auto",
-  borderRadius: "50%",
-  width: 90,
-  height: 90,
-  top: 15,
-  overflow: "hidden",
-  textAlign: "center",
-  "& > img": {
-    minWidth: "100%",
-    minHeight: "100%",
-  },
-}));
 
 export const Profile: FC<Props> = ({ signOut }) => {
   const user = useSelector(userSelector);
-
-  const [editMode, setEditMode] = useState(false);
+  // const [editMode, setEditMode] = useState(false);
   const [openDeleteAccount, setOpenDeleteAccount] = useState(false);
-
-  const PayPalButton = (window as any).paypal?.Buttons.driver("react", {
-    React,
-    ReactDOM,
-  });
-
-  const createOrder = (data: any, actions: any) =>
-    actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            value: "0.01",
-          },
-        },
-      ],
-    });
-
-  const onApprove = (data: any, actions: any) => {
-    // data.orderID
-    const capture = actions.order.capture();
-    console.log(capture);
-    return capture;
-  };
 
   return (
     <Container maxWidth="lg">

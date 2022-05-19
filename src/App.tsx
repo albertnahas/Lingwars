@@ -1,5 +1,5 @@
 /* eslint-disable no-debugger */
-import React, { useEffect, useState, Suspense, lazy, useRef } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import withFirebaseAuth from "react-with-firebase-auth";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,10 +12,8 @@ import { useCurrentUser } from "./hooks/useCurrentUser";
 import { setServerUser } from "./store/userSlice";
 import Nav from "./components/Nav/Nav";
 import { usePwa } from "./hooks/usePwa";
-import { useAuthRedirect } from "./hooks/useAuthRedirect";
 import { Alert, Box, Snackbar } from "@mui/material";
 import { AlertDialog } from "./molecules/AlertDialog/AlertDialog";
-import { useLocation } from "react-router";
 import { setSnackbar, snackbarSelector } from "./store/snackbarSlice";
 import { alertSelector, setAlertOpen } from "./store/alertSlice";
 import { SideDrawer } from "./components/SideDrawer/SideDrawer";
@@ -56,8 +54,6 @@ const App = function ({
   const { signOutUser } = useCurrentUser();
   const { handleInstallClick, deferredPrompt } = usePwa();
   const dispatch = useDispatch();
-  const { authError } = useAuthRedirect();
-  const location = useLocation();
 
   const [notification, setNotification] = useState({ title: "", body: "" });
   const alertWidget = useSelector(alertSelector);
@@ -99,6 +95,7 @@ const App = function ({
       }
     }
     initUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const signOutFromApp = () => {

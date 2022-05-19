@@ -29,7 +29,7 @@ if (!firebase.apps.length) {
 //     firebase.functions().useEmulator('localhost', 5001);
 //     firebase.database().useEmulator('localhost', 9000);
 // }
-const storage = firebase.storage();
+// const storage = firebase.storage();
 let messaging: any;
 
 try {

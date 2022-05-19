@@ -60,7 +60,5 @@ export const useChallengeSetup = () => {
       });
   };
 
-  const test = () => {};
-
   return { challenge, pairing, createChallenge, requestChallenge };
 };

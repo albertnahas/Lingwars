@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Container, useTheme } from "@mui/material";
+import { Container } from "@mui/material";
 
 export var ControlPage: FC<Props> = function ({ children }) {
   return (

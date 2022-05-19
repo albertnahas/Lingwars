@@ -1,33 +1,23 @@
-import React, { FC, MouseEvent, useEffect, useLayoutEffect } from "react";
+import { FC, useEffect } from "react";
 import styled from "@emotion/styled";
 import {
   AppBar,
   Avatar,
-  Badge,
   Box,
   Button,
   IconButton,
   Menu,
-  MenuItem,
-  Theme,
   Toolbar,
   Tooltip,
   Typography,
 } from "@mui/material";
 import { alpha, useTheme } from "@mui/system";
-import LogoutIcon from "@mui/icons-material/Logout";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Logo } from "../../icons/logo";
 import { UserCircle as UserCircleIcon } from "../../icons/user-circle";
-import { Bell as BellIcon } from "../../icons/bell";
 import { State } from "../../types/state";
 import { useNavigate, Link } from "react-router-dom";
 import DownloadIcon from "@mui/icons-material/Download";
-import { ColorModeContext } from "../Providers/Providers";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useUser } from "../../hooks/useUser";
 import { setDrawer } from "../../store/drawerSlice";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -81,37 +71,24 @@ const DashboardNavbarRoot = styled(AppBar)(({ theme }: any) => ({
 }));
 
 export var TopBar: FC<Props> = function (props) {
-  const [anchorEl, setAnchorEl] = useState<Element | null>(null);
-
   const theme = useTheme();
   const dispatch = useDispatch();
 
-  const colorMode = React.useContext(ColorModeContext);
+  // const colorMode = React.useContext(ColorModeContext);
 
   const user = useSelector((state: State) => state.user.value);
   const { updateUser } = useUser();
   const navigate = useNavigate();
-
-  const open = Boolean(anchorEl);
-
-  const handleNotificationsClick = (event: MouseEvent) => {
-    if (props.notification?.body) {
-      setAnchorEl(event.currentTarget);
-    }
-  };
-  const handleNotificationsClose = () => {
-    setAnchorEl(null);
-    props.setNotification({});
-  };
 
   const openDrawer = () => {
     dispatch(setDrawer(true));
   };
 
   useEffect(() => {
-    if (user && user?.colorMode != theme.palette.mode) {
+    if (user && user?.colorMode !== theme.palette.mode) {
       updateUser({ ...user, colorMode: theme.palette.mode });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [theme.palette.mode, user]);
 
   return (
@@ -146,31 +123,6 @@ export var TopBar: FC<Props> = function (props) {
                 </Button>
               </Tooltip>
             )}
-
-            {/* <Tooltip title={`${theme.palette.mode} mode}`}>
-              <IconButton
-                sx={{ ml: 1 }}
-                onClick={colorMode.toggleColorMode}
-                color="default"
-              >
-                {theme.palette.mode === "dark" ? (
-                  <Brightness7Icon />
-                ) : (
-                  <Brightness4Icon />
-                )}
-              </IconButton>
-            </Tooltip> */}
-            {/* <Tooltip title="Notifications">
-              <IconButton sx={{ ml: 1 }} onClick={handleNotificationsClick}>
-                <Badge
-                  badgeContent={props.notification?.body ? 1 : 0}
-                  color="primary"
-                  variant="dot"
-                >
-                  <BellIcon fontSize="small" />
-                </Badge>
-              </IconButton>
-            </Tooltip> */}
             <Avatar
               sx={{
                 height: 40,
@@ -183,27 +135,6 @@ export var TopBar: FC<Props> = function (props) {
             >
               <UserCircleIcon fontSize="small" />
             </Avatar>
-            <StyledMenu
-              id="demo-customized-menu"
-              MenuListProps={{
-                "aria-labelledby": "demo-customized-button",
-              }}
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleNotificationsClose}
-            >
-              {props.notification?.body && (
-                <MenuItem onClick={handleNotificationsClose}>
-                  <FavoriteBorderIcon
-                    style={{
-                      fill: theme.palette.error.main,
-                    }}
-                    color="error"
-                  />
-                  {props.notification?.body}
-                </MenuItem>
-              )}
-            </StyledMenu>
           </>
         ) : (
           <>

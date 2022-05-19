@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC } from "react";
 import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import { About } from "../ControlPages/About/About";
 import { Terms } from "../ControlPages/Terms/Terms";
@@ -13,7 +13,6 @@ import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import { userSelector } from "../../store/userSlice";
 import { Home } from "../Home/Home";
-import { Game } from "../Game/Game";
 import { GameContainer } from "../Game/GameContainer";
 import { Profile } from "../Profile/Profile";
 

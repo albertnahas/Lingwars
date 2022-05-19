@@ -46,6 +46,7 @@ export const GameContainer = () => {
       const randomLang = _.sample(levelLangs);
       setLang(randomLang);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang, challenge]);
 
   //   useEffect(() => {
@@ -68,6 +69,7 @@ export const GameContainer = () => {
     }
     langChoices.push(lang);
     setChoices(_.shuffle(langChoices));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang]);
 
   const onAnswer = (answer: any, time?: number) => {
@@ -86,6 +88,7 @@ export const GameContainer = () => {
   useEffect(() => {
     if (!gameId || !challenge || !challenge.id || !user || !user.uid) return;
     writeScore(score, turn);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, turn, score, challenge]);
 
   const onClickNext = () => {

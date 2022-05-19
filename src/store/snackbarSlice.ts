@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SnackbarState, State, UserState } from '../types/state';
-import { User } from '../types/user';
+import { SnackbarState, State } from '../types/state';
 
 const initialState: SnackbarState = { open: false, message: '', type: 'success' };
 
