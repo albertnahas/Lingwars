@@ -30,7 +30,7 @@ export const Game: FC<Props> = ({
   choices,
   onClickNext,
   onAnswer,
-  error,
+  error
 }) => {
   const maxScore = useMemo(() => {
     if (!players || players.length < 2) return user?.displayName;

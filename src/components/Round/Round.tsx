@@ -30,6 +30,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   const [showHint, setShowHint] = useState<boolean>(false);
   const [answer, setAnswer] = useState<any>();
   const [time, setTime] = useState(0);
+  const [active, setActive] = useState<boolean>(false);
 
   const langUrl = useMemo<string>(
     () =>
@@ -79,6 +80,10 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
     setTime(t);
   };
 
+  const onActive = () => {
+    setActive(true);
+  };
+
   return (
     <>
       <Container>
@@ -88,7 +93,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
             variant="h2"
             sx={{ textAlign: "center" }}
           >
-            <Timer onTimeChange={onTimerChange} active={true} />
+            <Timer onTimeChange={onTimerChange} active={active} />
           </Typography>
           <Typography
             color="secondary.light"
@@ -99,8 +104,8 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
           </Typography>
         </Box>
         <BoxContainer>
-          <Waveform url={langUrl} />
-          {!answer && (
+          <Waveform url={langUrl} onActive={onActive} />
+          {!answer && active && (
             <Tooltip
               title={
                 showHint
