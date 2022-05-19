@@ -122,6 +122,7 @@ const Nav: FC<Props> = function ({
           <Route path="/play" element={<GameContainer />} />
           <Route path="/play/:gameId" element={<GameContainer />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Wrapper>
   );
