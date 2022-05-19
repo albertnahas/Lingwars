@@ -11,6 +11,8 @@ export const useCurrentUser = () => {
   const dispatch = useDispatch();
 
   const serverUser = useSelector((state: State) => state.user.serverValue);
+  const oldRealTimeDb = firebase.database();
+  const onlineRef = oldRealTimeDb.ref(".info/connected"); // Get a reference to the list of connections
 
   useEffect(() => {
     if (!serverUser) {
@@ -35,8 +37,29 @@ export const useCurrentUser = () => {
               uid: user.uid,
               messagingToken: user.messagingToken || null,
             });
-        } else if (!doc.data().messagingToken && user.messagingToken) {
-          doc.ref.update({ messagingToken: user.messagingToken });
+        } else {
+          onlineRef.on("value", (snapshot) => {
+            oldRealTimeDb
+              .ref(`/status/${user.uid}`)
+              .onDisconnect() // Set up the disconnect hook
+              .set("offline") // The value to be set for this key when the client disconnects
+              .then(() => {
+                // Set the Firestore User's online status to true
+                firebase.firestore().collection("users").doc(user.uid).set(
+                  {
+                    online: true,
+                  },
+                  { merge: true }
+                );
+
+                // Let's also create a key in our real-time database
+                // The value is set to 'online'
+                oldRealTimeDb.ref(`/status/${user.uid}`).set("online");
+              });
+          });
+          if (!doc.data().messagingToken && user.messagingToken) {
+            doc.ref.update({ messagingToken: user.messagingToken });
+          }
         }
       })
       .catch((error: any) => {
@@ -55,6 +78,7 @@ export const useCurrentUser = () => {
 
     return () => {
       subscribe?.();
+      onlineRef.off();
     };
   }, [serverUser]);
 

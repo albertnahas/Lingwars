@@ -19,10 +19,15 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+} else {
+    firebase.app(); // if already initialized, use that one
+}
 // if (location.hostname === 'localhost') {
 //     firebase.firestore().useEmulator('localhost', 8080);
 //     firebase.functions().useEmulator('localhost', 5001);
+//     firebase.database().useEmulator('localhost', 9000);
 // }
 const storage = firebase.storage();
 let messaging: any;

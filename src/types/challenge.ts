@@ -1,4 +1,5 @@
 import firebase from '../config';
+import { ChallengeStatus } from '../utils/constants';
 
 export interface Challenge {
     id?: string;
@@ -6,11 +7,13 @@ export interface Challenge {
     level?: number;
     rounds?: number;
     seed?: number;
-    status?: number;
+    status?: ChallengeStatus;
     createdAt?: firebase.firestore.Timestamp
     finishedAt?: firebase.firestore.Timestamp
     scores?: object
     players?: number
+    live?: boolean
+    full?: boolean
 }
 
 export interface Player {
@@ -37,4 +40,5 @@ export interface RoundScore {
 export interface ChallengeSetup {
     players?: number
     level?: number
+    live?: boolean
 }

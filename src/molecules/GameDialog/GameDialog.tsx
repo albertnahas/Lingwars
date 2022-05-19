@@ -11,11 +11,13 @@ import {
   Button,
   Typography,
   TextField,
+  ButtonGroup,
 } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Box } from "@mui/system";
 import { ChallengeSetup } from "../../types/challenge";
+import { useMemo } from "react";
 
 export interface LevelDialogProps {
   open: boolean;
@@ -44,12 +46,39 @@ export function GameDialog(props: LevelDialogProps) {
     },
   });
 
+  const liveHelpMessage = useMemo(
+    () =>
+      formik.values.live
+        ? "You will be challenging random players live"
+        : "You will have a priavte challenge link to share",
+    [formik]
+  );
+
   return (
     <Dialog onClose={handleClose} open={open}>
       <DialogTitle>New Game</DialogTitle>
-      <Container>
+      <Container maxWidth="xs">
         <Typography variant="subtitle1">Choose your setup</Typography>
         <form onSubmit={formik.handleSubmit}>
+          <Box sx={{ my: 1 }}>
+            <ButtonGroup aria-label="outlined button group">
+              <Button
+                variant={formik.values.live ? "contained" : "outlined"}
+                onClick={() => formik.setFieldValue("live", true)}
+              >
+                Live
+              </Button>
+              <Button
+                variant={!formik.values.live ? "contained" : "outlined"}
+                onClick={() => formik.setFieldValue("live", false)}
+              >
+                Private
+              </Button>
+            </ButtonGroup>
+          </Box>
+          <Typography color="primary" variant="caption">
+            {liveHelpMessage}
+          </Typography>
           <TextField
             error={Boolean(formik.touched.players && formik.errors.players)}
             helperText={formik.touched.players && formik.errors.players}

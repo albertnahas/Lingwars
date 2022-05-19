@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import "react-h5-audio-player/lib/styles.css";
 import _ from "lodash";
 import { allLangs, getRandomFromSeed } from "../../utils/helpers";
 import { useParams } from "react-router-dom";
@@ -20,7 +19,7 @@ export const GameContainer = () => {
 
   const [score, setScore] = useState<Score>({ accuracy: 0, timed: 0 });
   const [turn, setTurn] = useState(1);
-  const { players, writeScore } = useChallenge(gameId);
+  const { players, writeScore, error } = useChallenge(gameId);
 
   const user = useSelector(userSelector);
   const challenge = useSelector(challengeSelector);
@@ -108,6 +107,7 @@ export const GameContainer = () => {
       choices={choices}
       onClickNext={onClickNext}
       onAnswer={onAnswer}
+      error={error}
     />
   );
 };
