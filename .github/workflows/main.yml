@@ -26,6 +26,6 @@ jobs:
       - name: Install dependencies
         run: yarn     
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v3
         with:
             browser: chrome
