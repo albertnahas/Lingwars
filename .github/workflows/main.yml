@@ -24,8 +24,8 @@ jobs:
         with:
             node:version: '14.17.0'
       - name: Install dependencies
-        run: yarn     
+        run: yarn       
       - name: Cypress run
-        uses: cypress-io/github-action@v3
+        uses: cypress-io/github-action@v2
         with:
-            browser: chrome
+          command: npx cypress run-ct
