@@ -1,10 +1,8 @@
 import React, { FC, useEffect } from "react";
-import { useTheme } from "@mui/system";
 import { Box, Button, Stack, Typography, Zoom } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { ChallengeDialog } from "../../molecules/ChallengeDialog/ChallengeDialog";
-import { useDispatch, useSelector } from "react-redux";
-import { userSelector } from "../../store/userSlice";
+import { useDispatch } from "react-redux";
 import { GameDialog } from "../../molecules/GameDialog/GameDialog";
 import { setChallenge } from "../../store/challengeSlice";
 import { ChallengeSetup } from "../../types/challenge";
@@ -24,7 +22,6 @@ export var MainMenu: FC<Props> = function (props) {
   const [openLevelsDialog, setOpenLevelsDialog] = React.useState(false);
   const [openChallengeDialog, setOpenChallengeDialog] = React.useState(false);
   const dispatch = useDispatch();
-  const user = useSelector(userSelector);
 
   useEffect(() => {
     if (challenge) {
@@ -34,6 +31,7 @@ export var MainMenu: FC<Props> = function (props) {
         setOpenChallengeDialog(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [challenge]);
 
   useEffect(() => {
@@ -76,6 +74,7 @@ export var MainMenu: FC<Props> = function (props) {
     <Box>
       <Zoom in={true}>
         <img
+          alt="Spinning eart"
           width="200"
           src="https://r2.community.samsung.com/t5/image/serverpage/image-id/2858216iF966CF430D380489/image-size/large?v=v2&px=999"
         />

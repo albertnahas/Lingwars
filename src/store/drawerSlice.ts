@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { DrawerState, State, UserState } from '../types/state';
-import { User } from '../types/user';
+import { DrawerState, State } from '../types/state';
 
 const initialState: DrawerState = {};
 

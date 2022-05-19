@@ -1,5 +1,4 @@
 import * as React from "react";
-import { createSvgIcon } from "@mui/material/utils";
 import { styled } from "@mui/material";
 
 export const highlightColor = "#EF463F";
@@ -28,12 +27,11 @@ export const Diagram = styled("svg", {
         cursor: "pointer",
       },
     }),
-
-    // ...highlights.map((h) => {
-    //   return { [`& .Argentina`]: { color: "red" } };
-    // }),
     ...highlights.reduce(
-      (acc: any, curr: string) => ((acc[`path[name=${curr}],.${curr}`] = { fill: "#34bcb5" }), acc),
+      (acc: any, curr: string) => (
+        // eslint-disable-next-line no-sequences
+        (acc[`path[name=${curr}],.${curr}`] = { fill: "#34bcb5" }), acc
+      ),
       {}
     ),
   })
@@ -43,7 +41,6 @@ export const WorldDiagram: React.FC<DiagramProps> = ({
   onMuscleGroupClick,
   ...props
 }) => {
-
   return (
     <Diagram
       style={props.style}

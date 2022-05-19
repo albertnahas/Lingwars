@@ -36,6 +36,7 @@ export const Timer: FC<Props> = ({
     time.current = startingTime || 0;
     setTimeRef(time.current);
     onTimeChange?.(time.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startingTime]);
 
   useEffect(() => {

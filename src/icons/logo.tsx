@@ -1,5 +1,4 @@
 import * as React from "react";
-import { blue } from "@mui/material/colors";
 import { createSvgIcon } from "@mui/material/utils";
 import "./icons.css";
 export const Logo = createSvgIcon(

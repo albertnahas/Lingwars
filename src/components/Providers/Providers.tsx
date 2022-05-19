@@ -1,7 +1,6 @@
 import React, { FC, useEffect } from "react";
 import { Provider } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { blue, grey } from "@mui/material/colors";
 import { ConfirmProvider } from "material-ui-confirm";
 import { BrowserRouter } from "react-router-dom";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";

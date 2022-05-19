@@ -3,9 +3,7 @@ import { FC, useMemo } from "react";
 import _ from "lodash";
 import {
   Alert,
-  Avatar,
   Button,
-  Chip,
   Container,
   Divider,
   Stack,
@@ -16,7 +14,6 @@ import { getEval } from "../../utils/helpers";
 import { Round } from "../Round/Round";
 import { Player, Score } from "../../types/challenge";
 import { User } from "../../types/user";
-import { UserCircle as UserCircleIcon } from "../../icons/user-circle";
 import { PlayerChip } from "./partials/PlayerChip";
 
 export const Game: FC<Props> = ({
@@ -30,7 +27,7 @@ export const Game: FC<Props> = ({
   choices,
   onClickNext,
   onAnswer,
-  error
+  error,
 }) => {
   const maxScore = useMemo(() => {
     if (!players || players.length < 2) return user?.displayName;
@@ -38,6 +35,7 @@ export const Game: FC<Props> = ({
       return { displayName: p?.displayName, score: p?.score?.timed };
     });
     return _.maxBy(mappedPlayers, "score")?.displayName;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [players]);
 
   const isGameDone = useMemo(
