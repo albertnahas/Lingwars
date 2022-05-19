@@ -83,7 +83,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
 
   const onActive = () => {
     setActive(true);
-  }
+  };
 
   return (
     <>
@@ -105,8 +105,8 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
           </Typography>
         </Box>
         <BoxContainer>
-          <Waveform url={langUrl} onActiveChange={onActive} />
-          {!answer && (
+          <Waveform url={langUrl} onActive={onActive} />
+          {!answer && active && (
             <Tooltip
               title={
                 showHint
