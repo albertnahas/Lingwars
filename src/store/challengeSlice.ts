@@ -14,7 +14,7 @@ export const challengeSlice = createSlice({
     },
   }
 });
-export const challengeSelector = (state: State) => state.challenge.value
+export const challengeSelector = (state: State) => state.challenge?.value
 
 // Action creators are generated for each case reducer function
 export const { setChallenge } = challengeSlice.actions;
