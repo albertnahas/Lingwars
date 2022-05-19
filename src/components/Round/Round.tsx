@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useMemo, useState } from "react";
-import "react-h5-audio-player/lib/styles.css";
 import { Waveform } from "../../molecules/Waveform/Waveform";
 import files from "../../data/files.json";
 import _ from "lodash";
