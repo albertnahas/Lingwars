@@ -1,13 +1,13 @@
-import React from "react";
-import firebase from "../config";
-import { Challenge, ChallengeSetup } from "../types/challenge";
-import { useSelector } from "react-redux";
-import { userSelector } from "../store/userSlice";
+import React from "react"
+import firebase from "../config"
+import { Challenge, ChallengeSetup } from "../types/challenge"
+import { useSelector } from "react-redux"
+import { userSelector } from "../store/userSlice"
 
 export const useChallengeSetup = () => {
-  const [challenge, setChallenge] = React.useState<Challenge>();
-  const [pairing, setPairing] = React.useState<boolean>(false);
-  const user = useSelector(userSelector);
+  const [challenge, setChallenge] = React.useState<Challenge>()
+  const [pairing, setPairing] = React.useState<boolean>(false)
+  const user = useSelector(userSelector)
 
   const createChallenge = (setup?: ChallengeSetup) => {
     firebase
@@ -20,13 +20,13 @@ export const useChallengeSetup = () => {
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(function (docRef: any) {
-        console.log("Document written with ID: ", docRef.id);
-        setChallenge({ id: docRef.id, ...setup });
+        console.log("Document written with ID: ", docRef.id)
+        setChallenge({ id: docRef.id, ...setup })
       })
       .catch((e: any) => {
-        console.log(e);
-      });
-  };
+        console.log(e)
+      })
+  }
 
   const requestChallenge = (setup?: ChallengeSetup) => {
     firebase
@@ -40,25 +40,25 @@ export const useChallengeSetup = () => {
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(function (docRef: any) {
-        setPairing(true);
-        console.log("Document written with ID: ", docRef.id);
+        setPairing(true)
+        console.log("Document written with ID: ", docRef.id)
         const subscribe = docRef.onSnapshot((querySnapshot: any) => {
           if (!querySnapshot.exists) {
-            return;
+            return
           }
-          const requestData = querySnapshot.data();
+          const requestData = querySnapshot.data()
           if (requestData.challengeId) {
-            console.log("Document written with ID: ", requestData.challengeId);
-            setPairing(false);
-            setChallenge({ id: requestData.challengeId, ...setup });
-            subscribe();
+            console.log("Document written with ID: ", requestData.challengeId)
+            setPairing(false)
+            setChallenge({ id: requestData.challengeId, ...setup })
+            subscribe()
           }
-        });
+        })
       })
       .catch((e: any) => {
-        console.log(e);
-      });
-  };
+        console.log(e)
+      })
+  }
 
-  return { challenge, pairing, createChallenge, requestChallenge };
-};
+  return { challenge, pairing, createChallenge, requestChallenge }
+}

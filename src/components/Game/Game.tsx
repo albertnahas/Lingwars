@@ -1,6 +1,6 @@
-import { FC, useMemo } from "react";
+import { FC, useMemo } from "react"
 
-import _ from "lodash";
+import _ from "lodash"
 import {
   Alert,
   Button,
@@ -8,13 +8,13 @@ import {
   Divider,
   Stack,
   Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
-import { getEval } from "../../utils/helpers";
-import { Round } from "../Round/Round";
-import { Player, Score } from "../../types/challenge";
-import { User } from "../../types/user";
-import { PlayerChip } from "./partials/PlayerChip";
+} from "@mui/material"
+import { Box } from "@mui/system"
+import { getEval } from "../../utils/helpers"
+import { Round } from "../Round/Round"
+import { Player, Score } from "../../types/challenge"
+import { User } from "../../types/user"
+import { PlayerChip } from "./partials/PlayerChip"
 
 export const Game: FC<Props> = ({
   score,
@@ -30,13 +30,13 @@ export const Game: FC<Props> = ({
   error,
 }) => {
   const maxScore = useMemo(() => {
-    if (!players || players.length < 2) return user?.displayName;
+    if (!players || players.length < 2) return user?.displayName
     const mappedPlayers = players?.map((p: Player) => {
-      return { displayName: p?.displayName, score: p?.score?.timed };
-    });
-    return _.maxBy(mappedPlayers, "score")?.displayName;
+      return { displayName: p?.displayName, score: p?.score?.timed }
+    })
+    return _.maxBy(mappedPlayers, "score")?.displayName
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [players]);
+  }, [players])
 
   const isGameDone = useMemo(
     () =>
@@ -45,11 +45,11 @@ export const Game: FC<Props> = ({
       challenge.id &&
       players.every((p) => p.turn >= (challenge.rounds || 10)),
     [players, challenge]
-  );
+  )
 
-  const displayGame = !error && (!challenge || !challenge.id || challenge.full);
+  const displayGame = !error && (!challenge || !challenge.id || challenge.full)
 
-  const waitingForPlayers = challenge && challenge.id && !challenge.full;
+  const waitingForPlayers = challenge && challenge.id && !challenge.full
 
   const renderPlayers = () => (
     <Stack
@@ -60,7 +60,7 @@ export const Game: FC<Props> = ({
         <PlayerChip player={p} key={i} isWinning={maxScore === p.displayName} />
       ))}
     </Stack>
-  );
+  )
 
   return (
     <>
@@ -129,19 +129,19 @@ export const Game: FC<Props> = ({
         )}
       </Container>
     </>
-  );
-};
+  )
+}
 
 interface Props {
-  score: Score;
-  turn: number;
-  user?: User | null;
-  challenge: any;
-  players?: any[];
-  onClickNext: () => void;
-  showAnswer: boolean;
-  lang: any;
-  choices?: any[];
-  onAnswer: (answer: any) => void;
-  error?: string;
+  score: Score
+  turn: number
+  user?: User | null
+  challenge: any
+  players?: any[]
+  onClickNext: () => void
+  showAnswer: boolean
+  lang: any
+  choices?: any[]
+  onAnswer: (answer: any) => void
+  error?: string
 }

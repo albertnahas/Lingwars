@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { FC } from "react"
+import { Box, Button, Typography } from "@mui/material"
 
 export var Landing: FC<Props> = function (props) {
   return (
@@ -55,9 +55,9 @@ export var Landing: FC<Props> = function (props) {
         Get started
       </Button>
     </Box>
-  );
-};
+  )
+}
 
 interface Props {
-  login: () => void;
+  login: () => void
 }

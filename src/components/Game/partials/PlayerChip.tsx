@@ -1,7 +1,7 @@
-import { Chip, Avatar } from "@mui/material";
-import React, { FC } from "react";
-import { Player } from "../../../types/challenge";
-import { UserCircle as UserCircleIcon } from "../../../icons/user-circle";
+import { Chip, Avatar } from "@mui/material"
+import React, { FC } from "react"
+import { Player } from "../../../types/challenge"
+import { UserCircle as UserCircleIcon } from "../../../icons/user-circle"
 
 export const PlayerChip: FC<Props> = ({ player, isWinning }) => {
   return (
@@ -24,10 +24,10 @@ export const PlayerChip: FC<Props> = ({ player, isWinning }) => {
         player.score?.accuracy || 0
       } / ${player.turn}`}
     />
-  );
-};
+  )
+}
 
 interface Props {
-  player: Player;
-  isWinning?: boolean;
+  player: Player
+  isWinning?: boolean
 }

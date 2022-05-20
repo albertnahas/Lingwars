@@ -1,22 +1,15 @@
-import { FC, useState } from "react";
-import {
-  Container,
-  Box,
-  Typography,
-  Grid,
-  Button,
-  Avatar,
-} from "@mui/material";
-import { useSelector } from "react-redux";
-import { UserCircle as UserCircleIcon } from "../../icons/user-circle";
-import ModalDialog from "../../molecules/ModalDialog/ModalDialog";
-import { DeleteAccountForm } from "./DeleteAccountForm";
-import { userSelector } from "../../store/userSlice";
+import { FC, useState } from "react"
+import { Container, Box, Typography, Grid, Button, Avatar } from "@mui/material"
+import { useSelector } from "react-redux"
+import { UserCircle as UserCircleIcon } from "../../icons/user-circle"
+import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
+import { DeleteAccountForm } from "./DeleteAccountForm"
+import { userSelector } from "../../store/userSlice"
 
 export const Profile: FC<Props> = ({ signOut }) => {
-  const user = useSelector(userSelector);
+  const user = useSelector(userSelector)
   // const [editMode, setEditMode] = useState(false);
-  const [openDeleteAccount, setOpenDeleteAccount] = useState(false);
+  const [openDeleteAccount, setOpenDeleteAccount] = useState(false)
 
   return (
     <Container maxWidth="lg">
@@ -83,9 +76,9 @@ export const Profile: FC<Props> = ({ signOut }) => {
         <DeleteAccountForm />
       </ModalDialog>
     </Container>
-  );
-};
+  )
+}
 
 interface Props {
-  signOut?: () => void;
+  signOut?: () => void
 }

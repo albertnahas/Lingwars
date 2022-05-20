@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import "./index.css";
-import App from "./App";
-import { Providers } from "./components/Providers/Providers";
+import React from "react"
+import ReactDOM from "react-dom/client"
+import "./index.css"
+import App from "./App"
+import { Providers } from "./components/Providers/Providers"
 // import { registerSW } from "virtual:pwa-register";
 
 // const intervalMS = 15 * 60 * 1000;
@@ -18,10 +18,10 @@ import { Providers } from "./components/Providers/Providers";
 //   },
 // });
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Providers>
       <App />
     </Providers>
   </React.StrictMode>
-);
+)

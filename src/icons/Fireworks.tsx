@@ -1,7 +1,6 @@
-import "./fireworks.css";
+import "./fireworks.css"
 
 export const Fireworks = () => {
-
   return (
     <svg
       className="svg"
@@ -42,11 +41,29 @@ export const Fireworks = () => {
         <path className="fireworks-7" d="M277,786s8-62-37-139" />
         <line className="fireworks-10" x1="340" y1="786" x2="340" y2="602" />
         <path className="fireworks-11" d="M404,789S387,650,532,551" />
-        <line className="fireworks-11" x1="156" y1="759" x2="171.5" y2="743.5" />
+        <line
+          className="fireworks-11"
+          x1="156"
+          y1="759"
+          x2="171.5"
+          y2="743.5"
+        />
         <line className="fireworks-6" x1="17" y1="422" x2="32.5" y2="406.5" />
         <line className="fireworks-7" x1="96" y1="164" x2="111.5" y2="148.5" />
-        <line className="fireworks-11" x1="311" y1="196" x2="326.5" y2="180.5" />
-        <line className="fireworks-10" x1="640" y1="145" x2="655.5" y2="129.5" />
+        <line
+          className="fireworks-11"
+          x1="311"
+          y1="196"
+          x2="326.5"
+          y2="180.5"
+        />
+        <line
+          className="fireworks-10"
+          x1="640"
+          y1="145"
+          x2="655.5"
+          y2="129.5"
+        />
         <line className="fireworks-11" x1="215" y1="40" x2="230.5" y2="24.5" />
         <path
           className="fireworks-5"
@@ -62,5 +79,5 @@ export const Fireworks = () => {
         />
       </g>
     </svg>
-  );
-};
+  )
+}

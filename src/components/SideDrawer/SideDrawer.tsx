@@ -1,26 +1,26 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { drawerSelector, setDrawer } from "../../store/drawerSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import HomeIcon from "@mui/icons-material/Home";
-import LogoutIcon from "@mui/icons-material/Logout";
-import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
-import GradingOutlinedIcon from "@mui/icons-material/GradingOutlined";
-import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined";
-import { userSelector } from "../../store/userSlice";
-import SettingsIcon from "@mui/icons-material/Settings";
+import * as React from "react"
+import Box from "@mui/material/Box"
+import Drawer from "@mui/material/Drawer"
+import List from "@mui/material/List"
+import Divider from "@mui/material/Divider"
+import ListItem from "@mui/material/ListItem"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import ListItemText from "@mui/material/ListItemText"
+import { drawerSelector, setDrawer } from "../../store/drawerSlice"
+import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import HomeIcon from "@mui/icons-material/Home"
+import LogoutIcon from "@mui/icons-material/Logout"
+import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined"
+import GradingOutlinedIcon from "@mui/icons-material/GradingOutlined"
+import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined"
+import { userSelector } from "../../store/userSlice"
+import SettingsIcon from "@mui/icons-material/Settings"
 
 export const SideDrawer: React.FC<Props> = (props) => {
-  const dispatch = useDispatch();
-  const drawerOpen = useSelector(drawerSelector);
-  const user = useSelector(userSelector);
+  const dispatch = useDispatch()
+  const drawerOpen = useSelector(drawerSelector)
+  const user = useSelector(userSelector)
 
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -29,11 +29,11 @@ export const SideDrawer: React.FC<Props> = (props) => {
         ((event as React.KeyboardEvent).key === "Tab" ||
           (event as React.KeyboardEvent).key === "Shift")
       ) {
-        return;
+        return
       }
 
-      dispatch(setDrawer(open));
-    };
+      dispatch(setDrawer(open))
+    }
 
   const list = () => (
     <Box
@@ -45,7 +45,7 @@ export const SideDrawer: React.FC<Props> = (props) => {
       <List>
         <ListItem button component={Link} to="/">
           <ListItemIcon>
-            <HomeIcon/>
+            <HomeIcon />
           </ListItemIcon>
           <ListItemText primary="Home" color="text.secondary" />
         </ListItem>
@@ -93,7 +93,7 @@ export const SideDrawer: React.FC<Props> = (props) => {
         </List>
       )}
     </Box>
-  );
+  )
 
   return (
     <div>
@@ -103,9 +103,9 @@ export const SideDrawer: React.FC<Props> = (props) => {
         </Drawer>
       </React.Fragment>
     </div>
-  );
-};
+  )
+}
 
 interface Props {
-  signOut: () => void;
+  signOut: () => void
 }

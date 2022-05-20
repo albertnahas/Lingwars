@@ -1,8 +1,8 @@
-import { styled } from "@mui/system";
-import React, { useEffect, useRef, useState } from "react";
-import WaveSurfer from "wavesurfer.js";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import PauseIcon from "@mui/icons-material/Pause";
+import { styled } from "@mui/system"
+import React, { useEffect, useRef, useState } from "react"
+import WaveSurfer from "wavesurfer.js"
+import PlayArrowIcon from "@mui/icons-material/PlayArrow"
+import PauseIcon from "@mui/icons-material/Pause"
 
 export const WaveformContainer = styled("div")`
   display: flex;
@@ -12,12 +12,12 @@ export const WaveformContainer = styled("div")`
   height: 100px;
   width: 100%;
   background: transparent;
-`;
+`
 
 export const Wave = styled("div")`
   width: 100%;
   height: 90px;
-`;
+`
 
 export const PlayButton = styled("button")`
   display: flex;
@@ -34,16 +34,15 @@ export const PlayButton = styled("button")`
   &:hover {
     background: #ddd;
   }
-`;
+`
 
-export const Waveform = ({ url, onActive }: { url: string, onActive: any }) => {
-  const [playing, setPlaying] = useState(false);
-  const [disabled, setDisabled] = useState(true);
-  const waveform = useRef<WaveSurfer>();
-  const waveformRef = useRef<HTMLMediaElement>(null);
+export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
+  const [playing, setPlaying] = useState(false)
+  const [disabled, setDisabled] = useState(true)
+  const waveform = useRef<WaveSurfer>()
+  const waveformRef = useRef<HTMLMediaElement>(null)
 
   useEffect(() => {
-
     waveform.current = WaveSurfer.create({
       barWidth: 3,
       cursorWidth: 1,
@@ -54,35 +53,39 @@ export const Waveform = ({ url, onActive }: { url: string, onActive: any }) => {
       responsive: true,
       waveColor: "#EFEFEF",
       cursorColor: "transparent",
-    });
+    })
 
-    waveform.current?.load(waveformRef.current || "");
-    setPlaying(false);
+    waveform.current?.load(waveformRef.current || "")
+    setPlaying(false)
 
     waveform.current?.on("ready", function () {
-      setDisabled(false);
-    });
+      setDisabled(false)
+    })
 
-    waveform.current?.on("play", onActive);
+    waveform.current?.on("play", onActive)
 
     return () => {
-      waveform.current?.destroy();
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url]);
+      waveform.current?.destroy()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url])
 
   const handlePlay = () => {
-    setPlaying((p) => !p);
-    waveform.current?.playPause();
-  };
+    setPlaying((p) => !p)
+    waveform.current?.playPause()
+  }
 
   return (
     <WaveformContainer>
       <PlayButton onClick={handlePlay} disabled={disabled}>
-        {!playing ? <PlayArrowIcon color={ disabled ? "disabled" : "primary" } /> : <PauseIcon />}
+        {!playing ? (
+          <PlayArrowIcon color={disabled ? "disabled" : "primary"} />
+        ) : (
+          <PauseIcon />
+        )}
       </PlayButton>
       <Wave id="waveform" />
       <audio ref={waveformRef} id="track" src={url} />
     </WaveformContainer>
-  );
-};
+  )
+}

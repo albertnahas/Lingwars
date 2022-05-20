@@ -1,5 +1,5 @@
-import * as React from "react";
-import { createSvgIcon } from "@mui/material/utils";
+import * as React from "react"
+import { createSvgIcon } from "@mui/material/utils"
 
 export const Done = createSvgIcon(
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 348.1 347.92">
@@ -26,4 +26,4 @@ export const Done = createSvgIcon(
     </g>
   </svg>,
   "Done"
-);
+)
