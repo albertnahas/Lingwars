@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "lint": "eslint --max-warnings=0 src",
     "lint:fix": "eslint src --fix",
-    "format": "prettier --write \"**/*.+(ts|tsx|json|css|md)\"",
+    "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|md)\"",
     "test": "npx cypress run-ct",
     "test:unit": "jest"
   },
