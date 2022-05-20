@@ -1,5 +1,5 @@
-import { FC, useEffect } from "react";
-import styled from "@emotion/styled";
+import { FC, useEffect } from "react"
+import styled from "@emotion/styled"
 import {
   AppBar,
   Avatar,
@@ -10,17 +10,17 @@ import {
   Toolbar,
   Tooltip,
   Typography,
-} from "@mui/material";
-import { alpha, useTheme } from "@mui/system";
-import { useDispatch, useSelector } from "react-redux";
-import { Logo } from "../../icons/logo";
-import { UserCircle as UserCircleIcon } from "../../icons/user-circle";
-import { State } from "../../types/state";
-import { useNavigate, Link } from "react-router-dom";
-import DownloadIcon from "@mui/icons-material/Download";
-import { useUser } from "../../hooks/useUser";
-import { setDrawer } from "../../store/drawerSlice";
-import MenuIcon from "@mui/icons-material/Menu";
+} from "@mui/material"
+import { alpha, useTheme } from "@mui/system"
+import { useDispatch, useSelector } from "react-redux"
+import { Logo } from "../../icons/logo"
+import { UserCircle as UserCircleIcon } from "../../icons/user-circle"
+import { State } from "../../types/state"
+import { useNavigate, Link } from "react-router-dom"
+import DownloadIcon from "@mui/icons-material/Download"
+import { useUser } from "../../hooks/useUser"
+import { setDrawer } from "../../store/drawerSlice"
+import MenuIcon from "@mui/icons-material/Menu"
 
 export const StyledMenu = styled((props: any) => (
   <Menu
@@ -63,33 +63,33 @@ export const StyledMenu = styled((props: any) => (
       },
     },
   },
-}));
+}))
 
 const DashboardNavbarRoot = styled(AppBar)(({ theme }: any) => ({
   backgroundColor: theme.palette.background.paper,
   boxShadow: theme.shadows[0],
-}));
+}))
 
 export var TopBar: FC<Props> = function (props) {
-  const theme = useTheme();
-  const dispatch = useDispatch();
+  const theme = useTheme()
+  const dispatch = useDispatch()
 
   // const colorMode = React.useContext(ColorModeContext);
 
-  const user = useSelector((state: State) => state.user.value);
-  const { updateUser } = useUser();
-  const navigate = useNavigate();
+  const user = useSelector((state: State) => state.user.value)
+  const { updateUser } = useUser()
+  const navigate = useNavigate()
 
   const openDrawer = () => {
-    dispatch(setDrawer(true));
-  };
+    dispatch(setDrawer(true))
+  }
 
   useEffect(() => {
     if (user && user?.colorMode !== theme.palette.mode) {
-      updateUser({ ...user, colorMode: theme.palette.mode });
+      updateUser({ ...user, colorMode: theme.palette.mode })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [theme.palette.mode, user]);
+  }, [theme.palette.mode, user])
 
   return (
     <DashboardNavbarRoot sx={{}} theme={theme} position="sticky">
@@ -154,13 +154,13 @@ export var TopBar: FC<Props> = function (props) {
         )}
       </Toolbar>
     </DashboardNavbarRoot>
-  );
-};
+  )
+}
 
 interface Props {
-  signOut: () => void;
-  handleInstallClick: () => void;
-  deferredPrompt: any;
-  notification: { title: string; body: string };
-  setNotification: any;
+  signOut: () => void
+  handleInstallClick: () => void
+  deferredPrompt: any
+  notification: { title: string; body: string }
+  setNotification: any
 }

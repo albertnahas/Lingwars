@@ -1,6 +1,6 @@
-import React from "react";
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import React from "react"
+import { Typography } from "@mui/material"
+import { Box } from "@mui/system"
 
 export var Privacy = function () {
   return (
@@ -110,5 +110,5 @@ export var Privacy = function () {
         </p>
       </Box>
     </>
-  );
-};
+  )
+}

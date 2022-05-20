@@ -1,4 +1,4 @@
 {
-    "testFiles": "**/*.spec.tsx",
-    "componentFolder": "cypress"
-  }
+  "testFiles": "**/*.spec.tsx",
+  "componentFolder": "cypress"
+}

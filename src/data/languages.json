@@ -1,3647 +1,3647 @@
 [
-    {
-        "name": "Abkhazian",
-        "all names": "Abkhazian",
-        "code1": "abk",
-        "code2": "ab"
-    },
-    {
-        "name": "Achinese",
-        "all names": "Achinese",
-        "code1": "ace",
-        "code2": ""
-    },
-    {
-        "name": "Acoli",
-        "all names": "Acoli",
-        "code1": "ach",
-        "code2": ""
-    },
-    {
-        "name": "Adangme",
-        "all names": "Adangme",
-        "code1": "ada",
-        "code2": ""
-    },
-    {
-        "name": "Adygei",
-        "all names": "Adyghe;Adygei",
-        "code1": "ady",
-        "code2": ""
-    },
-    {
-        "name": "Adyghe",
-        "all names": "Adyghe;Adygei",
-        "code1": "ady",
-        "code2": ""
-    },
-    {
-        "name": "Afar",
-        "all names": "Afar",
-        "code1": "aar",
-        "code2": "aa"
-    },
-    {
-        "name": "Afrihili",
-        "all names": "Afrihili",
-        "code1": "afh",
-        "code2": ""
-    },
-    {
-        "name": "Afrikaans",
-        "all names": "Afrikaans",
-        "code1": "afr",
-        "code2": "af"
-    },
-    {
-        "name": "Afro-Asiatic languages",
-        "all names": "Afro-Asiatic languages",
-        "code1": "afa",
-        "code2": ""
-    },
-    {
-        "name": "Ainu",
-        "all names": "Ainu",
-        "code1": "ain",
-        "code2": ""
-    },
-    {
-        "rank": 78,
-        "native": "11",
-        "percentage": 0.17,
-        "name": "Akan",
-        "all names": "Akan",
-        "code1": "aka",
-        "code2": "ak"
-    },
-    {
-        "name": "Akkadian",
-        "all names": "Akkadian",
-        "code1": "akk",
-        "code2": ""
-    },
-    {
-        "name": "Albanian",
-        "all names": "Albanian",
-        "code1": "alb/sqi",
-        "code2": "sq"
-    },
-    {
-        "name": "Alemannic",
-        "all names": "Swiss German;Alemannic;Alsatian",
-        "code1": "gsw",
-        "code2": ""
-    },
-    {
-        "name": "Aleut",
-        "all names": "Aleut",
-        "code1": "ale",
-        "code2": ""
-    },
-    {
-        "name": "Algonquian languages",
-        "all names": "Algonquian languages",
-        "code1": "alg",
-        "code2": ""
-    },
-    {
-        "name": "Alsatian",
-        "all names": "Swiss German;Alemannic;Alsatian",
-        "code1": "gsw",
-        "code2": ""
-    },
-    {
-        "name": "Altaic languages",
-        "all names": "Altaic languages",
-        "code1": "tut",
-        "code2": ""
-    },
-    {
-        "rank": 47,
-        "native": "25",
-        "percentage": 0.37,
-        "name": "Amharic",
-        "all names": "Amharic",
-        "code1": "amh",
-        "code2": "am"
-    },
-    {
-        "name": "Angika",
-        "all names": "Angika",
-        "code1": "anp",
-        "code2": ""
-    },
-    {
-        "name": "Apache languages",
-        "all names": "Apache languages",
-        "code1": "apa",
-        "code2": ""
-    },
-    {
-        "rank": 5,
-        "native": "280 (295)",
-        "percentage": 4.23,
-        "name": "Arabic",
-        "all names": "Arabic",
-        "code1": "ara",
-        "code2": "ar"
-    },
-    {
-        "name": "Aragonese",
-        "all names": "Aragonese",
-        "code1": "arg",
-        "code2": "an"
-    },
-    {
-        "name": "Arapaho",
-        "all names": "Arapaho",
-        "code1": "arp",
-        "code2": ""
-    },
-    {
-        "name": "Arawak",
-        "all names": "Arawak",
-        "code1": "arw",
-        "code2": ""
-    },
-    {
-        "name": "Armenian",
-        "all names": "Armenian",
-        "code1": "arm/hye",
-        "code2": "hy"
-    },
-    {
-        "name": "Aromanian",
-        "all names": "Aromanian;Arumanian;Macedo-Romanian",
-        "code1": "rup",
-        "code2": ""
-    },
-    {
-        "name": "Artificial languages",
-        "all names": "Artificial languages",
-        "code1": "art",
-        "code2": ""
-    },
-    {
-        "name": "Arumanian",
-        "all names": "Aromanian;Arumanian;Macedo-Romanian",
-        "code1": "rup",
-        "code2": ""
-    },
-    {
-        "rank": 67,
-        "native": "15",
-        "percentage": 0.23,
-        "name": "Assamese",
-        "all names": "Assamese",
-        "code1": "asm",
-        "code2": "as"
-    },
-    {
-        "name": "Asturian",
-        "all names": "Asturian;Bable;Leonese;Asturleonese",
-        "code1": "ast",
-        "code2": ""
-    },
-    {
-        "name": "Asturleonese",
-        "all names": "Asturian;Bable;Leonese;Asturleonese",
-        "code1": "ast",
-        "code2": ""
-    },
-    {
-        "name": "Athapascan languages",
-        "all names": "Athapascan languages",
-        "code1": "ath",
-        "code2": ""
-    },
-    {
-        "name": "Australian languages",
-        "all names": "Australian languages",
-        "code1": "aus",
-        "code2": ""
-    },
-    {
-        "name": "Austronesian languages",
-        "all names": "Austronesian languages",
-        "code1": "map",
-        "code2": ""
-    },
-    {
-        "name": "Avaric",
-        "all names": "Avaric",
-        "code1": "ava",
-        "code2": "av"
-    },
-    {
-        "name": "Avestan",
-        "all names": "Avestan",
-        "code1": "ave",
-        "code2": "ae"
-    },
-    {
-        "rank": 53,
-        "native": "22",
-        "percentage": 0.33,
-        "name": "Awadhi",
-        "all names": "Awadhi",
-        "code1": "awa",
-        "code2": ""
-    },
-    {
-        "name": "Aymara",
-        "all names": "Aymara",
-        "code1": "aym",
-        "code2": "ay"
-    },
-    {
-        "rank": 52,
-        "native": "23",
-        "percentage": 0.34,
-        "name": "Azerbaijani",
-        "all names": "Azerbaijani",
-        "code1": "aze",
-        "code2": "az"
-    },
-    {
-        "name": "Bable",
-        "all names": "Asturian;Bable;Leonese;Asturleonese",
-        "code1": "ast",
-        "code2": ""
-    },
-    {
-        "name": "Balinese",
-        "all names": "Balinese",
-        "code1": "ban",
-        "code2": ""
-    },
-    {
-        "name": "Baltic languages",
-        "all names": "Baltic languages",
-        "code1": "bat",
-        "code2": ""
-    },
-    {
-        "name": "Baluchi",
-        "all names": "Baluchi",
-        "code1": "bal",
-        "code2": ""
-    },
-    {
-        "name": "Bambara",
-        "all names": "Bambara",
-        "code1": "bam",
-        "code2": "bm"
-    },
-    {
-        "name": "Bamileke languages",
-        "all names": "Bamileke languages",
-        "code1": "bai",
-        "code2": ""
-    },
-    {
-        "name": "Banda languages",
-        "all names": "Banda languages",
-        "code1": "bad",
-        "code2": ""
-    },
-    {
-        "name": "Bantu languages",
-        "all names": "Bantu languages",
-        "code1": "bnt",
-        "code2": ""
-    },
-    {
-        "name": "Basa",
-        "all names": "Basa",
-        "code1": "bas",
-        "code2": ""
-    },
-    {
-        "name": "Bashkir",
-        "all names": "Bashkir",
-        "code1": "bak",
-        "code2": "ba"
-    },
-    {
-        "name": "Basque",
-        "all names": "Basque",
-        "code1": "baq/eus",
-        "code2": "eu"
-    },
-    {
-        "name": "Batak languages",
-        "all names": "Batak languages",
-        "code1": "btk",
-        "code2": ""
-    },
-    {
-        "name": "Bedawiyet",
-        "all names": "Beja;Bedawiyet",
-        "code1": "bej",
-        "code2": ""
-    },
-    {
-        "name": "Beja",
-        "all names": "Beja;Bedawiyet",
-        "code1": "bej",
-        "code2": ""
-    },
-    {
-        "rank": 98,
-        "native": "7.6",
-        "percentage": 0.11,
-        "name": "Belarusian",
-        "all names": "Belarusian",
-        "code1": "bel",
-        "code2": "be"
-    },
-    {
-        "name": "Bemba",
-        "all names": "Bemba",
-        "code1": "bem",
-        "code2": ""
-    },
-    {
-        "rank": 7,
-        "native": "200 (205)",
-        "percentage": 3.05,
-        "name": "Bengali",
-        "all names": "Bengali",
-        "code1": "ben",
-        "code2": "bn"
-    },
-    {
-        "name": "Berber languages",
-        "all names": "Berber languages",
-        "code1": "ber",
-        "code2": ""
-    },
-    {
-        "rank": 41,
-        "native": "29",
-        "percentage": 0.43,
-        "name": "Bhojpuri",
-        "all names": "Bhojpuri",
-        "code1": "bho",
-        "code2": ""
-    },
-    {
-        "name": "Bihari languages",
-        "all names": "Bihari languages",
-        "code1": "bih",
-        "code2": "bh"
-    },
-    {
-        "name": "Bikol",
-        "all names": "Bikol",
-        "code1": "bik",
-        "code2": ""
-    },
-    {
-        "name": "Bilin",
-        "all names": "Blin;Bilin",
-        "code1": "byn",
-        "code2": ""
-    },
-    {
-        "name": "Bini",
-        "all names": "Bini;Edo",
-        "code1": "bin",
-        "code2": ""
-    },
-    {
-        "name": "Bislama",
-        "all names": "Bislama",
-        "code1": "bis",
-        "code2": "bi"
-    },
-    {
-        "name": "Blin",
-        "all names": "Blin;Bilin",
-        "code1": "byn",
-        "code2": ""
-    },
-    {
-        "name": "Bliss",
-        "all names": "Blissymbols;Blissymbolics;Bliss",
-        "code1": "zbl",
-        "code2": ""
-    },
-    {
-        "name": "Blissymbolics",
-        "all names": "Blissymbols;Blissymbolics;Bliss",
-        "code1": "zbl",
-        "code2": ""
-    },
-    {
-        "name": "Blissymbols",
-        "all names": "Blissymbols;Blissymbolics;Bliss",
-        "code1": "zbl",
-        "code2": ""
-    },
-    {
-        "name": "Bokmål, Norwegian",
-        "all names": "Bokmål, Norwegian;Norwegian Bokmål",
-        "code1": "nob",
-        "code2": "nb"
-    },
-    {
-        "name": "Bosnian",
-        "all names": "Bosnian",
-        "code1": "bos",
-        "code2": "bs"
-    },
-    {
-        "name": "Braj",
-        "all names": "Braj",
-        "code1": "bra",
-        "code2": ""
-    },
-    {
-        "name": "Breton",
-        "all names": "Breton",
-        "code1": "bre",
-        "code2": "br"
-    },
-    {
-        "name": "Buginese",
-        "all names": "Buginese",
-        "code1": "bug",
-        "code2": ""
-    },
-    {
-        "name": "Bulgarian",
-        "all names": "Bulgarian",
-        "code1": "bul",
-        "code2": "bg"
-    },
-    {
-        "name": "Buriat",
-        "all names": "Buriat",
-        "code1": "bua",
-        "code2": ""
-    },
-    {
-        "rank": 38,
-        "native": "33",
-        "percentage": 0.5,
-        "name": "Burmese",
-        "all names": "Burmese",
-        "code1": "bur/mya",
-        "code2": "my"
-    },
-    {
-        "name": "Caddo",
-        "all names": "Caddo",
-        "code1": "cad",
-        "code2": ""
-    },
-    {
-        "name": "Castilian",
-        "all names": "Spanish;Castilian",
-        "code1": "spa",
-        "code2": "es"
-    },
-    {
-        "name": "Catalan",
-        "all names": "Catalan;Valencian",
-        "code1": "cat",
-        "code2": "ca"
-    },
-    {
-        "name": "Caucasian languages",
-        "all names": "Caucasian languages",
-        "code1": "cau",
-        "code2": ""
-    },
-    {
-        "rank": 55,
-        "native": "21",
-        "percentage": 0.32,
-        "name": "Cebuano",
-        "all names": "Cebuano",
-        "code1": "ceb",
-        "code2": ""
-    },
-    {
-        "name": "Celtic languages",
-        "all names": "Celtic languages",
-        "code1": "cel",
-        "code2": ""
-    },
-    {
-        "name": "Central American Indian languages",
-        "all names": "Central American Indian languages",
-        "code1": "cai",
-        "code2": ""
-    },
-    {
-        "name": "Central Khmer",
-        "all names": "Central Khmer",
-        "code1": "khm",
-        "code2": "km"
-    },
-    {
-        "name": "Chagatai",
-        "all names": "Chagatai",
-        "code1": "chg",
-        "code2": ""
-    },
-    {
-        "name": "Chamic languages",
-        "all names": "Chamic languages",
-        "code1": "cmc",
-        "code2": ""
-    },
-    {
-        "name": "Chamorro",
-        "all names": "Chamorro",
-        "code1": "cha",
-        "code2": "ch"
-    },
-    {
-        "name": "Chechen",
-        "all names": "Chechen",
-        "code1": "che",
-        "code2": "ce"
-    },
-    {
-        "name": "Cherokee",
-        "all names": "Cherokee",
-        "code1": "chr",
-        "code2": ""
-    },
-    {
-        "rank": 76,
-        "native": "12",
-        "percentage": 0.17,
-        "name": "Chewa",
-        "all names": "Chichewa;Chewa;Nyanja",
-        "code1": "nya",
-        "code2": "ny"
-    },
-    {
-        "name": "Cheyenne",
-        "all names": "Cheyenne",
-        "code1": "chy",
-        "code2": ""
-    },
-    {
-        "name": "Chibcha",
-        "all names": "Chibcha",
-        "code1": "chb",
-        "code2": ""
-    },
-    {
-        "name": "Chichewa",
-        "all names": "Chichewa;Chewa;Nyanja",
-        "code1": "nya",
-        "code2": "ny"
-    },
-    {
-        "name": "Chinese",
-        "all names": "Chinese",
-        "code1": "chi/zho",
-        "code2": "zh"
-    },
-    {
-        "name": "Chinook jargon",
-        "all names": "Chinook jargon",
-        "code1": "chn",
-        "code2": ""
-    },
-    {
-        "name": "Chipewyan",
-        "all names": "Chipewyan;Dene Suline",
-        "code1": "chp",
-        "code2": ""
-    },
-    {
-        "name": "Choctaw",
-        "all names": "Choctaw",
-        "code1": "cho",
-        "code2": ""
-    },
-    {
-        "name": "Chuang",
-        "all names": "Zhuang;Chuang",
-        "code1": "zha",
-        "code2": "za"
-    },
-    {
-        "name": "Church Slavic",
-        "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
-        "code1": "chu",
-        "code2": "cu"
-    },
-    {
-        "name": "Church Slavonic",
-        "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
-        "code1": "chu",
-        "code2": "cu"
-    },
-    {
-        "name": "Chuukese",
-        "all names": "Chuukese",
-        "code1": "chk",
-        "code2": ""
-    },
-    {
-        "name": "Chuvash",
-        "all names": "Chuvash",
-        "code1": "chv",
-        "code2": "cv"
-    },
-    {
-        "name": "Classical Nepal Bhasa",
-        "all names": "Classical Newari;Old Newari;Classical Nepal Bhasa",
-        "code1": "nwc",
-        "code2": ""
-    },
-    {
-        "name": "Classical Newari",
-        "all names": "Classical Newari;Old Newari;Classical Nepal Bhasa",
-        "code1": "nwc",
-        "code2": ""
-    },
-    {
-        "name": "Classical Syriac",
-        "all names": "Classical Syriac",
-        "code1": "syc",
-        "code2": ""
-    },
-    {
-        "name": "Cook Islands Maori",
-        "all names": "Rarotongan;Cook Islands Maori",
-        "code1": "rar",
-        "code2": ""
-    },
-    {
-        "name": "Coptic",
-        "all names": "Coptic",
-        "code1": "cop",
-        "code2": ""
-    },
-    {
-        "name": "Cornish",
-        "all names": "Cornish",
-        "code1": "cor",
-        "code2": "kw"
-    },
-    {
-        "name": "Corsican",
-        "all names": "Corsican",
-        "code1": "cos",
-        "code2": "co"
-    },
-    {
-        "name": "Cree",
-        "all names": "Cree",
-        "code1": "cre",
-        "code2": "cr"
-    },
-    {
-        "name": "Creek",
-        "all names": "Creek",
-        "code1": "mus",
-        "code2": ""
-    },
-    {
-        "name": "Creoles and pidgins",
-        "all names": "Creoles and pidgins",
-        "code1": "crp",
-        "code2": ""
-    },
-    {
-        "name": "Creoles and pidgins, English based",
-        "all names": "Creoles and pidgins, English based",
-        "code1": "cpe",
-        "code2": ""
-    },
-    {
-        "name": "Creoles and pidgins, French-based",
-        "all names": "Creoles and pidgins, French-based",
-        "code1": "cpf",
-        "code2": ""
-    },
-    {
-        "name": "Creoles and pidgins, Portuguese-based",
-        "all names": "Creoles and pidgins, Portuguese-based",
-        "code1": "cpp",
-        "code2": ""
-    },
-    {
-        "name": "Crimean Tatar",
-        "all names": "Crimean Tatar;Crimean Turkish",
-        "code1": "crh",
-        "code2": ""
-    },
-    {
-        "name": "Crimean Turkish",
-        "all names": "Crimean Tatar;Crimean Turkish",
-        "code1": "crh",
-        "code2": ""
-    },
-    {
-        "rank": 58,
-        "native": "19",
-        "percentage": 0.28,
-        "name": "Croatian",
-        "all names": "Croatian",
-        "code1": "hrv",
-        "code2": "hr"
-    },
-    {
-        "name": "Cushitic languages",
-        "all names": "Cushitic languages",
-        "code1": "cus",
-        "code2": ""
-    },
-    {
-        "rank": 83,
-        "native": "10",
-        "percentage": 0.15,
-        "name": "Czech",
-        "all names": "Czech",
-        "code1": "cze/ces",
-        "code2": "cs"
-    },
-    {
-        "name": "Dakota",
-        "all names": "Dakota",
-        "code1": "dak",
-        "code2": ""
-    },
-    {
-        "name": "Danish",
-        "all names": "Danish",
-        "code1": "dan",
-        "code2": "da"
-    },
-    {
-        "name": "Dargwa",
-        "all names": "Dargwa",
-        "code1": "dar",
-        "code2": ""
-    },
-    {
-        "name": "Delaware",
-        "all names": "Delaware",
-        "code1": "del",
-        "code2": ""
-    },
-    {
-        "name": "Dene Suline",
-        "all names": "Chipewyan;Dene Suline",
-        "code1": "chp",
-        "code2": ""
-    },
-    {
-        "name": "Dhivehi",
-        "all names": "Divehi;Dhivehi;Maldivian",
-        "code1": "div",
-        "code2": "dv"
-    },
-    {
-        "name": "Dimili",
-        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
-        "code1": "zza",
-        "code2": ""
-    },
-    {
-        "name": "Dimli",
-        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
-        "code1": "zza",
-        "code2": ""
-    },
-    {
-        "name": "Dinka",
-        "all names": "Dinka",
-        "code1": "din",
-        "code2": ""
-    },
-    {
-        "name": "Divehi",
-        "all names": "Divehi;Dhivehi;Maldivian",
-        "code1": "div",
-        "code2": "dv"
-    },
-    {
-        "name": "Dogri",
-        "all names": "Dogri",
-        "code1": "doi",
-        "code2": ""
-    },
-    {
-        "name": "Dogrib",
-        "all names": "Dogrib",
-        "code1": "dgr",
-        "code2": ""
-    },
-    {
-        "name": "Dravidian languages",
-        "all names": "Dravidian languages",
-        "code1": "dra",
-        "code2": ""
-    },
-    {
-        "name": "Duala",
-        "all names": "Duala",
-        "code1": "dua",
-        "code2": ""
-    },
-    {
-        "rank": 56,
-        "native": "21",
-        "percentage": 0.32,
-        "name": "Dutch",
-        "all names": "Dutch;Flemish",
-        "code1": "dut/nld",
-        "code2": "nl"
-    },
-    {
-        "name": "Dutch, Middle (ca.1050-1350)",
-        "all names": "Dutch, Middle (ca.1050-1350)",
-        "code1": "dum",
-        "code2": ""
-    },
-    {
-        "name": "Dyula",
-        "all names": "Dyula",
-        "code1": "dyu",
-        "code2": ""
-    },
-    {
-        "name": "Dzongkha",
-        "all names": "Dzongkha",
-        "code1": "dzo",
-        "code2": "dz"
-    },
-    {
-        "name": "Eastern Frisian",
-        "all names": "Eastern Frisian",
-        "code1": "frs",
-        "code2": ""
-    },
-    {
-        "name": "Edo",
-        "all names": "Bini;Edo",
-        "code1": "bin",
-        "code2": ""
-    },
-    {
-        "name": "Efik",
-        "all names": "Efik",
-        "code1": "efi",
-        "code2": ""
-    },
-    {
-        "name": "Egyptian (Ancient)",
-        "all names": "Egyptian (Ancient)",
-        "code1": "egy",
-        "code2": ""
-    },
-    {
-        "name": "Ekajuk",
-        "all names": "Ekajuk",
-        "code1": "eka",
-        "code2": ""
-    },
-    {
-        "name": "Elamite",
-        "all names": "Elamite",
-        "code1": "elx",
-        "code2": ""
-    },
-    {
-        "rank": 3,
-        "native": "365 (360)",
-        "percentage": 5.52,
-        "name": "English",
-        "all names": "English",
-        "code1": "eng",
-        "code2": "en"
-    },
-    {
-        "name": "English, Middle (1100-1500)",
-        "all names": "English, Middle (1100-1500)",
-        "code1": "enm",
-        "code2": ""
-    },
-    {
-        "name": "English, Old (ca.450-1100)",
-        "all names": "English, Old (ca.450-1100)",
-        "code1": "ang",
-        "code2": ""
-    },
-    {
-        "name": "Erzya",
-        "all names": "Erzya",
-        "code1": "myv",
-        "code2": ""
-    },
-    {
-        "name": "Esperanto",
-        "all names": "Esperanto",
-        "code1": "epo",
-        "code2": "eo"
-    },
-    {
-        "name": "Estonian",
-        "all names": "Estonian",
-        "code1": "est",
-        "code2": "et"
-    },
-    {
-        "name": "Ewe",
-        "all names": "Ewe",
-        "code1": "ewe",
-        "code2": "ee"
-    },
-    {
-        "name": "Ewondo",
-        "all names": "Ewondo",
-        "code1": "ewo",
-        "code2": ""
-    },
-    {
-        "name": "Fang",
-        "all names": "Fang",
-        "code1": "fan",
-        "code2": ""
-    },
-    {
-        "name": "Fanti",
-        "all names": "Fanti",
-        "code1": "fat",
-        "code2": ""
-    },
-    {
-        "name": "Faroese",
-        "all names": "Faroese",
-        "code1": "fao",
-        "code2": "fo"
-    },
-    {
-        "name": "Fijian",
-        "all names": "Fijian",
-        "code1": "fij",
-        "code2": "fj"
-    },
-    {
-        "rank": 42,
-        "native": "28",
-        "percentage": 0.42,
-        "name": "Filipino",
-        "all names": "Filipino;Pilipino",
-        "code1": "fil",
-        "code2": ""
-    },
-    {
-        "name": "Finnish",
-        "all names": "Finnish",
-        "code1": "fin",
-        "code2": "fi"
-    },
-    {
-        "name": "Finno-Ugrian languages",
-        "all names": "Finno-Ugrian languages",
-        "code1": "fiu",
-        "code2": ""
-    },
-    {
-        "name": "Flemish",
-        "all names": "Dutch;Flemish",
-        "code1": "dut/nld",
-        "code2": "nl"
-    },
-    {
-        "name": "Fon",
-        "all names": "Fon",
-        "code1": "fon",
-        "code2": ""
-    },
-    {
-        "rank": 18,
-        "native": "75",
-        "percentage": 1.12,
-        "name": "French",
-        "all names": "French",
-        "code1": "fre/fra",
-        "code2": "fr"
-    },
-    {
-        "name": "French, Middle (ca.1400-1600)",
-        "all names": "French, Middle (ca.1400-1600)",
-        "code1": "frm",
-        "code2": ""
-    },
-    {
-        "name": "French, Old (842-ca.1400)",
-        "all names": "French, Old (842-ca.1400)",
-        "code1": "fro",
-        "code2": ""
-    },
-    {
-        "name": "Friulian",
-        "all names": "Friulian",
-        "code1": "fur",
-        "code2": ""
-    },
-    {
-        "name": "Fulah",
-        "all names": "Fulah",
-        "code1": "ful",
-        "code2": "ff"
-    },
-    {
-        "rank": 54,
-        "native": "22",
-        "percentage": 0.33,
-        "name": "Ga",
-        "all names": "Ga",
-        "code1": "gaa",
-        "code2": ""
-    },
-    {
-        "name": "Gaelic",
-        "all names": "Gaelic;Scottish Gaelic",
-        "code1": "gla",
-        "code2": "gd"
-    },
-    {
-        "name": "Galibi Carib",
-        "all names": "Galibi Carib",
-        "code1": "car",
-        "code2": ""
-    },
-    {
-        "name": "Galician",
-        "all names": "Galician",
-        "code1": "glg",
-        "code2": "gl"
-    },
-    {
-        "name": "Ganda",
-        "all names": "Ganda",
-        "code1": "lug",
-        "code2": "lg"
-    },
-    {
-        "name": "Gayo",
-        "all names": "Gayo",
-        "code1": "gay",
-        "code2": ""
-    },
-    {
-        "name": "Gbaya",
-        "all names": "Gbaya",
-        "code1": "gba",
-        "code2": ""
-    },
-    {
-        "name": "Geez",
-        "all names": "Geez",
-        "code1": "gez",
-        "code2": ""
-    },
-    {
-        "name": "Georgian",
-        "all names": "Georgian",
-        "code1": "geo/kat",
-        "code2": "ka"
-    },
-    {
-        "rank": 11,
-        "native": "92 (95)",
-        "percentage": 1.39,
-        "name": "German",
-        "all names": "German",
-        "code1": "ger/deu",
-        "code2": "de"
-    },
-    {
-        "name": "German, Low",
-        "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
-        "code1": "nds",
-        "code2": ""
-    },
-    {
-        "name": "German, Middle High (ca.1050-1500)",
-        "all names": "German, Middle High (ca.1050-1500)",
-        "code1": "gmh",
-        "code2": ""
-    },
-    {
-        "name": "German, Old High (ca.750-1050)",
-        "all names": "German, Old High (ca.750-1050)",
-        "code1": "goh",
-        "code2": ""
-    },
-    {
-        "name": "Germanic languages",
-        "all names": "Germanic languages",
-        "code1": "gem",
-        "code2": ""
-    },
-    {
-        "name": "Gikuyu",
-        "all names": "Kikuyu;Gikuyu",
-        "code1": "kik",
-        "code2": "ki"
-    },
-    {
-        "name": "Gilbertese",
-        "all names": "Gilbertese",
-        "code1": "gil",
-        "code2": ""
-    },
-    {
-        "name": "Gondi",
-        "all names": "Gondi",
-        "code1": "gon",
-        "code2": ""
-    },
-    {
-        "name": "Gorontalo",
-        "all names": "Gorontalo",
-        "code1": "gor",
-        "code2": ""
-    },
-    {
-        "name": "Gothic",
-        "all names": "Gothic",
-        "code1": "got",
-        "code2": ""
-    },
-    {
-        "name": "Grebo",
-        "all names": "Grebo",
-        "code1": "grb",
-        "code2": ""
-    },
-    {
-        "name": "Greek, Ancient (to 1453)",
-        "all names": "Greek, Ancient (to 1453)",
-        "code1": "grc",
-        "code2": ""
-    },
-    {
-        "name": "Greek, Modern (1453-)",
-        "all names": "Greek, Modern (1453-)",
-        "code1": "gre/ell",
-        "code2": "el"
-    },
-    {
-        "name": "Greenlandic",
-        "all names": "Kalaallisut;Greenlandic",
-        "code1": "kal",
-        "code2": "kl"
-    },
-    {
-        "name": "Guarani",
-        "all names": "Guarani",
-        "code1": "grn",
-        "code2": "gn"
-    },
-    {
-        "rank": 26,
-        "native": "49",
-        "percentage": 0.74,
-        "name": "Gujarati",
-        "all names": "Gujarati",
-        "code1": "guj",
-        "code2": "gu"
-    },
-    {
-        "name": "Gwich'in",
-        "all names": "Gwich'in",
-        "code1": "gwi",
-        "code2": ""
-    },
-    {
-        "name": "Haida",
-        "all names": "Haida",
-        "code1": "hai",
-        "code2": ""
-    },
-    {
-        "rank": 86,
-        "native": "9.6",
-        "percentage": 0.15,
-        "name": "Haitian",
-        "all names": "Haitian;Haitian Creole",
-        "code1": "hat",
-        "code2": "ht"
-    },
-    {
-        "rank": 86,
-        "native": "9.6",
-        "percentage": 0.15,
-        "name": "Haitian Creole",
-        "all names": "Haitian;Haitian Creole",
-        "code1": "hat",
-        "code2": "ht"
-    },
-    {
-        "rank": 36,
-        "native": "34",
-        "percentage": 0.52,
-        "name": "Hausa",
-        "all names": "Hausa",
-        "code1": "hau",
-        "code2": "ha"
-    },
-    {
-        "name": "Hawaiian",
-        "all names": "Hawaiian",
-        "code1": "haw",
-        "code2": ""
-    },
-    {
-        "name": "Hebrew",
-        "all names": "Hebrew",
-        "code1": "heb",
-        "code2": "he"
-    },
-    {
-        "name": "Herero",
-        "all names": "Herero",
-        "code1": "her",
-        "code2": "hz"
-    },
-    {
-        "rank": 95,
-        "native": "8.2",
-        "percentage": 0.12,
-        "name": "Hiligaynon",
-        "all names": "Hiligaynon",
-        "code1": "hil",
-        "code2": ""
-    },
-    {
-        "name": "Himachali languages",
-        "all names": "Himachali languages;Western Pahari languages",
-        "code1": "him",
-        "code2": ""
-    },
-    {
-        "rank": 4,
-        "native": "295 (310)",
-        "percentage": 4.46,
-        "name": "Hindi",
-        "all names": "Hindi",
-        "code1": "hin",
-        "code2": "hi"
-    },
-    {
-        "name": "Hiri Motu",
-        "all names": "Hiri Motu",
-        "code1": "hmo",
-        "code2": "ho"
-    },
-    {
-        "name": "Hittite",
-        "all names": "Hittite",
-        "code1": "hit",
-        "code2": ""
-    },
-    {
-        "rank": 92,
-        "native": "8.4",
-        "percentage": 0.13,
-        "name": "Hmong",
-        "all names": "Hmong;Mong",
-        "code1": "hmn",
-        "code2": ""
-    },
-    {
-        "rank": 73,
-        "native": "13",
-        "percentage": 0.19,
-        "name": "Hungarian",
-        "all names": "Hungarian",
-        "code1": "hun",
-        "code2": "hu"
-    },
-    {
-        "name": "Hupa",
-        "all names": "Hupa",
-        "code1": "hup",
-        "code2": ""
-    },
-    {
-        "name": "Iban",
-        "all names": "Iban",
-        "code1": "iba",
-        "code2": ""
-    },
-    {
-        "name": "Icelandic",
-        "all names": "Icelandic",
-        "code1": "ice/isl",
-        "code2": "is"
-    },
-    {
-        "name": "Ido",
-        "all names": "Ido",
-        "code1": "ido",
-        "code2": "io"
-    },
-    {
-        "rank": 51,
-        "native": "24",
-        "percentage": 0.36,
-        "name": "Igbo",
-        "all names": "Igbo",
-        "code1": "ibo",
-        "code2": "ig"
-    },
-    {
-        "name": "Ijo languages",
-        "all names": "Ijo languages",
-        "code1": "ijo",
-        "code2": ""
-    },
-    {
-        "name": "Iloko",
-        "all names": "Iloko",
-        "code1": "ilo",
-        "code2": ""
-    },
-    {
-        "name": "Imperial Aramaic (700-300 BCE)",
-        "all names": "Official Aramaic (700-300 BCE);Imperial Aramaic (700-300 BCE)",
-        "code1": "arc",
-        "code2": ""
-    },
-    {
-        "name": "Inari Sami",
-        "all names": "Inari Sami",
-        "code1": "smn",
-        "code2": ""
-    },
-    {
-        "name": "Indic languages",
-        "all names": "Indic languages",
-        "code1": "inc",
-        "code2": ""
-    },
-    {
-        "name": "Indo-European languages",
-        "all names": "Indo-European languages",
-        "code1": "ine",
-        "code2": ""
-    },
-    {
-        "rank": 14,
-        "native": "77",
-        "percentage": 1.16,
-        "name": "Indonesian",
-        "all names": "Indonesian",
-        "code1": "ind",
-        "code2": "id"
-    },
-    {
-        "name": "Ingush",
-        "all names": "Ingush",
-        "code1": "inh",
-        "code2": ""
-    },
-    {
-        "name": "Interlingua (International Auxiliary Language Association)",
-        "all names": "Interlingua (International Auxiliary Language Association)",
-        "code1": "ina",
-        "code2": "ia"
-    },
-    {
-        "name": "Interlingue",
-        "all names": "Interlingue;Occidental",
-        "code1": "ile",
-        "code2": "ie"
-    },
-    {
-        "name": "Inuktitut",
-        "all names": "Inuktitut",
-        "code1": "iku",
-        "code2": "iu"
-    },
-    {
-        "name": "Inupiaq",
-        "all names": "Inupiaq",
-        "code1": "ipk",
-        "code2": "ik"
-    },
-    {
-        "name": "Iranian languages",
-        "all names": "Iranian languages",
-        "code1": "ira",
-        "code2": ""
-    },
-    {
-        "name": "Irish",
-        "all names": "Irish",
-        "code1": "gle",
-        "code2": "ga"
-    },
-    {
-        "name": "Irish, Middle (900-1200)",
-        "all names": "Irish, Middle (900-1200)",
-        "code1": "mga",
-        "code2": ""
-    },
-    {
-        "name": "Irish, Old (to 900)",
-        "all names": "Irish, Old (to 900)",
-        "code1": "sga",
-        "code2": ""
-    },
-    {
-        "name": "Iroquoian languages",
-        "all names": "Iroquoian languages",
-        "code1": "iro",
-        "code2": ""
-    },
-    {
-        "rank": 23,
-        "native": "59",
-        "percentage": 0.9,
-        "name": "Italian",
-        "all names": "Italian",
-        "code1": "ita",
-        "code2": "it"
-    },
-    {
-        "rank": 9,
-        "native": "125 (125)",
-        "percentage": 1.92,
-        "name": "Japanese",
-        "all names": "Japanese",
-        "code1": "jpn",
-        "code2": "ja"
-    },
-    {
-        "rank": 12,
-        "native": "82",
-        "percentage": 1.25,
-        "name": "Javanese",
-        "all names": "Javanese",
-        "code1": "jav",
-        "code2": "jv"
-    },
-    {
-        "name": "Jingpho",
-        "all names": "Kachin;Jingpho",
-        "code1": "kac",
-        "code2": ""
-    },
-    {
-        "name": "Judeo-Arabic",
-        "all names": "Judeo-Arabic",
-        "code1": "jrb",
-        "code2": ""
-    },
-    {
-        "name": "Judeo-Persian",
-        "all names": "Judeo-Persian",
-        "code1": "jpr",
-        "code2": ""
-    },
-    {
-        "name": "Kabardian",
-        "all names": "Kabardian",
-        "code1": "kbd",
-        "code2": ""
-    },
-    {
-        "name": "Kabyle",
-        "all names": "Kabyle",
-        "code1": "kab",
-        "code2": ""
-    },
-    {
-        "name": "Kachin",
-        "all names": "Kachin;Jingpho",
-        "code1": "kac",
-        "code2": ""
-    },
-    {
-        "name": "Kalaallisut",
-        "all names": "Kalaallisut;Greenlandic",
-        "code1": "kal",
-        "code2": "kl"
-    },
-    {
-        "name": "Kalmyk",
-        "all names": "Kalmyk;Oirat",
-        "code1": "xal",
-        "code2": ""
-    },
-    {
-        "name": "Kamba",
-        "all names": "Kamba",
-        "code1": "kam",
-        "code2": ""
-    },
-    {
-        "rank": 32,
-        "native": "38",
-        "percentage": 0.58,
-        "name": "Kannada",
-        "all names": "Kannada",
-        "code1": "kan",
-        "code2": "kn"
-    },
-    {
-        "name": "Kanuri",
-        "all names": "Kanuri",
-        "code1": "kau",
-        "code2": "kr"
-    },
-    {
-        "name": "Kapampangan",
-        "all names": "Pampanga;Kapampangan",
-        "code1": "pam",
-        "code2": ""
-    },
-    {
-        "name": "Kara-Kalpak",
-        "all names": "Kara-Kalpak",
-        "code1": "kaa",
-        "code2": ""
-    },
-    {
-        "name": "Karachay-Balkar",
-        "all names": "Karachay-Balkar",
-        "code1": "krc",
-        "code2": ""
-    },
-    {
-        "name": "Karelian",
-        "all names": "Karelian",
-        "code1": "krl",
-        "code2": ""
-    },
-    {
-        "name": "Karen languages",
-        "all names": "Karen languages",
-        "code1": "kar",
-        "code2": ""
-    },
-    {
-        "name": "Kashmiri",
-        "all names": "Kashmiri",
-        "code1": "kas",
-        "code2": "ks"
-    },
-    {
-        "name": "Kashubian",
-        "all names": "Kashubian",
-        "code1": "csb",
-        "code2": ""
-    },
-    {
-        "name": "Kawi",
-        "all names": "Kawi",
-        "code1": "kaw",
-        "code2": ""
-    },
-    {
-        "rank": 79,
-        "native": "11",
-        "percentage": 0.17,
-        "name": "Kazakh",
-        "all names": "Kazakh",
-        "code1": "kaz",
-        "code2": "kk"
-    },
-    {
-        "name": "Khasi",
-        "all names": "Khasi",
-        "code1": "kha",
-        "code2": ""
-    },
-    {
-        "name": "Khoisan languages",
-        "all names": "Khoisan languages",
-        "code1": "khi",
-        "code2": ""
-    },
-    {
-        "name": "Khotanese",
-        "all names": "Khotanese;Sakan",
-        "code1": "kho",
-        "code2": ""
-    },
-    {
-        "name": "Kikuyu",
-        "all names": "Kikuyu;Gikuyu",
-        "code1": "kik",
-        "code2": "ki"
-    },
-    {
-        "name": "Kimbundu",
-        "all names": "Kimbundu",
-        "code1": "kmb",
-        "code2": ""
-    },
-    {
-        "rank": 84,
-        "native": "9.8",
-        "percentage": 0.15,
-        "name": "Kinyarwanda",
-        "all names": "Kinyarwanda",
-        "code1": "kin",
-        "code2": "rw"
-    },
-    {
-        "name": "Kirdki",
-        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
-        "code1": "zza",
-        "code2": ""
-    },
-    {
-        "name": "Kirghiz",
-        "all names": "Kirghiz;Kyrgyz",
-        "code1": "kir",
-        "code2": "ky"
-    },
-    {
-        "name": "Kirmanjki",
-        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
-        "code1": "zza",
-        "code2": ""
-    },
-    {
-        "name": "Klingon",
-        "all names": "Klingon;tlhIngan-Hol",
-        "code1": "tlh",
-        "code2": ""
-    },
-    {
-        "name": "Komi",
-        "all names": "Komi",
-        "code1": "kom",
-        "code2": "kv"
-    },
-    {
-        "name": "Kongo",
-        "all names": "Kongo",
-        "code1": "kon",
-        "code2": "kg"
-    },
-    {
-        "rank": 100,
-        "native": "7.4",
-        "percentage": 0.11,
-        "name": "Konkani",
-        "all names": "Konkani",
-        "code1": "kok",
-        "code2": ""
-    },
-    {
-        "rank": 17,
-        "native": "76",
-        "percentage": 1.14,
-        "name": "Korean",
-        "all names": "Korean",
-        "code1": "kor",
-        "code2": "ko"
-    },
-    {
-        "name": "Kosraean",
-        "all names": "Kosraean",
-        "code1": "kos",
-        "code2": ""
-    },
-    {
-        "name": "Kpelle",
-        "all names": "Kpelle",
-        "code1": "kpe",
-        "code2": ""
-    },
-    {
-        "name": "Kru languages",
-        "all names": "Kru languages",
-        "code1": "kro",
-        "code2": ""
-    },
-    {
-        "name": "Kuanyama",
-        "all names": "Kuanyama;Kwanyama",
-        "code1": "kua",
-        "code2": "kj"
-    },
-    {
-        "name": "Kumyk",
-        "all names": "Kumyk",
-        "code1": "kum",
-        "code2": ""
-    },
-    {
-        "rank": 57,
-        "native": "21",
-        "percentage": 0.31,
-        "name": "Kurdish",
-        "all names": "Kurdish",
-        "code1": "kur",
-        "code2": "ku"
-    },
-    {
-        "name": "Kurukh",
-        "all names": "Kurukh",
-        "code1": "kru",
-        "code2": ""
-    },
-    {
-        "name": "Kutenai",
-        "all names": "Kutenai",
-        "code1": "kut",
-        "code2": ""
-    },
-    {
-        "name": "Kwanyama",
-        "all names": "Kuanyama;Kwanyama",
-        "code1": "kua",
-        "code2": "kj"
-    },
-    {
-        "name": "Kyrgyz",
-        "all names": "Kirghiz;Kyrgyz",
-        "code1": "kir",
-        "code2": "ky"
-    },
-    {
-        "name": "Ladino",
-        "all names": "Ladino",
-        "code1": "lad",
-        "code2": ""
-    },
-    {
-        "name": "Lahnda",
-        "all names": "Lahnda",
-        "code1": "lah",
-        "code2": ""
-    },
-    {
-        "name": "Lamba",
-        "all names": "Lamba",
-        "code1": "lam",
-        "code2": ""
-    },
-    {
-        "name": "Land Dayak languages",
-        "all names": "Land Dayak languages",
-        "code1": "day",
-        "code2": ""
-    },
-    {
-        "name": "Lao",
-        "all names": "Lao",
-        "code1": "lao",
-        "code2": "lo"
-    },
-    {
-        "name": "Latin",
-        "all names": "Latin",
-        "code1": "lat",
-        "code2": "la"
-    },
-    {
-        "name": "Latvian",
-        "all names": "Latvian",
-        "code1": "lav",
-        "code2": "lv"
-    },
-    {
-        "name": "Leonese",
-        "all names": "Asturian;Bable;Leonese;Asturleonese",
-        "code1": "ast",
-        "code2": ""
-    },
-    {
-        "name": "Letzeburgesch",
-        "all names": "Luxembourgish;Letzeburgesch",
-        "code1": "ltz",
-        "code2": "lb"
-    },
-    {
-        "name": "Lezghian",
-        "all names": "Lezghian",
-        "code1": "lez",
-        "code2": ""
-    },
-    {
-        "name": "Limburgan",
-        "all names": "Limburgan;Limburger;Limburgish",
-        "code1": "lim",
-        "code2": "li"
-    },
-    {
-        "name": "Limburger",
-        "all names": "Limburgan;Limburger;Limburgish",
-        "code1": "lim",
-        "code2": "li"
-    },
-    {
-        "name": "Limburgish",
-        "all names": "Limburgan;Limburger;Limburgish",
-        "code1": "lim",
-        "code2": "li"
-    },
-    {
-        "name": "Lingala",
-        "all names": "Lingala",
-        "code1": "lin",
-        "code2": "ln"
-    },
-    {
-        "name": "Lithuanian",
-        "all names": "Lithuanian",
-        "code1": "lit",
-        "code2": "lt"
-    },
-    {
-        "name": "Lojban",
-        "all names": "Lojban",
-        "code1": "jbo",
-        "code2": ""
-    },
-    {
-        "name": "Low German",
-        "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
-        "code1": "nds",
-        "code2": ""
-    },
-    {
-        "name": "Low Saxon",
-        "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
-        "code1": "nds",
-        "code2": ""
-    },
-    {
-        "name": "Lower Sorbian",
-        "all names": "Lower Sorbian",
-        "code1": "dsb",
-        "code2": ""
-    },
-    {
-        "name": "Lozi",
-        "all names": "Lozi",
-        "code1": "loz",
-        "code2": ""
-    },
-    {
-        "name": "Luba-Katanga",
-        "all names": "Luba-Katanga",
-        "code1": "lub",
-        "code2": "lu"
-    },
-    {
-        "name": "Luba-Lulua",
-        "all names": "Luba-Lulua",
-        "code1": "lua",
-        "code2": ""
-    },
-    {
-        "name": "Luiseno",
-        "all names": "Luiseno",
-        "code1": "lui",
-        "code2": ""
-    },
-    {
-        "name": "Lule Sami",
-        "all names": "Lule Sami",
-        "code1": "smj",
-        "code2": ""
-    },
-    {
-        "name": "Lunda",
-        "all names": "Lunda",
-        "code1": "lun",
-        "code2": ""
-    },
-    {
-        "name": "Luo (Kenya and Tanzania)",
-        "all names": "Luo (Kenya and Tanzania)",
-        "code1": "luo",
-        "code2": ""
-    },
-    {
-        "name": "Lushai",
-        "all names": "Lushai",
-        "code1": "lus",
-        "code2": ""
-    },
-    {
-        "name": "Luxembourgish",
-        "all names": "Luxembourgish;Letzeburgesch",
-        "code1": "ltz",
-        "code2": "lb"
-    },
-    {
-        "name": "Macedo-Romanian",
-        "all names": "Aromanian;Arumanian;Macedo-Romanian",
-        "code1": "rup",
-        "code2": ""
-    },
-    {
-        "name": "Macedonian",
-        "all names": "Macedonian",
-        "code1": "mac/mkd",
-        "code2": "mk"
-    },
-    {
-        "rank": 68,
-        "native": "15",
-        "percentage": 0.23,
-        "name": "Madurese",
-        "all names": "Madurese",
-        "code1": "mad",
-        "code2": ""
-    },
-    {
-        "rank": 71,
-        "native": "14",
-        "percentage": 0.21,
-        "name": "Magahi",
-        "all names": "Magahi",
-        "code1": "mag",
-        "code2": ""
-    },
-    {
-        "rank": 44,
-        "native": "27",
-        "percentage": 0.41,
-        "name": "Maithili",
-        "all names": "Maithili",
-        "code1": "mai",
-        "code2": ""
-    },
-    {
-        "name": "Makasar",
-        "all names": "Makasar",
-        "code1": "mak",
-        "code2": ""
-    },
-    {
-        "rank": 59,
-        "native": "18",
-        "percentage": 0.28,
-        "name": "Malagasy",
-        "all names": "Malagasy",
-        "code1": "mlg",
-        "code2": "mg"
-    },
-    {
-        "rank": 14,
-        "native": "77",
-        "percentage": 1.16,
-        "name": "Malay",
-        "all names": "Malay",
-        "code1": "may/msa",
-        "code2": "ms"
-    },
-    {
-        "rank": 34,
-        "native": "38",
-        "percentage": 0.57,
-        "name": "Malayalam",
-        "all names": "Malayalam",
-        "code1": "mal",
-        "code2": "ml"
-    },
-    {
-        "name": "Maldivian",
-        "all names": "Divehi;Dhivehi;Maldivian",
-        "code1": "div",
-        "code2": "dv"
-    },
-    {
-        "name": "Maltese",
-        "all names": "Maltese",
-        "code1": "mlt",
-        "code2": "mt"
-    },
-    {
-        "name": "Manchu",
-        "all names": "Manchu",
-        "code1": "mnc",
-        "code2": ""
-    },
-    {
-        "rank": 1,
-        "native": "935 (955)",
-        "percentage": 14.1,
-        "name": "Mandar",
-        "all names": "Mandar",
-        "code1": "mdr",
-        "code2": ""
-    },
-    {
-        "name": "Mandingo",
-        "all names": "Mandingo",
-        "code1": "man",
-        "code2": ""
-    },
-    {
-        "name": "Manipuri",
-        "all names": "Manipuri",
-        "code1": "mni",
-        "code2": ""
-    },
-    {
-        "name": "Manobo languages",
-        "all names": "Manobo languages",
-        "code1": "mno",
-        "code2": ""
-    },
-    {
-        "name": "Manx",
-        "all names": "Manx",
-        "code1": "glv",
-        "code2": "gv"
-    },
-    {
-        "name": "Maori",
-        "all names": "Maori",
-        "code1": "mao/mri",
-        "code2": "mi"
-    },
-    {
-        "name": "Mapuche",
-        "all names": "Mapudungun;Mapuche",
-        "code1": "arn",
-        "code2": ""
-    },
-    {
-        "name": "Mapudungun",
-        "all names": "Mapudungun;Mapuche",
-        "code1": "arn",
-        "code2": ""
-    },
-    {
-        "rank": 19,
-        "native": "73",
-        "percentage": 1.1,
-        "name": "Marathi",
-        "all names": "Marathi",
-        "code1": "mar",
-        "code2": "mr"
-    },
-    {
-        "name": "Mari",
-        "all names": "Mari",
-        "code1": "chm",
-        "code2": ""
-    },
-    {
-        "name": "Marshallese",
-        "all names": "Marshallese",
-        "code1": "mah",
-        "code2": "mh"
-    },
-    {
-        "rank": 70,
-        "native": "14",
-        "percentage": 0.21,
-        "name": "Marwari",
-        "all names": "Marwari",
-        "code1": "mwr",
-        "code2": ""
-    },
-    {
-        "name": "Masai",
-        "all names": "Masai",
-        "code1": "mas",
-        "code2": ""
-    },
-    {
-        "name": "Mayan languages",
-        "all names": "Mayan languages",
-        "code1": "myn",
-        "code2": ""
-    },
-    {
-        "name": "Mende",
-        "all names": "Mende",
-        "code1": "men",
-        "code2": ""
-    },
-    {
-        "name": "Mi'kmaq",
-        "all names": "Mi'kmaq;Micmac",
-        "code1": "mic",
-        "code2": ""
-    },
-    {
-        "name": "Micmac",
-        "all names": "Mi'kmaq;Micmac",
-        "code1": "mic",
-        "code2": ""
-    },
-    {
-        "name": "Minangkabau",
-        "all names": "Minangkabau",
-        "code1": "min",
-        "code2": ""
-    },
-    {
-        "name": "Mirandese",
-        "all names": "Mirandese",
-        "code1": "mwl",
-        "code2": ""
-    },
-    {
-        "name": "Mohawk",
-        "all names": "Mohawk",
-        "code1": "moh",
-        "code2": ""
-    },
-    {
-        "name": "Moksha",
-        "all names": "Moksha",
-        "code1": "mdf",
-        "code2": ""
-    },
-    {
-        "name": "Moldavian",
-        "all names": "Romanian;Moldavian;Moldovan",
-        "code1": "rum/ron",
-        "code2": "ro"
-    },
-    {
-        "name": "Moldovan",
-        "all names": "Romanian;Moldavian;Moldovan",
-        "code1": "rum/ron",
-        "code2": "ro"
-    },
-    {
-        "name": "Mon-Khmer languages",
-        "all names": "Mon-Khmer languages",
-        "code1": "mkh",
-        "code2": ""
-    },
-    {
-        "name": "Mong",
-        "all names": "Hmong;Mong",
-        "code1": "hmn",
-        "code2": ""
-    },
-    {
-        "name": "Mongo",
-        "all names": "Mongo",
-        "code1": "lol",
-        "code2": ""
-    },
-    {
-        "name": "Mongolian",
-        "all names": "Mongolian",
-        "code1": "mon",
-        "code2": "mn"
-    },
-    {
-        "name": "Montenegrin",
-        "all names": "Montenegrin",
-        "code1": "cnr",
-        "code2": ""
-    },
-    {
-        "rank": 96,
-        "native": "7.6",
-        "percentage": 0.11,
-        "name": "Mossi",
-        "all names": "Mossi",
-        "code1": "mos",
-        "code2": ""
-    },
-    {
-        "name": "Multiple languages",
-        "all names": "Multiple languages",
-        "code1": "mul",
-        "code2": ""
-    },
-    {
-        "name": "Munda languages",
-        "all names": "Munda languages",
-        "code1": "mun",
-        "code2": ""
-    },
-    {
-        "name": "N'Ko",
-        "all names": "N'Ko",
-        "code1": "nqo",
-        "code2": ""
-    },
-    {
-        "name": "Nahuatl languages",
-        "all names": "Nahuatl languages",
-        "code1": "nah",
-        "code2": ""
-    },
-    {
-        "name": "Nauru",
-        "all names": "Nauru",
-        "code1": "nau",
-        "code2": "na"
-    },
-    {
-        "name": "Navaho",
-        "all names": "Navajo;Navaho",
-        "code1": "nav",
-        "code2": "nv"
-    },
-    {
-        "name": "Navajo",
-        "all names": "Navajo;Navaho",
-        "code1": "nav",
-        "code2": "nv"
-    },
-    {
-        "name": "Ndebele, North",
-        "all names": "Ndebele, North;North Ndebele",
-        "code1": "nde",
-        "code2": "nd"
-    },
-    {
-        "name": "Ndebele, South",
-        "all names": "Ndebele, South;South Ndebele",
-        "code1": "nbl",
-        "code2": "nr"
-    },
-    {
-        "name": "Ndonga",
-        "all names": "Ndonga",
-        "code1": "ndo",
-        "code2": "ng"
-    },
-    {
-        "name": "Neapolitan",
-        "all names": "Neapolitan",
-        "code1": "nap",
-        "code2": ""
-    },
-    {
-        "name": "Nepal Bhasa",
-        "all names": "Nepal Bhasa;Newari",
-        "code1": "new",
-        "code2": ""
-    },
-    {
-        "rank": 61,
-        "native": "17",
-        "percentage": 0.25,
-        "name": "Nepali",
-        "all names": "Nepali",
-        "code1": "nep",
-        "code2": "ne"
-    },
-    {
-        "name": "Newari",
-        "all names": "Nepal Bhasa;Newari",
-        "code1": "new",
-        "code2": ""
-    },
-    {
-        "name": "Nias",
-        "all names": "Nias",
-        "code1": "nia",
-        "code2": ""
-    },
-    {
-        "name": "Niger-Kordofanian languages",
-        "all names": "Niger-Kordofanian languages",
-        "code1": "nic",
-        "code2": ""
-    },
-    {
-        "name": "Nilo-Saharan languages",
-        "all names": "Nilo-Saharan languages",
-        "code1": "ssa",
-        "code2": ""
-    },
-    {
-        "name": "Niuean",
-        "all names": "Niuean",
-        "code1": "niu",
-        "code2": ""
-    },
-    {
-        "name": "No linguistic content",
-        "all names": "No linguistic content;Not applicable",
-        "code1": "zxx",
-        "code2": ""
-    },
-    {
-        "name": "Nogai",
-        "all names": "Nogai",
-        "code1": "nog",
-        "code2": ""
-    },
-    {
-        "name": "Norse, Old",
-        "all names": "Norse, Old",
-        "code1": "non",
-        "code2": ""
-    },
-    {
-        "name": "North American Indian languages",
-        "all names": "North American Indian languages",
-        "code1": "nai",
-        "code2": ""
-    },
-    {
-        "name": "North Ndebele",
-        "all names": "Ndebele, North;North Ndebele",
-        "code1": "nde",
-        "code2": "nd"
-    },
-    {
-        "name": "Northern Frisian",
-        "all names": "Northern Frisian",
-        "code1": "frr",
-        "code2": ""
-    },
-    {
-        "name": "Northern Sami",
-        "all names": "Northern Sami",
-        "code1": "sme",
-        "code2": "se"
-    },
-    {
-        "name": "Northern Sotho",
-        "all names": "Pedi;Sepedi;Northern Sotho",
-        "code1": "nso",
-        "code2": ""
-    },
-    {
-        "name": "Norwegian",
-        "all names": "Norwegian",
-        "code1": "nor",
-        "code2": "no"
-    },
-    {
-        "name": "Norwegian Bokmål",
-        "all names": "Bokmål, Norwegian;Norwegian Bokmål",
-        "code1": "nob",
-        "code2": "nb"
-    },
-    {
-        "name": "Norwegian Nynorsk",
-        "all names": "Norwegian Nynorsk;Nynorsk, Norwegian",
-        "code1": "nno",
-        "code2": "nn"
-    },
-    {
-        "name": "Not applicable",
-        "all names": "No linguistic content;Not applicable",
-        "code1": "zxx",
-        "code2": ""
-    },
-    {
-        "name": "Nubian languages",
-        "all names": "Nubian languages",
-        "code1": "nub",
-        "code2": ""
-    },
-    {
-        "name": "Nuosu",
-        "all names": "Sichuan Yi;Nuosu",
-        "code1": "iii",
-        "code2": "ii"
-    },
-    {
-        "name": "Nyamwezi",
-        "all names": "Nyamwezi",
-        "code1": "nym",
-        "code2": ""
-    },
-    {
-        "name": "Nyanja",
-        "all names": "Chichewa;Chewa;Nyanja",
-        "code1": "nya",
-        "code2": "ny"
-    },
-    {
-        "name": "Nyankole",
-        "all names": "Nyankole",
-        "code1": "nyn",
-        "code2": ""
-    },
-    {
-        "name": "Nynorsk, Norwegian",
-        "all names": "Norwegian Nynorsk;Nynorsk, Norwegian",
-        "code1": "nno",
-        "code2": "nn"
-    },
-    {
-        "name": "Nyoro",
-        "all names": "Nyoro",
-        "code1": "nyo",
-        "code2": ""
-    },
-    {
-        "name": "Nzima",
-        "all names": "Nzima",
-        "code1": "nzi",
-        "code2": ""
-    },
-    {
-        "name": "Occidental",
-        "all names": "Interlingue;Occidental",
-        "code1": "ile",
-        "code2": "ie"
-    },
-    {
-        "name": "Occitan (post 1500)",
-        "all names": "Occitan (post 1500)",
-        "code1": "oci",
-        "code2": "oc"
-    },
-    {
-        "name": "Occitan, Old (to 1500)",
-        "all names": "Provençal, Old (to 1500);Occitan, Old (to 1500)",
-        "code1": "pro",
-        "code2": ""
-    },
-    {
-        "name": "Official Aramaic (700-300 BCE)",
-        "all names": "Official Aramaic (700-300 BCE);Imperial Aramaic (700-300 BCE)",
-        "code1": "arc",
-        "code2": ""
-    },
-    {
-        "name": "Oirat",
-        "all names": "Kalmyk;Oirat",
-        "code1": "xal",
-        "code2": ""
-    },
-    {
-        "name": "Ojibwa",
-        "all names": "Ojibwa",
-        "code1": "oji",
-        "code2": "oj"
-    },
-    {
-        "name": "Old Bulgarian",
-        "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
-        "code1": "chu",
-        "code2": "cu"
-    },
-    {
-        "name": "Old Church Slavonic",
-        "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
-        "code1": "chu",
-        "code2": "cu"
-    },
-    {
-        "name": "Old Newari",
-        "all names": "Classical Newari;Old Newari;Classical Nepal Bhasa",
-        "code1": "nwc",
-        "code2": ""
-    },
-    {
-        "name": "Old Slavonic",
-        "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
-        "code1": "chu",
-        "code2": "cu"
-    },
-    {
-        "rank": 37,
-        "native": "33",
-        "percentage": 0.5,
-        "name": "Oriya",
-        "all names": "Oriya",
-        "code1": "ori",
-        "code2": "or"
-    },
-    {
-        "rank": 50,
-        "native": "24",
-        "percentage": 0.36,
-        "name": "Oromo",
-        "all names": "Oromo",
-        "code1": "orm",
-        "code2": "om"
-    },
-    {
-        "name": "Osage",
-        "all names": "Osage",
-        "code1": "osa",
-        "code2": ""
-    },
-    {
-        "name": "Ossetian",
-        "all names": "Ossetian;Ossetic",
-        "code1": "oss",
-        "code2": "os"
-    },
-    {
-        "name": "Ossetic",
-        "all names": "Ossetian;Ossetic",
-        "code1": "oss",
-        "code2": "os"
-    },
-    {
-        "name": "Otomian languages",
-        "all names": "Otomian languages",
-        "code1": "oto",
-        "code2": ""
-    },
-    {
-        "name": "Pahlavi",
-        "all names": "Pahlavi",
-        "code1": "pal",
-        "code2": ""
-    },
-    {
-        "name": "Palauan",
-        "all names": "Palauan",
-        "code1": "pau",
-        "code2": ""
-    },
-    {
-        "name": "Pali",
-        "all names": "Pali",
-        "code1": "pli",
-        "code2": "pi"
-    },
-    {
-        "name": "Pampanga",
-        "all names": "Pampanga;Kapampangan",
-        "code1": "pam",
-        "code2": ""
-    },
-    {
-        "name": "Pangasinan",
-        "all names": "Pangasinan",
-        "code1": "pag",
-        "code2": ""
-    },
-    {
-        "name": "Panjabi",
-        "all names": "Panjabi;Punjabi",
-        "code1": "pan",
-        "code2": "pa"
-    },
-    {
-        "name": "Papiamento",
-        "all names": "Papiamento",
-        "code1": "pap",
-        "code2": ""
-    },
-    {
-        "name": "Papuan languages",
-        "all names": "Papuan languages",
-        "code1": "paa",
-        "code2": ""
-    },
-    {
-        "rank": 31,
-        "native": "39",
-        "percentage": 0.58,
-        "name": "Pashto",
-        "all names": "Pushto;Pashto",
-        "code1": "pus",
-        "code2": "ps"
-    },
-    {
-        "name": "Pedi",
-        "all names": "Pedi;Sepedi;Northern Sotho",
-        "code1": "nso",
-        "code2": ""
-    },
-    {
-        "rank": 29,
-        "native": "45",
-        "percentage": 0.68,
-        "name": "Persian",
-        "all names": "Persian",
-        "code1": "per/fas",
-        "code2": "fa"
-    },
-    {
-        "name": "Persian, Old (ca.600-400 B.C.)",
-        "all names": "Persian, Old (ca.600-400 B.C.)",
-        "code1": "peo",
-        "code2": ""
-    },
-    {
-        "name": "Philippine languages",
-        "all names": "Philippine languages",
-        "code1": "phi",
-        "code2": ""
-    },
-    {
-        "name": "Phoenician",
-        "all names": "Phoenician",
-        "code1": "phn",
-        "code2": ""
-    },
-    {
-        "name": "Pilipino",
-        "all names": "Filipino;Pilipino",
-        "code1": "fil",
-        "code2": ""
-    },
-    {
-        "name": "Pohnpeian",
-        "all names": "Pohnpeian",
-        "code1": "pon",
-        "code2": ""
-    },
-    {
-        "rank": 30,
-        "native": "40",
-        "percentage": 0.61,
-        "name": "Polish",
-        "all names": "Polish",
-        "code1": "pol",
-        "code2": "pl"
-    },
-    {
-        "rank": 6,
-        "native": "205 (215)",
-        "percentage": 3.08,
-        "name": "Portuguese",
-        "all names": "Portuguese",
-        "code1": "por",
-        "code2": "pt"
-    },
-    {
-        "name": "Prakrit languages",
-        "all names": "Prakrit languages",
-        "code1": "pra",
-        "code2": ""
-    },
-    {
-        "name": "Provençal, Old (to 1500)",
-        "all names": "Provençal, Old (to 1500);Occitan, Old (to 1500)",
-        "code1": "pro",
-        "code2": ""
-    },
-    {
-        "rank": 10,
-        "native": "95 (100)",
-        "percentage": 1.44,
-        "name": "Punjabi",
-        "all names": "Panjabi;Punjabi",
-        "code1": "pan",
-        "code2": "pa"
-    },
-    {
-        "name": "Pushto",
-        "all names": "Pushto;Pashto",
-        "code1": "pus",
-        "code2": "ps"
-    },
-    {
-        "rank": 89,
-        "native": "8.9",
-        "percentage": 0.13,
-        "name": "Quechua",
-        "all names": "Quechua",
-        "code1": "que",
-        "code2": "qu"
-    },
-    {
-        "name": "Rajasthani",
-        "all names": "Rajasthani",
-        "code1": "raj",
-        "code2": ""
-    },
-    {
-        "name": "Rapanui",
-        "all names": "Rapanui",
-        "code1": "rap",
-        "code2": ""
-    },
-    {
-        "name": "Rarotongan",
-        "all names": "Rarotongan;Cook Islands Maori",
-        "code1": "rar",
-        "code2": ""
-    },
-    {
-        "name": "Reserved for local use",
-        "all names": "Reserved for local use",
-        "code1": "qaa-qtz",
-        "code2": ""
-    },
-    {
-        "name": "Romance languages",
-        "all names": "Romance languages",
-        "code1": "roa",
-        "code2": ""
-    },
-    {
-        "rank": 49,
-        "native": "24",
-        "percentage": 0.37,
-        "name": "Romanian",
-        "all names": "Romanian;Moldavian;Moldovan",
-        "code1": "rum/ron",
-        "code2": "ro"
-    },
-    {
-        "name": "Romansh",
-        "all names": "Romansh",
-        "code1": "roh",
-        "code2": "rm"
-    },
-    {
-        "name": "Romany",
-        "all names": "Romany",
-        "code1": "rom",
-        "code2": ""
-    },
-    {
-        "name": "Rundi",
-        "all names": "Rundi",
-        "code1": "run",
-        "code2": "rn"
-    },
-    {
-        "rank": 8,
-        "native": "160 (155)",
-        "percentage": 2.42,
-        "name": "Russian",
-        "all names": "Russian",
-        "code1": "rus",
-        "code2": "ru"
-    },
-    {
-        "name": "Sakan",
-        "all names": "Khotanese;Sakan",
-        "code1": "kho",
-        "code2": ""
-    },
-    {
-        "name": "Salishan languages",
-        "all names": "Salishan languages",
-        "code1": "sal",
-        "code2": ""
-    },
-    {
-        "name": "Samaritan Aramaic",
-        "all names": "Samaritan Aramaic",
-        "code1": "sam",
-        "code2": ""
-    },
-    {
-        "name": "Sami languages",
-        "all names": "Sami languages",
-        "code1": "smi",
-        "code2": ""
-    },
-    {
-        "name": "Samoan",
-        "all names": "Samoan",
-        "code1": "smo",
-        "code2": "sm"
-    },
-    {
-        "name": "Sandawe",
-        "all names": "Sandawe",
-        "code1": "sad",
-        "code2": ""
-    },
-    {
-        "name": "Sango",
-        "all names": "Sango",
-        "code1": "sag",
-        "code2": "sg"
-    },
-    {
-        "name": "Sanskrit",
-        "all names": "Sanskrit",
-        "code1": "san",
-        "code2": "sa"
-    },
-    {
-        "name": "Santali",
-        "all names": "Santali",
-        "code1": "sat",
-        "code2": ""
-    },
-    {
-        "name": "Sardinian",
-        "all names": "Sardinian",
-        "code1": "srd",
-        "code2": "sc"
-    },
-    {
-        "name": "Sasak",
-        "all names": "Sasak",
-        "code1": "sas",
-        "code2": ""
-    },
-    {
-        "name": "Saxon, Low",
-        "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
-        "code1": "nds",
-        "code2": ""
-    },
-    {
-        "name": "Scots",
-        "all names": "Scots",
-        "code1": "sco",
-        "code2": ""
-    },
-    {
-        "name": "Scottish Gaelic",
-        "all names": "Gaelic;Scottish Gaelic",
-        "code1": "gla",
-        "code2": "gd"
-    },
-    {
-        "name": "Selkup",
-        "all names": "Selkup",
-        "code1": "sel",
-        "code2": ""
-    },
-    {
-        "name": "Semitic languages",
-        "all names": "Semitic languages",
-        "code1": "sem",
-        "code2": ""
-    },
-    {
-        "name": "Sepedi",
-        "all names": "Pedi;Sepedi;Northern Sotho",
-        "code1": "nso",
-        "code2": ""
-    },
-    {
-        "name": "Serbian",
-        "all names": "Serbian",
-        "code1": "srp",
-        "code2": "sr"
-    },
-    {
-        "name": "Serer",
-        "all names": "Serer",
-        "code1": "srr",
-        "code2": ""
-    },
-    {
-        "rank": 13,
-        "native": "80",
-        "percentage": 1.2,
-        "name": "Shan",
-        "all names": "Shan",
-        "code1": "shn",
-        "code2": ""
-    },
-    {
-        "rank": 93,
-        "native": "8.3",
-        "percentage": 0.13,
-        "name": "Shona",
-        "all names": "Shona",
-        "code1": "sna",
-        "code2": "sn"
-    },
-    {
-        "name": "Sichuan Yi",
-        "all names": "Sichuan Yi;Nuosu",
-        "code1": "iii",
-        "code2": "ii"
-    },
-    {
-        "name": "Sicilian",
-        "all names": "Sicilian",
-        "code1": "scn",
-        "code2": ""
-    },
-    {
-        "name": "Sidamo",
-        "all names": "Sidamo",
-        "code1": "sid",
-        "code2": ""
-    },
-    {
-        "name": "Sign Languages",
-        "all names": "Sign Languages",
-        "code1": "sgn",
-        "code2": ""
-    },
-    {
-        "name": "Siksika",
-        "all names": "Siksika",
-        "code1": "bla",
-        "code2": ""
-    },
-    {
-        "rank": 46,
-        "native": "26",
-        "percentage": 0.39,
-        "name": "Sindhi",
-        "all names": "Sindhi",
-        "code1": "snd",
-        "code2": "sd"
-    },
-    {
-        "rank": 62,
-        "native": "16",
-        "percentage": 0.25,
-        "name": "Sinhala",
-        "all names": "Sinhala;Sinhalese",
-        "code1": "sin",
-        "code2": "si"
-    },
-    {
-        "name": "Sinhalese",
-        "all names": "Sinhala;Sinhalese",
-        "code1": "sin",
-        "code2": "si"
-    },
-    {
-        "name": "Sino-Tibetan languages",
-        "all names": "Sino-Tibetan languages",
-        "code1": "sit",
-        "code2": ""
-    },
-    {
-        "name": "Siouan languages",
-        "all names": "Siouan languages",
-        "code1": "sio",
-        "code2": ""
-    },
-    {
-        "name": "Skolt Sami",
-        "all names": "Skolt Sami",
-        "code1": "sms",
-        "code2": ""
-    },
-    {
-        "name": "Slave (Athapascan)",
-        "all names": "Slave (Athapascan)",
-        "code1": "den",
-        "code2": ""
-    },
-    {
-        "name": "Slavic languages",
-        "all names": "Slavic languages",
-        "code1": "sla",
-        "code2": ""
-    },
-    {
-        "name": "Slovak",
-        "all names": "Slovak",
-        "code1": "slo/slk",
-        "code2": "sk"
-    },
-    {
-        "name": "Slovenian",
-        "all names": "Slovenian",
-        "code1": "slv",
-        "code2": "sl"
-    },
-    {
-        "name": "Sogdian",
-        "all names": "Sogdian",
-        "code1": "sog",
-        "code2": ""
-    },
-    {
-        "rank": 69,
-        "native": "15",
-        "percentage": 0.22,
-        "name": "Somali",
-        "all names": "Somali",
-        "code1": "som",
-        "code2": "so"
-    },
-    {
-        "name": "Songhai languages",
-        "all names": "Songhai languages",
-        "code1": "son",
-        "code2": ""
-    },
-    {
-        "name": "Soninke",
-        "all names": "Soninke",
-        "code1": "snk",
-        "code2": ""
-    },
-    {
-        "name": "Sorbian languages",
-        "all names": "Sorbian languages",
-        "code1": "wen",
-        "code2": ""
-    },
-    {
-        "name": "Sotho, Northern",
-        "all names": "Pedi;Sepedi;Northern Sotho",
-        "code1": "nso",
-        "code2": ""
-    },
-    {
-        "name": "Sotho, Southern",
-        "all names": "Sotho, Southern",
-        "code1": "sot",
-        "code2": "st"
-    },
-    {
-        "name": "South American Indian languages",
-        "all names": "South American Indian languages",
-        "code1": "sai",
-        "code2": ""
-    },
-    {
-        "name": "South Ndebele",
-        "all names": "Ndebele, South;South Ndebele",
-        "code1": "nbl",
-        "code2": "nr"
-    },
-    {
-        "name": "Southern Altai",
-        "all names": "Southern Altai",
-        "code1": "alt",
-        "code2": ""
-    },
-    {
-        "name": "Southern Sami",
-        "all names": "Southern Sami",
-        "code1": "sma",
-        "code2": ""
-    },
-    {
-        "rank": 2,
-        "native": "390 (405)",
-        "percentage": 5.85,
-        "name": "Spanish",
-        "all names": "Spanish;Castilian",
-        "code1": "spa",
-        "code2": "es"
-    },
-    {
-        "name": "Sranan Tongo",
-        "all names": "Sranan Tongo",
-        "code1": "srn",
-        "code2": ""
-    },
-    {
-        "name": "Standard Moroccan Tamazight",
-        "all names": "Standard Moroccan Tamazight",
-        "code1": "zgh",
-        "code2": ""
-    },
-    {
-        "name": "Sukuma",
-        "all names": "Sukuma",
-        "code1": "suk",
-        "code2": ""
-    },
-    {
-        "name": "Sumerian",
-        "all names": "Sumerian",
-        "code1": "sux",
-        "code2": ""
-    },
-    {
-        "rank": 35,
-        "native": "38",
-        "percentage": 0.57,
-        "name": "Sundanese",
-        "all names": "Sundanese",
-        "code1": "sun",
-        "code2": "su"
-    },
-    {
-        "name": "Susu",
-        "all names": "Susu",
-        "code1": "sus",
-        "code2": ""
-    },
-    {
-        "name": "Swahili",
-        "all names": "Swahili",
-        "code1": "swa",
-        "code2": "sw"
-    },
-    {
-        "name": "Swati",
-        "all names": "Swati",
-        "code1": "ssw",
-        "code2": "ss"
-    },
-    {
-        "rank": 91,
-        "native": "8.7",
-        "percentage": 0.13,
-        "name": "Swedish",
-        "all names": "Swedish",
-        "code1": "swe",
-        "code2": "sv"
-    },
-    {
-        "name": "Swiss German",
-        "all names": "Swiss German;Alemannic;Alsatian",
-        "code1": "gsw",
-        "code2": ""
-    },
-    {
-        "name": "Syriac",
-        "all names": "Syriac",
-        "code1": "syr",
-        "code2": ""
-    },
-    {
-        "rank": 42,
-        "native": "28",
-        "percentage": 0.42,
-        "name": "Tagalog",
-        "all names": "Tagalog",
-        "code1": "tgl",
-        "code2": "tl"
-    },
-    {
-        "name": "Tahitian",
-        "all names": "Tahitian",
-        "code1": "tah",
-        "code2": "ty"
-    },
-    {
-        "name": "Tai languages",
-        "all names": "Tai languages",
-        "code1": "tai",
-        "code2": ""
-    },
-    {
-        "name": "Tajik",
-        "all names": "Tajik",
-        "code1": "tgk",
-        "code2": "tg"
-    },
-    {
-        "name": "Tamashek",
-        "all names": "Tamashek",
-        "code1": "tmh",
-        "code2": ""
-    },
-    {
-        "rank": 20,
-        "native": "70",
-        "percentage": 1.06,
-        "name": "Tamil",
-        "all names": "Tamil",
-        "code1": "tam",
-        "code2": "ta"
-    },
-    {
-        "name": "Tatar",
-        "all names": "Tatar",
-        "code1": "tat",
-        "code2": "tt"
-    },
-    {
-        "rank": 15,
-        "native": "76",
-        "percentage": 1.15,
-        "name": "Telugu",
-        "all names": "Telugu",
-        "code1": "tel",
-        "code2": "te"
-    },
-    {
-        "name": "Tereno",
-        "all names": "Tereno",
-        "code1": "ter",
-        "code2": ""
-    },
-    {
-        "name": "Tetum",
-        "all names": "Tetum",
-        "code1": "tet",
-        "code2": ""
-    },
-    {
-        "rank": 25,
-        "native": "56",
-        "percentage": 0.85,
-        "name": "Thai",
-        "all names": "Thai",
-        "code1": "tha",
-        "code2": "th"
-    },
-    {
-        "name": "Tibetan",
-        "all names": "Tibetan",
-        "code1": "tib/bod",
-        "code2": "bo"
-    },
-    {
-        "name": "Tigre",
-        "all names": "Tigre",
-        "code1": "tig",
-        "code2": ""
-    },
-    {
-        "name": "Tigrinya",
-        "all names": "Tigrinya",
-        "code1": "tir",
-        "code2": "ti"
-    },
-    {
-        "name": "Timne",
-        "all names": "Timne",
-        "code1": "tem",
-        "code2": ""
-    },
-    {
-        "name": "Tiv",
-        "all names": "Tiv",
-        "code1": "tiv",
-        "code2": ""
-    },
-    {
-        "name": "tlhIngan-Hol",
-        "all names": "Klingon;tlhIngan-Hol",
-        "code1": "tlh",
-        "code2": ""
-    },
-    {
-        "name": "Tlingit",
-        "all names": "Tlingit",
-        "code1": "tli",
-        "code2": ""
-    },
-    {
-        "name": "Tok Pisin",
-        "all names": "Tok Pisin",
-        "code1": "tpi",
-        "code2": ""
-    },
-    {
-        "name": "Tokelau",
-        "all names": "Tokelau",
-        "code1": "tkl",
-        "code2": ""
-    },
-    {
-        "name": "Tonga (Nyasa)",
-        "all names": "Tonga (Nyasa)",
-        "code1": "tog",
-        "code2": ""
-    },
-    {
-        "name": "Tonga (Tonga Islands)",
-        "all names": "Tonga (Tonga Islands)",
-        "code1": "ton",
-        "code2": "to"
-    },
-    {
-        "name": "Tsimshian",
-        "all names": "Tsimshian",
-        "code1": "tsi",
-        "code2": ""
-    },
-    {
-        "name": "Tsonga",
-        "all names": "Tsonga",
-        "code1": "tso",
-        "code2": "ts"
-    },
-    {
-        "name": "Tswana",
-        "all names": "Tswana",
-        "code1": "tsn",
-        "code2": "tn"
-    },
-    {
-        "name": "Tumbuka",
-        "all names": "Tumbuka",
-        "code1": "tum",
-        "code2": ""
-    },
-    {
-        "name": "Tupi languages",
-        "all names": "Tupi languages",
-        "code1": "tup",
-        "code2": ""
-    },
-    {
-        "rank": 22,
-        "native": "63",
-        "percentage": 0.95,
-        "name": "Turkish",
-        "all names": "Turkish",
-        "code1": "tur",
-        "code2": "tr"
-    },
-    {
-        "name": "Turkish, Ottoman (1500-1928)",
-        "all names": "Turkish, Ottoman (1500-1928)",
-        "code1": "ota",
-        "code2": ""
-    },
-    {
-        "rank": 66,
-        "native": "16",
-        "percentage": 0.24,
-        "name": "Turkmen",
-        "all names": "Turkmen",
-        "code1": "tuk",
-        "code2": "tk"
-    },
-    {
-        "name": "Tuvalu",
-        "all names": "Tuvalu",
-        "code1": "tvl",
-        "code2": ""
-    },
-    {
-        "name": "Tuvinian",
-        "all names": "Tuvinian",
-        "code1": "tyv",
-        "code2": ""
-    },
-    {
-        "name": "Twi",
-        "all names": "Twi",
-        "code1": "twi",
-        "code2": "tw"
-    },
-    {
-        "name": "Udmurt",
-        "all names": "Udmurt",
-        "code1": "udm",
-        "code2": ""
-    },
-    {
-        "name": "Ugaritic",
-        "all names": "Ugaritic",
-        "code1": "uga",
-        "code2": ""
-    },
-    {
-        "name": "Uighur",
-        "all names": "Uighur;Uyghur",
-        "code1": "uig",
-        "code2": "ug"
-    },
-    {
-        "rank": 40,
-        "native": "30",
-        "percentage": 0.46,
-        "name": "Ukrainian",
-        "all names": "Ukrainian",
-        "code1": "ukr",
-        "code2": "uk"
-    },
-    {
-        "name": "Umbundu",
-        "all names": "Umbundu",
-        "code1": "umb",
-        "code2": ""
-    },
-    {
-        "name": "Uncoded languages",
-        "all names": "Uncoded languages",
-        "code1": "mis",
-        "code2": ""
-    },
-    {
-        "name": "Undetermined",
-        "all names": "Undetermined",
-        "code1": "und",
-        "code2": ""
-    },
-    {
-        "name": "Upper Sorbian",
-        "all names": "Upper Sorbian",
-        "code1": "hsb",
-        "code2": ""
-    },
-    {
-        "rank": 21,
-        "native": "66",
-        "percentage": 0.99,
-        "name": "Urdu",
-        "all names": "Urdu",
-        "code1": "urd",
-        "code2": "ur"
-    },
-    {
-        "rank": 94,
-        "native": "8.2",
-        "percentage": 0.12,
-        "name": "Uyghur",
-        "all names": "Uighur;Uyghur",
-        "code1": "uig",
-        "code2": "ug"
-    },
-    {
-        "rank": 45,
-        "native": "26",
-        "percentage": 0.39,
-        "name": "Uzbek",
-        "all names": "Uzbek",
-        "code1": "uzb",
-        "code2": "uz"
-    },
-    {
-        "name": "Vai",
-        "all names": "Vai",
-        "code1": "vai",
-        "code2": ""
-    },
-    {
-        "name": "Valencian",
-        "all names": "Catalan;Valencian",
-        "code1": "cat",
-        "code2": "ca"
-    },
-    {
-        "name": "Venda",
-        "all names": "Venda",
-        "code1": "ven",
-        "code2": "ve"
-    },
-    {
-        "rank": 16,
-        "native": "76",
-        "percentage": 1.14,
-        "name": "Vietnamese",
-        "all names": "Vietnamese",
-        "code1": "vie",
-        "code2": "vi"
-    },
-    {
-        "name": "Volapük",
-        "all names": "Volapük",
-        "code1": "vol",
-        "code2": "vo"
-    },
-    {
-        "name": "Votic",
-        "all names": "Votic",
-        "code1": "vot",
-        "code2": ""
-    },
-    {
-        "name": "Wakashan languages",
-        "all names": "Wakashan languages",
-        "code1": "wak",
-        "code2": ""
-    },
-    {
-        "name": "Walloon",
-        "all names": "Walloon",
-        "code1": "wln",
-        "code2": "wa"
-    },
-    {
-        "name": "Waray",
-        "all names": "Waray",
-        "code1": "war",
-        "code2": ""
-    },
-    {
-        "name": "Washo",
-        "all names": "Washo",
-        "code1": "was",
-        "code2": ""
-    },
-    {
-        "name": "Welsh",
-        "all names": "Welsh",
-        "code1": "wel/cym",
-        "code2": "cy"
-    },
-    {
-        "name": "Western Frisian",
-        "all names": "Western Frisian",
-        "code1": "fry",
-        "code2": "fy"
-    },
-    {
-        "name": "Western Pahari languages",
-        "all names": "Himachali languages;Western Pahari languages",
-        "code1": "him",
-        "code2": ""
-    },
-    {
-        "name": "Wolaitta",
-        "all names": "Wolaitta;Wolaytta",
-        "code1": "wal",
-        "code2": ""
-    },
-    {
-        "name": "Wolaytta",
-        "all names": "Wolaitta;Wolaytta",
-        "code1": "wal",
-        "code2": ""
-    },
-    {
-        "name": "Wolof",
-        "all names": "Wolof",
-        "code1": "wol",
-        "code2": "wo"
-    },
-    {
-        "rank": 97,
-        "native": "7.6",
-        "percentage": 0.11,
-        "name": "Xhosa",
-        "all names": "Xhosa",
-        "code1": "xho",
-        "code2": "xh"
-    },
-    {
-        "name": "Yakut",
-        "all names": "Yakut",
-        "code1": "sah",
-        "code2": ""
-    },
-    {
-        "name": "Yao",
-        "all names": "Yao",
-        "code1": "yao",
-        "code2": ""
-    },
-    {
-        "name": "Yapese",
-        "all names": "Yapese",
-        "code1": "yap",
-        "code2": ""
-    },
-    {
-        "name": "Yiddish",
-        "all names": "Yiddish",
-        "code1": "yid",
-        "code2": "yi"
-    },
-    {
-        "rank": 43,
-        "native": "28",
-        "percentage": 0.42,
-        "name": "Yoruba",
-        "all names": "Yoruba",
-        "code1": "yor",
-        "code2": "yo"
-    },
-    {
-        "name": "Yupik languages",
-        "all names": "Yupik languages",
-        "code1": "ypk",
-        "code2": ""
-    },
-    {
-        "name": "Zande languages",
-        "all names": "Zande languages",
-        "code1": "znd",
-        "code2": ""
-    },
-    {
-        "name": "Zapotec",
-        "all names": "Zapotec",
-        "code1": "zap",
-        "code2": ""
-    },
-    {
-        "name": "Zaza",
-        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
-        "code1": "zza",
-        "code2": ""
-    },
-    {
-        "name": "Zazaki",
-        "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
-        "code1": "zza",
-        "code2": ""
-    },
-    {
-        "name": "Zenaga",
-        "all names": "Zenaga",
-        "code1": "zen",
-        "code2": ""
-    },
-    {
-        "rank": 64,
-        "native": "16",
-        "percentage": 0.24,
-        "name": "Zhuang",
-        "all names": "Zhuang;Chuang",
-        "code1": "zha",
-        "code2": "za"
-    },
-    {
-        "rank": 82,
-        "native": "10.4",
-        "percentage": 0.16,
-        "name": "Zulu",
-        "all names": "Zulu",
-        "code1": "zul",
-        "code2": "zu"
-    },
-    {
-        "name": "Zuni",
-        "all names": "Zuni",
-        "code1": "zun",
-        "code2": ""
-    }
+  {
+    "name": "Abkhazian",
+    "all names": "Abkhazian",
+    "code1": "abk",
+    "code2": "ab"
+  },
+  {
+    "name": "Achinese",
+    "all names": "Achinese",
+    "code1": "ace",
+    "code2": ""
+  },
+  {
+    "name": "Acoli",
+    "all names": "Acoli",
+    "code1": "ach",
+    "code2": ""
+  },
+  {
+    "name": "Adangme",
+    "all names": "Adangme",
+    "code1": "ada",
+    "code2": ""
+  },
+  {
+    "name": "Adygei",
+    "all names": "Adyghe;Adygei",
+    "code1": "ady",
+    "code2": ""
+  },
+  {
+    "name": "Adyghe",
+    "all names": "Adyghe;Adygei",
+    "code1": "ady",
+    "code2": ""
+  },
+  {
+    "name": "Afar",
+    "all names": "Afar",
+    "code1": "aar",
+    "code2": "aa"
+  },
+  {
+    "name": "Afrihili",
+    "all names": "Afrihili",
+    "code1": "afh",
+    "code2": ""
+  },
+  {
+    "name": "Afrikaans",
+    "all names": "Afrikaans",
+    "code1": "afr",
+    "code2": "af"
+  },
+  {
+    "name": "Afro-Asiatic languages",
+    "all names": "Afro-Asiatic languages",
+    "code1": "afa",
+    "code2": ""
+  },
+  {
+    "name": "Ainu",
+    "all names": "Ainu",
+    "code1": "ain",
+    "code2": ""
+  },
+  {
+    "rank": 78,
+    "native": "11",
+    "percentage": 0.17,
+    "name": "Akan",
+    "all names": "Akan",
+    "code1": "aka",
+    "code2": "ak"
+  },
+  {
+    "name": "Akkadian",
+    "all names": "Akkadian",
+    "code1": "akk",
+    "code2": ""
+  },
+  {
+    "name": "Albanian",
+    "all names": "Albanian",
+    "code1": "alb/sqi",
+    "code2": "sq"
+  },
+  {
+    "name": "Alemannic",
+    "all names": "Swiss German;Alemannic;Alsatian",
+    "code1": "gsw",
+    "code2": ""
+  },
+  {
+    "name": "Aleut",
+    "all names": "Aleut",
+    "code1": "ale",
+    "code2": ""
+  },
+  {
+    "name": "Algonquian languages",
+    "all names": "Algonquian languages",
+    "code1": "alg",
+    "code2": ""
+  },
+  {
+    "name": "Alsatian",
+    "all names": "Swiss German;Alemannic;Alsatian",
+    "code1": "gsw",
+    "code2": ""
+  },
+  {
+    "name": "Altaic languages",
+    "all names": "Altaic languages",
+    "code1": "tut",
+    "code2": ""
+  },
+  {
+    "rank": 47,
+    "native": "25",
+    "percentage": 0.37,
+    "name": "Amharic",
+    "all names": "Amharic",
+    "code1": "amh",
+    "code2": "am"
+  },
+  {
+    "name": "Angika",
+    "all names": "Angika",
+    "code1": "anp",
+    "code2": ""
+  },
+  {
+    "name": "Apache languages",
+    "all names": "Apache languages",
+    "code1": "apa",
+    "code2": ""
+  },
+  {
+    "rank": 5,
+    "native": "280 (295)",
+    "percentage": 4.23,
+    "name": "Arabic",
+    "all names": "Arabic",
+    "code1": "ara",
+    "code2": "ar"
+  },
+  {
+    "name": "Aragonese",
+    "all names": "Aragonese",
+    "code1": "arg",
+    "code2": "an"
+  },
+  {
+    "name": "Arapaho",
+    "all names": "Arapaho",
+    "code1": "arp",
+    "code2": ""
+  },
+  {
+    "name": "Arawak",
+    "all names": "Arawak",
+    "code1": "arw",
+    "code2": ""
+  },
+  {
+    "name": "Armenian",
+    "all names": "Armenian",
+    "code1": "arm/hye",
+    "code2": "hy"
+  },
+  {
+    "name": "Aromanian",
+    "all names": "Aromanian;Arumanian;Macedo-Romanian",
+    "code1": "rup",
+    "code2": ""
+  },
+  {
+    "name": "Artificial languages",
+    "all names": "Artificial languages",
+    "code1": "art",
+    "code2": ""
+  },
+  {
+    "name": "Arumanian",
+    "all names": "Aromanian;Arumanian;Macedo-Romanian",
+    "code1": "rup",
+    "code2": ""
+  },
+  {
+    "rank": 67,
+    "native": "15",
+    "percentage": 0.23,
+    "name": "Assamese",
+    "all names": "Assamese",
+    "code1": "asm",
+    "code2": "as"
+  },
+  {
+    "name": "Asturian",
+    "all names": "Asturian;Bable;Leonese;Asturleonese",
+    "code1": "ast",
+    "code2": ""
+  },
+  {
+    "name": "Asturleonese",
+    "all names": "Asturian;Bable;Leonese;Asturleonese",
+    "code1": "ast",
+    "code2": ""
+  },
+  {
+    "name": "Athapascan languages",
+    "all names": "Athapascan languages",
+    "code1": "ath",
+    "code2": ""
+  },
+  {
+    "name": "Australian languages",
+    "all names": "Australian languages",
+    "code1": "aus",
+    "code2": ""
+  },
+  {
+    "name": "Austronesian languages",
+    "all names": "Austronesian languages",
+    "code1": "map",
+    "code2": ""
+  },
+  {
+    "name": "Avaric",
+    "all names": "Avaric",
+    "code1": "ava",
+    "code2": "av"
+  },
+  {
+    "name": "Avestan",
+    "all names": "Avestan",
+    "code1": "ave",
+    "code2": "ae"
+  },
+  {
+    "rank": 53,
+    "native": "22",
+    "percentage": 0.33,
+    "name": "Awadhi",
+    "all names": "Awadhi",
+    "code1": "awa",
+    "code2": ""
+  },
+  {
+    "name": "Aymara",
+    "all names": "Aymara",
+    "code1": "aym",
+    "code2": "ay"
+  },
+  {
+    "rank": 52,
+    "native": "23",
+    "percentage": 0.34,
+    "name": "Azerbaijani",
+    "all names": "Azerbaijani",
+    "code1": "aze",
+    "code2": "az"
+  },
+  {
+    "name": "Bable",
+    "all names": "Asturian;Bable;Leonese;Asturleonese",
+    "code1": "ast",
+    "code2": ""
+  },
+  {
+    "name": "Balinese",
+    "all names": "Balinese",
+    "code1": "ban",
+    "code2": ""
+  },
+  {
+    "name": "Baltic languages",
+    "all names": "Baltic languages",
+    "code1": "bat",
+    "code2": ""
+  },
+  {
+    "name": "Baluchi",
+    "all names": "Baluchi",
+    "code1": "bal",
+    "code2": ""
+  },
+  {
+    "name": "Bambara",
+    "all names": "Bambara",
+    "code1": "bam",
+    "code2": "bm"
+  },
+  {
+    "name": "Bamileke languages",
+    "all names": "Bamileke languages",
+    "code1": "bai",
+    "code2": ""
+  },
+  {
+    "name": "Banda languages",
+    "all names": "Banda languages",
+    "code1": "bad",
+    "code2": ""
+  },
+  {
+    "name": "Bantu languages",
+    "all names": "Bantu languages",
+    "code1": "bnt",
+    "code2": ""
+  },
+  {
+    "name": "Basa",
+    "all names": "Basa",
+    "code1": "bas",
+    "code2": ""
+  },
+  {
+    "name": "Bashkir",
+    "all names": "Bashkir",
+    "code1": "bak",
+    "code2": "ba"
+  },
+  {
+    "name": "Basque",
+    "all names": "Basque",
+    "code1": "baq/eus",
+    "code2": "eu"
+  },
+  {
+    "name": "Batak languages",
+    "all names": "Batak languages",
+    "code1": "btk",
+    "code2": ""
+  },
+  {
+    "name": "Bedawiyet",
+    "all names": "Beja;Bedawiyet",
+    "code1": "bej",
+    "code2": ""
+  },
+  {
+    "name": "Beja",
+    "all names": "Beja;Bedawiyet",
+    "code1": "bej",
+    "code2": ""
+  },
+  {
+    "rank": 98,
+    "native": "7.6",
+    "percentage": 0.11,
+    "name": "Belarusian",
+    "all names": "Belarusian",
+    "code1": "bel",
+    "code2": "be"
+  },
+  {
+    "name": "Bemba",
+    "all names": "Bemba",
+    "code1": "bem",
+    "code2": ""
+  },
+  {
+    "rank": 7,
+    "native": "200 (205)",
+    "percentage": 3.05,
+    "name": "Bengali",
+    "all names": "Bengali",
+    "code1": "ben",
+    "code2": "bn"
+  },
+  {
+    "name": "Berber languages",
+    "all names": "Berber languages",
+    "code1": "ber",
+    "code2": ""
+  },
+  {
+    "rank": 41,
+    "native": "29",
+    "percentage": 0.43,
+    "name": "Bhojpuri",
+    "all names": "Bhojpuri",
+    "code1": "bho",
+    "code2": ""
+  },
+  {
+    "name": "Bihari languages",
+    "all names": "Bihari languages",
+    "code1": "bih",
+    "code2": "bh"
+  },
+  {
+    "name": "Bikol",
+    "all names": "Bikol",
+    "code1": "bik",
+    "code2": ""
+  },
+  {
+    "name": "Bilin",
+    "all names": "Blin;Bilin",
+    "code1": "byn",
+    "code2": ""
+  },
+  {
+    "name": "Bini",
+    "all names": "Bini;Edo",
+    "code1": "bin",
+    "code2": ""
+  },
+  {
+    "name": "Bislama",
+    "all names": "Bislama",
+    "code1": "bis",
+    "code2": "bi"
+  },
+  {
+    "name": "Blin",
+    "all names": "Blin;Bilin",
+    "code1": "byn",
+    "code2": ""
+  },
+  {
+    "name": "Bliss",
+    "all names": "Blissymbols;Blissymbolics;Bliss",
+    "code1": "zbl",
+    "code2": ""
+  },
+  {
+    "name": "Blissymbolics",
+    "all names": "Blissymbols;Blissymbolics;Bliss",
+    "code1": "zbl",
+    "code2": ""
+  },
+  {
+    "name": "Blissymbols",
+    "all names": "Blissymbols;Blissymbolics;Bliss",
+    "code1": "zbl",
+    "code2": ""
+  },
+  {
+    "name": "Bokmål, Norwegian",
+    "all names": "Bokmål, Norwegian;Norwegian Bokmål",
+    "code1": "nob",
+    "code2": "nb"
+  },
+  {
+    "name": "Bosnian",
+    "all names": "Bosnian",
+    "code1": "bos",
+    "code2": "bs"
+  },
+  {
+    "name": "Braj",
+    "all names": "Braj",
+    "code1": "bra",
+    "code2": ""
+  },
+  {
+    "name": "Breton",
+    "all names": "Breton",
+    "code1": "bre",
+    "code2": "br"
+  },
+  {
+    "name": "Buginese",
+    "all names": "Buginese",
+    "code1": "bug",
+    "code2": ""
+  },
+  {
+    "name": "Bulgarian",
+    "all names": "Bulgarian",
+    "code1": "bul",
+    "code2": "bg"
+  },
+  {
+    "name": "Buriat",
+    "all names": "Buriat",
+    "code1": "bua",
+    "code2": ""
+  },
+  {
+    "rank": 38,
+    "native": "33",
+    "percentage": 0.5,
+    "name": "Burmese",
+    "all names": "Burmese",
+    "code1": "bur/mya",
+    "code2": "my"
+  },
+  {
+    "name": "Caddo",
+    "all names": "Caddo",
+    "code1": "cad",
+    "code2": ""
+  },
+  {
+    "name": "Castilian",
+    "all names": "Spanish;Castilian",
+    "code1": "spa",
+    "code2": "es"
+  },
+  {
+    "name": "Catalan",
+    "all names": "Catalan;Valencian",
+    "code1": "cat",
+    "code2": "ca"
+  },
+  {
+    "name": "Caucasian languages",
+    "all names": "Caucasian languages",
+    "code1": "cau",
+    "code2": ""
+  },
+  {
+    "rank": 55,
+    "native": "21",
+    "percentage": 0.32,
+    "name": "Cebuano",
+    "all names": "Cebuano",
+    "code1": "ceb",
+    "code2": ""
+  },
+  {
+    "name": "Celtic languages",
+    "all names": "Celtic languages",
+    "code1": "cel",
+    "code2": ""
+  },
+  {
+    "name": "Central American Indian languages",
+    "all names": "Central American Indian languages",
+    "code1": "cai",
+    "code2": ""
+  },
+  {
+    "name": "Central Khmer",
+    "all names": "Central Khmer",
+    "code1": "khm",
+    "code2": "km"
+  },
+  {
+    "name": "Chagatai",
+    "all names": "Chagatai",
+    "code1": "chg",
+    "code2": ""
+  },
+  {
+    "name": "Chamic languages",
+    "all names": "Chamic languages",
+    "code1": "cmc",
+    "code2": ""
+  },
+  {
+    "name": "Chamorro",
+    "all names": "Chamorro",
+    "code1": "cha",
+    "code2": "ch"
+  },
+  {
+    "name": "Chechen",
+    "all names": "Chechen",
+    "code1": "che",
+    "code2": "ce"
+  },
+  {
+    "name": "Cherokee",
+    "all names": "Cherokee",
+    "code1": "chr",
+    "code2": ""
+  },
+  {
+    "rank": 76,
+    "native": "12",
+    "percentage": 0.17,
+    "name": "Chewa",
+    "all names": "Chichewa;Chewa;Nyanja",
+    "code1": "nya",
+    "code2": "ny"
+  },
+  {
+    "name": "Cheyenne",
+    "all names": "Cheyenne",
+    "code1": "chy",
+    "code2": ""
+  },
+  {
+    "name": "Chibcha",
+    "all names": "Chibcha",
+    "code1": "chb",
+    "code2": ""
+  },
+  {
+    "name": "Chichewa",
+    "all names": "Chichewa;Chewa;Nyanja",
+    "code1": "nya",
+    "code2": "ny"
+  },
+  {
+    "name": "Chinese",
+    "all names": "Chinese",
+    "code1": "chi/zho",
+    "code2": "zh"
+  },
+  {
+    "name": "Chinook jargon",
+    "all names": "Chinook jargon",
+    "code1": "chn",
+    "code2": ""
+  },
+  {
+    "name": "Chipewyan",
+    "all names": "Chipewyan;Dene Suline",
+    "code1": "chp",
+    "code2": ""
+  },
+  {
+    "name": "Choctaw",
+    "all names": "Choctaw",
+    "code1": "cho",
+    "code2": ""
+  },
+  {
+    "name": "Chuang",
+    "all names": "Zhuang;Chuang",
+    "code1": "zha",
+    "code2": "za"
+  },
+  {
+    "name": "Church Slavic",
+    "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
+    "code1": "chu",
+    "code2": "cu"
+  },
+  {
+    "name": "Church Slavonic",
+    "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
+    "code1": "chu",
+    "code2": "cu"
+  },
+  {
+    "name": "Chuukese",
+    "all names": "Chuukese",
+    "code1": "chk",
+    "code2": ""
+  },
+  {
+    "name": "Chuvash",
+    "all names": "Chuvash",
+    "code1": "chv",
+    "code2": "cv"
+  },
+  {
+    "name": "Classical Nepal Bhasa",
+    "all names": "Classical Newari;Old Newari;Classical Nepal Bhasa",
+    "code1": "nwc",
+    "code2": ""
+  },
+  {
+    "name": "Classical Newari",
+    "all names": "Classical Newari;Old Newari;Classical Nepal Bhasa",
+    "code1": "nwc",
+    "code2": ""
+  },
+  {
+    "name": "Classical Syriac",
+    "all names": "Classical Syriac",
+    "code1": "syc",
+    "code2": ""
+  },
+  {
+    "name": "Cook Islands Maori",
+    "all names": "Rarotongan;Cook Islands Maori",
+    "code1": "rar",
+    "code2": ""
+  },
+  {
+    "name": "Coptic",
+    "all names": "Coptic",
+    "code1": "cop",
+    "code2": ""
+  },
+  {
+    "name": "Cornish",
+    "all names": "Cornish",
+    "code1": "cor",
+    "code2": "kw"
+  },
+  {
+    "name": "Corsican",
+    "all names": "Corsican",
+    "code1": "cos",
+    "code2": "co"
+  },
+  {
+    "name": "Cree",
+    "all names": "Cree",
+    "code1": "cre",
+    "code2": "cr"
+  },
+  {
+    "name": "Creek",
+    "all names": "Creek",
+    "code1": "mus",
+    "code2": ""
+  },
+  {
+    "name": "Creoles and pidgins",
+    "all names": "Creoles and pidgins",
+    "code1": "crp",
+    "code2": ""
+  },
+  {
+    "name": "Creoles and pidgins, English based",
+    "all names": "Creoles and pidgins, English based",
+    "code1": "cpe",
+    "code2": ""
+  },
+  {
+    "name": "Creoles and pidgins, French-based",
+    "all names": "Creoles and pidgins, French-based",
+    "code1": "cpf",
+    "code2": ""
+  },
+  {
+    "name": "Creoles and pidgins, Portuguese-based",
+    "all names": "Creoles and pidgins, Portuguese-based",
+    "code1": "cpp",
+    "code2": ""
+  },
+  {
+    "name": "Crimean Tatar",
+    "all names": "Crimean Tatar;Crimean Turkish",
+    "code1": "crh",
+    "code2": ""
+  },
+  {
+    "name": "Crimean Turkish",
+    "all names": "Crimean Tatar;Crimean Turkish",
+    "code1": "crh",
+    "code2": ""
+  },
+  {
+    "rank": 58,
+    "native": "19",
+    "percentage": 0.28,
+    "name": "Croatian",
+    "all names": "Croatian",
+    "code1": "hrv",
+    "code2": "hr"
+  },
+  {
+    "name": "Cushitic languages",
+    "all names": "Cushitic languages",
+    "code1": "cus",
+    "code2": ""
+  },
+  {
+    "rank": 83,
+    "native": "10",
+    "percentage": 0.15,
+    "name": "Czech",
+    "all names": "Czech",
+    "code1": "cze/ces",
+    "code2": "cs"
+  },
+  {
+    "name": "Dakota",
+    "all names": "Dakota",
+    "code1": "dak",
+    "code2": ""
+  },
+  {
+    "name": "Danish",
+    "all names": "Danish",
+    "code1": "dan",
+    "code2": "da"
+  },
+  {
+    "name": "Dargwa",
+    "all names": "Dargwa",
+    "code1": "dar",
+    "code2": ""
+  },
+  {
+    "name": "Delaware",
+    "all names": "Delaware",
+    "code1": "del",
+    "code2": ""
+  },
+  {
+    "name": "Dene Suline",
+    "all names": "Chipewyan;Dene Suline",
+    "code1": "chp",
+    "code2": ""
+  },
+  {
+    "name": "Dhivehi",
+    "all names": "Divehi;Dhivehi;Maldivian",
+    "code1": "div",
+    "code2": "dv"
+  },
+  {
+    "name": "Dimili",
+    "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
+    "code1": "zza",
+    "code2": ""
+  },
+  {
+    "name": "Dimli",
+    "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
+    "code1": "zza",
+    "code2": ""
+  },
+  {
+    "name": "Dinka",
+    "all names": "Dinka",
+    "code1": "din",
+    "code2": ""
+  },
+  {
+    "name": "Divehi",
+    "all names": "Divehi;Dhivehi;Maldivian",
+    "code1": "div",
+    "code2": "dv"
+  },
+  {
+    "name": "Dogri",
+    "all names": "Dogri",
+    "code1": "doi",
+    "code2": ""
+  },
+  {
+    "name": "Dogrib",
+    "all names": "Dogrib",
+    "code1": "dgr",
+    "code2": ""
+  },
+  {
+    "name": "Dravidian languages",
+    "all names": "Dravidian languages",
+    "code1": "dra",
+    "code2": ""
+  },
+  {
+    "name": "Duala",
+    "all names": "Duala",
+    "code1": "dua",
+    "code2": ""
+  },
+  {
+    "rank": 56,
+    "native": "21",
+    "percentage": 0.32,
+    "name": "Dutch",
+    "all names": "Dutch;Flemish",
+    "code1": "dut/nld",
+    "code2": "nl"
+  },
+  {
+    "name": "Dutch, Middle (ca.1050-1350)",
+    "all names": "Dutch, Middle (ca.1050-1350)",
+    "code1": "dum",
+    "code2": ""
+  },
+  {
+    "name": "Dyula",
+    "all names": "Dyula",
+    "code1": "dyu",
+    "code2": ""
+  },
+  {
+    "name": "Dzongkha",
+    "all names": "Dzongkha",
+    "code1": "dzo",
+    "code2": "dz"
+  },
+  {
+    "name": "Eastern Frisian",
+    "all names": "Eastern Frisian",
+    "code1": "frs",
+    "code2": ""
+  },
+  {
+    "name": "Edo",
+    "all names": "Bini;Edo",
+    "code1": "bin",
+    "code2": ""
+  },
+  {
+    "name": "Efik",
+    "all names": "Efik",
+    "code1": "efi",
+    "code2": ""
+  },
+  {
+    "name": "Egyptian (Ancient)",
+    "all names": "Egyptian (Ancient)",
+    "code1": "egy",
+    "code2": ""
+  },
+  {
+    "name": "Ekajuk",
+    "all names": "Ekajuk",
+    "code1": "eka",
+    "code2": ""
+  },
+  {
+    "name": "Elamite",
+    "all names": "Elamite",
+    "code1": "elx",
+    "code2": ""
+  },
+  {
+    "rank": 3,
+    "native": "365 (360)",
+    "percentage": 5.52,
+    "name": "English",
+    "all names": "English",
+    "code1": "eng",
+    "code2": "en"
+  },
+  {
+    "name": "English, Middle (1100-1500)",
+    "all names": "English, Middle (1100-1500)",
+    "code1": "enm",
+    "code2": ""
+  },
+  {
+    "name": "English, Old (ca.450-1100)",
+    "all names": "English, Old (ca.450-1100)",
+    "code1": "ang",
+    "code2": ""
+  },
+  {
+    "name": "Erzya",
+    "all names": "Erzya",
+    "code1": "myv",
+    "code2": ""
+  },
+  {
+    "name": "Esperanto",
+    "all names": "Esperanto",
+    "code1": "epo",
+    "code2": "eo"
+  },
+  {
+    "name": "Estonian",
+    "all names": "Estonian",
+    "code1": "est",
+    "code2": "et"
+  },
+  {
+    "name": "Ewe",
+    "all names": "Ewe",
+    "code1": "ewe",
+    "code2": "ee"
+  },
+  {
+    "name": "Ewondo",
+    "all names": "Ewondo",
+    "code1": "ewo",
+    "code2": ""
+  },
+  {
+    "name": "Fang",
+    "all names": "Fang",
+    "code1": "fan",
+    "code2": ""
+  },
+  {
+    "name": "Fanti",
+    "all names": "Fanti",
+    "code1": "fat",
+    "code2": ""
+  },
+  {
+    "name": "Faroese",
+    "all names": "Faroese",
+    "code1": "fao",
+    "code2": "fo"
+  },
+  {
+    "name": "Fijian",
+    "all names": "Fijian",
+    "code1": "fij",
+    "code2": "fj"
+  },
+  {
+    "rank": 42,
+    "native": "28",
+    "percentage": 0.42,
+    "name": "Filipino",
+    "all names": "Filipino;Pilipino",
+    "code1": "fil",
+    "code2": ""
+  },
+  {
+    "name": "Finnish",
+    "all names": "Finnish",
+    "code1": "fin",
+    "code2": "fi"
+  },
+  {
+    "name": "Finno-Ugrian languages",
+    "all names": "Finno-Ugrian languages",
+    "code1": "fiu",
+    "code2": ""
+  },
+  {
+    "name": "Flemish",
+    "all names": "Dutch;Flemish",
+    "code1": "dut/nld",
+    "code2": "nl"
+  },
+  {
+    "name": "Fon",
+    "all names": "Fon",
+    "code1": "fon",
+    "code2": ""
+  },
+  {
+    "rank": 18,
+    "native": "75",
+    "percentage": 1.12,
+    "name": "French",
+    "all names": "French",
+    "code1": "fre/fra",
+    "code2": "fr"
+  },
+  {
+    "name": "French, Middle (ca.1400-1600)",
+    "all names": "French, Middle (ca.1400-1600)",
+    "code1": "frm",
+    "code2": ""
+  },
+  {
+    "name": "French, Old (842-ca.1400)",
+    "all names": "French, Old (842-ca.1400)",
+    "code1": "fro",
+    "code2": ""
+  },
+  {
+    "name": "Friulian",
+    "all names": "Friulian",
+    "code1": "fur",
+    "code2": ""
+  },
+  {
+    "name": "Fulah",
+    "all names": "Fulah",
+    "code1": "ful",
+    "code2": "ff"
+  },
+  {
+    "rank": 54,
+    "native": "22",
+    "percentage": 0.33,
+    "name": "Ga",
+    "all names": "Ga",
+    "code1": "gaa",
+    "code2": ""
+  },
+  {
+    "name": "Gaelic",
+    "all names": "Gaelic;Scottish Gaelic",
+    "code1": "gla",
+    "code2": "gd"
+  },
+  {
+    "name": "Galibi Carib",
+    "all names": "Galibi Carib",
+    "code1": "car",
+    "code2": ""
+  },
+  {
+    "name": "Galician",
+    "all names": "Galician",
+    "code1": "glg",
+    "code2": "gl"
+  },
+  {
+    "name": "Ganda",
+    "all names": "Ganda",
+    "code1": "lug",
+    "code2": "lg"
+  },
+  {
+    "name": "Gayo",
+    "all names": "Gayo",
+    "code1": "gay",
+    "code2": ""
+  },
+  {
+    "name": "Gbaya",
+    "all names": "Gbaya",
+    "code1": "gba",
+    "code2": ""
+  },
+  {
+    "name": "Geez",
+    "all names": "Geez",
+    "code1": "gez",
+    "code2": ""
+  },
+  {
+    "name": "Georgian",
+    "all names": "Georgian",
+    "code1": "geo/kat",
+    "code2": "ka"
+  },
+  {
+    "rank": 11,
+    "native": "92 (95)",
+    "percentage": 1.39,
+    "name": "German",
+    "all names": "German",
+    "code1": "ger/deu",
+    "code2": "de"
+  },
+  {
+    "name": "German, Low",
+    "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
+    "code1": "nds",
+    "code2": ""
+  },
+  {
+    "name": "German, Middle High (ca.1050-1500)",
+    "all names": "German, Middle High (ca.1050-1500)",
+    "code1": "gmh",
+    "code2": ""
+  },
+  {
+    "name": "German, Old High (ca.750-1050)",
+    "all names": "German, Old High (ca.750-1050)",
+    "code1": "goh",
+    "code2": ""
+  },
+  {
+    "name": "Germanic languages",
+    "all names": "Germanic languages",
+    "code1": "gem",
+    "code2": ""
+  },
+  {
+    "name": "Gikuyu",
+    "all names": "Kikuyu;Gikuyu",
+    "code1": "kik",
+    "code2": "ki"
+  },
+  {
+    "name": "Gilbertese",
+    "all names": "Gilbertese",
+    "code1": "gil",
+    "code2": ""
+  },
+  {
+    "name": "Gondi",
+    "all names": "Gondi",
+    "code1": "gon",
+    "code2": ""
+  },
+  {
+    "name": "Gorontalo",
+    "all names": "Gorontalo",
+    "code1": "gor",
+    "code2": ""
+  },
+  {
+    "name": "Gothic",
+    "all names": "Gothic",
+    "code1": "got",
+    "code2": ""
+  },
+  {
+    "name": "Grebo",
+    "all names": "Grebo",
+    "code1": "grb",
+    "code2": ""
+  },
+  {
+    "name": "Greek, Ancient (to 1453)",
+    "all names": "Greek, Ancient (to 1453)",
+    "code1": "grc",
+    "code2": ""
+  },
+  {
+    "name": "Greek, Modern (1453-)",
+    "all names": "Greek, Modern (1453-)",
+    "code1": "gre/ell",
+    "code2": "el"
+  },
+  {
+    "name": "Greenlandic",
+    "all names": "Kalaallisut;Greenlandic",
+    "code1": "kal",
+    "code2": "kl"
+  },
+  {
+    "name": "Guarani",
+    "all names": "Guarani",
+    "code1": "grn",
+    "code2": "gn"
+  },
+  {
+    "rank": 26,
+    "native": "49",
+    "percentage": 0.74,
+    "name": "Gujarati",
+    "all names": "Gujarati",
+    "code1": "guj",
+    "code2": "gu"
+  },
+  {
+    "name": "Gwich'in",
+    "all names": "Gwich'in",
+    "code1": "gwi",
+    "code2": ""
+  },
+  {
+    "name": "Haida",
+    "all names": "Haida",
+    "code1": "hai",
+    "code2": ""
+  },
+  {
+    "rank": 86,
+    "native": "9.6",
+    "percentage": 0.15,
+    "name": "Haitian",
+    "all names": "Haitian;Haitian Creole",
+    "code1": "hat",
+    "code2": "ht"
+  },
+  {
+    "rank": 86,
+    "native": "9.6",
+    "percentage": 0.15,
+    "name": "Haitian Creole",
+    "all names": "Haitian;Haitian Creole",
+    "code1": "hat",
+    "code2": "ht"
+  },
+  {
+    "rank": 36,
+    "native": "34",
+    "percentage": 0.52,
+    "name": "Hausa",
+    "all names": "Hausa",
+    "code1": "hau",
+    "code2": "ha"
+  },
+  {
+    "name": "Hawaiian",
+    "all names": "Hawaiian",
+    "code1": "haw",
+    "code2": ""
+  },
+  {
+    "name": "Hebrew",
+    "all names": "Hebrew",
+    "code1": "heb",
+    "code2": "he"
+  },
+  {
+    "name": "Herero",
+    "all names": "Herero",
+    "code1": "her",
+    "code2": "hz"
+  },
+  {
+    "rank": 95,
+    "native": "8.2",
+    "percentage": 0.12,
+    "name": "Hiligaynon",
+    "all names": "Hiligaynon",
+    "code1": "hil",
+    "code2": ""
+  },
+  {
+    "name": "Himachali languages",
+    "all names": "Himachali languages;Western Pahari languages",
+    "code1": "him",
+    "code2": ""
+  },
+  {
+    "rank": 4,
+    "native": "295 (310)",
+    "percentage": 4.46,
+    "name": "Hindi",
+    "all names": "Hindi",
+    "code1": "hin",
+    "code2": "hi"
+  },
+  {
+    "name": "Hiri Motu",
+    "all names": "Hiri Motu",
+    "code1": "hmo",
+    "code2": "ho"
+  },
+  {
+    "name": "Hittite",
+    "all names": "Hittite",
+    "code1": "hit",
+    "code2": ""
+  },
+  {
+    "rank": 92,
+    "native": "8.4",
+    "percentage": 0.13,
+    "name": "Hmong",
+    "all names": "Hmong;Mong",
+    "code1": "hmn",
+    "code2": ""
+  },
+  {
+    "rank": 73,
+    "native": "13",
+    "percentage": 0.19,
+    "name": "Hungarian",
+    "all names": "Hungarian",
+    "code1": "hun",
+    "code2": "hu"
+  },
+  {
+    "name": "Hupa",
+    "all names": "Hupa",
+    "code1": "hup",
+    "code2": ""
+  },
+  {
+    "name": "Iban",
+    "all names": "Iban",
+    "code1": "iba",
+    "code2": ""
+  },
+  {
+    "name": "Icelandic",
+    "all names": "Icelandic",
+    "code1": "ice/isl",
+    "code2": "is"
+  },
+  {
+    "name": "Ido",
+    "all names": "Ido",
+    "code1": "ido",
+    "code2": "io"
+  },
+  {
+    "rank": 51,
+    "native": "24",
+    "percentage": 0.36,
+    "name": "Igbo",
+    "all names": "Igbo",
+    "code1": "ibo",
+    "code2": "ig"
+  },
+  {
+    "name": "Ijo languages",
+    "all names": "Ijo languages",
+    "code1": "ijo",
+    "code2": ""
+  },
+  {
+    "name": "Iloko",
+    "all names": "Iloko",
+    "code1": "ilo",
+    "code2": ""
+  },
+  {
+    "name": "Imperial Aramaic (700-300 BCE)",
+    "all names": "Official Aramaic (700-300 BCE);Imperial Aramaic (700-300 BCE)",
+    "code1": "arc",
+    "code2": ""
+  },
+  {
+    "name": "Inari Sami",
+    "all names": "Inari Sami",
+    "code1": "smn",
+    "code2": ""
+  },
+  {
+    "name": "Indic languages",
+    "all names": "Indic languages",
+    "code1": "inc",
+    "code2": ""
+  },
+  {
+    "name": "Indo-European languages",
+    "all names": "Indo-European languages",
+    "code1": "ine",
+    "code2": ""
+  },
+  {
+    "rank": 14,
+    "native": "77",
+    "percentage": 1.16,
+    "name": "Indonesian",
+    "all names": "Indonesian",
+    "code1": "ind",
+    "code2": "id"
+  },
+  {
+    "name": "Ingush",
+    "all names": "Ingush",
+    "code1": "inh",
+    "code2": ""
+  },
+  {
+    "name": "Interlingua (International Auxiliary Language Association)",
+    "all names": "Interlingua (International Auxiliary Language Association)",
+    "code1": "ina",
+    "code2": "ia"
+  },
+  {
+    "name": "Interlingue",
+    "all names": "Interlingue;Occidental",
+    "code1": "ile",
+    "code2": "ie"
+  },
+  {
+    "name": "Inuktitut",
+    "all names": "Inuktitut",
+    "code1": "iku",
+    "code2": "iu"
+  },
+  {
+    "name": "Inupiaq",
+    "all names": "Inupiaq",
+    "code1": "ipk",
+    "code2": "ik"
+  },
+  {
+    "name": "Iranian languages",
+    "all names": "Iranian languages",
+    "code1": "ira",
+    "code2": ""
+  },
+  {
+    "name": "Irish",
+    "all names": "Irish",
+    "code1": "gle",
+    "code2": "ga"
+  },
+  {
+    "name": "Irish, Middle (900-1200)",
+    "all names": "Irish, Middle (900-1200)",
+    "code1": "mga",
+    "code2": ""
+  },
+  {
+    "name": "Irish, Old (to 900)",
+    "all names": "Irish, Old (to 900)",
+    "code1": "sga",
+    "code2": ""
+  },
+  {
+    "name": "Iroquoian languages",
+    "all names": "Iroquoian languages",
+    "code1": "iro",
+    "code2": ""
+  },
+  {
+    "rank": 23,
+    "native": "59",
+    "percentage": 0.9,
+    "name": "Italian",
+    "all names": "Italian",
+    "code1": "ita",
+    "code2": "it"
+  },
+  {
+    "rank": 9,
+    "native": "125 (125)",
+    "percentage": 1.92,
+    "name": "Japanese",
+    "all names": "Japanese",
+    "code1": "jpn",
+    "code2": "ja"
+  },
+  {
+    "rank": 12,
+    "native": "82",
+    "percentage": 1.25,
+    "name": "Javanese",
+    "all names": "Javanese",
+    "code1": "jav",
+    "code2": "jv"
+  },
+  {
+    "name": "Jingpho",
+    "all names": "Kachin;Jingpho",
+    "code1": "kac",
+    "code2": ""
+  },
+  {
+    "name": "Judeo-Arabic",
+    "all names": "Judeo-Arabic",
+    "code1": "jrb",
+    "code2": ""
+  },
+  {
+    "name": "Judeo-Persian",
+    "all names": "Judeo-Persian",
+    "code1": "jpr",
+    "code2": ""
+  },
+  {
+    "name": "Kabardian",
+    "all names": "Kabardian",
+    "code1": "kbd",
+    "code2": ""
+  },
+  {
+    "name": "Kabyle",
+    "all names": "Kabyle",
+    "code1": "kab",
+    "code2": ""
+  },
+  {
+    "name": "Kachin",
+    "all names": "Kachin;Jingpho",
+    "code1": "kac",
+    "code2": ""
+  },
+  {
+    "name": "Kalaallisut",
+    "all names": "Kalaallisut;Greenlandic",
+    "code1": "kal",
+    "code2": "kl"
+  },
+  {
+    "name": "Kalmyk",
+    "all names": "Kalmyk;Oirat",
+    "code1": "xal",
+    "code2": ""
+  },
+  {
+    "name": "Kamba",
+    "all names": "Kamba",
+    "code1": "kam",
+    "code2": ""
+  },
+  {
+    "rank": 32,
+    "native": "38",
+    "percentage": 0.58,
+    "name": "Kannada",
+    "all names": "Kannada",
+    "code1": "kan",
+    "code2": "kn"
+  },
+  {
+    "name": "Kanuri",
+    "all names": "Kanuri",
+    "code1": "kau",
+    "code2": "kr"
+  },
+  {
+    "name": "Kapampangan",
+    "all names": "Pampanga;Kapampangan",
+    "code1": "pam",
+    "code2": ""
+  },
+  {
+    "name": "Kara-Kalpak",
+    "all names": "Kara-Kalpak",
+    "code1": "kaa",
+    "code2": ""
+  },
+  {
+    "name": "Karachay-Balkar",
+    "all names": "Karachay-Balkar",
+    "code1": "krc",
+    "code2": ""
+  },
+  {
+    "name": "Karelian",
+    "all names": "Karelian",
+    "code1": "krl",
+    "code2": ""
+  },
+  {
+    "name": "Karen languages",
+    "all names": "Karen languages",
+    "code1": "kar",
+    "code2": ""
+  },
+  {
+    "name": "Kashmiri",
+    "all names": "Kashmiri",
+    "code1": "kas",
+    "code2": "ks"
+  },
+  {
+    "name": "Kashubian",
+    "all names": "Kashubian",
+    "code1": "csb",
+    "code2": ""
+  },
+  {
+    "name": "Kawi",
+    "all names": "Kawi",
+    "code1": "kaw",
+    "code2": ""
+  },
+  {
+    "rank": 79,
+    "native": "11",
+    "percentage": 0.17,
+    "name": "Kazakh",
+    "all names": "Kazakh",
+    "code1": "kaz",
+    "code2": "kk"
+  },
+  {
+    "name": "Khasi",
+    "all names": "Khasi",
+    "code1": "kha",
+    "code2": ""
+  },
+  {
+    "name": "Khoisan languages",
+    "all names": "Khoisan languages",
+    "code1": "khi",
+    "code2": ""
+  },
+  {
+    "name": "Khotanese",
+    "all names": "Khotanese;Sakan",
+    "code1": "kho",
+    "code2": ""
+  },
+  {
+    "name": "Kikuyu",
+    "all names": "Kikuyu;Gikuyu",
+    "code1": "kik",
+    "code2": "ki"
+  },
+  {
+    "name": "Kimbundu",
+    "all names": "Kimbundu",
+    "code1": "kmb",
+    "code2": ""
+  },
+  {
+    "rank": 84,
+    "native": "9.8",
+    "percentage": 0.15,
+    "name": "Kinyarwanda",
+    "all names": "Kinyarwanda",
+    "code1": "kin",
+    "code2": "rw"
+  },
+  {
+    "name": "Kirdki",
+    "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
+    "code1": "zza",
+    "code2": ""
+  },
+  {
+    "name": "Kirghiz",
+    "all names": "Kirghiz;Kyrgyz",
+    "code1": "kir",
+    "code2": "ky"
+  },
+  {
+    "name": "Kirmanjki",
+    "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
+    "code1": "zza",
+    "code2": ""
+  },
+  {
+    "name": "Klingon",
+    "all names": "Klingon;tlhIngan-Hol",
+    "code1": "tlh",
+    "code2": ""
+  },
+  {
+    "name": "Komi",
+    "all names": "Komi",
+    "code1": "kom",
+    "code2": "kv"
+  },
+  {
+    "name": "Kongo",
+    "all names": "Kongo",
+    "code1": "kon",
+    "code2": "kg"
+  },
+  {
+    "rank": 100,
+    "native": "7.4",
+    "percentage": 0.11,
+    "name": "Konkani",
+    "all names": "Konkani",
+    "code1": "kok",
+    "code2": ""
+  },
+  {
+    "rank": 17,
+    "native": "76",
+    "percentage": 1.14,
+    "name": "Korean",
+    "all names": "Korean",
+    "code1": "kor",
+    "code2": "ko"
+  },
+  {
+    "name": "Kosraean",
+    "all names": "Kosraean",
+    "code1": "kos",
+    "code2": ""
+  },
+  {
+    "name": "Kpelle",
+    "all names": "Kpelle",
+    "code1": "kpe",
+    "code2": ""
+  },
+  {
+    "name": "Kru languages",
+    "all names": "Kru languages",
+    "code1": "kro",
+    "code2": ""
+  },
+  {
+    "name": "Kuanyama",
+    "all names": "Kuanyama;Kwanyama",
+    "code1": "kua",
+    "code2": "kj"
+  },
+  {
+    "name": "Kumyk",
+    "all names": "Kumyk",
+    "code1": "kum",
+    "code2": ""
+  },
+  {
+    "rank": 57,
+    "native": "21",
+    "percentage": 0.31,
+    "name": "Kurdish",
+    "all names": "Kurdish",
+    "code1": "kur",
+    "code2": "ku"
+  },
+  {
+    "name": "Kurukh",
+    "all names": "Kurukh",
+    "code1": "kru",
+    "code2": ""
+  },
+  {
+    "name": "Kutenai",
+    "all names": "Kutenai",
+    "code1": "kut",
+    "code2": ""
+  },
+  {
+    "name": "Kwanyama",
+    "all names": "Kuanyama;Kwanyama",
+    "code1": "kua",
+    "code2": "kj"
+  },
+  {
+    "name": "Kyrgyz",
+    "all names": "Kirghiz;Kyrgyz",
+    "code1": "kir",
+    "code2": "ky"
+  },
+  {
+    "name": "Ladino",
+    "all names": "Ladino",
+    "code1": "lad",
+    "code2": ""
+  },
+  {
+    "name": "Lahnda",
+    "all names": "Lahnda",
+    "code1": "lah",
+    "code2": ""
+  },
+  {
+    "name": "Lamba",
+    "all names": "Lamba",
+    "code1": "lam",
+    "code2": ""
+  },
+  {
+    "name": "Land Dayak languages",
+    "all names": "Land Dayak languages",
+    "code1": "day",
+    "code2": ""
+  },
+  {
+    "name": "Lao",
+    "all names": "Lao",
+    "code1": "lao",
+    "code2": "lo"
+  },
+  {
+    "name": "Latin",
+    "all names": "Latin",
+    "code1": "lat",
+    "code2": "la"
+  },
+  {
+    "name": "Latvian",
+    "all names": "Latvian",
+    "code1": "lav",
+    "code2": "lv"
+  },
+  {
+    "name": "Leonese",
+    "all names": "Asturian;Bable;Leonese;Asturleonese",
+    "code1": "ast",
+    "code2": ""
+  },
+  {
+    "name": "Letzeburgesch",
+    "all names": "Luxembourgish;Letzeburgesch",
+    "code1": "ltz",
+    "code2": "lb"
+  },
+  {
+    "name": "Lezghian",
+    "all names": "Lezghian",
+    "code1": "lez",
+    "code2": ""
+  },
+  {
+    "name": "Limburgan",
+    "all names": "Limburgan;Limburger;Limburgish",
+    "code1": "lim",
+    "code2": "li"
+  },
+  {
+    "name": "Limburger",
+    "all names": "Limburgan;Limburger;Limburgish",
+    "code1": "lim",
+    "code2": "li"
+  },
+  {
+    "name": "Limburgish",
+    "all names": "Limburgan;Limburger;Limburgish",
+    "code1": "lim",
+    "code2": "li"
+  },
+  {
+    "name": "Lingala",
+    "all names": "Lingala",
+    "code1": "lin",
+    "code2": "ln"
+  },
+  {
+    "name": "Lithuanian",
+    "all names": "Lithuanian",
+    "code1": "lit",
+    "code2": "lt"
+  },
+  {
+    "name": "Lojban",
+    "all names": "Lojban",
+    "code1": "jbo",
+    "code2": ""
+  },
+  {
+    "name": "Low German",
+    "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
+    "code1": "nds",
+    "code2": ""
+  },
+  {
+    "name": "Low Saxon",
+    "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
+    "code1": "nds",
+    "code2": ""
+  },
+  {
+    "name": "Lower Sorbian",
+    "all names": "Lower Sorbian",
+    "code1": "dsb",
+    "code2": ""
+  },
+  {
+    "name": "Lozi",
+    "all names": "Lozi",
+    "code1": "loz",
+    "code2": ""
+  },
+  {
+    "name": "Luba-Katanga",
+    "all names": "Luba-Katanga",
+    "code1": "lub",
+    "code2": "lu"
+  },
+  {
+    "name": "Luba-Lulua",
+    "all names": "Luba-Lulua",
+    "code1": "lua",
+    "code2": ""
+  },
+  {
+    "name": "Luiseno",
+    "all names": "Luiseno",
+    "code1": "lui",
+    "code2": ""
+  },
+  {
+    "name": "Lule Sami",
+    "all names": "Lule Sami",
+    "code1": "smj",
+    "code2": ""
+  },
+  {
+    "name": "Lunda",
+    "all names": "Lunda",
+    "code1": "lun",
+    "code2": ""
+  },
+  {
+    "name": "Luo (Kenya and Tanzania)",
+    "all names": "Luo (Kenya and Tanzania)",
+    "code1": "luo",
+    "code2": ""
+  },
+  {
+    "name": "Lushai",
+    "all names": "Lushai",
+    "code1": "lus",
+    "code2": ""
+  },
+  {
+    "name": "Luxembourgish",
+    "all names": "Luxembourgish;Letzeburgesch",
+    "code1": "ltz",
+    "code2": "lb"
+  },
+  {
+    "name": "Macedo-Romanian",
+    "all names": "Aromanian;Arumanian;Macedo-Romanian",
+    "code1": "rup",
+    "code2": ""
+  },
+  {
+    "name": "Macedonian",
+    "all names": "Macedonian",
+    "code1": "mac/mkd",
+    "code2": "mk"
+  },
+  {
+    "rank": 68,
+    "native": "15",
+    "percentage": 0.23,
+    "name": "Madurese",
+    "all names": "Madurese",
+    "code1": "mad",
+    "code2": ""
+  },
+  {
+    "rank": 71,
+    "native": "14",
+    "percentage": 0.21,
+    "name": "Magahi",
+    "all names": "Magahi",
+    "code1": "mag",
+    "code2": ""
+  },
+  {
+    "rank": 44,
+    "native": "27",
+    "percentage": 0.41,
+    "name": "Maithili",
+    "all names": "Maithili",
+    "code1": "mai",
+    "code2": ""
+  },
+  {
+    "name": "Makasar",
+    "all names": "Makasar",
+    "code1": "mak",
+    "code2": ""
+  },
+  {
+    "rank": 59,
+    "native": "18",
+    "percentage": 0.28,
+    "name": "Malagasy",
+    "all names": "Malagasy",
+    "code1": "mlg",
+    "code2": "mg"
+  },
+  {
+    "rank": 14,
+    "native": "77",
+    "percentage": 1.16,
+    "name": "Malay",
+    "all names": "Malay",
+    "code1": "may/msa",
+    "code2": "ms"
+  },
+  {
+    "rank": 34,
+    "native": "38",
+    "percentage": 0.57,
+    "name": "Malayalam",
+    "all names": "Malayalam",
+    "code1": "mal",
+    "code2": "ml"
+  },
+  {
+    "name": "Maldivian",
+    "all names": "Divehi;Dhivehi;Maldivian",
+    "code1": "div",
+    "code2": "dv"
+  },
+  {
+    "name": "Maltese",
+    "all names": "Maltese",
+    "code1": "mlt",
+    "code2": "mt"
+  },
+  {
+    "name": "Manchu",
+    "all names": "Manchu",
+    "code1": "mnc",
+    "code2": ""
+  },
+  {
+    "rank": 1,
+    "native": "935 (955)",
+    "percentage": 14.1,
+    "name": "Mandar",
+    "all names": "Mandar",
+    "code1": "mdr",
+    "code2": ""
+  },
+  {
+    "name": "Mandingo",
+    "all names": "Mandingo",
+    "code1": "man",
+    "code2": ""
+  },
+  {
+    "name": "Manipuri",
+    "all names": "Manipuri",
+    "code1": "mni",
+    "code2": ""
+  },
+  {
+    "name": "Manobo languages",
+    "all names": "Manobo languages",
+    "code1": "mno",
+    "code2": ""
+  },
+  {
+    "name": "Manx",
+    "all names": "Manx",
+    "code1": "glv",
+    "code2": "gv"
+  },
+  {
+    "name": "Maori",
+    "all names": "Maori",
+    "code1": "mao/mri",
+    "code2": "mi"
+  },
+  {
+    "name": "Mapuche",
+    "all names": "Mapudungun;Mapuche",
+    "code1": "arn",
+    "code2": ""
+  },
+  {
+    "name": "Mapudungun",
+    "all names": "Mapudungun;Mapuche",
+    "code1": "arn",
+    "code2": ""
+  },
+  {
+    "rank": 19,
+    "native": "73",
+    "percentage": 1.1,
+    "name": "Marathi",
+    "all names": "Marathi",
+    "code1": "mar",
+    "code2": "mr"
+  },
+  {
+    "name": "Mari",
+    "all names": "Mari",
+    "code1": "chm",
+    "code2": ""
+  },
+  {
+    "name": "Marshallese",
+    "all names": "Marshallese",
+    "code1": "mah",
+    "code2": "mh"
+  },
+  {
+    "rank": 70,
+    "native": "14",
+    "percentage": 0.21,
+    "name": "Marwari",
+    "all names": "Marwari",
+    "code1": "mwr",
+    "code2": ""
+  },
+  {
+    "name": "Masai",
+    "all names": "Masai",
+    "code1": "mas",
+    "code2": ""
+  },
+  {
+    "name": "Mayan languages",
+    "all names": "Mayan languages",
+    "code1": "myn",
+    "code2": ""
+  },
+  {
+    "name": "Mende",
+    "all names": "Mende",
+    "code1": "men",
+    "code2": ""
+  },
+  {
+    "name": "Mi'kmaq",
+    "all names": "Mi'kmaq;Micmac",
+    "code1": "mic",
+    "code2": ""
+  },
+  {
+    "name": "Micmac",
+    "all names": "Mi'kmaq;Micmac",
+    "code1": "mic",
+    "code2": ""
+  },
+  {
+    "name": "Minangkabau",
+    "all names": "Minangkabau",
+    "code1": "min",
+    "code2": ""
+  },
+  {
+    "name": "Mirandese",
+    "all names": "Mirandese",
+    "code1": "mwl",
+    "code2": ""
+  },
+  {
+    "name": "Mohawk",
+    "all names": "Mohawk",
+    "code1": "moh",
+    "code2": ""
+  },
+  {
+    "name": "Moksha",
+    "all names": "Moksha",
+    "code1": "mdf",
+    "code2": ""
+  },
+  {
+    "name": "Moldavian",
+    "all names": "Romanian;Moldavian;Moldovan",
+    "code1": "rum/ron",
+    "code2": "ro"
+  },
+  {
+    "name": "Moldovan",
+    "all names": "Romanian;Moldavian;Moldovan",
+    "code1": "rum/ron",
+    "code2": "ro"
+  },
+  {
+    "name": "Mon-Khmer languages",
+    "all names": "Mon-Khmer languages",
+    "code1": "mkh",
+    "code2": ""
+  },
+  {
+    "name": "Mong",
+    "all names": "Hmong;Mong",
+    "code1": "hmn",
+    "code2": ""
+  },
+  {
+    "name": "Mongo",
+    "all names": "Mongo",
+    "code1": "lol",
+    "code2": ""
+  },
+  {
+    "name": "Mongolian",
+    "all names": "Mongolian",
+    "code1": "mon",
+    "code2": "mn"
+  },
+  {
+    "name": "Montenegrin",
+    "all names": "Montenegrin",
+    "code1": "cnr",
+    "code2": ""
+  },
+  {
+    "rank": 96,
+    "native": "7.6",
+    "percentage": 0.11,
+    "name": "Mossi",
+    "all names": "Mossi",
+    "code1": "mos",
+    "code2": ""
+  },
+  {
+    "name": "Multiple languages",
+    "all names": "Multiple languages",
+    "code1": "mul",
+    "code2": ""
+  },
+  {
+    "name": "Munda languages",
+    "all names": "Munda languages",
+    "code1": "mun",
+    "code2": ""
+  },
+  {
+    "name": "N'Ko",
+    "all names": "N'Ko",
+    "code1": "nqo",
+    "code2": ""
+  },
+  {
+    "name": "Nahuatl languages",
+    "all names": "Nahuatl languages",
+    "code1": "nah",
+    "code2": ""
+  },
+  {
+    "name": "Nauru",
+    "all names": "Nauru",
+    "code1": "nau",
+    "code2": "na"
+  },
+  {
+    "name": "Navaho",
+    "all names": "Navajo;Navaho",
+    "code1": "nav",
+    "code2": "nv"
+  },
+  {
+    "name": "Navajo",
+    "all names": "Navajo;Navaho",
+    "code1": "nav",
+    "code2": "nv"
+  },
+  {
+    "name": "Ndebele, North",
+    "all names": "Ndebele, North;North Ndebele",
+    "code1": "nde",
+    "code2": "nd"
+  },
+  {
+    "name": "Ndebele, South",
+    "all names": "Ndebele, South;South Ndebele",
+    "code1": "nbl",
+    "code2": "nr"
+  },
+  {
+    "name": "Ndonga",
+    "all names": "Ndonga",
+    "code1": "ndo",
+    "code2": "ng"
+  },
+  {
+    "name": "Neapolitan",
+    "all names": "Neapolitan",
+    "code1": "nap",
+    "code2": ""
+  },
+  {
+    "name": "Nepal Bhasa",
+    "all names": "Nepal Bhasa;Newari",
+    "code1": "new",
+    "code2": ""
+  },
+  {
+    "rank": 61,
+    "native": "17",
+    "percentage": 0.25,
+    "name": "Nepali",
+    "all names": "Nepali",
+    "code1": "nep",
+    "code2": "ne"
+  },
+  {
+    "name": "Newari",
+    "all names": "Nepal Bhasa;Newari",
+    "code1": "new",
+    "code2": ""
+  },
+  {
+    "name": "Nias",
+    "all names": "Nias",
+    "code1": "nia",
+    "code2": ""
+  },
+  {
+    "name": "Niger-Kordofanian languages",
+    "all names": "Niger-Kordofanian languages",
+    "code1": "nic",
+    "code2": ""
+  },
+  {
+    "name": "Nilo-Saharan languages",
+    "all names": "Nilo-Saharan languages",
+    "code1": "ssa",
+    "code2": ""
+  },
+  {
+    "name": "Niuean",
+    "all names": "Niuean",
+    "code1": "niu",
+    "code2": ""
+  },
+  {
+    "name": "No linguistic content",
+    "all names": "No linguistic content;Not applicable",
+    "code1": "zxx",
+    "code2": ""
+  },
+  {
+    "name": "Nogai",
+    "all names": "Nogai",
+    "code1": "nog",
+    "code2": ""
+  },
+  {
+    "name": "Norse, Old",
+    "all names": "Norse, Old",
+    "code1": "non",
+    "code2": ""
+  },
+  {
+    "name": "North American Indian languages",
+    "all names": "North American Indian languages",
+    "code1": "nai",
+    "code2": ""
+  },
+  {
+    "name": "North Ndebele",
+    "all names": "Ndebele, North;North Ndebele",
+    "code1": "nde",
+    "code2": "nd"
+  },
+  {
+    "name": "Northern Frisian",
+    "all names": "Northern Frisian",
+    "code1": "frr",
+    "code2": ""
+  },
+  {
+    "name": "Northern Sami",
+    "all names": "Northern Sami",
+    "code1": "sme",
+    "code2": "se"
+  },
+  {
+    "name": "Northern Sotho",
+    "all names": "Pedi;Sepedi;Northern Sotho",
+    "code1": "nso",
+    "code2": ""
+  },
+  {
+    "name": "Norwegian",
+    "all names": "Norwegian",
+    "code1": "nor",
+    "code2": "no"
+  },
+  {
+    "name": "Norwegian Bokmål",
+    "all names": "Bokmål, Norwegian;Norwegian Bokmål",
+    "code1": "nob",
+    "code2": "nb"
+  },
+  {
+    "name": "Norwegian Nynorsk",
+    "all names": "Norwegian Nynorsk;Nynorsk, Norwegian",
+    "code1": "nno",
+    "code2": "nn"
+  },
+  {
+    "name": "Not applicable",
+    "all names": "No linguistic content;Not applicable",
+    "code1": "zxx",
+    "code2": ""
+  },
+  {
+    "name": "Nubian languages",
+    "all names": "Nubian languages",
+    "code1": "nub",
+    "code2": ""
+  },
+  {
+    "name": "Nuosu",
+    "all names": "Sichuan Yi;Nuosu",
+    "code1": "iii",
+    "code2": "ii"
+  },
+  {
+    "name": "Nyamwezi",
+    "all names": "Nyamwezi",
+    "code1": "nym",
+    "code2": ""
+  },
+  {
+    "name": "Nyanja",
+    "all names": "Chichewa;Chewa;Nyanja",
+    "code1": "nya",
+    "code2": "ny"
+  },
+  {
+    "name": "Nyankole",
+    "all names": "Nyankole",
+    "code1": "nyn",
+    "code2": ""
+  },
+  {
+    "name": "Nynorsk, Norwegian",
+    "all names": "Norwegian Nynorsk;Nynorsk, Norwegian",
+    "code1": "nno",
+    "code2": "nn"
+  },
+  {
+    "name": "Nyoro",
+    "all names": "Nyoro",
+    "code1": "nyo",
+    "code2": ""
+  },
+  {
+    "name": "Nzima",
+    "all names": "Nzima",
+    "code1": "nzi",
+    "code2": ""
+  },
+  {
+    "name": "Occidental",
+    "all names": "Interlingue;Occidental",
+    "code1": "ile",
+    "code2": "ie"
+  },
+  {
+    "name": "Occitan (post 1500)",
+    "all names": "Occitan (post 1500)",
+    "code1": "oci",
+    "code2": "oc"
+  },
+  {
+    "name": "Occitan, Old (to 1500)",
+    "all names": "Provençal, Old (to 1500);Occitan, Old (to 1500)",
+    "code1": "pro",
+    "code2": ""
+  },
+  {
+    "name": "Official Aramaic (700-300 BCE)",
+    "all names": "Official Aramaic (700-300 BCE);Imperial Aramaic (700-300 BCE)",
+    "code1": "arc",
+    "code2": ""
+  },
+  {
+    "name": "Oirat",
+    "all names": "Kalmyk;Oirat",
+    "code1": "xal",
+    "code2": ""
+  },
+  {
+    "name": "Ojibwa",
+    "all names": "Ojibwa",
+    "code1": "oji",
+    "code2": "oj"
+  },
+  {
+    "name": "Old Bulgarian",
+    "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
+    "code1": "chu",
+    "code2": "cu"
+  },
+  {
+    "name": "Old Church Slavonic",
+    "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
+    "code1": "chu",
+    "code2": "cu"
+  },
+  {
+    "name": "Old Newari",
+    "all names": "Classical Newari;Old Newari;Classical Nepal Bhasa",
+    "code1": "nwc",
+    "code2": ""
+  },
+  {
+    "name": "Old Slavonic",
+    "all names": "Church Slavic;Old Slavonic;Church Slavonic;Old Bulgarian;Old Church Slavonic",
+    "code1": "chu",
+    "code2": "cu"
+  },
+  {
+    "rank": 37,
+    "native": "33",
+    "percentage": 0.5,
+    "name": "Oriya",
+    "all names": "Oriya",
+    "code1": "ori",
+    "code2": "or"
+  },
+  {
+    "rank": 50,
+    "native": "24",
+    "percentage": 0.36,
+    "name": "Oromo",
+    "all names": "Oromo",
+    "code1": "orm",
+    "code2": "om"
+  },
+  {
+    "name": "Osage",
+    "all names": "Osage",
+    "code1": "osa",
+    "code2": ""
+  },
+  {
+    "name": "Ossetian",
+    "all names": "Ossetian;Ossetic",
+    "code1": "oss",
+    "code2": "os"
+  },
+  {
+    "name": "Ossetic",
+    "all names": "Ossetian;Ossetic",
+    "code1": "oss",
+    "code2": "os"
+  },
+  {
+    "name": "Otomian languages",
+    "all names": "Otomian languages",
+    "code1": "oto",
+    "code2": ""
+  },
+  {
+    "name": "Pahlavi",
+    "all names": "Pahlavi",
+    "code1": "pal",
+    "code2": ""
+  },
+  {
+    "name": "Palauan",
+    "all names": "Palauan",
+    "code1": "pau",
+    "code2": ""
+  },
+  {
+    "name": "Pali",
+    "all names": "Pali",
+    "code1": "pli",
+    "code2": "pi"
+  },
+  {
+    "name": "Pampanga",
+    "all names": "Pampanga;Kapampangan",
+    "code1": "pam",
+    "code2": ""
+  },
+  {
+    "name": "Pangasinan",
+    "all names": "Pangasinan",
+    "code1": "pag",
+    "code2": ""
+  },
+  {
+    "name": "Panjabi",
+    "all names": "Panjabi;Punjabi",
+    "code1": "pan",
+    "code2": "pa"
+  },
+  {
+    "name": "Papiamento",
+    "all names": "Papiamento",
+    "code1": "pap",
+    "code2": ""
+  },
+  {
+    "name": "Papuan languages",
+    "all names": "Papuan languages",
+    "code1": "paa",
+    "code2": ""
+  },
+  {
+    "rank": 31,
+    "native": "39",
+    "percentage": 0.58,
+    "name": "Pashto",
+    "all names": "Pushto;Pashto",
+    "code1": "pus",
+    "code2": "ps"
+  },
+  {
+    "name": "Pedi",
+    "all names": "Pedi;Sepedi;Northern Sotho",
+    "code1": "nso",
+    "code2": ""
+  },
+  {
+    "rank": 29,
+    "native": "45",
+    "percentage": 0.68,
+    "name": "Persian",
+    "all names": "Persian",
+    "code1": "per/fas",
+    "code2": "fa"
+  },
+  {
+    "name": "Persian, Old (ca.600-400 B.C.)",
+    "all names": "Persian, Old (ca.600-400 B.C.)",
+    "code1": "peo",
+    "code2": ""
+  },
+  {
+    "name": "Philippine languages",
+    "all names": "Philippine languages",
+    "code1": "phi",
+    "code2": ""
+  },
+  {
+    "name": "Phoenician",
+    "all names": "Phoenician",
+    "code1": "phn",
+    "code2": ""
+  },
+  {
+    "name": "Pilipino",
+    "all names": "Filipino;Pilipino",
+    "code1": "fil",
+    "code2": ""
+  },
+  {
+    "name": "Pohnpeian",
+    "all names": "Pohnpeian",
+    "code1": "pon",
+    "code2": ""
+  },
+  {
+    "rank": 30,
+    "native": "40",
+    "percentage": 0.61,
+    "name": "Polish",
+    "all names": "Polish",
+    "code1": "pol",
+    "code2": "pl"
+  },
+  {
+    "rank": 6,
+    "native": "205 (215)",
+    "percentage": 3.08,
+    "name": "Portuguese",
+    "all names": "Portuguese",
+    "code1": "por",
+    "code2": "pt"
+  },
+  {
+    "name": "Prakrit languages",
+    "all names": "Prakrit languages",
+    "code1": "pra",
+    "code2": ""
+  },
+  {
+    "name": "Provençal, Old (to 1500)",
+    "all names": "Provençal, Old (to 1500);Occitan, Old (to 1500)",
+    "code1": "pro",
+    "code2": ""
+  },
+  {
+    "rank": 10,
+    "native": "95 (100)",
+    "percentage": 1.44,
+    "name": "Punjabi",
+    "all names": "Panjabi;Punjabi",
+    "code1": "pan",
+    "code2": "pa"
+  },
+  {
+    "name": "Pushto",
+    "all names": "Pushto;Pashto",
+    "code1": "pus",
+    "code2": "ps"
+  },
+  {
+    "rank": 89,
+    "native": "8.9",
+    "percentage": 0.13,
+    "name": "Quechua",
+    "all names": "Quechua",
+    "code1": "que",
+    "code2": "qu"
+  },
+  {
+    "name": "Rajasthani",
+    "all names": "Rajasthani",
+    "code1": "raj",
+    "code2": ""
+  },
+  {
+    "name": "Rapanui",
+    "all names": "Rapanui",
+    "code1": "rap",
+    "code2": ""
+  },
+  {
+    "name": "Rarotongan",
+    "all names": "Rarotongan;Cook Islands Maori",
+    "code1": "rar",
+    "code2": ""
+  },
+  {
+    "name": "Reserved for local use",
+    "all names": "Reserved for local use",
+    "code1": "qaa-qtz",
+    "code2": ""
+  },
+  {
+    "name": "Romance languages",
+    "all names": "Romance languages",
+    "code1": "roa",
+    "code2": ""
+  },
+  {
+    "rank": 49,
+    "native": "24",
+    "percentage": 0.37,
+    "name": "Romanian",
+    "all names": "Romanian;Moldavian;Moldovan",
+    "code1": "rum/ron",
+    "code2": "ro"
+  },
+  {
+    "name": "Romansh",
+    "all names": "Romansh",
+    "code1": "roh",
+    "code2": "rm"
+  },
+  {
+    "name": "Romany",
+    "all names": "Romany",
+    "code1": "rom",
+    "code2": ""
+  },
+  {
+    "name": "Rundi",
+    "all names": "Rundi",
+    "code1": "run",
+    "code2": "rn"
+  },
+  {
+    "rank": 8,
+    "native": "160 (155)",
+    "percentage": 2.42,
+    "name": "Russian",
+    "all names": "Russian",
+    "code1": "rus",
+    "code2": "ru"
+  },
+  {
+    "name": "Sakan",
+    "all names": "Khotanese;Sakan",
+    "code1": "kho",
+    "code2": ""
+  },
+  {
+    "name": "Salishan languages",
+    "all names": "Salishan languages",
+    "code1": "sal",
+    "code2": ""
+  },
+  {
+    "name": "Samaritan Aramaic",
+    "all names": "Samaritan Aramaic",
+    "code1": "sam",
+    "code2": ""
+  },
+  {
+    "name": "Sami languages",
+    "all names": "Sami languages",
+    "code1": "smi",
+    "code2": ""
+  },
+  {
+    "name": "Samoan",
+    "all names": "Samoan",
+    "code1": "smo",
+    "code2": "sm"
+  },
+  {
+    "name": "Sandawe",
+    "all names": "Sandawe",
+    "code1": "sad",
+    "code2": ""
+  },
+  {
+    "name": "Sango",
+    "all names": "Sango",
+    "code1": "sag",
+    "code2": "sg"
+  },
+  {
+    "name": "Sanskrit",
+    "all names": "Sanskrit",
+    "code1": "san",
+    "code2": "sa"
+  },
+  {
+    "name": "Santali",
+    "all names": "Santali",
+    "code1": "sat",
+    "code2": ""
+  },
+  {
+    "name": "Sardinian",
+    "all names": "Sardinian",
+    "code1": "srd",
+    "code2": "sc"
+  },
+  {
+    "name": "Sasak",
+    "all names": "Sasak",
+    "code1": "sas",
+    "code2": ""
+  },
+  {
+    "name": "Saxon, Low",
+    "all names": "Low German;Low Saxon;German, Low;Saxon, Low",
+    "code1": "nds",
+    "code2": ""
+  },
+  {
+    "name": "Scots",
+    "all names": "Scots",
+    "code1": "sco",
+    "code2": ""
+  },
+  {
+    "name": "Scottish Gaelic",
+    "all names": "Gaelic;Scottish Gaelic",
+    "code1": "gla",
+    "code2": "gd"
+  },
+  {
+    "name": "Selkup",
+    "all names": "Selkup",
+    "code1": "sel",
+    "code2": ""
+  },
+  {
+    "name": "Semitic languages",
+    "all names": "Semitic languages",
+    "code1": "sem",
+    "code2": ""
+  },
+  {
+    "name": "Sepedi",
+    "all names": "Pedi;Sepedi;Northern Sotho",
+    "code1": "nso",
+    "code2": ""
+  },
+  {
+    "name": "Serbian",
+    "all names": "Serbian",
+    "code1": "srp",
+    "code2": "sr"
+  },
+  {
+    "name": "Serer",
+    "all names": "Serer",
+    "code1": "srr",
+    "code2": ""
+  },
+  {
+    "rank": 13,
+    "native": "80",
+    "percentage": 1.2,
+    "name": "Shan",
+    "all names": "Shan",
+    "code1": "shn",
+    "code2": ""
+  },
+  {
+    "rank": 93,
+    "native": "8.3",
+    "percentage": 0.13,
+    "name": "Shona",
+    "all names": "Shona",
+    "code1": "sna",
+    "code2": "sn"
+  },
+  {
+    "name": "Sichuan Yi",
+    "all names": "Sichuan Yi;Nuosu",
+    "code1": "iii",
+    "code2": "ii"
+  },
+  {
+    "name": "Sicilian",
+    "all names": "Sicilian",
+    "code1": "scn",
+    "code2": ""
+  },
+  {
+    "name": "Sidamo",
+    "all names": "Sidamo",
+    "code1": "sid",
+    "code2": ""
+  },
+  {
+    "name": "Sign Languages",
+    "all names": "Sign Languages",
+    "code1": "sgn",
+    "code2": ""
+  },
+  {
+    "name": "Siksika",
+    "all names": "Siksika",
+    "code1": "bla",
+    "code2": ""
+  },
+  {
+    "rank": 46,
+    "native": "26",
+    "percentage": 0.39,
+    "name": "Sindhi",
+    "all names": "Sindhi",
+    "code1": "snd",
+    "code2": "sd"
+  },
+  {
+    "rank": 62,
+    "native": "16",
+    "percentage": 0.25,
+    "name": "Sinhala",
+    "all names": "Sinhala;Sinhalese",
+    "code1": "sin",
+    "code2": "si"
+  },
+  {
+    "name": "Sinhalese",
+    "all names": "Sinhala;Sinhalese",
+    "code1": "sin",
+    "code2": "si"
+  },
+  {
+    "name": "Sino-Tibetan languages",
+    "all names": "Sino-Tibetan languages",
+    "code1": "sit",
+    "code2": ""
+  },
+  {
+    "name": "Siouan languages",
+    "all names": "Siouan languages",
+    "code1": "sio",
+    "code2": ""
+  },
+  {
+    "name": "Skolt Sami",
+    "all names": "Skolt Sami",
+    "code1": "sms",
+    "code2": ""
+  },
+  {
+    "name": "Slave (Athapascan)",
+    "all names": "Slave (Athapascan)",
+    "code1": "den",
+    "code2": ""
+  },
+  {
+    "name": "Slavic languages",
+    "all names": "Slavic languages",
+    "code1": "sla",
+    "code2": ""
+  },
+  {
+    "name": "Slovak",
+    "all names": "Slovak",
+    "code1": "slo/slk",
+    "code2": "sk"
+  },
+  {
+    "name": "Slovenian",
+    "all names": "Slovenian",
+    "code1": "slv",
+    "code2": "sl"
+  },
+  {
+    "name": "Sogdian",
+    "all names": "Sogdian",
+    "code1": "sog",
+    "code2": ""
+  },
+  {
+    "rank": 69,
+    "native": "15",
+    "percentage": 0.22,
+    "name": "Somali",
+    "all names": "Somali",
+    "code1": "som",
+    "code2": "so"
+  },
+  {
+    "name": "Songhai languages",
+    "all names": "Songhai languages",
+    "code1": "son",
+    "code2": ""
+  },
+  {
+    "name": "Soninke",
+    "all names": "Soninke",
+    "code1": "snk",
+    "code2": ""
+  },
+  {
+    "name": "Sorbian languages",
+    "all names": "Sorbian languages",
+    "code1": "wen",
+    "code2": ""
+  },
+  {
+    "name": "Sotho, Northern",
+    "all names": "Pedi;Sepedi;Northern Sotho",
+    "code1": "nso",
+    "code2": ""
+  },
+  {
+    "name": "Sotho, Southern",
+    "all names": "Sotho, Southern",
+    "code1": "sot",
+    "code2": "st"
+  },
+  {
+    "name": "South American Indian languages",
+    "all names": "South American Indian languages",
+    "code1": "sai",
+    "code2": ""
+  },
+  {
+    "name": "South Ndebele",
+    "all names": "Ndebele, South;South Ndebele",
+    "code1": "nbl",
+    "code2": "nr"
+  },
+  {
+    "name": "Southern Altai",
+    "all names": "Southern Altai",
+    "code1": "alt",
+    "code2": ""
+  },
+  {
+    "name": "Southern Sami",
+    "all names": "Southern Sami",
+    "code1": "sma",
+    "code2": ""
+  },
+  {
+    "rank": 2,
+    "native": "390 (405)",
+    "percentage": 5.85,
+    "name": "Spanish",
+    "all names": "Spanish;Castilian",
+    "code1": "spa",
+    "code2": "es"
+  },
+  {
+    "name": "Sranan Tongo",
+    "all names": "Sranan Tongo",
+    "code1": "srn",
+    "code2": ""
+  },
+  {
+    "name": "Standard Moroccan Tamazight",
+    "all names": "Standard Moroccan Tamazight",
+    "code1": "zgh",
+    "code2": ""
+  },
+  {
+    "name": "Sukuma",
+    "all names": "Sukuma",
+    "code1": "suk",
+    "code2": ""
+  },
+  {
+    "name": "Sumerian",
+    "all names": "Sumerian",
+    "code1": "sux",
+    "code2": ""
+  },
+  {
+    "rank": 35,
+    "native": "38",
+    "percentage": 0.57,
+    "name": "Sundanese",
+    "all names": "Sundanese",
+    "code1": "sun",
+    "code2": "su"
+  },
+  {
+    "name": "Susu",
+    "all names": "Susu",
+    "code1": "sus",
+    "code2": ""
+  },
+  {
+    "name": "Swahili",
+    "all names": "Swahili",
+    "code1": "swa",
+    "code2": "sw"
+  },
+  {
+    "name": "Swati",
+    "all names": "Swati",
+    "code1": "ssw",
+    "code2": "ss"
+  },
+  {
+    "rank": 91,
+    "native": "8.7",
+    "percentage": 0.13,
+    "name": "Swedish",
+    "all names": "Swedish",
+    "code1": "swe",
+    "code2": "sv"
+  },
+  {
+    "name": "Swiss German",
+    "all names": "Swiss German;Alemannic;Alsatian",
+    "code1": "gsw",
+    "code2": ""
+  },
+  {
+    "name": "Syriac",
+    "all names": "Syriac",
+    "code1": "syr",
+    "code2": ""
+  },
+  {
+    "rank": 42,
+    "native": "28",
+    "percentage": 0.42,
+    "name": "Tagalog",
+    "all names": "Tagalog",
+    "code1": "tgl",
+    "code2": "tl"
+  },
+  {
+    "name": "Tahitian",
+    "all names": "Tahitian",
+    "code1": "tah",
+    "code2": "ty"
+  },
+  {
+    "name": "Tai languages",
+    "all names": "Tai languages",
+    "code1": "tai",
+    "code2": ""
+  },
+  {
+    "name": "Tajik",
+    "all names": "Tajik",
+    "code1": "tgk",
+    "code2": "tg"
+  },
+  {
+    "name": "Tamashek",
+    "all names": "Tamashek",
+    "code1": "tmh",
+    "code2": ""
+  },
+  {
+    "rank": 20,
+    "native": "70",
+    "percentage": 1.06,
+    "name": "Tamil",
+    "all names": "Tamil",
+    "code1": "tam",
+    "code2": "ta"
+  },
+  {
+    "name": "Tatar",
+    "all names": "Tatar",
+    "code1": "tat",
+    "code2": "tt"
+  },
+  {
+    "rank": 15,
+    "native": "76",
+    "percentage": 1.15,
+    "name": "Telugu",
+    "all names": "Telugu",
+    "code1": "tel",
+    "code2": "te"
+  },
+  {
+    "name": "Tereno",
+    "all names": "Tereno",
+    "code1": "ter",
+    "code2": ""
+  },
+  {
+    "name": "Tetum",
+    "all names": "Tetum",
+    "code1": "tet",
+    "code2": ""
+  },
+  {
+    "rank": 25,
+    "native": "56",
+    "percentage": 0.85,
+    "name": "Thai",
+    "all names": "Thai",
+    "code1": "tha",
+    "code2": "th"
+  },
+  {
+    "name": "Tibetan",
+    "all names": "Tibetan",
+    "code1": "tib/bod",
+    "code2": "bo"
+  },
+  {
+    "name": "Tigre",
+    "all names": "Tigre",
+    "code1": "tig",
+    "code2": ""
+  },
+  {
+    "name": "Tigrinya",
+    "all names": "Tigrinya",
+    "code1": "tir",
+    "code2": "ti"
+  },
+  {
+    "name": "Timne",
+    "all names": "Timne",
+    "code1": "tem",
+    "code2": ""
+  },
+  {
+    "name": "Tiv",
+    "all names": "Tiv",
+    "code1": "tiv",
+    "code2": ""
+  },
+  {
+    "name": "tlhIngan-Hol",
+    "all names": "Klingon;tlhIngan-Hol",
+    "code1": "tlh",
+    "code2": ""
+  },
+  {
+    "name": "Tlingit",
+    "all names": "Tlingit",
+    "code1": "tli",
+    "code2": ""
+  },
+  {
+    "name": "Tok Pisin",
+    "all names": "Tok Pisin",
+    "code1": "tpi",
+    "code2": ""
+  },
+  {
+    "name": "Tokelau",
+    "all names": "Tokelau",
+    "code1": "tkl",
+    "code2": ""
+  },
+  {
+    "name": "Tonga (Nyasa)",
+    "all names": "Tonga (Nyasa)",
+    "code1": "tog",
+    "code2": ""
+  },
+  {
+    "name": "Tonga (Tonga Islands)",
+    "all names": "Tonga (Tonga Islands)",
+    "code1": "ton",
+    "code2": "to"
+  },
+  {
+    "name": "Tsimshian",
+    "all names": "Tsimshian",
+    "code1": "tsi",
+    "code2": ""
+  },
+  {
+    "name": "Tsonga",
+    "all names": "Tsonga",
+    "code1": "tso",
+    "code2": "ts"
+  },
+  {
+    "name": "Tswana",
+    "all names": "Tswana",
+    "code1": "tsn",
+    "code2": "tn"
+  },
+  {
+    "name": "Tumbuka",
+    "all names": "Tumbuka",
+    "code1": "tum",
+    "code2": ""
+  },
+  {
+    "name": "Tupi languages",
+    "all names": "Tupi languages",
+    "code1": "tup",
+    "code2": ""
+  },
+  {
+    "rank": 22,
+    "native": "63",
+    "percentage": 0.95,
+    "name": "Turkish",
+    "all names": "Turkish",
+    "code1": "tur",
+    "code2": "tr"
+  },
+  {
+    "name": "Turkish, Ottoman (1500-1928)",
+    "all names": "Turkish, Ottoman (1500-1928)",
+    "code1": "ota",
+    "code2": ""
+  },
+  {
+    "rank": 66,
+    "native": "16",
+    "percentage": 0.24,
+    "name": "Turkmen",
+    "all names": "Turkmen",
+    "code1": "tuk",
+    "code2": "tk"
+  },
+  {
+    "name": "Tuvalu",
+    "all names": "Tuvalu",
+    "code1": "tvl",
+    "code2": ""
+  },
+  {
+    "name": "Tuvinian",
+    "all names": "Tuvinian",
+    "code1": "tyv",
+    "code2": ""
+  },
+  {
+    "name": "Twi",
+    "all names": "Twi",
+    "code1": "twi",
+    "code2": "tw"
+  },
+  {
+    "name": "Udmurt",
+    "all names": "Udmurt",
+    "code1": "udm",
+    "code2": ""
+  },
+  {
+    "name": "Ugaritic",
+    "all names": "Ugaritic",
+    "code1": "uga",
+    "code2": ""
+  },
+  {
+    "name": "Uighur",
+    "all names": "Uighur;Uyghur",
+    "code1": "uig",
+    "code2": "ug"
+  },
+  {
+    "rank": 40,
+    "native": "30",
+    "percentage": 0.46,
+    "name": "Ukrainian",
+    "all names": "Ukrainian",
+    "code1": "ukr",
+    "code2": "uk"
+  },
+  {
+    "name": "Umbundu",
+    "all names": "Umbundu",
+    "code1": "umb",
+    "code2": ""
+  },
+  {
+    "name": "Uncoded languages",
+    "all names": "Uncoded languages",
+    "code1": "mis",
+    "code2": ""
+  },
+  {
+    "name": "Undetermined",
+    "all names": "Undetermined",
+    "code1": "und",
+    "code2": ""
+  },
+  {
+    "name": "Upper Sorbian",
+    "all names": "Upper Sorbian",
+    "code1": "hsb",
+    "code2": ""
+  },
+  {
+    "rank": 21,
+    "native": "66",
+    "percentage": 0.99,
+    "name": "Urdu",
+    "all names": "Urdu",
+    "code1": "urd",
+    "code2": "ur"
+  },
+  {
+    "rank": 94,
+    "native": "8.2",
+    "percentage": 0.12,
+    "name": "Uyghur",
+    "all names": "Uighur;Uyghur",
+    "code1": "uig",
+    "code2": "ug"
+  },
+  {
+    "rank": 45,
+    "native": "26",
+    "percentage": 0.39,
+    "name": "Uzbek",
+    "all names": "Uzbek",
+    "code1": "uzb",
+    "code2": "uz"
+  },
+  {
+    "name": "Vai",
+    "all names": "Vai",
+    "code1": "vai",
+    "code2": ""
+  },
+  {
+    "name": "Valencian",
+    "all names": "Catalan;Valencian",
+    "code1": "cat",
+    "code2": "ca"
+  },
+  {
+    "name": "Venda",
+    "all names": "Venda",
+    "code1": "ven",
+    "code2": "ve"
+  },
+  {
+    "rank": 16,
+    "native": "76",
+    "percentage": 1.14,
+    "name": "Vietnamese",
+    "all names": "Vietnamese",
+    "code1": "vie",
+    "code2": "vi"
+  },
+  {
+    "name": "Volapük",
+    "all names": "Volapük",
+    "code1": "vol",
+    "code2": "vo"
+  },
+  {
+    "name": "Votic",
+    "all names": "Votic",
+    "code1": "vot",
+    "code2": ""
+  },
+  {
+    "name": "Wakashan languages",
+    "all names": "Wakashan languages",
+    "code1": "wak",
+    "code2": ""
+  },
+  {
+    "name": "Walloon",
+    "all names": "Walloon",
+    "code1": "wln",
+    "code2": "wa"
+  },
+  {
+    "name": "Waray",
+    "all names": "Waray",
+    "code1": "war",
+    "code2": ""
+  },
+  {
+    "name": "Washo",
+    "all names": "Washo",
+    "code1": "was",
+    "code2": ""
+  },
+  {
+    "name": "Welsh",
+    "all names": "Welsh",
+    "code1": "wel/cym",
+    "code2": "cy"
+  },
+  {
+    "name": "Western Frisian",
+    "all names": "Western Frisian",
+    "code1": "fry",
+    "code2": "fy"
+  },
+  {
+    "name": "Western Pahari languages",
+    "all names": "Himachali languages;Western Pahari languages",
+    "code1": "him",
+    "code2": ""
+  },
+  {
+    "name": "Wolaitta",
+    "all names": "Wolaitta;Wolaytta",
+    "code1": "wal",
+    "code2": ""
+  },
+  {
+    "name": "Wolaytta",
+    "all names": "Wolaitta;Wolaytta",
+    "code1": "wal",
+    "code2": ""
+  },
+  {
+    "name": "Wolof",
+    "all names": "Wolof",
+    "code1": "wol",
+    "code2": "wo"
+  },
+  {
+    "rank": 97,
+    "native": "7.6",
+    "percentage": 0.11,
+    "name": "Xhosa",
+    "all names": "Xhosa",
+    "code1": "xho",
+    "code2": "xh"
+  },
+  {
+    "name": "Yakut",
+    "all names": "Yakut",
+    "code1": "sah",
+    "code2": ""
+  },
+  {
+    "name": "Yao",
+    "all names": "Yao",
+    "code1": "yao",
+    "code2": ""
+  },
+  {
+    "name": "Yapese",
+    "all names": "Yapese",
+    "code1": "yap",
+    "code2": ""
+  },
+  {
+    "name": "Yiddish",
+    "all names": "Yiddish",
+    "code1": "yid",
+    "code2": "yi"
+  },
+  {
+    "rank": 43,
+    "native": "28",
+    "percentage": 0.42,
+    "name": "Yoruba",
+    "all names": "Yoruba",
+    "code1": "yor",
+    "code2": "yo"
+  },
+  {
+    "name": "Yupik languages",
+    "all names": "Yupik languages",
+    "code1": "ypk",
+    "code2": ""
+  },
+  {
+    "name": "Zande languages",
+    "all names": "Zande languages",
+    "code1": "znd",
+    "code2": ""
+  },
+  {
+    "name": "Zapotec",
+    "all names": "Zapotec",
+    "code1": "zap",
+    "code2": ""
+  },
+  {
+    "name": "Zaza",
+    "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
+    "code1": "zza",
+    "code2": ""
+  },
+  {
+    "name": "Zazaki",
+    "all names": "Zaza;Dimili;Dimli;Kirdki;Kirmanjki;Zazaki",
+    "code1": "zza",
+    "code2": ""
+  },
+  {
+    "name": "Zenaga",
+    "all names": "Zenaga",
+    "code1": "zen",
+    "code2": ""
+  },
+  {
+    "rank": 64,
+    "native": "16",
+    "percentage": 0.24,
+    "name": "Zhuang",
+    "all names": "Zhuang;Chuang",
+    "code1": "zha",
+    "code2": "za"
+  },
+  {
+    "rank": 82,
+    "native": "10.4",
+    "percentage": 0.16,
+    "name": "Zulu",
+    "all names": "Zulu",
+    "code1": "zul",
+    "code2": "zu"
+  },
+  {
+    "name": "Zuni",
+    "all names": "Zuni",
+    "code1": "zun",
+    "code2": ""
+  }
 ]

@@ -1,6 +1,6 @@
-import DialogTitle from "@mui/material/DialogTitle";
-import Dialog from "@mui/material/Dialog";
-import { getLevelLabel } from "../../utils/helpers";
+import DialogTitle from "@mui/material/DialogTitle"
+import Dialog from "@mui/material/Dialog"
+import { getLevelLabel } from "../../utils/helpers"
 import {
   FormControl,
   FormLabel,
@@ -12,27 +12,27 @@ import {
   Typography,
   TextField,
   ButtonGroup,
-} from "@mui/material";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { Box } from "@mui/system";
-import { ChallengeSetup } from "../../types/challenge";
-import { useMemo } from "react";
+} from "@mui/material"
+import { useFormik } from "formik"
+import * as Yup from "yup"
+import { Box } from "@mui/system"
+import { ChallengeSetup } from "../../types/challenge"
+import { useMemo } from "react"
 
 export interface LevelDialogProps {
-  open: boolean;
-  setup?: ChallengeSetup;
-  onClose: (setup?: ChallengeSetup) => void;
+  open: boolean
+  setup?: ChallengeSetup
+  onClose: (setup?: ChallengeSetup) => void
 }
 
-const LEVELS_COUNT = 5;
+const LEVELS_COUNT = 5
 
 export function GameDialog(props: LevelDialogProps) {
-  const { onClose, setup, open } = props;
+  const { onClose, setup, open } = props
 
   const handleClose = () => {
-    onClose();
-  };
+    onClose()
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -42,9 +42,9 @@ export function GameDialog(props: LevelDialogProps) {
       players: Yup.number().max(8).min(1).required("players is required"),
     }),
     onSubmit: (values, { resetForm, setErrors, setSubmitting }) => {
-      onClose({ ...values });
+      onClose({ ...values })
     },
-  });
+  })
 
   const liveHelpMessage = useMemo(
     () =>
@@ -52,7 +52,7 @@ export function GameDialog(props: LevelDialogProps) {
         ? "You will be challenging random players live"
         : "You will have a priavte challenge link to share",
     [formik]
-  );
+  )
 
   return (
     <Dialog onClose={handleClose} open={open}>
@@ -126,5 +126,5 @@ export function GameDialog(props: LevelDialogProps) {
         </form>
       </Container>
     </Dialog>
-  );
+  )
 }

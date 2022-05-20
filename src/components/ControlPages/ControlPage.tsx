@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { Container } from "@mui/material";
+import React, { FC } from "react"
+import { Container } from "@mui/material"
 
 export var ControlPage: FC<Props> = function ({ children }) {
   return (
@@ -8,8 +8,8 @@ export var ControlPage: FC<Props> = function ({ children }) {
     >
       {children}
     </Container>
-  );
-};
+  )
+}
 interface Props {
-  children: JSX.Element;
+  children: JSX.Element
 }

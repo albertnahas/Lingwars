@@ -1,7 +1,7 @@
-import { Typography, CircularProgress } from "@mui/material";
-import { Box } from "@mui/system";
-import React from "react";
-import { Logo } from "../../icons/logo";
+import { Typography, CircularProgress } from "@mui/material"
+import { Box } from "@mui/system"
+import React from "react"
+import { Logo } from "../../icons/logo"
 
 export const SplashScreen = () => {
   return (
@@ -20,5 +20,5 @@ export const SplashScreen = () => {
       </Typography>
       <CircularProgress sx={{ display: "block", m: "auto", mt: 6 }} />
     </Box>
-  );
-};
+  )
+}

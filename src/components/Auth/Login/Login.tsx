@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import React, { FC } from "react"
+import * as Yup from "yup"
+import { useFormik } from "formik"
 
 import {
   Box,
@@ -10,15 +10,15 @@ import {
   Grid,
   TextField,
   Typography,
-} from "@mui/material";
-import { Facebook as FacebookIcon } from "../../../icons/facebook";
-import { Google as GoogleIcon } from "../../../icons/google";
-import { useSelector } from "react-redux";
-import { State } from "../../../types/state";
-import { Navigate } from "react-router";
+} from "@mui/material"
+import { Facebook as FacebookIcon } from "../../../icons/facebook"
+import { Google as GoogleIcon } from "../../../icons/google"
+import { useSelector } from "react-redux"
+import { State } from "../../../types/state"
+import { Navigate } from "react-router"
 
 export var Login: FC<Props> = function (props) {
-  const user = useSelector((state: State) => state.user.value);
+  const user = useSelector((state: State) => state.user.value)
 
   const formik = useFormik({
     initialValues: {
@@ -39,15 +39,15 @@ export var Login: FC<Props> = function (props) {
           if (res.message) {
             setErrors({
               email: res.message,
-            });
-            setSubmitting(false);
+            })
+            setSubmitting(false)
           }
         })
         .catch((e: any) => {
-          console.log(e);
-        });
+          console.log(e)
+        })
     },
-  });
+  })
 
   return user === null ? (
     <Box
@@ -165,14 +165,14 @@ export var Login: FC<Props> = function (props) {
     </Box>
   ) : (
     <Navigate replace to="/" />
-  );
-};
+  )
+}
 
 interface Props {
-  onSubmit?: (email: string, password: string) => Promise<any>;
-  signUp: () => void;
-  signInWithGoogle?: () => void;
-  signInWithFacebook?: () => void;
-  error?: string;
-  loading?: boolean;
+  onSubmit?: (email: string, password: string) => Promise<any>
+  signUp: () => void
+  signInWithGoogle?: () => void
+  signInWithFacebook?: () => void
+  error?: string
+  loading?: boolean
 }

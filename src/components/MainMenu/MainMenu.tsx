@@ -1,74 +1,74 @@
-import React, { FC, useEffect } from "react";
-import { Box, Button, Stack, Typography, Zoom } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { ChallengeDialog } from "../../molecules/ChallengeDialog/ChallengeDialog";
-import { useDispatch } from "react-redux";
-import { GameDialog } from "../../molecules/GameDialog/GameDialog";
-import { setChallenge } from "../../store/challengeSlice";
-import { ChallengeSetup } from "../../types/challenge";
-import { useChallengeSetup } from "../../hooks/useChallengeSetup";
-import ModalDialog from "../../molecules/ModalDialog/ModalDialog";
+import React, { FC, useEffect } from "react"
+import { Box, Button, Stack, Typography, Zoom } from "@mui/material"
+import { useNavigate } from "react-router-dom"
+import { ChallengeDialog } from "../../molecules/ChallengeDialog/ChallengeDialog"
+import { useDispatch } from "react-redux"
+import { GameDialog } from "../../molecules/GameDialog/GameDialog"
+import { setChallenge } from "../../store/challengeSlice"
+import { ChallengeSetup } from "../../types/challenge"
+import { useChallengeSetup } from "../../hooks/useChallengeSetup"
+import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
 
-const defaultChallengeSetup = { level: 1, players: 1, live: false };
+const defaultChallengeSetup = { level: 1, players: 1, live: false }
 
 export var MainMenu: FC<Props> = function (props) {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [initialSetup, setInitialSetup] = React.useState<ChallengeSetup>();
+  const [initialSetup, setInitialSetup] = React.useState<ChallengeSetup>()
 
   const { challenge, pairing, createChallenge, requestChallenge } =
-    useChallengeSetup();
+    useChallengeSetup()
 
-  const [openLevelsDialog, setOpenLevelsDialog] = React.useState(false);
-  const [openChallengeDialog, setOpenChallengeDialog] = React.useState(false);
-  const dispatch = useDispatch();
+  const [openLevelsDialog, setOpenLevelsDialog] = React.useState(false)
+  const [openChallengeDialog, setOpenChallengeDialog] = React.useState(false)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (challenge) {
       if (challenge.live) {
-        onStartChallenge();
+        onStartChallenge()
       } else {
-        setOpenChallengeDialog(true);
+        setOpenChallengeDialog(true)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [challenge]);
+  }, [challenge])
 
   useEffect(() => {
     if (initialSetup) {
-      setOpenLevelsDialog(true);
+      setOpenLevelsDialog(true)
     }
-  }, [initialSetup]);
+  }, [initialSetup])
 
   const onCreateGame = (setup?: ChallengeSetup) => {
-    setOpenLevelsDialog(false);
-    setInitialSetup(undefined);
+    setOpenLevelsDialog(false)
+    setInitialSetup(undefined)
 
-    if (!setup || !setup.level) return;
+    if (!setup || !setup.level) return
 
     if (setup.players === 1) {
-      dispatch(setChallenge({ ...setup }));
-      navigate(`/play`);
+      dispatch(setChallenge({ ...setup }))
+      navigate(`/play`)
     } else {
       if (!setup.live) {
-        createChallenge(setup);
+        createChallenge(setup)
       } else {
-        requestChallenge(setup);
+        requestChallenge(setup)
       }
     }
-  };
+  }
 
   const onClickSinglePlayer = () => {
-    setInitialSetup({ ...defaultChallengeSetup });
-  };
+    setInitialSetup({ ...defaultChallengeSetup })
+  }
 
   const onClickMultiplayer = () => {
-    setInitialSetup({ ...defaultChallengeSetup, players: 2 });
-  };
+    setInitialSetup({ ...defaultChallengeSetup, players: 2 })
+  }
 
   const onStartChallenge = () => {
-    navigate(`/play/${challenge?.id}`);
-  };
+    navigate(`/play/${challenge?.id}`)
+  }
 
   return (
     <Box>
@@ -126,7 +126,7 @@ export var MainMenu: FC<Props> = function (props) {
         <div>Pairing...</div>
       </ModalDialog>
     </Box>
-  );
-};
+  )
+}
 
 interface Props {}

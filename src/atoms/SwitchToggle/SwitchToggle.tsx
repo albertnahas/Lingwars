@@ -1,15 +1,15 @@
-import * as React from "react";
-import clsx from "clsx";
-import { styled } from "@mui/system";
-import { useSwitch } from "@mui/base/SwitchUnstyled";
-import { CSSProperties } from "@mui/styled-engine";
+import * as React from "react"
+import clsx from "clsx"
+import { styled } from "@mui/system"
+import { useSwitch } from "@mui/base/SwitchUnstyled"
+import { CSSProperties } from "@mui/styled-engine"
 
 const SwitchRoot = styled("span")`
   display: inline-block;
   position: relative;
   width: 34px;
   height: 16px;
-`;
+`
 
 const SwitchInput = styled("input")`
   position: absolute;
@@ -21,7 +21,7 @@ const SwitchInput = styled("input")`
   z-index: 1;
   margin: 0;
   cursor: pointer;
-`;
+`
 
 const SwitchThumb = styled("span")(
   ({ theme }) => `
@@ -54,7 +54,7 @@ const SwitchThumb = styled("span")(
     &:before { background-color:${theme.palette.primary.main}; }
   }
 `
-);
+)
 
 const SwitchTrack = styled("span")(
   ({ theme }) => `
@@ -71,16 +71,16 @@ const SwitchTrack = styled("span")(
     border-color:${theme.palette.primary.main};
   }
 `
-);
+)
 
 const MUISwitch = function ({ style, ...props }: any) {
-  const { getInputProps, checked, disabled, focusVisible } = useSwitch(props);
+  const { getInputProps, checked, disabled, focusVisible } = useSwitch(props)
 
   const stateClasses = {
     checked,
     disabled,
     focusVisible,
-  };
+  }
 
   return (
     <SwitchRoot style={style} className={clsx(stateClasses)}>
@@ -89,24 +89,24 @@ const MUISwitch = function ({ style, ...props }: any) {
       </SwitchTrack>
       <SwitchInput {...getInputProps()} aria-label="Demo switch" />
     </SwitchRoot>
-  );
-};
+  )
+}
 
 export default function SwitchToggle(props: SwitchProps) {
   const handleChange = (e: any) => {
-    props.handleToggleChange?.(e.target.checked);
-  };
+    props.handleToggleChange?.(e.target.checked)
+  }
   return (
     <MUISwitch
       style={props.style}
       checked={props.active}
       onChange={handleChange}
     />
-  );
+  )
 }
 
 interface SwitchProps {
-  handleToggleChange?: (checked: boolean) => void;
-  active: boolean;
-  style?: CSSProperties;
+  handleToggleChange?: (checked: boolean) => void
+  active: boolean
+  style?: CSSProperties
 }

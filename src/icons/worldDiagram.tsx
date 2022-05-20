@@ -1,8 +1,8 @@
-import * as React from "react";
-import { styled } from "@mui/material";
+import * as React from "react"
+import { styled } from "@mui/material"
 
-export const highlightColor = "#EF463F";
-export const secondaryColor = "#10AEC7";
+export const highlightColor = "#EF463F"
+export const secondaryColor = "#10AEC7"
 
 // export const Diagram = styled("svg")`
 //   & g {
@@ -35,7 +35,7 @@ export const Diagram = styled("svg", {
       {}
     ),
   })
-);
+)
 
 export const WorldDiagram: React.FC<DiagramProps> = ({
   onMuscleGroupClick,
@@ -2111,13 +2111,13 @@ export const WorldDiagram: React.FC<DiagramProps> = ({
       <circle cx="673.5" cy="724.1" id="1"></circle>
       <circle cx="1798.2" cy="719.3" id="2"></circle>
     </Diagram>
-  );
-};
+  )
+}
 
 export interface DiagramProps {
-  highlights?: string[];
-  secondaryHighlights?: string[];
-  style?: React.CSSProperties;
-  isClickable?: boolean;
-  onMuscleGroupClick?: React.MouseEventHandler<SVGGElement>;
+  highlights?: string[]
+  secondaryHighlights?: string[]
+  style?: React.CSSProperties
+  isClickable?: boolean
+  onMuscleGroupClick?: React.MouseEventHandler<SVGGElement>
 }

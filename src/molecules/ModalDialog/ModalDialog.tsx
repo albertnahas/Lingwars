@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from "react"
 import {
   Dialog,
   DialogTitle,
@@ -8,29 +8,29 @@ import {
   Box,
   Typography,
   DialogActions,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import Zoom from "@mui/material/Zoom";
-import { TransitionProps } from "@mui/material/transitions";
+} from "@mui/material"
+import CloseIcon from "@mui/icons-material/Close"
+import Zoom from "@mui/material/Zoom"
+import { TransitionProps } from "@mui/material/transitions"
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
-    children: React.ReactElement<any, any>;
+    children: React.ReactElement<any, any>
   },
   ref: React.Ref<unknown>
 ) {
-  return <Zoom in={true} ref={ref} {...props} />;
-});
+  return <Zoom in={true} ref={ref} {...props} />
+})
 
 export default function ModalDialog(props: Props) {
   // const locaiton = useLocation();
 
   const handleClose = () => {
-    props.setOpen(false);
+    props.setOpen(false)
     if (window.location.hash !== "") {
-      window.history.back();
+      window.history.back()
     }
-  };
+  }
 
   React.useEffect(() => {
     const onHashChange = () => {
@@ -40,22 +40,22 @@ export default function ModalDialog(props: Props) {
           .split("#")
           .includes(encodeURIComponent(props.title || "") || "modal")
       ) {
-        props.setOpen(false);
+        props.setOpen(false)
       }
-    };
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.title, props.open]);
+    }
+    window.addEventListener("hashchange", onHashChange)
+    return () => window.removeEventListener("hashchange", onHashChange)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.title, props.open])
 
   React.useEffect(() => {
     if (props.open) {
       window.location.hash += `#${
         encodeURIComponent(props.title || "") || "modal"
-      }`;
+      }`
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.open]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.open])
 
   return (
     <div>
@@ -102,16 +102,16 @@ export default function ModalDialog(props: Props) {
         {props.actions && <DialogActions>{props.actions}</DialogActions>}
       </Dialog>
     </div>
-  );
+  )
 }
 
 interface Props {
-  setOpen: (open: boolean) => any;
-  open: boolean;
-  maxWidth?: Breakpoint;
-  closeButton?: boolean;
-  children: JSX.Element;
-  actions?: JSX.Element;
-  zoom?: boolean;
-  title?: string;
+  setOpen: (open: boolean) => any
+  open: boolean
+  maxWidth?: Breakpoint
+  closeButton?: boolean
+  children: JSX.Element
+  actions?: JSX.Element
+  zoom?: boolean
+  title?: string
 }

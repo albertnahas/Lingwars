@@ -1,7 +1,7 @@
-import React, { FC, useEffect, useMemo, useState } from "react";
-import { Waveform } from "../../molecules/Waveform/Waveform";
-import files from "../../data/files.json";
-import _ from "lodash";
+import React, { FC, useEffect, useMemo, useState } from "react"
+import { Waveform } from "../../molecules/Waveform/Waveform"
+import files from "../../data/files.json"
+import _ from "lodash"
 import {
   Alert,
   Button,
@@ -9,12 +9,12 @@ import {
   IconButton,
   Tooltip,
   Typography,
-} from "@mui/material";
-import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
-import { Box, styled } from "@mui/system";
-import { getLanguageCountries, getLanguageInfo } from "../../utils/helpers";
-import { WorldDiagram } from "../../icons/worldDiagram";
-import { Timer } from "../../atoms/Timer/Timer";
+} from "@mui/material"
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates"
+import { Box, styled } from "@mui/system"
+import { getLanguageCountries, getLanguageInfo } from "../../utils/helpers"
+import { WorldDiagram } from "../../icons/worldDiagram"
+import { Timer } from "../../atoms/Timer/Timer"
 
 export const BoxContainer = styled("div")`
   display: flex;
@@ -22,15 +22,15 @@ export const BoxContainer = styled("div")`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-`;
+`
 
 export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
-  const [langInfo, setLangInfo] = useState<any>();
-  const [showInfo, setShowInfo] = useState<boolean>(false);
-  const [showHint, setShowHint] = useState<boolean>(false);
-  const [answer, setAnswer] = useState<any>();
-  const [time, setTime] = useState(0);
-  const [active, setActive] = useState<boolean>(false);
+  const [langInfo, setLangInfo] = useState<any>()
+  const [showInfo, setShowInfo] = useState<boolean>(false)
+  const [showHint, setShowHint] = useState<boolean>(false)
+  const [answer, setAnswer] = useState<any>()
+  const [time, setTime] = useState(0)
+  const [active, setActive] = useState<boolean>(false)
 
   const langUrl = useMemo<string>(
     () =>
@@ -40,50 +40,50 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
           )}`
         : "",
     [lang]
-  );
+  )
 
   const langCountries = useMemo<string[]>(
     () => (lang ? getLanguageCountries(lang).map((c) => c.Country) : []),
     [lang]
-  );
+  )
 
   const hint = useMemo<string>(() => {
-    if (!langInfo) return '';
+    if (!langInfo) return ""
 
-    const split = langInfo.extract.split(".");
-    const lang = langInfo.title;
+    const split = langInfo.extract.split(".")
+    const lang = langInfo.title
     return split.length > 0
       ? `${split[1].replaceAll(lang, "this language")}.`
-      : "";
-  }, [langInfo]);
+      : ""
+  }, [langInfo])
 
   useEffect(() => {
-    if (!lang) return;
+    if (!lang) return
 
     getLanguageInfo(lang)
       .then((res) => res.json())
       .then((res) => {
         for (const page in res.query.pages) {
-          setLangInfo(res.query.pages[page]);
+          setLangInfo(res.query.pages[page])
         }
-      });
-  }, [lang]);
+      })
+  }, [lang])
 
   useEffect(() => {
-    if (!answer) return;
+    if (!answer) return
 
-    onAnswer(answer, time);
-    setShowHint(false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [answer]);
+    onAnswer(answer, time)
+    setShowHint(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answer])
 
   const onTimerChange = (t: number) => {
-    setTime(t);
-  };
+    setTime(t)
+  }
 
   const onActive = () => {
-    setActive(true);
-  };
+    setActive(true)
+  }
 
   return (
     <>
@@ -190,11 +190,11 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
         )}
       </Container>
     </>
-  );
-};
+  )
+}
 
 interface Props {
-  lang: any;
-  choices?: any[];
-  onAnswer: (answer: any, time?: number) => void;
+  lang: any
+  choices?: any[]
+  onAnswer: (answer: any, time?: number) => void
 }
