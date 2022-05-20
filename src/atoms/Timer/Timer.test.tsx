@@ -4,8 +4,7 @@ import { Timer } from "./Timer"
 
 describe("Timer widget", function () {
   it("renders without crashing", () => {
-    const component = shallow(<Timer active={true} />)
-    expect(component).toMatchSnapshot()
+    shallow(<Timer active={true} />)
   })
 
   it("starts at 00:00", () => {

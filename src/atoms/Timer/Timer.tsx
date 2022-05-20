@@ -53,7 +53,7 @@ export const Timer: FC<Props> = ({
   return <span className="timer"> {displayTime()} </span>
 }
 
-interface Props {
+export interface Props {
   startingTime?: number
   active: boolean
   countdown?: boolean
