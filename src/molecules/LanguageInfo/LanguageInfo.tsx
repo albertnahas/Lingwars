@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material"
 import React, { FC } from "react"
 
-export const LangaugeInfo: FC<Props> = ({ name, info }) => {
+export const LanguageInfo: FC<Props> = ({ name, info }) => {
   return (
     <>
       <Typography variant="h6" sx={{ my: 2, textAlign: "center" }}>
