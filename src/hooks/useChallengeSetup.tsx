@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import firebase from "../config"
 import { Challenge, ChallengeSetup } from "../types/challenge"
 import { useSelector } from "react-redux"
@@ -65,13 +65,23 @@ export const useChallengeSetup = () => {
       })
   }
 
+  useEffect(() => {
+    return () => {
+      requrestSubscribe.current?.()
+    }
+  }, [])
+
   const cancelRequest = () => {
     if (requrest.current) {
       firebase
         .firestore()
-        .collection("challenges")
+        .collection("requests")
         .doc(requrest.current)
         .delete()
+        .then(() => {
+          setPairing(false)
+          requrestSubscribe.current?.()
+        })
     }
   }
 

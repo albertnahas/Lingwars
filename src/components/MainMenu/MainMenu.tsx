@@ -137,8 +137,8 @@ export var MainMenu: FC<Props> = function (props) {
       )}
       <ModalDialog
         open={pairing}
-        setOpen={() => {}}
         maxWidth="sm"
+        onClose={cancelRequest}
         actions={
           <>
             <Button
