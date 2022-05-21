@@ -19,7 +19,6 @@ export const useChallengeSetup = () => {
       .collection("challenges")
       .add({
         uid: user?.uid || null,
-        rounds: 10,
         ...setup,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
@@ -38,7 +37,6 @@ export const useChallengeSetup = () => {
       .collection("requests")
       .add({
         uid: user?.uid || null,
-        rounds: 10,
         ...setup,
         waiting: true,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),

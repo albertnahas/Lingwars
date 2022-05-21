@@ -16,7 +16,7 @@ import { useChallengeSetup } from "../../hooks/useChallengeSetup"
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
 import { ChallengeLinkDialog } from "../../molecules/ChallengeLinkDialog/ChallengeLinkDialog"
 
-const defaultChallengeSetup = { level: 1, players: 1, live: false }
+const defaultChallengeSetup = { level: 1, players: 1, rounds: 10, live: false }
 
 export var MainMenu: FC<Props> = function (props) {
   const navigate = useNavigate()
