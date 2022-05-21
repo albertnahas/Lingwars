@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useState } from "react"
+import React, { FC, useEffect, useMemo, useState } from "react"
 import { Waveform } from "../../molecules/Waveform/Waveform"
 import files from "../../data/files.json"
 import _ from "lodash"
@@ -7,7 +7,7 @@ import { Box, styled } from "@mui/system"
 import { getLanguageCountries, getLanguageInfo } from "../../utils/helpers"
 import { WorldDiagram } from "../../icons/worldDiagram"
 import { Timer } from "../../atoms/Timer/Timer"
-import { LangaugeInfo } from "../../molecules/LanguageInfo/LangaugeInfo"
+import { LanguageInfo } from "../../molecules/LanguageInfo/LanguageInfo"
 import { HintButton } from "../../atoms/HintButton/HintButton"
 
 export const BoxContainer = styled("div")`
@@ -45,10 +45,8 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
     if (!langInfo) return ""
 
     const split = langInfo.extract.split(".")
-    const lang = langInfo.title
-    return split.length > 0
-      ? `${split[1].replaceAll(lang, "this language")}.`
-      : ""
+    return split.length > 0 ? `${split[1].replaceAll(lang.name, "***")}.` : ""
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [langInfo])
 
   useEffect(() => {
@@ -147,7 +145,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
             </Box>
           )}
           {langInfo && showInfo && (
-            <LangaugeInfo name={langInfo.title} info={langInfo.extract} />
+            <LanguageInfo name={langInfo.title} info={langInfo.extract} />
           )}
         </>
       )}
