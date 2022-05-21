@@ -1,4 +1,5 @@
 import { styled } from "@mui/system"
+import "./Waveform.css"
 import React, { useEffect, useRef, useState } from "react"
 import WaveSurfer from "wavesurfer.js"
 import PlayArrowIcon from "@mui/icons-material/PlayArrow"
