@@ -13,13 +13,13 @@ import {
 import { useDispatch } from "react-redux"
 import { setSnackbar } from "../../store/snackbarSlice"
 
-export interface ChallengeDialogProps {
+export interface ChallengeLinkDialogProps {
   open: boolean
   challengeId?: string
   onClose: () => void
 }
 
-export function ChallengeDialog(props: ChallengeDialogProps) {
+export function ChallengeLinkDialog(props: ChallengeLinkDialogProps) {
   const { onClose, challengeId, open } = props
 
   const dispatch = useDispatch()

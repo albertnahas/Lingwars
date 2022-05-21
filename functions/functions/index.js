@@ -10,6 +10,7 @@ const seedRange = 999999
 exports.challengeCreated = functions.firestore
   .document("/challenges/{id}")
   .onCreate(async (snap) => {
+    functions.logger.log("challenge created ...")
     snap.ref.set(
       { seed: Math.round(Math.random() * seedRange) },
       { merge: true }
@@ -18,7 +19,12 @@ exports.challengeCreated = functions.firestore
   })
 
 // Listens for requests creation
-exports.requestCreated = functions.firestore
+exports.requestCreated = functions.runWith({
+  // Ensure the function has enough memory and time
+  // to process large files
+  timeoutSeconds: 300,
+  memory: "1GB",
+}).firestore
   .document("/requests/{id}")
   .onCreate(async (snap) => {
     const requestData = snap.data()

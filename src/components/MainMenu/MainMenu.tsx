@@ -1,26 +1,27 @@
-import React, { FC, useEffect } from "react"
+import React, { FC, useEffect, useState } from "react"
 import { Box, Button, Stack, Typography, Zoom } from "@mui/material"
 import { useNavigate } from "react-router-dom"
-import { ChallengeDialog } from "../../molecules/ChallengeDialog/ChallengeDialog"
 import { useDispatch } from "react-redux"
 import { GameDialog } from "../../molecules/GameDialog/GameDialog"
 import { setChallenge } from "../../store/challengeSlice"
 import { ChallengeSetup } from "../../types/challenge"
 import { useChallengeSetup } from "../../hooks/useChallengeSetup"
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
+import { ChallengeLinkDialog } from "../../molecules/ChallengeLinkDialog/ChallengeLinkDialog"
 
 const defaultChallengeSetup = { level: 1, players: 1, live: false }
 
 export var MainMenu: FC<Props> = function (props) {
   const navigate = useNavigate()
 
-  const [initialSetup, setInitialSetup] = React.useState<ChallengeSetup>()
+  const [initialSetup, setInitialSetup] = useState<ChallengeSetup>()
 
   const { challenge, pairing, createChallenge, requestChallenge } =
     useChallengeSetup()
 
-  const [openLevelsDialog, setOpenLevelsDialog] = React.useState(false)
-  const [openChallengeDialog, setOpenChallengeDialog] = React.useState(false)
+  const [openSetupDialog, setOpenSetupDialog] = useState(false)
+  const [openChallengeLinkDialog, setOpenChallengeLinkDialog] = useState(false)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export var MainMenu: FC<Props> = function (props) {
       if (challenge.live) {
         onStartChallenge()
       } else {
-        setOpenChallengeDialog(true)
+        setOpenChallengeLinkDialog(true)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -36,12 +37,12 @@ export var MainMenu: FC<Props> = function (props) {
 
   useEffect(() => {
     if (initialSetup) {
-      setOpenLevelsDialog(true)
+      setOpenSetupDialog(true)
     }
   }, [initialSetup])
 
   const onCreateGame = (setup?: ChallengeSetup) => {
-    setOpenLevelsDialog(false)
+    setOpenSetupDialog(false)
     setInitialSetup(undefined)
 
     if (!setup || !setup.level) return
@@ -111,14 +112,14 @@ export var MainMenu: FC<Props> = function (props) {
       {initialSetup && (
         <GameDialog
           setup={initialSetup}
-          open={openLevelsDialog}
+          open={openSetupDialog}
           onClose={onCreateGame}
         />
       )}
       {challenge && (
-        <ChallengeDialog
+        <ChallengeLinkDialog
           challengeId={challenge?.id}
-          open={openChallengeDialog}
+          open={openChallengeLinkDialog}
           onClose={onStartChallenge}
         />
       )}

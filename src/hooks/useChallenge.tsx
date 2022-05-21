@@ -38,7 +38,6 @@ export const useChallenge = (gameId?: string) => {
               setPlayers(playersArr)
             })
         })
-    } else {
     }
     return () => {
       if (subscribe) {

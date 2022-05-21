@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react"
 import _ from "lodash"
 import { allLangs, getRandomFromSeed } from "../../utils/helpers"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { challengeSelector } from "../../store/challengeSlice"
 import { userSelector } from "../../store/userSlice"
@@ -15,11 +15,11 @@ export const GameContainer = () => {
 
   const [lang, setLang] = useState<any>()
   const [showAnswer, setShowAnswer] = useState<boolean>(false)
-  const [choices, setChoices] = useState<any[]>()
-
   const [score, setScore] = useState<Score>({ accuracy: 0, timed: 0 })
   const [turn, setTurn] = useState(1)
   const { players, writeScore, error } = useChallenge(gameId)
+
+  const navigate = useNavigate()
 
   const user = useSelector(userSelector)
   const challenge = useSelector(challengeSelector)
@@ -32,6 +32,23 @@ export const GameContainer = () => {
       ),
     [challenge]
   )
+
+  const choices = useMemo<any[]>(() => {
+    if (!lang) return []
+    let langChoices = _.sampleSize(levelLangs, 4)
+    while (langChoices.find((l) => l?.code1 === lang.code1)) {
+      langChoices = _.sampleSize(levelLangs, 4)
+    }
+    langChoices.push(lang)
+    return _.shuffle(langChoices)
+  }, [lang, levelLangs])
+
+  useEffect(() => {
+    if (challenge && !gameId && !challenge?.level) {
+      navigate("/")
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [gameId, challenge])
 
   useEffect(() => {
     if (!challenge) return
@@ -48,29 +65,6 @@ export const GameContainer = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang, challenge])
-
-  //   useEffect(() => {
-  //     if (players && players.length) {
-  //       const currentPlayer = players.find((p) => p.id === user?.uid);
-  //       if (currentPlayer.turn !== turn) {
-  //         setTurn(currentPlayer.turn);
-  //       }
-  //       if (currentPlayer.score !== score) {
-  //         setTurn(currentPlayer.score);
-  //       }
-  //     }
-  //   }, [players]);
-
-  useEffect(() => {
-    if (!lang) return
-    let langChoices = _.sampleSize(levelLangs, 4)
-    while (langChoices.find((l) => l?.code1 === lang.code1)) {
-      langChoices = _.sampleSize(levelLangs, 4)
-    }
-    langChoices.push(lang)
-    setChoices(_.shuffle(langChoices))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lang])
 
   const onAnswer = (answer: any, time?: number) => {
     if (answer && answer.code1 === lang.code1) {
@@ -93,7 +87,6 @@ export const GameContainer = () => {
 
   const onClickNext = () => {
     setLang(null)
-    setChoices([])
     setShowAnswer(false)
     setTurn((l) => l + 1)
   }
