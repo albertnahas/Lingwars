@@ -1,8 +1,15 @@
 import React, { FC, useEffect, useState } from "react"
-import { Box, Button, Stack, Typography, Zoom } from "@mui/material"
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Stack,
+  Typography,
+  Zoom,
+} from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { GameDialog } from "../../molecules/GameDialog/GameDialog"
+import { ChallengeSetupDialog } from "../../molecules/ChallengeSetupDialog/ChallengeSetupDialog"
 import { setChallenge } from "../../store/challengeSlice"
 import { ChallengeSetup } from "../../types/challenge"
 import { useChallengeSetup } from "../../hooks/useChallengeSetup"
@@ -16,8 +23,13 @@ export var MainMenu: FC<Props> = function (props) {
 
   const [initialSetup, setInitialSetup] = useState<ChallengeSetup>()
 
-  const { challenge, pairing, createChallenge, requestChallenge } =
-    useChallengeSetup()
+  const {
+    challenge,
+    pairing,
+    createChallenge,
+    requestChallenge,
+    cancelRequest,
+  } = useChallengeSetup()
 
   const [openSetupDialog, setOpenSetupDialog] = useState(false)
   const [openChallengeLinkDialog, setOpenChallengeLinkDialog] = useState(false)
@@ -110,7 +122,7 @@ export var MainMenu: FC<Props> = function (props) {
         </Button>
       </Stack>
       {initialSetup && (
-        <GameDialog
+        <ChallengeSetupDialog
           setup={initialSetup}
           open={openSetupDialog}
           onClose={onCreateGame}
@@ -123,8 +135,32 @@ export var MainMenu: FC<Props> = function (props) {
           onClose={onStartChallenge}
         />
       )}
-      <ModalDialog open={pairing} setOpen={() => {}}>
-        <div>Pairing...</div>
+      <ModalDialog
+        open={pairing}
+        setOpen={() => {}}
+        maxWidth="sm"
+        actions={
+          <>
+            <Button
+              color="primary"
+              aria-label="cancel pairing"
+              variant="text"
+              onClick={cancelRequest}
+            >
+              Cancel
+            </Button>
+          </>
+        }
+      >
+        <Stack sx={{ textAlign: "center", alignItems: "center" }} spacing={2}>
+          <Typography variant="h5" color="primary">
+            Pairing
+          </Typography>
+          <CircularProgress />
+          <Typography variant="subtitle1" color="text.secondary">
+            Please wait while we're finding your challengers...
+          </Typography>
+        </Stack>
       </ModalDialog>
     </Box>
   )

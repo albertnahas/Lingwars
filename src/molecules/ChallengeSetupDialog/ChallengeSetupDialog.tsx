@@ -27,7 +27,7 @@ export interface LevelDialogProps {
 
 const LEVELS_COUNT = 5
 
-export function GameDialog(props: LevelDialogProps) {
+export function ChallengeSetupDialog(props: LevelDialogProps) {
   const { onClose, setup, open } = props
 
   const handleClose = () => {
