@@ -28,7 +28,9 @@ jobs:
       - name: Code Linting
         run: yarn lint   
       - name: Unit tests
-        run: yarn test:unit   
+        run: |
+        yarn run test:unit -u
+        yarn test:unit   
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
