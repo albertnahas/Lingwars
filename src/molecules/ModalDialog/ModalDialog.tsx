@@ -26,7 +26,8 @@ export default function ModalDialog(props: Props) {
   // const locaiton = useLocation();
 
   const handleClose = () => {
-    props.setOpen(false)
+    props.setOpen?.(false)
+    props.onClose?.()
     if (window.location.hash !== "") {
       window.history.back()
     }
@@ -40,7 +41,7 @@ export default function ModalDialog(props: Props) {
           .split("#")
           .includes(encodeURIComponent(props.title || "") || "modal")
       ) {
-        props.setOpen(false)
+        props.setOpen?.(false)
       }
     }
     window.addEventListener("hashchange", onHashChange)
@@ -66,6 +67,7 @@ export default function ModalDialog(props: Props) {
         TransitionComponent={props.zoom ? Transition : undefined}
         maxWidth={props.maxWidth || "md"}
         scroll={"body"}
+        aria-label={props.title}
       >
         {props.closeButton && (
           <DialogTitle>
@@ -94,7 +96,7 @@ export default function ModalDialog(props: Props) {
           </DialogTitle>
         )}
 
-        <DialogContent dividers={true}>
+        <DialogContent id="sss" aria-label={props.title} dividers={true}>
           {React.cloneElement(props.children, {
             setOpen: props.setOpen,
           })}
@@ -106,7 +108,8 @@ export default function ModalDialog(props: Props) {
 }
 
 interface Props {
-  setOpen: (open: boolean) => any
+  setOpen?: (open: boolean) => any
+  onClose?: () => any
   open: boolean
   maxWidth?: Breakpoint
   closeButton?: boolean

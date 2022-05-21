@@ -76,7 +76,7 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
   }
 
   return (
-    <WaveformContainer>
+    <WaveformContainer aria-label="audio container">
       <PlayButton onClick={handlePlay} disabled={disabled}>
         {!playing ? (
           <PlayArrowIcon color={disabled ? "disabled" : "primary"} />
