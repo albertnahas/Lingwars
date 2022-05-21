@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import firebase from "../config"
 import { Challenge, ChallengeSetup } from "../types/challenge"
 import { useSelector } from "react-redux"
@@ -7,6 +7,10 @@ import { userSelector } from "../store/userSlice"
 export const useChallengeSetup = () => {
   const [challenge, setChallenge] = React.useState<Challenge>()
   const [pairing, setPairing] = React.useState<boolean>(false)
+
+  const requrest = useRef()
+  const requrestSubscribe = useRef<any>()
+
   const user = useSelector(userSelector)
 
   const createChallenge = (setup?: ChallengeSetup) => {
@@ -42,7 +46,8 @@ export const useChallengeSetup = () => {
       .then(function (docRef: any) {
         setPairing(true)
         console.log("Document written with ID: ", docRef.id)
-        const subscribe = docRef.onSnapshot((querySnapshot: any) => {
+        requrest.current = docRef.id
+        requrestSubscribe.current = docRef.onSnapshot((querySnapshot: any) => {
           if (!querySnapshot.exists) {
             return
           }
@@ -51,7 +56,7 @@ export const useChallengeSetup = () => {
             console.log("Document written with ID: ", requestData.challengeId)
             setPairing(false)
             setChallenge({ id: requestData.challengeId, ...setup })
-            subscribe()
+            requrestSubscribe.current?.()
           }
         })
       })
@@ -60,5 +65,21 @@ export const useChallengeSetup = () => {
       })
   }
 
-  return { challenge, pairing, createChallenge, requestChallenge }
+  const cancelRequest = () => {
+    if (requrest.current) {
+      firebase
+        .firestore()
+        .collection("challenges")
+        .doc(requrest.current)
+        .delete()
+    }
+  }
+
+  return {
+    challenge,
+    pairing,
+    createChallenge,
+    requestChallenge,
+    cancelRequest,
+  }
 }
