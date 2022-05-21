@@ -67,6 +67,7 @@ export default function ModalDialog(props: Props) {
         TransitionComponent={props.zoom ? Transition : undefined}
         maxWidth={props.maxWidth || "md"}
         scroll={"body"}
+        aria-label={props.title}
       >
         {props.closeButton && (
           <DialogTitle>
@@ -95,7 +96,7 @@ export default function ModalDialog(props: Props) {
           </DialogTitle>
         )}
 
-        <DialogContent dividers={true}>
+        <DialogContent id="sss" aria-label={props.title} dividers={true}>
           {React.cloneElement(props.children, {
             setOpen: props.setOpen,
           })}

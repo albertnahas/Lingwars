@@ -55,7 +55,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
   )
 
   return (
-    <Dialog onClose={handleClose} open={open}>
+    <Dialog onClose={handleClose} aria-label={"Challenge Setup"} open={open}>
       <DialogTitle>New Game</DialogTitle>
       <Container maxWidth="xs">
         <Typography variant="subtitle1">Choose your setup</Typography>
@@ -86,6 +86,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
             label="Players"
             margin="normal"
             name="players"
+            aria-label="players"
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.players}
@@ -96,6 +97,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
             <FormLabel id="level-label">Level</FormLabel>
             <RadioGroup
               name="level"
+              aria-label="level"
               value={formik.values.level}
               onChange={formik.handleChange}
             >
@@ -118,6 +120,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
               fullWidth
               size="large"
               type="submit"
+              aria-label="submit setup"
               variant="outlined"
             >
               Create
