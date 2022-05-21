@@ -54,7 +54,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     () =>
       formik.values.live
         ? "You will be challenging random players live"
-        : "You will have a priavte challenge link to share",
+        : "You will have a private challenge link to share",
     [formik]
   )
 
