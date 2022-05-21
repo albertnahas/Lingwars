@@ -40,5 +40,6 @@ export interface RoundScore {
 export interface ChallengeSetup {
   players?: number
   level?: number
+  rounds?: number
   live?: boolean
 }

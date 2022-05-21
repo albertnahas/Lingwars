@@ -40,6 +40,10 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     },
     validationSchema: Yup.object({
       players: Yup.number().max(8).min(1).required("players is required"),
+      rounds: Yup.number()
+        .max(100)
+        .min(2)
+        .required("number of rounds is required"),
     }),
     onSubmit: (values, { resetForm, setErrors, setSubmitting }) => {
       onClose({ ...values })
@@ -90,6 +94,20 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.players}
+            variant="outlined"
+            type="number"
+          />
+          <TextField
+            error={Boolean(formik.touched.rounds && formik.errors.rounds)}
+            helperText={formik.touched.rounds && formik.errors.rounds}
+            fullWidth
+            label="Rounds"
+            margin="normal"
+            name="rounds"
+            aria-label="rounds"
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            value={formik.values.rounds}
             variant="outlined"
             type="number"
           />
