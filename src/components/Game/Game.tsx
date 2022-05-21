@@ -14,7 +14,7 @@ import { getEval } from "../../utils/helpers"
 import { Round } from "../Round/Round"
 import { Player, Score } from "../../types/challenge"
 import { User } from "../../types/user"
-import { PlayerChip } from "./partials/PlayerChip"
+import { PlayerChip } from "../../molecules/PlayerChip/PlayerChip"
 
 export const Game: FC<Props> = ({
   score,
