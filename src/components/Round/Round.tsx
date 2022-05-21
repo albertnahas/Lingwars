@@ -48,13 +48,10 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   );
 
   const hint = useMemo<string>(() => {
-    if (!langInfo) return '';
+    if (!langInfo) return "";
 
     const split = langInfo.extract.split(".");
-    const lang = langInfo.title;
-    return split.length > 0
-      ? `${split[1].replaceAll(lang, "this language")}.`
-      : "";
+    return split.length > 0 ? `${split[1].replaceAll(lang.name, "***")}.` : "";
   }, [langInfo]);
 
   useEffect(() => {
