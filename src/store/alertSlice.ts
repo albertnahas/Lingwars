@@ -1,14 +1,21 @@
 /* eslint-disable no-param-reassign */
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { AlertState, State } from '../types/state'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { AlertState, State } from "../types/state"
 
 const initialState = { value: undefined, open: false }
 
 export const alertSlice = createSlice({
-  name: 'alert',
+  name: "alert",
   initialState,
   reducers: {
-    setAlert: (state: AlertState, action: PayloadAction<{ title?: string, message?: string, open?: boolean }>) => {
+    setAlert: (
+      state: AlertState,
+      action: PayloadAction<{
+        title?: string
+        message?: string
+        open?: boolean
+      }>
+    ) => {
       state.message = action.payload.message
       state.title = action.payload.title
       state.open = action.payload.open

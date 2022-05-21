@@ -1,22 +1,20 @@
-import { FC, useMemo } from "react";
-import "react-h5-audio-player/lib/styles.css";
-import _ from "lodash";
+import { FC, useMemo } from "react"
+
+import _ from "lodash"
 import {
-  Avatar,
+  Alert,
   Button,
-  Chip,
   Container,
   Divider,
   Stack,
   Typography,
-} from "@mui/material";
-import { Box } from "@mui/system";
-import { getEval } from "../../utils/helpers";
-import { Round } from "../Round/Round";
-import { Player, Score } from "../../types/challenge";
-import { User } from "../../types/user";
-import { UserCircle as UserCircleIcon } from "../../icons/user-circle";
-import { PlayerChip } from "./partials/PlayerChip";
+} from "@mui/material"
+import { Box } from "@mui/system"
+import { getEval } from "../../utils/helpers"
+import { Round } from "../Round/Round"
+import { Player, Score } from "../../types/challenge"
+import { User } from "../../types/user"
+import { PlayerChip } from "../../molecules/PlayerChip/PlayerChip"
 
 export const Game: FC<Props> = ({
   score,
@@ -29,14 +27,16 @@ export const Game: FC<Props> = ({
   choices,
   onClickNext,
   onAnswer,
+  error,
 }) => {
   const maxScore = useMemo(() => {
-    if (!players || players.length < 2) return user?.displayName;
+    if (!players || players.length < 2) return user?.displayName
     const mappedPlayers = players?.map((p: Player) => {
-      return { displayName: p?.displayName, score: p?.score?.timed };
-    });
-    return _.maxBy(mappedPlayers, "score")?.displayName;
-  }, [players]);
+      return { displayName: p?.displayName, score: p?.score?.timed }
+    })
+    return _.maxBy(mappedPlayers, "score")?.displayName
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [players])
 
   const isGameDone = useMemo(
     () =>
@@ -45,20 +45,22 @@ export const Game: FC<Props> = ({
       challenge.id &&
       players.every((p) => p.turn >= (challenge.rounds || 10)),
     [players, challenge]
-  );
+  )
 
-  const displayGame =
-    !challenge || !challenge.id || (players && players?.length > 1);
-  const waitingForPlayers =
-    challenge && challenge.id && (!players || players?.length < 2);
+  const displayGame = !error && (!challenge || !challenge.id || challenge.full)
+
+  const waitingForPlayers = challenge && challenge.id && !challenge.full
 
   const renderPlayers = () => (
-    <Stack spacing={5} direction="row" sx={{ justifyContent: "center" }}>
+    <Stack
+      direction="row"
+      sx={{ justifyContent: "center", flexWrap: "wrap", gap: 2 }}
+    >
       {players?.map((p, i) => (
-        <PlayerChip player={p} isWinning={maxScore === p.displayName} />
+        <PlayerChip player={p} key={i} isWinning={maxScore === p.displayName} />
       ))}
     </Stack>
-  );
+  )
 
   return (
     <>
@@ -84,7 +86,7 @@ export const Game: FC<Props> = ({
         )}
 
         {/* render players */}
-        {players && renderPlayers()}
+        {displayGame && players && renderPlayers()}
 
         {lang && displayGame && !isGameDone && (
           <Box sx={{ my: 2 }}>
@@ -92,18 +94,15 @@ export const Game: FC<Props> = ({
             <Divider sx={{ my: 3 }} />
           </Box>
         )}
-        {waitingForPlayers &&
-          (challenge && challenge.id ? (
-            <Box sx={{ mt: 2 }}>
-              <Typography variant="h5" color="primary.light">
-                Waiting for players to join
-              </Typography>
-            </Box>
-          ) : (
-            <Typography component="p" variant="h5" color="error" sx={{ m: 3 }}>
-              Invalid game link
+        {waitingForPlayers && challenge && challenge.id && (
+          <Box sx={{ mt: 2 }}>
+            <Typography variant="h5" color="primary.light">
+              Waiting for players to join
             </Typography>
-          ))}
+          </Box>
+        )}
+        {!!error && <Alert severity="error">{error}</Alert>}
+
         {showAnswer && (
           <>
             {turn < (challenge.rounds || 10) && (
@@ -130,18 +129,19 @@ export const Game: FC<Props> = ({
         )}
       </Container>
     </>
-  );
-};
+  )
+}
 
 interface Props {
-  score: Score;
-  turn: number;
-  user?: User | null;
-  challenge: any;
-  players?: any[];
-  onClickNext: () => void;
-  showAnswer: boolean;
-  lang: any;
-  choices?: any[];
-  onAnswer: (answer: any) => void;
+  score: Score
+  turn: number
+  user?: User | null
+  challenge: any
+  players?: any[]
+  onClickNext: () => void
+  showAnswer: boolean
+  lang: any
+  choices?: any[]
+  onAnswer: (answer: any) => void
+  error?: string
 }

@@ -1,12 +1,6 @@
-import { CircularProgress, Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import React, { FC } from "react";
-
-const getColor = (val: number) => {
-  //   if (val <= 10) return "error.main";
-  //   if (val <= 20) return "warning.main";
-  return "primary.light";
-};
+import { CircularProgress, Typography } from "@mui/material"
+import { Box } from "@mui/system"
+import React, { FC } from "react"
 
 export var ProgressRing: FC<Props> = function ({ color, ...props }) {
   const style = {
@@ -18,7 +12,7 @@ export var ProgressRing: FC<Props> = function ({ color, ...props }) {
       strokeLinecap: "round",
       color: color || "primary.light",
     },
-  } as const;
+  } as const
 
   return (
     <Box sx={style}>
@@ -56,13 +50,13 @@ export var ProgressRing: FC<Props> = function ({ color, ...props }) {
         {props.children}
       </Box>
     </Box>
-  );
-};
+  )
+}
 
 interface Props {
-  value?: number;
-  label?: string;
-  children?: JSX.Element;
-  size?: number;
-  color?: string;
+  value?: number
+  label?: string
+  children?: JSX.Element
+  size?: number
+  color?: string
 }

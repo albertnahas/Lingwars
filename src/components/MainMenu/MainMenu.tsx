@@ -1,89 +1,85 @@
-import React, { FC, useEffect } from "react";
-import { useTheme } from "@mui/system";
-import { Box, Button, Stack, Typography } from "@mui/material";
-import { Logo } from "../../icons/logo";
-import { useNavigate } from "react-router-dom";
-import { ChallengeDialog } from "../../molecules/ChallengeDialog/ChallengeDialog";
-import firebase from "../../config";
-import { useDispatch, useSelector } from "react-redux";
-import { userSelector } from "../../store/userSlice";
-import { LevelDialog } from "../../molecules/LevelDialog/LevelDialog";
-import { setChallenge } from "../../store/challengeSlice";
+import React, { FC, useEffect, useState } from "react"
+import { Box, Button, Stack, Typography, Zoom } from "@mui/material"
+import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { GameDialog } from "../../molecules/GameDialog/GameDialog"
+import { setChallenge } from "../../store/challengeSlice"
+import { ChallengeSetup } from "../../types/challenge"
+import { useChallengeSetup } from "../../hooks/useChallengeSetup"
+import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
+import { ChallengeLinkDialog } from "../../molecules/ChallengeLinkDialog/ChallengeLinkDialog"
+
+const defaultChallengeSetup = { level: 1, players: 1, live: false }
 
 export var MainMenu: FC<Props> = function (props) {
-  const theme = useTheme();
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [challengeId, setChallengeId] = React.useState<string>();
-  const [level, setLevel] = React.useState<number>(0);
-  const [single, setSingle] = React.useState<boolean>(false);
+  const [initialSetup, setInitialSetup] = useState<ChallengeSetup>()
 
-  const [openLevelsDialog, setOpenLevelsDialog] = React.useState(false);
-  const [openChallengeDialog, setOpenChallengeDialog] = React.useState(false);
-  const dispatch = useDispatch();
-  const user = useSelector(userSelector);
+  const { challenge, pairing, createChallenge, requestChallenge } =
+    useChallengeSetup()
 
-  useEffect(() => {
-    if (challengeId) {
-      setOpenChallengeDialog(true);
-    }
-  }, [challengeId]);
+  const [openSetupDialog, setOpenSetupDialog] = useState(false)
+  const [openChallengeLinkDialog, setOpenChallengeLinkDialog] = useState(false)
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    if (level) {
-      if (single) {
-        dispatch(setChallenge({ level }));
-        navigate(`/play`);
+    if (challenge) {
+      if (challenge.live) {
+        onStartChallenge()
       } else {
-        createChallenge(level);
+        setOpenChallengeLinkDialog(true)
       }
     }
-  }, [level, single]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [challenge])
 
-  const onSelectLevel = (l: number) => {
-    setLevel(l);
-    setOpenLevelsDialog(false);
-  };
+  useEffect(() => {
+    if (initialSetup) {
+      setOpenSetupDialog(true)
+    }
+  }, [initialSetup])
 
-  const onClickChallenge = () => {
-    setSingle(false);
-    setOpenLevelsDialog(true);
-  };
+  const onCreateGame = (setup?: ChallengeSetup) => {
+    setOpenSetupDialog(false)
+    setInitialSetup(undefined)
 
-  const createChallenge = (cLevel?: number) => {
-    firebase
-      .firestore()
-      .collection("challenges")
-      .add({
-        uid: user?.uid || null,
-        level: cLevel,
-        rounds: 10,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      })
-      .then(function (docRef) {
-        console.log("Document written with ID: ", docRef.id);
-        setChallengeId(docRef.id);
-      })
-      .catch((e: any) => {
-        console.log(e);
-      });
-  };
+    if (!setup || !setup.level) return
 
-  const onStartSingle = () => {
-    setSingle(true);
-    setOpenLevelsDialog(true);
-  };
+    if (setup.players === 1) {
+      dispatch(setChallenge({ ...setup }))
+      navigate(`/play`)
+    } else {
+      if (!setup.live) {
+        createChallenge(setup)
+      } else {
+        requestChallenge(setup)
+      }
+    }
+  }
+
+  const onClickSinglePlayer = () => {
+    setInitialSetup({ ...defaultChallengeSetup })
+  }
+
+  const onClickMultiplayer = () => {
+    setInitialSetup({ ...defaultChallengeSetup, players: 2 })
+  }
 
   const onStartChallenge = () => {
-    navigate(`/play/${challengeId}`);
-  };
+    navigate(`/play/${challenge?.id}`)
+  }
 
   return (
     <Box>
-      <img
-        width="200"
-        src="https://r2.community.samsung.com/t5/image/serverpage/image-id/2858216iF966CF430D380489/image-size/large?v=v2&px=999"
-      />
+      <Zoom in={true}>
+        <img
+          alt="Spinning eart"
+          width="200"
+          src="https://r2.community.samsung.com/t5/image/serverpage/image-id/2858216iF966CF430D380489/image-size/large?v=v2&px=999"
+        />
+      </Zoom>
       <Typography
         variant="h4"
         aria-label="Lingwars"
@@ -100,31 +96,38 @@ export var MainMenu: FC<Props> = function (props) {
           color="primary"
           aria-label="single player"
           variant="outlined"
-          onClick={onStartSingle}
+          onClick={onClickSinglePlayer}
         >
           Single Player
         </Button>
         <Button
           color="primary"
-          aria-label="single player"
+          aria-label="multi player"
           variant="outlined"
-          onClick={onClickChallenge}
+          onClick={onClickMultiplayer}
         >
           Multiplayer
         </Button>
       </Stack>
-      <LevelDialog
-        selectedValue={level}
-        open={openLevelsDialog}
-        onClose={onSelectLevel}
-      />
-      <ChallengeDialog
-        challengeId={challengeId}
-        open={openChallengeDialog}
-        onClose={onStartChallenge}
-      />
+      {initialSetup && (
+        <GameDialog
+          setup={initialSetup}
+          open={openSetupDialog}
+          onClose={onCreateGame}
+        />
+      )}
+      {challenge && (
+        <ChallengeLinkDialog
+          challengeId={challenge?.id}
+          open={openChallengeLinkDialog}
+          onClose={onStartChallenge}
+        />
+      )}
+      <ModalDialog open={pairing} setOpen={() => {}}>
+        <div>Pairing...</div>
+      </ModalDialog>
     </Box>
-  );
-};
+  )
+}
 
 interface Props {}

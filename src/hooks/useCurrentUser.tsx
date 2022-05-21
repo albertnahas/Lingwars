@@ -1,23 +1,23 @@
-import _ from "lodash";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import firebase from "../config";
-import { removeUser, setUser, setServerUser } from "../store/userSlice";
-import { State } from "../types/state";
-import { User } from "../types/user";
-import { defaultUserSettings } from "../utils/constants";
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import firebase from "../config"
+import { removeUser, setUser } from "../store/userSlice"
+import { State } from "../types/state"
+import { defaultUserSettings } from "../utils/constants"
 
 export const useCurrentUser = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const serverUser = useSelector((state: State) => state.user.serverValue);
+  const serverUser = useSelector((state: State) => state.user.serverValue)
+  const oldRealTimeDb = firebase.database()
+  const onlineRef = oldRealTimeDb.ref(".info/connected") // Get a reference to the list of connections
 
   useEffect(() => {
     if (!serverUser) {
-      return;
+      return
     }
 
-    const user = serverUser;
+    const user = serverUser
     firebase
       .firestore()
       .collection("users")
@@ -34,33 +34,56 @@ export const useCurrentUser = () => {
               photoURL: user.photoURL,
               uid: user.uid,
               messagingToken: user.messagingToken || null,
-            });
-        } else if (!doc.data().messagingToken && user.messagingToken) {
-          doc.ref.update({ messagingToken: user.messagingToken });
+            })
+        } else {
+          onlineRef.on("value", (snapshot) => {
+            oldRealTimeDb
+              .ref(`/status/${user.uid}`)
+              .onDisconnect() // Set up the disconnect hook
+              .set("offline") // The value to be set for this key when the client disconnects
+              .then(() => {
+                // Set the Firestore User's online status to true
+                firebase.firestore().collection("users").doc(user.uid).set(
+                  {
+                    online: true,
+                  },
+                  { merge: true }
+                )
+
+                // Let's also create a key in our real-time database
+                // The value is set to 'online'
+                oldRealTimeDb.ref(`/status/${user.uid}`).set("online")
+              })
+          })
+          if (!doc.data().messagingToken && user.messagingToken) {
+            doc.ref.update({ messagingToken: user.messagingToken })
+          }
         }
       })
       .catch((error: any) => {
-        console.log("Error getting document:", error);
-      });
+        console.log("Error getting document:", error)
+      })
 
     const subscribe = firebase
       .firestore()
       .collection("users")
       .doc(serverUser?.uid)
       .onSnapshot((querySnapshot: any) => {
-        const updatedUser = querySnapshot.data();
-        const settings = { ...defaultUserSettings, ...updatedUser?.settings };
-        dispatch(setUser({ ...updatedUser, settings }));
-      });
+        const updatedUser = querySnapshot.data()
+        const settings = { ...defaultUserSettings, ...updatedUser?.settings }
+        dispatch(setUser({ ...updatedUser, settings }))
+      })
 
     return () => {
-      subscribe?.();
-    };
-  }, [serverUser]);
+      subscribe?.()
+      onlineRef.off()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [serverUser])
 
   const signOutUser = () => {
-    dispatch(removeUser());
-  };
+    dispatch(removeUser())
+  }
 
-  return { signOutUser };
-};
+  return { signOutUser }
+}

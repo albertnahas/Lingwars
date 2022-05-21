@@ -1,9 +1,8 @@
-import * as React from "react";
-import { createSvgIcon } from "@mui/material/utils";
-import { styled } from "@mui/material";
+import * as React from "react"
+import { styled } from "@mui/material"
 
-export const highlightColor = "#EF463F";
-export const secondaryColor = "#10AEC7";
+export const highlightColor = "#EF463F"
+export const secondaryColor = "#10AEC7"
 
 // export const Diagram = styled("svg")`
 //   & g {
@@ -28,22 +27,20 @@ export const Diagram = styled("svg", {
         cursor: "pointer",
       },
     }),
-
-    // ...highlights.map((h) => {
-    //   return { [`& .Argentina`]: { color: "red" } };
-    // }),
     ...highlights.reduce(
-      (acc: any, curr: string) => ((acc[`path[name=${curr}],.${curr}`] = { fill: "#34bcb5" }), acc),
+      (acc: any, curr: string) => (
+        // eslint-disable-next-line no-sequences
+        (acc[`path[name=${curr}],.${curr}`] = { fill: "#34bcb5" }), acc
+      ),
       {}
     ),
   })
-);
+)
 
 export const WorldDiagram: React.FC<DiagramProps> = ({
   onMuscleGroupClick,
   ...props
 }) => {
-
   return (
     <Diagram
       style={props.style}
@@ -2114,13 +2111,13 @@ export const WorldDiagram: React.FC<DiagramProps> = ({
       <circle cx="673.5" cy="724.1" id="1"></circle>
       <circle cx="1798.2" cy="719.3" id="2"></circle>
     </Diagram>
-  );
-};
+  )
+}
 
 export interface DiagramProps {
-  highlights?: string[];
-  secondaryHighlights?: string[];
-  style?: React.CSSProperties;
-  isClickable?: boolean;
-  onMuscleGroupClick?: React.MouseEventHandler<SVGGElement>;
+  highlights?: string[]
+  secondaryHighlights?: string[]
+  style?: React.CSSProperties
+  isClickable?: boolean
+  onMuscleGroupClick?: React.MouseEventHandler<SVGGElement>
 }

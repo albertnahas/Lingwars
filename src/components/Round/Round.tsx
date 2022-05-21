@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useMemo, useState } from "react";
-import "react-h5-audio-player/lib/styles.css";
 import { Waveform } from "../../molecules/Waveform/Waveform";
 import files from "../../data/files.json";
 import _ from "lodash";
@@ -7,15 +6,14 @@ import {
   Alert,
   Button,
   Container,
-  IconButton,
-  Tooltip,
   Typography,
 } from "@mui/material";
-import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import { Box, styled } from "@mui/system";
 import { getLanguageCountries, getLanguageInfo } from "../../utils/helpers";
 import { WorldDiagram } from "../../icons/worldDiagram";
 import { Timer } from "../../atoms/Timer/Timer";
+import { LanguageInfo } from "../../molecules/LanguageInfo/LanguageInfo"
+import { HintButton } from "../../atoms/HintButton/HintButton"
 
 export const BoxContainer = styled("div")`
   display: flex;
@@ -31,6 +29,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   const [showHint, setShowHint] = useState<boolean>(false);
   const [answer, setAnswer] = useState<any>();
   const [time, setTime] = useState(0);
+  const [active, setActive] = useState<boolean>(false);
 
   const langUrl = useMemo<string>(
     () =>
@@ -71,10 +70,15 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
 
     onAnswer(answer, time);
     setShowHint(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answer]);
 
   const onTimerChange = (t: number) => {
     setTime(t);
+  };
+
+  const onActive = () => {
+    setActive(true);
   };
 
   return (
@@ -97,31 +101,9 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
           </Typography>
         </Box>
         <BoxContainer>
-          <Waveform url={langUrl} />
-          {!answer && (
-            <Tooltip
-              title={
-                showHint
-                  ? "You can only use one hint per round"
-                  : "Give me a hint"
-              }
-              placement="top"
-              arrow
-              onClick={() => setShowHint(true)}
-            >
-              <span>
-                <IconButton
-                  size="large"
-                  color="primary"
-                  disabled={showHint}
-                  sx={{
-                    cursor: showHint ? "not-allowed !important" : "pointer",
-                  }}
-                >
-                  <TipsAndUpdatesIcon />
-                </IconButton>
-              </span>
-            </Tooltip>
+          <Waveform url={langUrl} onActive={onActive} />
+          {!answer && active && (
+            <HintButton disabled={showHint} onClick={() => setShowHint(true)} />
           )}
         </BoxContainer>
         {choices &&
@@ -169,14 +151,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
               </Box>
             )}
             {langInfo && showInfo && (
-              <>
-                <Typography variant="h6" sx={{ my: 2, textAlign: "center" }}>
-                  {langInfo.title}
-                </Typography>
-                <Typography variant="body2" sx={{ my: 1 }}>
-                  {langInfo.extract}
-                </Typography>
-              </>
+              <LanguageInfo name={langInfo.title} info={langInfo.extract} />
             )}
           </>
         )}

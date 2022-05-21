@@ -1,10 +1,10 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+import * as React from "react"
+import Button from "@mui/material/Button"
+import Dialog from "@mui/material/Dialog"
+import DialogActions from "@mui/material/DialogActions"
+import DialogContent from "@mui/material/DialogContent"
+import DialogContentText from "@mui/material/DialogContentText"
+import DialogTitle from "@mui/material/DialogTitle"
 
 export const AlertDialog: React.FC<Props> = ({
   open,
@@ -14,12 +14,12 @@ export const AlertDialog: React.FC<Props> = ({
   onConfirm,
 }) => {
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
   const handleConfirm = () => {
-    setOpen(false);
-    onConfirm?.();
-  };
+    setOpen(false)
+    onConfirm?.()
+  }
 
   return (
     <Dialog
@@ -41,13 +41,13 @@ export const AlertDialog: React.FC<Props> = ({
         </Button>
       </DialogActions>
     </Dialog>
-  );
-};
+  )
+}
 
 interface Props {
-  message?: string;
-  title?: string;
-  onConfirm?: () => void;
-  open: boolean;
-  setOpen: (open: boolean) => void;
+  message?: string
+  title?: string
+  onConfirm?: () => void
+  open: boolean
+  setOpen: (open: boolean) => void
 }

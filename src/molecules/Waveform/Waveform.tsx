@@ -36,15 +36,13 @@ export const PlayButton = styled("button")`
   }
 `;
 
-export const Waveform = ({ url }: { url: string }) => {
+export const Waveform = ({ url, onActive }: { url: string, onActive: any }) => {
   const [playing, setPlaying] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const waveform = useRef<WaveSurfer>();
   const waveformRef = useRef<HTMLMediaElement>(null);
 
   useEffect(() => {
-    const track = document.querySelector("#track");
-
     waveform.current = WaveSurfer.create({
       barWidth: 3,
       cursorWidth: 1,
@@ -60,14 +58,15 @@ export const Waveform = ({ url }: { url: string }) => {
     waveform.current?.load(waveformRef.current || "");
     setPlaying(false);
 
-    // waveform.current?.on("ready", function () {
-    //   setDisabled(false);
-    //   setPlaying(true);
-    //   waveform.current?.play();
-    // });
+    waveform.current?.on("ready", function () {
+      setDisabled(false);
+    });
+
+    waveform.current?.on("play", onActive);
 
     return () => {
       waveform.current?.destroy();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     };
   }, [url]);
 
@@ -78,8 +77,8 @@ export const Waveform = ({ url }: { url: string }) => {
 
   return (
     <WaveformContainer>
-      <PlayButton onClick={handlePlay}>
-        {!playing ? <PlayArrowIcon color="primary" /> : <PauseIcon />}
+      <PlayButton onClick={handlePlay} disabled={disabled}>
+        {!playing ? <PlayArrowIcon color={disabled ? "disabled" : "primary"} /> : <PauseIcon />}
       </PlayButton>
       <Wave id="waveform" />
       <audio ref={waveformRef} id="track" src={url} />
