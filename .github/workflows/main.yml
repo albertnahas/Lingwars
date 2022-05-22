@@ -43,4 +43,4 @@ jobs:
         with:
           start: yarn emulators
           command: yarn test:emulate
-          wait-on: "http://localhost:8081"
+          wait-on: "http://localhost:8081, http://localhost:9099"

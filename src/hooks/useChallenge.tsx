@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import firebase from "../config"
 import { userSelector } from "../store/userSlice"
-import { setChallenge } from "../store/challengeSlice"
-import { Score } from "../types/challenge"
+import { challengeSelector, setChallenge } from "../store/challengeSlice"
+import { Challenge, Score } from "../types/challenge"
 
 export const useChallenge = (gameId?: string) => {
+  const functions = firebase.functions()
   const dispatch = useDispatch()
   const user = useSelector(userSelector)
+  const challenge = useSelector(challengeSelector)
 
   const [players, setPlayers] = useState<any[]>()
   const [error, setError] = useState<string>()
@@ -27,6 +29,9 @@ export const useChallenge = (gameId?: string) => {
           }
           const challengeData = querySnapshot.data()
           dispatch(setChallenge({ id: gameId, ...challengeData }))
+          if (subscribePlayers) {
+            subscribePlayers()
+          }
           subscribePlayers = firebase
             .firestore()
             .collection(`challenges/${gameId}/players`)
@@ -66,6 +71,25 @@ export const useChallenge = (gameId?: string) => {
         score,
         turn,
       })
+      .then(() => {
+        if (turn === challenge?.rounds) {
+          console.log("checking status after complete")
+          checkChallengeStatus()
+        }
+      })
+  }
+
+  const checkChallengeStatus = () => {
+    const checkChallengeStatusCallable = functions.httpsCallable(
+      "checkChallengeStatus"
+    )
+    return checkChallengeStatusCallable({ challengeId: gameId })
+      .then((res: { data: Challenge }) => {
+        return new Promise<{ data: Challenge }>((resolve, reject) => {
+          resolve(res)
+        })
+      })
+      .catch((err) => {})
   }
 
   const leaveChallenge = () => {

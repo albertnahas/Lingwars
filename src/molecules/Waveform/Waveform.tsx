@@ -54,6 +54,7 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
       waveColor: "#EFEFEF",
       cursorColor: "transparent",
       hideScrollbar: true,
+      normalize: true,
     })
 
     waveform.current?.load(waveformRef.current || "")
