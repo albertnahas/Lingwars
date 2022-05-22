@@ -39,8 +39,8 @@ jobs:
           distribution: "adopt"
           java-version: "11"
       - name: Run emulators
-        uses: yarn emulators
+        run: yarn emulators
       - name: Cypress run
-        run: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v2
         with:
           command: yarn test:emulate
