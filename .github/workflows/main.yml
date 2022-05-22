@@ -27,6 +27,8 @@ jobs:
         run: yarn
       - name: Install firebase
         run: npm install -g firebase-tools
+      - name: Install firebase functions
+        run: cd functions && npm i
       - name: Code Linting
         run: yarn lint
       - name: Unit tests
