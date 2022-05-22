@@ -32,4 +32,4 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          command: npx cypress run-ct
+          command: yarn test:emulate
