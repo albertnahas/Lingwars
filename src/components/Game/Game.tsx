@@ -38,15 +38,14 @@ export const Game: FC<Props> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [players])
 
-  // const isGameDone = useMemo(
-  //   () =>
-  //     players &&
-  //     challenge &&
-  //     challenge.id &&
-  //     players.every((p) => p.turn >= (challenge.rounds || 10)),
-  //   [players, challenge]
-  // )
-  const isGameDone = useMemo(() => challenge.status === "finished", [challenge])
+  const isGameDone = useMemo(
+    () =>
+      players &&
+      challenge &&
+      challenge.id &&
+      players.every((p) => p.turn >= (challenge.rounds || 10)),
+    [players, challenge]
+  )
 
   const displayGame = !error && (!challenge || !challenge.id || challenge.full)
 
