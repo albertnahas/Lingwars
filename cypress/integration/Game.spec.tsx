@@ -14,7 +14,7 @@ describe("Game", () => {
   })
 
   it("Starts single player challenge", () => {
-    cy.get(`[aria-label="single player"]`).click()
+    cy.get(`[aria-label="single player"]`, { timeout: 12000 }).click()
     cy.get(`[aria-label="submit setup"]`).click()
     // renders audio
     cy.get(`[aria-label="audio container"]`).should("have.length", 1)

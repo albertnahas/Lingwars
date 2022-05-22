@@ -6,6 +6,11 @@ import { Providers } from "../../src/components/Providers/Providers"
 describe("App renders", () => {
   beforeEach(() => {
     cy.login()
+    mount(
+      <Providers>
+        <App />
+      </Providers>
+    )
   })
 
   // it("Adds document to test_hello_world collection of Firestore", () => {
@@ -13,11 +18,6 @@ describe("App renders", () => {
   // });
 
   it("renders main menu", () => {
-    mount(
-      <Providers>
-        <App />
-      </Providers>
-    )
-    cy.get("h4").contains("Main Menu")
+    cy.get("h4", { timeout: 12000 }).contains("Main Menu")
   })
 })
