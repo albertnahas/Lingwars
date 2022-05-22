@@ -68,5 +68,20 @@ export const useChallenge = (gameId?: string) => {
       })
   }
 
-  return { players, writeScore, error }
+  const leaveChallenge = () => {
+    if (gameId) {
+      firebase
+        .firestore()
+        .collection(`challenges/${gameId}/players`)
+        .doc(user?.uid)
+        .delete()
+        .then(() => {
+          dispatch(setChallenge(null))
+        })
+    } else {
+      dispatch(setChallenge(null))
+    }
+  }
+
+  return { players, writeScore, error, leaveChallenge }
 }

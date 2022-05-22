@@ -17,7 +17,7 @@ export const GameContainer = () => {
   const [showAnswer, setShowAnswer] = useState<boolean>(false)
   const [score, setScore] = useState<Score>({ accuracy: 0, timed: 0 })
   const [turn, setTurn] = useState(1)
-  const { players, writeScore, error } = useChallenge(gameId)
+  const { players, writeScore, error, leaveChallenge } = useChallenge(gameId)
 
   const navigate = useNavigate()
 
@@ -91,6 +91,11 @@ export const GameContainer = () => {
     setTurn((l) => l + 1)
   }
 
+  const onClicLeave = () => {
+    leaveChallenge()
+    navigate("/")
+  }
+
   return (
     <Game
       score={score}
@@ -102,6 +107,7 @@ export const GameContainer = () => {
       lang={lang}
       choices={choices}
       onClickNext={onClickNext}
+      onClicLeave={onClicLeave}
       onAnswer={onAnswer}
       error={error}
     />

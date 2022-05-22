@@ -15,7 +15,7 @@ export interface UserState {
   serverValue?: any | null
 }
 export interface ChallengeState {
-  value?: Challenge
+  value?: Challenge | null
 }
 export interface AlertState {
   title?: string

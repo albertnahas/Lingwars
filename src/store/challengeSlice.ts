@@ -9,7 +9,10 @@ export const challengeSlice = createSlice({
   name: "challenge",
   initialState,
   reducers: {
-    setChallenge: (state: ChallengeState, action: PayloadAction<Challenge>) => {
+    setChallenge: (
+      state: ChallengeState,
+      action: PayloadAction<Challenge | null>
+    ) => {
       state.value = action.payload
     },
   },

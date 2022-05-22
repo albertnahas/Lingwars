@@ -15,6 +15,7 @@ import { Round } from "../Round/Round"
 import { Player, Score } from "../../types/challenge"
 import { User } from "../../types/user"
 import { PlayerChip } from "../../molecules/PlayerChip/PlayerChip"
+import ExitToAppIcon from "@mui/icons-material/ExitToApp"
 
 export const Game: FC<Props> = ({
   score,
@@ -26,6 +27,7 @@ export const Game: FC<Props> = ({
   lang,
   choices,
   onClickNext,
+  onClicLeave,
   onAnswer,
   error,
 }) => {
@@ -127,6 +129,15 @@ export const Game: FC<Props> = ({
             </Box>
           </>
         )}
+        <Button
+          variant="contained"
+          color="primary"
+          sx={{ mt: 1 }}
+          onClick={onClicLeave}
+          endIcon={<ExitToAppIcon />}
+        >
+          Leave
+        </Button>
       </Container>
     </>
   )
@@ -139,6 +150,7 @@ interface Props {
   challenge: any
   players?: any[]
   onClickNext: () => void
+  onClicLeave: () => void
   showAnswer: boolean
   lang: any
   choices?: any[]
