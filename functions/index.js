@@ -2,7 +2,7 @@ const functions = require("firebase-functions")
 const admin = require("firebase-admin")
 admin.initializeApp()
 admin.firestore().settings({ ignoreUndefinedProperties: true })
-// const cors = require("cors")({ origin: true });
+const cors = require("cors")({ origin: true });
 
 const seedRange = 999999
 
@@ -38,13 +38,13 @@ exports.requestCreated = functions.runWith({
       .get()
       .then((snapshot) => {
         if (snapshot.size >= size) {
+          requestData.waiting
           admin
             .firestore()
             .collection("challenges")
             .add(
               Object.assign({}, requestData, {
                 status: "started",
-                waiting: false,
                 createdAt: admin.firestore.FieldValue.serverTimestamp(),
               })
             )
@@ -92,6 +92,39 @@ exports.playerRemoved = functions.firestore
     }
     return true
   })
+
+exports.checkChallengeStatus = functions.https.onRequest(async (req, res) => {
+  cors(req, res, async () => {
+    const challengeId = req.query.challengeId || req.body.data.challengeId;
+    if (!challengeId) {
+      res.status(500).send("No challenge id");
+    }
+    const challenge = await admin
+      .firestore()
+      .collection("challenges")
+      .doc(challengeId)
+      .get()
+
+    if (!challenge.exists) {
+      res.status(500).send("Invalid challenge id");
+    }
+
+    const rounds = challenge.data().rounds
+    const unfinishedPlayersSnap = await admin
+      .firestore()
+      .collection(`challenges/${challengeId}/players`)
+      .where("turn", "!=", rounds)
+      .get()
+
+    if (unfinishedPlayersSnap.size === 0) {
+      const update = { status: "finished" }
+      challenge.ref.set(update, { merge: true })
+      res.json({ data: Object.assign(challenge.data(), update) });
+    } else {
+      res.json({ data: Object.assign(challenge.data()) });
+    }
+  })
+})
 
 exports.onUserStatusChanged = functions.database
   .ref("/status/{uid}")
@@ -150,7 +183,7 @@ const updateChallengeStatus = async (challengeId) => {
     .doc(challengeId)
   const challenge = await challengeQuery.get()
   const players = challenge.data().players
-  admin
+  return admin
     .firestore()
     .collection("challenges")
     .doc(challengeId)
