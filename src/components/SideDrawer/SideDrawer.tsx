@@ -43,7 +43,7 @@ export const SideDrawer: React.FC<Props> = (props) => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        <ListItem button component={Link} to="/">
+        <ListItem aria-label={"Home"} button component={Link} to="/">
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>

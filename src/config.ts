@@ -11,6 +11,7 @@ import "firebase/messaging"
 const firebaseConfig = {
   apiKey: "AIzaSyBtVXwmmTFsT6ohl06zew8k-6c_8CmV7Zg",
   authDomain: "lingwars-2ee8b.firebaseapp.com",
+  databaseURL: "https://lingwars-2ee8b-default-rtdb.firebaseio.com",
   projectId: "lingwars-2ee8b",
   storageBucket: "lingwars-2ee8b.appspot.com",
   messagingSenderId: "1032612550540",
@@ -24,11 +25,16 @@ if (!firebase.apps.length) {
 } else {
   firebase.app() // if already initialized, use that one
 }
-// if (location.hostname === 'localhost') {
-//     firebase.firestore().useEmulator('localhost', 8080);
-//     firebase.functions().useEmulator('localhost', 5001);
-//     firebase.database().useEmulator('localhost', 9000);
-// }
+if (window.location.hostname === "localhost") {
+  firebase.auth().useEmulator("http://localhost:9099")
+  firebase.firestore().useEmulator("localhost", 8081)
+  firebase.firestore().settings({
+    experimentalForceLongPolling: true,
+    merge: true,
+  })
+  firebase.functions().useEmulator("localhost", 5001)
+  firebase.database().useEmulator("localhost", 9000)
+}
 // const storage = firebase.storage();
 let messaging: any
 

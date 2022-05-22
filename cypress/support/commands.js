@@ -33,6 +33,7 @@ import { attachCustomCommands } from "cypress-firebase"
 const fbConfig = {
   apiKey: "AIzaSyBtVXwmmTFsT6ohl06zew8k-6c_8CmV7Zg",
   authDomain: "lingwars-2ee8b.firebaseapp.com",
+  databaseURL: "https://lingwars-2ee8b-default-rtdb.firebaseio.com",
   projectId: "lingwars-2ee8b",
   storageBucket: "lingwars-2ee8b.appspot.com",
   messagingSenderId: "1032612550540",
@@ -41,26 +42,26 @@ const fbConfig = {
 }
 
 // Emulate RTDB if Env variable is passed
-// const rtdbEmulatorHost = Cypress.env('FIREBASE_DATABASE_EMULATOR_HOST')
-// if (rtdbEmulatorHost) {
-//     fbConfig.databaseURL = `http://${rtdbEmulatorHost}?ns=redux-firebasev3`
-// }
+const rtdbEmulatorHost = Cypress.env("FIREBASE_DATABASE_EMULATOR_HOST")
+if (rtdbEmulatorHost) {
+  fbConfig.databaseURL = `http://${rtdbEmulatorHost}?ns=${fbConfig.projectId}`
+}
 
 firebase.initializeApp(fbConfig)
 
-// // Emulate Firestore if Env variable is passed
-// const firestoreEmulatorHost = Cypress.env('FIRESTORE_EMULATOR_HOST')
-// if (firestoreEmulatorHost) {
-//     firebase.firestore().settings({
-//         host: firestoreEmulatorHost,
-//         ssl: false
-//     })
-// }
+// Emulate Firestore if Env variable is passed
+const firestoreEmulatorHost = Cypress.env("FIRESTORE_EMULATOR_HOST")
+if (firestoreEmulatorHost) {
+  firebase.firestore().settings({
+    host: firestoreEmulatorHost,
+    ssl: false,
+  })
+}
 
-// const authEmulatorHost = Cypress.env('FIREBASE_AUTH_EMULATOR_HOST')
-// if (authEmulatorHost) {
-//     firebase.auth().useEmulator(`http://${authEmulatorHost}/`);
-//     console.debug(`Using Auth emulator: http://${authEmulatorHost}/`);
-// }
+const authEmulatorHost = Cypress.env("FIREBASE_AUTH_EMULATOR_HOST")
+if (authEmulatorHost) {
+  firebase.auth().useEmulator(`http://${authEmulatorHost}/`)
+  console.debug(`Using Auth emulator: http://${authEmulatorHost}/`)
+}
 
 attachCustomCommands({ Cypress, cy, firebase })

@@ -10,7 +10,11 @@
     "lint:fix": "eslint src --fix",
     "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|css|md)\"",
     "test": "npx cypress run-ct",
-    "test:unit": "jest"
+    "test:open": "npx cypress open-ct",
+    "test:unit": "jest",
+    "emulators": "firebase emulators:start",
+    "test:emulate": "cross-env FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" FIREBASE_DATABASE_EMULATOR_HOST=\"localhost:9000\" FIRESTORE_EMULATOR_HOST=\"localhost:8081\" yarn test",
+    "test:emulate-open": "cross-env FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" FIREBASE_DATABASE_EMULATOR_HOST=\"localhost:9000\" FIRESTORE_EMULATOR_HOST=\"localhost:8081\" yarn test:open"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -51,6 +55,7 @@
     "@types/wavesurfer.js": "^6.0.3",
     "@vitejs/plugin-react": "^1.3.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "cross-env": "^7.0.3",
     "cypress": "^9.6.1",
     "cypress-firebase": "^2.2.1",
     "eslint": "^8.15.0",
