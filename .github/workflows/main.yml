@@ -29,6 +29,11 @@ jobs:
         run: yarn lint
       - name: Unit tests
         run: yarn test:unit
+      - name: Install Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: "adopt"
+          java-version: "11"
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
