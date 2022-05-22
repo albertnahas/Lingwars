@@ -3,7 +3,7 @@ import _ from "lodash"
 import { allLangs, getRandomFromSeed } from "../../utils/helpers"
 import { useNavigate, useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { challengeSelector } from "../../store/challengeSlice"
+import { challengeSelector, setChallenge } from "../../store/challengeSlice"
 import { userSelector } from "../../store/userSlice"
 import { Game } from "./Game"
 import { useChallenge } from "../../hooks/useChallenge"
@@ -17,7 +17,7 @@ export const GameContainer = () => {
   const [showAnswer, setShowAnswer] = useState<boolean>(false)
   const [score, setScore] = useState<Score>({ accuracy: 0, timed: 0 })
   const [turn, setTurn] = useState(1)
-  const { players, writeScore, error } = useChallenge(gameId)
+  const { players, writeScore, error, leaveChallenge } = useChallenge(gameId)
 
   const navigate = useNavigate()
 
@@ -91,6 +91,11 @@ export const GameContainer = () => {
     setTurn((l) => l + 1)
   }
 
+  const onClicLeave = () => {
+    leaveChallenge()
+    navigate("/")
+  }
+
   return (
     <Game
       score={score}
@@ -102,6 +107,7 @@ export const GameContainer = () => {
       lang={lang}
       choices={choices}
       onClickNext={onClickNext}
+      onClicLeave={onClicLeave}
       onAnswer={onAnswer}
       error={error}
     />
