@@ -14,7 +14,7 @@ describe("Main Menu", () => {
   })
 
   it("Starts with correct setup for single player", () => {
-    cy.get(`[aria-label="single player"]`, { timeout: 12000 }).click()
+    cy.get(`[aria-label="single player"]`).click()
     cy.get(`[aria-label="players"] input`).should("have.value", "1")
     cy.get(`[aria-label="rounds"] input`).should("have.value", "10")
     cy.get(`[aria-label="level"] input[checked]`).should("have.value", "1")

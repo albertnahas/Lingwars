@@ -18,6 +18,6 @@ describe("App renders", () => {
   })
 
   it("renders main menu", () => {
-    cy.get("h4", { timeout: 12000 }).contains("Main Menu")
+    cy.get("h4").contains("Main Menu")
   })
 })

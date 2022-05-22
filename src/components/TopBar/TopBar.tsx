@@ -102,7 +102,11 @@ export var TopBar: FC<Props> = function (props) {
       >
         {user ? (
           <>
-            <IconButton onClick={openDrawer} sx={{ ml: 1 }}>
+            <IconButton
+              aria-label={"open drawer"}
+              onClick={openDrawer}
+              sx={{ ml: 1 }}
+            >
               <MenuIcon fontSize="small" />
             </IconButton>
             {/* <Tooltip title="Logout">
@@ -135,6 +139,7 @@ export var TopBar: FC<Props> = function (props) {
             >
               <UserCircleIcon fontSize="small" />
             </Avatar>
+            <Box sx={{ color: "black !important" }}>{user.uid}</Box>
           </>
         ) : (
           <>

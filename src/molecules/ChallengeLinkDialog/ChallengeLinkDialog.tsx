@@ -45,7 +45,7 @@ export function ChallengeLinkDialog(props: ChallengeLinkDialogProps) {
   }
 
   return (
-    <Dialog onClose={handleClose} open={open}>
+    <Dialog onClose={handleClose} aria-label={"Challenge Link"} open={open}>
       <DialogTitle>Challenge link</DialogTitle>
 
       <DialogContent>
@@ -63,7 +63,7 @@ export function ChallengeLinkDialog(props: ChallengeLinkDialogProps) {
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={handleClose} autoFocus>
+        <Button onClick={handleClose} aria-label="start" autoFocus>
           Start
         </Button>
       </DialogActions>

@@ -33,6 +33,7 @@ import { attachCustomCommands } from "cypress-firebase"
 const fbConfig = {
   apiKey: "AIzaSyBtVXwmmTFsT6ohl06zew8k-6c_8CmV7Zg",
   authDomain: "lingwars-2ee8b.firebaseapp.com",
+  databaseURL: "https://lingwars-2ee8b-default-rtdb.firebaseio.com",
   projectId: "lingwars-2ee8b",
   storageBucket: "lingwars-2ee8b.appspot.com",
   messagingSenderId: "1032612550540",
@@ -57,10 +58,10 @@ if (firestoreEmulatorHost) {
   })
 }
 
-// const authEmulatorHost = Cypress.env("FIREBASE_AUTH_EMULATOR_HOST")
-// if (authEmulatorHost) {
-//   firebase.auth().useEmulator(`http://${authEmulatorHost}/`)
-//   console.debug(`Using Auth emulator: http://${authEmulatorHost}/`)
-// }
+const authEmulatorHost = Cypress.env("FIREBASE_AUTH_EMULATOR_HOST")
+if (authEmulatorHost) {
+  firebase.auth().useEmulator(`http://${authEmulatorHost}/`)
+  console.debug(`Using Auth emulator: http://${authEmulatorHost}/`)
+}
 
 attachCustomCommands({ Cypress, cy, firebase })
