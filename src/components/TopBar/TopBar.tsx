@@ -139,7 +139,6 @@ export var TopBar: FC<Props> = function (props) {
             >
               <UserCircleIcon fontSize="small" />
             </Avatar>
-            <Box sx={{ color: "black !important" }}>{user.uid}</Box>
           </>
         ) : (
           <>
