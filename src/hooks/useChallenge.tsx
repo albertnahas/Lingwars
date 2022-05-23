@@ -28,9 +28,6 @@ export const useChallenge = (gameId?: string) => {
             return
           }
           const challengeData = querySnapshot.data()
-          console.log(challenge)
-          console.log(players)
-
           if (challengeData.full && !challenge?.id) {
             setError("The challenge you're trying to join is full")
             return
@@ -68,7 +65,6 @@ export const useChallenge = (gameId?: string) => {
     if (!user) {
       return
     }
-    console.log("write scores")
 
     firebase
       .firestore()
@@ -84,7 +80,6 @@ export const useChallenge = (gameId?: string) => {
       })
       .then(() => {
         if (turn === challenge?.rounds) {
-          console.log("checking status after complete")
           checkChallengeStatus()
         }
       })
