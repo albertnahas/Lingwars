@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useState } from "react"
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import _ from "lodash"
 import { allLangs, getRandomFromSeed } from "../../utils/helpers"
 import { useNavigate, useParams } from "react-router-dom"
@@ -7,7 +7,7 @@ import { challengeSelector } from "../../store/challengeSlice"
 import { userSelector } from "../../store/userSlice"
 import { Game } from "./Game"
 import { useChallenge } from "../../hooks/useChallenge"
-import { maxLevels } from "../../utils/constants"
+import { maxHints, maxLevels } from "../../utils/constants"
 import { Score } from "../../types/challenge"
 
 export const GameContainer = () => {
@@ -18,6 +18,7 @@ export const GameContainer = () => {
   const [score, setScore] = useState<Score>({ accuracy: 0, timed: 0 })
   const [turn, setTurn] = useState(1)
   const { players, writeScore, error, leaveChallenge } = useChallenge(gameId)
+  const hintsUsed = useRef<number>(0)
 
   const navigate = useNavigate()
 
@@ -66,13 +67,15 @@ export const GameContainer = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang, challenge])
 
-  const onAnswer = (answer: any, time?: number) => {
+  const onAnswer = (answer: any, time?: number, showHint?: boolean) => {
+    if (showHint) hintsUsed.current += 1
     if (answer && answer.code1 === lang.code1) {
       const timeScore = Math.round((10 * 10) / (time || 10))
+      const finalScore = showHint ? timeScore / 2 : timeScore
       setScore((s) => {
         return {
           accuracy: s.accuracy + 1,
-          timed: s.timed + timeScore,
+          timed: s.timed + finalScore,
         }
       })
     }
@@ -94,7 +97,7 @@ export const GameContainer = () => {
         return
       }
     }
-    writeScore(score, turn)
+    writeScore(score, turn, hintsUsed.current)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, turn, score, challenge])
 
@@ -104,7 +107,7 @@ export const GameContainer = () => {
     setTurn((l) => l + 1)
   }
 
-  const onClicLeave = () => {
+  const onClickLeave = () => {
     leaveChallenge()
     navigate("/")
   }
@@ -120,9 +123,10 @@ export const GameContainer = () => {
       lang={lang}
       choices={choices}
       onClickNext={onClickNext}
-      onClicLeave={onClicLeave}
+      onClickLeave={onClickLeave}
       onAnswer={onAnswer}
       error={error}
+      hintsLeft={maxHints - hintsUsed.current}
     />
   )
 }

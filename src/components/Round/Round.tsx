@@ -9,6 +9,7 @@ import { WorldDiagram } from "../../icons/worldDiagram"
 import { Timer } from "../../atoms/Timer/Timer"
 import { LanguageInfo } from "../../molecules/LanguageInfo/LanguageInfo"
 import { HintButton } from "../../atoms/HintButton/HintButton"
+import { maxHints } from "../../utils/constants"
 
 export const BoxContainer = styled("div")`
   display: flex;
@@ -18,7 +19,7 @@ export const BoxContainer = styled("div")`
   width: 100%;
 `
 
-export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
+export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
   const [langInfo, setLangInfo] = useState<any>()
   const [showInfo, setShowInfo] = useState<boolean>(false)
   const [showHint, setShowHint] = useState<boolean>(false)
@@ -63,7 +64,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
 
   useEffect(() => {
     if (!answer) return
-    onAnswer(answer, time)
+    onAnswer(answer, time, showHint)
     setShowHint(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answer])
@@ -75,6 +76,10 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
   const onActive = () => {
     setActive(true)
   }
+
+  const hintsText = `${hintsLeft - 1 !== 0 ? hintsLeft - 1 : "no"} ${
+    hintsLeft - 1 === 1 ? "hint" : "hints"
+  }`
 
   return (
     <Container>
@@ -97,7 +102,11 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
       <BoxContainer>
         <Waveform url={langUrl} onActive={onActive} />
         {!answer && active && (
-          <HintButton disabled={showHint} onClick={() => setShowHint(true)} />
+          <HintButton
+            disabled={hintsLeft === 0 || showHint}
+            onClick={() => setShowHint(true)}
+            hintsLeft={hintsLeft}
+          />
         )}
       </BoxContainer>
       {choices &&
@@ -116,10 +125,21 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
             )
         )}
       {langInfo && showHint && (
-        <Alert sx={{ mt: 2 }} severity="info">
-          {hint}
+        <Alert sx={{ mt: 2, textAlign: "left" }} severity="info">
+          <Typography sx={{ mb: 1 }} variant="body2">
+            {hint}
+          </Typography>
+          <Typography
+            sx={{ fontWeight: 500 }}
+            color="primary.light"
+            variant="caption"
+          >
+            Using hints is limited to {maxHints} per game and deducts your round
+            score by half. You have {hintsText} available.
+          </Typography>
         </Alert>
       )}
+
       {answer && (
         <>
           <Alert
@@ -156,5 +176,6 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer }) => {
 interface Props {
   lang: any
   choices?: any[]
-  onAnswer: (answer: any, time?: number) => void
+  onAnswer: (answer: any, time?: number, showHint?: boolean) => void
+  hintsLeft: number
 }

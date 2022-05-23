@@ -35,9 +35,10 @@ export const Game: FC<Props> = ({
   lang,
   choices,
   onClickNext,
-  onClicLeave,
+  onClickLeave,
   onAnswer,
   error,
+  hintsLeft,
 }) => {
   const maxScore = useMemo(() => {
     if (!players || players.length < 2) return user?.displayName
@@ -106,7 +107,12 @@ export const Game: FC<Props> = ({
 
             {lang && gameStatus === "started" && (
               <Box sx={{ my: 2 }}>
-                <Round lang={lang} choices={choices} onAnswer={onAnswer} />
+                <Round
+                  lang={lang}
+                  choices={choices}
+                  onAnswer={onAnswer}
+                  hintsLeft={hintsLeft}
+                />
                 <Divider sx={{ my: 3 }} />
               </Box>
             )}
@@ -162,10 +168,10 @@ export const Game: FC<Props> = ({
         )}
 
         <Button
-          variant="outlined"
-          color="error"
-          sx={{ mt: 2 }}
-          onClick={onClicLeave}
+          variant="contained"
+          color="primary"
+          sx={{ mt: 1 }}
+          onClick={onClickLeave}
           endIcon={<ExitToAppIcon />}
         >
           {challenge?.id ? "Leave" : "Return"}
@@ -182,10 +188,11 @@ interface Props {
   challenge: any
   players?: any[]
   onClickNext: () => void
-  onClicLeave: () => void
+  onClickLeave: () => void
   showAnswer: boolean
   lang: any
   choices?: any[]
   onAnswer: (answer: any) => void
   error?: string
+  hintsLeft: number
 }
