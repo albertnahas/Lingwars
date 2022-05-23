@@ -4,6 +4,7 @@ import _ from "lodash"
 import {
   Alert,
   Button,
+  CircularProgress,
   Container,
   Divider,
   Stack,
@@ -16,6 +17,13 @@ import { Player, Score } from "../../types/challenge"
 import { User } from "../../types/user"
 import { PlayerChip } from "../../molecules/PlayerChip/PlayerChip"
 import ExitToAppIcon from "@mui/icons-material/ExitToApp"
+
+export type GameStatus =
+  | "loading"
+  | "error"
+  | "waiting"
+  | "started"
+  | "finished"
 
 export const Game: FC<Props> = ({
   score,
@@ -49,9 +57,13 @@ export const Game: FC<Props> = ({
     [players, challenge]
   )
 
-  const displayGame = !error && (!challenge || !challenge.id || challenge.full)
-
-  const waitingForPlayers = challenge && challenge.id && !challenge.full
+  const gameStatus = useMemo<GameStatus>(() => {
+    if (isGameDone) return "finished"
+    if (error) return "error"
+    if (!challenge || !challenge.id || challenge.full) return "started"
+    if (challenge && challenge.id && !challenge.full) return "waiting"
+    return "loading"
+  }, [challenge, error, isGameDone])
 
   const renderPlayers = () => (
     <Stack
@@ -76,60 +88,79 @@ export const Game: FC<Props> = ({
           Lingwars
         </Typography>
 
-        {players && isGameDone && (
-          <Typography
-            component="p"
-            variant="h5"
-            color="success.main"
-            sx={{ m: 3 }}
-          >
-            {maxScore} is the winner!!
-          </Typography>
-        )}
-
-        {/* render players */}
-        {displayGame && players && renderPlayers()}
-
-        {lang && displayGame && !isGameDone && (
-          <Box sx={{ my: 2 }}>
-            <Round lang={lang} choices={choices} onAnswer={onAnswer} />
-            <Divider sx={{ my: 3 }} />
-          </Box>
-        )}
-        {waitingForPlayers && challenge && challenge.id && (
-          <Box sx={{ mt: 2 }}>
-            <Typography variant="h5" color="primary.light">
-              Waiting for players to join
-            </Typography>
-          </Box>
-        )}
-        {!!error && <Alert severity="error">{error}</Alert>}
-
-        {showAnswer && (
+        {gameStatus !== "loading" ? (
           <>
-            {turn < (challenge.rounds || 10) && (
-              <Button variant="contained" sx={{ mt: 1 }} onClick={onClickNext}>
-                Next
-              </Button>
+            {gameStatus === "finished" && (
+              <Typography
+                component="p"
+                variant="h5"
+                color="success.main"
+                sx={{ m: 3 }}
+              >
+                {maxScore} is the winner!!
+              </Typography>
             )}
-            {turn >= (challenge.rounds || 10) && (
+
+            {/* render players */}
+            {gameStatus === "started" && players && renderPlayers()}
+
+            {lang && gameStatus === "started" && (
+              <Box sx={{ my: 2 }}>
+                <Round lang={lang} choices={choices} onAnswer={onAnswer} />
+                <Divider sx={{ my: 3 }} />
+              </Box>
+            )}
+            {gameStatus === "waiting" && (
               <Box sx={{ mt: 2 }}>
-                <Typography variant="h6" color="primary.light">
-                  Done! you {getEval(score.accuracy, turn)}
+                <Typography
+                  variant="h5"
+                  aria-label="waiting for players"
+                  color="primary.light"
+                >
+                  Waiting for players to join
                 </Typography>
+                <CircularProgress sx={{ my: 4 }} />
               </Box>
             )}
 
-            <Box sx={{ mt: 2 }}>
-              {!!score && (
-                <Typography variant="body1">
-                  Your score: {score.accuracy}/{turn}
-                </Typography>
-              )}
-            </Box>
-            <Divider sx={{ my: 3 }} />
+            {gameStatus === "error" && <Alert severity="error">{error}</Alert>}
+
+            {showAnswer && (
+              <>
+                {turn < (challenge.rounds || 10) && (
+                  <Button
+                    variant="contained"
+                    sx={{ mt: 1 }}
+                    onClick={onClickNext}
+                  >
+                    Next
+                  </Button>
+                )}
+                {turn >= (challenge.rounds || 10) && (
+                  <Box sx={{ mt: 2 }}>
+                    <Typography variant="h6" color="primary.light">
+                      Done! you {getEval(score.accuracy, turn)}
+                    </Typography>
+                  </Box>
+                )}
+
+                <Box sx={{ mt: 2 }}>
+                  {!!score && (
+                    <Typography variant="body1">
+                      Your score: {score.accuracy}/{turn}
+                    </Typography>
+                  )}
+                </Box>
+                <Divider sx={{ my: 3 }} />
+              </>
+            )}
           </>
+        ) : (
+          <Box sx={{ my: 5 }}>
+            <CircularProgress />
+          </Box>
         )}
+
         <Button
           variant="outlined"
           color="error"

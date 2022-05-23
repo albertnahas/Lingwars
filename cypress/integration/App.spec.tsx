@@ -5,7 +5,6 @@ import { Providers } from "../../src/components/Providers/Providers"
 
 describe("App renders", () => {
   beforeEach(() => {
-    cy.login()
     mount(
       <Providers>
         <App />
@@ -17,7 +16,7 @@ describe("App renders", () => {
     cy.callFirestore("add", "test", { some: "value" })
   })
 
-  it("renders main menu", () => {
-    cy.get("h4").contains("Main Menu")
+  it("Renders landing page", () => {
+    cy.get("h1").contains("Lingwars")
   })
 })

@@ -37,9 +37,32 @@ describe("Side drawer returns to Main Menu", () => {
 })
 
 describe("Game starts for multi player", () => {
+  // const TEST_UID = Cypress.env("TEST_UID")
+  let challengeId = ""
+
   it("Starts multi player challenge", () => {
     cy.get(`[aria-label="multi player"]`).click()
     cy.get(`[aria-label="submit setup"]`).click()
     cy.get(`[aria-label="Challenge Link"]`).should("have.length", 1)
+    cy.get(`[aria-label="Challenge Link"]`)
+      .find("span")
+      .invoke("text")
+      .then((text) => {
+        expect(text.split("/").length).equal(5)
+        challengeId = text.split("/")[4]
+        cy.callFirestore("get", `challenges/${challengeId}`).then((r) => {
+          cy.log("get returned: ", r)
+          cy.wrap(r).its("players").should("equal", 2)
+        })
+      })
+    cy.get(`[aria-label="start"]`).click()
+    cy.get(`[aria-label="waiting for players"]`).should("have.length", 1)
+    // cy.callFirestore(
+    //   "get",
+    //   `challenges/${challengeId}/players/${TEST_UID}`
+    // ).then((r) => {
+    //   cy.log("get returned: ", r)
+    //   cy.wrap(r).its("turn").should("equal", 0)
+    // })
   })
 })

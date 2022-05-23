@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useLayoutEffect, useMemo, useState } from "react"
 import _ from "lodash"
 import { allLangs, getRandomFromSeed } from "../../utils/helpers"
 import { useNavigate, useParams } from "react-router-dom"
@@ -43,14 +43,14 @@ export const GameContainer = () => {
     return _.shuffle(langChoices)
   }, [lang, levelLangs])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (challenge && !gameId && !challenge?.level) {
       navigate("/")
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameId, challenge])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!challenge) return
     if (lang) return
     if (challenge.id && challenge.seed) {
