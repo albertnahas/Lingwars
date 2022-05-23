@@ -33,6 +33,7 @@ export var MainMenu: FC<Props> = function (props) {
 
   const [openSetupDialog, setOpenSetupDialog] = useState(false)
   const [openChallengeLinkDialog, setOpenChallengeLinkDialog] = useState(false)
+  const [isSinglePlayer, setIsSinglePlayer] = useState<boolean>(false)
 
   const dispatch = useDispatch()
 
@@ -73,10 +74,12 @@ export var MainMenu: FC<Props> = function (props) {
 
   const onClickSinglePlayer = () => {
     setInitialSetup({ ...defaultChallengeSetup })
+    setIsSinglePlayer(true)
   }
 
   const onClickMultiplayer = () => {
     setInitialSetup({ ...defaultChallengeSetup, players: 2 })
+    setIsSinglePlayer(false)
   }
 
   const onStartChallenge = () => {
@@ -126,6 +129,7 @@ export var MainMenu: FC<Props> = function (props) {
           setup={initialSetup}
           open={openSetupDialog}
           onClose={onCreateGame}
+          isSinglePlayer={isSinglePlayer}
         />
       )}
       {challenge && (
