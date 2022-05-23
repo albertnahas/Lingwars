@@ -28,6 +28,9 @@ export const useChallenge = (gameId?: string) => {
             return
           }
           const challengeData = querySnapshot.data()
+          console.log(challenge)
+          console.log(players)
+
           if (challengeData.full && !challenge?.id) {
             setError("The challenge you're trying to join is full")
             return
@@ -59,12 +62,14 @@ export const useChallenge = (gameId?: string) => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameId])
+  }, [gameId, challenge?.id])
 
   const writeScore = (score: Score, turn: number) => {
-    if (!user || !challenge?.id) {
+    if (!user) {
       return
     }
+    console.log("write scores")
+
     firebase
       .firestore()
       .collection(`challenges/${gameId}/players`)

@@ -127,16 +127,17 @@ export const Game: FC<Props> = ({
                 </Typography>
               )}
             </Box>
+            <Divider sx={{ my: 3 }} />
           </>
         )}
         <Button
-          variant="contained"
-          color="primary"
-          sx={{ mt: 1 }}
+          variant="outlined"
+          color="error"
+          sx={{ mt: 2 }}
           onClick={onClicLeave}
           endIcon={<ExitToAppIcon />}
         >
-          Leave
+          {challenge?.id ? "Leave" : "Return"}
         </Button>
       </Container>
     </>
