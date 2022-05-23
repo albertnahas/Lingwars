@@ -28,6 +28,12 @@ export const useChallenge = (gameId?: string) => {
             return
           }
           const challengeData = querySnapshot.data()
+          if (challengeData.full && !challenge?.id) {
+            setError("The challenge you're trying to join is full")
+            return
+          } else {
+            setError(undefined)
+          }
           dispatch(setChallenge({ id: gameId, ...challengeData }))
           if (subscribePlayers) {
             subscribePlayers()
@@ -53,12 +59,13 @@ export const useChallenge = (gameId?: string) => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameId])
+  }, [gameId, challenge?.id])
 
   const writeScore = (score: Score, turn: number) => {
     if (!user) {
       return
     }
+
     firebase
       .firestore()
       .collection(`challenges/${gameId}/players`)
@@ -73,7 +80,6 @@ export const useChallenge = (gameId?: string) => {
       })
       .then(() => {
         if (turn === challenge?.rounds) {
-          console.log("checking status after complete")
           checkChallengeStatus()
         }
       })
