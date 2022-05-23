@@ -35,9 +35,6 @@ export const useChallenge = (gameId?: string) => {
             setError(undefined)
           }
           dispatch(setChallenge({ id: gameId, ...challengeData }))
-          if (subscribePlayers) {
-            subscribePlayers()
-          }
           subscribePlayers = firebase
             .firestore()
             .collection(`challenges/${gameId}/players`)
@@ -61,7 +58,7 @@ export const useChallenge = (gameId?: string) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameId, challenge?.id])
 
-  const writeScore = (score: Score, turn: number) => {
+  const writeScore = (score: Score, turn: number, hintsUsed: number) => {
     if (!user) {
       return
     }
@@ -76,6 +73,7 @@ export const useChallenge = (gameId?: string) => {
         photoURL: user.photoURL || "",
         joinedAt: firebase.firestore.FieldValue.serverTimestamp(),
         score,
+        hintsUsed,
         turn,
       })
       .then(() => {
