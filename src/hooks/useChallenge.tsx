@@ -28,6 +28,12 @@ export const useChallenge = (gameId?: string) => {
             return
           }
           const challengeData = querySnapshot.data()
+          if (challengeData.full && !challenge?.id) {
+            setError("The challenge you're trying to join is full")
+            return
+          } else {
+            setError(undefined)
+          }
           dispatch(setChallenge({ id: gameId, ...challengeData }))
           if (subscribePlayers) {
             subscribePlayers()
@@ -56,7 +62,7 @@ export const useChallenge = (gameId?: string) => {
   }, [gameId])
 
   const writeScore = (score: Score, turn: number) => {
-    if (!user) {
+    if (!user || !challenge?.id) {
       return
     }
     firebase
