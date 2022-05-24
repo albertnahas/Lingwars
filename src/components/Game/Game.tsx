@@ -59,6 +59,7 @@ export const Game: FC<Props> = ({
   rematch,
   onAnswer,
   error,
+  hintsLeft,
 }) => {
   const maxScore = useMemo(() => {
     if (!players || players.length < 2) return user?.displayName
@@ -131,7 +132,12 @@ export const Game: FC<Props> = ({
 
             {lang && gameStatus === "started" && (
               <Box sx={{ my: 2 }}>
-                <Round lang={lang} choices={choices} onAnswer={onAnswer} />
+                <Round
+                  lang={lang}
+                  choices={choices}
+                  onAnswer={onAnswer}
+                  hintsLeft={hintsLeft}
+                />
                 <Divider sx={{ my: 3 }} />
               </Box>
             )}
@@ -253,4 +259,5 @@ interface Props {
   choices?: any[]
   onAnswer: (answer: any) => void
   error?: string
+  hintsLeft: number
 }

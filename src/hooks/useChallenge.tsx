@@ -69,7 +69,7 @@ export const useChallenge = (gameId?: string) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [challengeId, challenge?.id])
 
-  const writeScore = (score: Score, turn: number) => {
+  const writeScore = (score: Score, turn: number, hintsUsed: number) => {
     if (!user) {
       return
     }
@@ -84,6 +84,7 @@ export const useChallenge = (gameId?: string) => {
         photoURL: user.photoURL || "",
         joinedAt: firebase.firestore.FieldValue.serverTimestamp(),
         score,
+        hintsUsed,
         turn,
       })
       .then(() => {
