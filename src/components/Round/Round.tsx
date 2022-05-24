@@ -71,6 +71,10 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
 
   const onTimerChange = (t: number) => {
     setTime(t)
+    if (t === 30) {
+      setActive(false)
+      setAnswer(" ")
+    }
   }
 
   const onActive = () => {
@@ -81,14 +85,17 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
     hintsLeft - 1 === 1 ? "hint" : "hints"
   }`
 
+  const timeColor =
+    time >= 25
+      ? "error.light"
+      : time >= 20
+      ? "warning.light"
+      : "secondary.light"
+
   return (
     <Container>
       <Box sx={{ mb: 2 }}>
-        <Typography
-          color="secondary.light"
-          variant="h2"
-          sx={{ textAlign: "center" }}
-        >
+        <Typography color={timeColor} variant="h2" sx={{ textAlign: "center" }}>
           <Timer onTimeChange={onTimerChange} active={active} />
         </Typography>
         <Typography
