@@ -26,6 +26,7 @@ export interface LevelDialogProps {
 }
 
 const LEVELS_COUNT = 5
+const ROUNDS_ARRAY = [5, 10, 15, 20]
 
 export function ChallengeSetupDialog(props: LevelDialogProps) {
   const { onClose, setup, open } = props
@@ -101,11 +102,30 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
               />
             </>
           )}
+          <FormControl>
+            <FormLabel id="rounds-label">Rounds</FormLabel>
+            <RadioGroup
+              name="rounds"
+              aria-label="rounds"
+              value={formik.values.rounds}
+              onChange={formik.handleChange}
+            >
+              {ROUNDS_ARRAY.map((r) => (
+                <FormControlLabel
+                  key={r}
+                  value={r}
+                  control={<Radio size="small" />}
+                  label={r === 20 ? "Custom" : r}
+                />
+              ))}
+            </RadioGroup>
+          </FormControl>
+          {/* {selectedRounds === 20 && ( */}
           <TextField
             error={Boolean(formik.touched.rounds && formik.errors.rounds)}
             helperText={formik.touched.rounds && formik.errors.rounds}
             fullWidth
-            label="Rounds"
+            label="Custom rounds"
             margin="normal"
             name="rounds"
             aria-label="rounds"
@@ -115,6 +135,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
             variant="outlined"
             type="number"
           />
+          {/* )} */}
           <FormControl>
             <FormLabel id="level-label">Level</FormLabel>
             <RadioGroup
