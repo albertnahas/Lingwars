@@ -20,7 +20,6 @@ import { ChallengeSetup } from "../../types/challenge"
 import { useMemo } from "react"
 
 export interface LevelDialogProps {
-  isSinglePlayer: boolean
   open: boolean
   setup?: ChallengeSetup
   onClose: (setup?: ChallengeSetup) => void
@@ -65,7 +64,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
       <Container maxWidth="xs">
         <Typography variant="subtitle1">Choose your setup</Typography>
         <form onSubmit={formik.handleSubmit}>
-          {!props.isSinglePlayer && (
+          {setup?.players !== 1 && (
             <>
               <Box sx={{ my: 1 }}>
                 <ButtonGroup aria-label="outlined button group">
