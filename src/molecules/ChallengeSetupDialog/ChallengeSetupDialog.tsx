@@ -64,39 +64,43 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
       <Container maxWidth="xs">
         <Typography variant="subtitle1">Choose your setup</Typography>
         <form onSubmit={formik.handleSubmit}>
-          <Box sx={{ my: 1 }}>
-            <ButtonGroup aria-label="outlined button group">
-              <Button
-                variant={formik.values.live ? "contained" : "outlined"}
-                onClick={() => formik.setFieldValue("live", true)}
-              >
-                Live
-              </Button>
-              <Button
-                variant={!formik.values.live ? "contained" : "outlined"}
-                onClick={() => formik.setFieldValue("live", false)}
-              >
-                Private
-              </Button>
-            </ButtonGroup>
-          </Box>
-          <Typography color="primary" variant="caption">
-            {liveHelpMessage}
-          </Typography>
-          <TextField
-            error={Boolean(formik.touched.players && formik.errors.players)}
-            helperText={formik.touched.players && formik.errors.players}
-            fullWidth
-            label="Players"
-            margin="normal"
-            name="players"
-            aria-label="players"
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
-            value={formik.values.players}
-            variant="outlined"
-            type="number"
-          />
+          {setup?.players !== 1 && (
+            <>
+              <Box sx={{ my: 1 }}>
+                <ButtonGroup aria-label="outlined button group">
+                  <Button
+                    variant={formik.values.live ? "contained" : "outlined"}
+                    onClick={() => formik.setFieldValue("live", true)}
+                  >
+                    Live
+                  </Button>
+                  <Button
+                    variant={!formik.values.live ? "contained" : "outlined"}
+                    onClick={() => formik.setFieldValue("live", false)}
+                  >
+                    Private
+                  </Button>
+                </ButtonGroup>
+              </Box>
+              <Typography color="primary" variant="caption">
+                {liveHelpMessage}
+              </Typography>
+              <TextField
+                error={Boolean(formik.touched.players && formik.errors.players)}
+                helperText={formik.touched.players && formik.errors.players}
+                fullWidth
+                label="Players"
+                margin="normal"
+                name="players"
+                aria-label="players"
+                onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
+                value={formik.values.players}
+                variant="outlined"
+                type="number"
+              />
+            </>
+          )}
           <TextField
             error={Boolean(formik.touched.rounds && formik.errors.rounds)}
             helperText={formik.touched.rounds && formik.errors.rounds}
