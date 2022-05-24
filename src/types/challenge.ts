@@ -14,6 +14,7 @@ export interface Challenge {
   players?: number
   live?: boolean
   full?: boolean
+  rematchRequested?: boolean
 }
 
 export interface Player {

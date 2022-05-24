@@ -39,6 +39,7 @@ export const useChallengeSetup = () => {
         uid: user?.uid || null,
         ...setup,
         waiting: true,
+        rematchId: null,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(function (docRef: any) {

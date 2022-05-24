@@ -17,6 +17,25 @@ import { Player, Score } from "../../types/challenge"
 import { User } from "../../types/user"
 import { PlayerChip } from "../../molecules/PlayerChip/PlayerChip"
 import ExitToAppIcon from "@mui/icons-material/ExitToApp"
+import RepeatIcon from "@mui/icons-material/Repeat"
+import { keyframes } from "@emotion/react"
+
+const pulse = keyframes`
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 255, 0);
+	}
+  `
 
 export type GameStatus =
   | "loading"
@@ -35,7 +54,9 @@ export const Game: FC<Props> = ({
   lang,
   choices,
   onClickNext,
-  onClicLeave,
+  onClickLeave,
+  onClickRematch,
+  rematch,
   onAnswer,
   error,
 }) => {
@@ -76,6 +97,8 @@ export const Game: FC<Props> = ({
     </Stack>
   )
 
+  const isAcceptRematch = challenge?.rematchRequested && !rematch
+
   return (
     <>
       <Container>
@@ -102,7 +125,9 @@ export const Game: FC<Props> = ({
             )}
 
             {/* render players */}
-            {gameStatus === "started" && players && renderPlayers()}
+            {["started", "finished"].includes(gameStatus) &&
+              players &&
+              renderPlayers()}
 
             {lang && gameStatus === "started" && (
               <Box sx={{ my: 2 }}>
@@ -154,6 +179,19 @@ export const Game: FC<Props> = ({
                 <Divider sx={{ my: 3 }} />
               </>
             )}
+            {challenge?.rematchRequested && (
+              <>
+                <Typography
+                  component="p"
+                  variant="h6"
+                  color="primary.light"
+                  sx={{ m: 3 }}
+                >
+                  Rematch request pending
+                </Typography>
+                <CircularProgress sx={{ mb: 4 }} />
+              </>
+            )}
           </>
         ) : (
           <Box sx={{ my: 5 }}>
@@ -161,15 +199,40 @@ export const Game: FC<Props> = ({
           </Box>
         )}
 
-        <Button
-          variant="outlined"
-          color="error"
-          sx={{ mt: 2 }}
-          onClick={onClicLeave}
-          endIcon={<ExitToAppIcon />}
+        <Stack
+          spacing={2}
+          sx={{ justifyContent: "center", alignItems: "center" }}
+          direction="row"
         >
-          {challenge?.id ? "Leave" : "Return"}
-        </Button>
+          {gameStatus === "finished" && players && (
+            <Button
+              variant="outlined"
+              color="info"
+              aria-label="rematch"
+              onClick={onClickRematch}
+              endIcon={<RepeatIcon />}
+              disabled={rematch || players?.length === 1}
+              sx={{
+                m: 3,
+                animation: isAcceptRematch
+                  ? `${pulse} 1000ms infinite ease;`
+                  : "",
+                animationDirection: "alternate",
+              }}
+            >
+              {isAcceptRematch ? "Accept rematch" : "Rematch"}
+            </Button>
+          )}
+          <Button
+            variant="outlined"
+            color="error"
+            aria-label="leave"
+            onClick={onClickLeave}
+            endIcon={<ExitToAppIcon />}
+          >
+            {challenge?.id ? "Leave" : "Return"}
+          </Button>
+        </Stack>
       </Container>
     </>
   )
@@ -182,7 +245,9 @@ interface Props {
   challenge: any
   players?: any[]
   onClickNext: () => void
-  onClicLeave: () => void
+  onClickLeave: () => void
+  onClickRematch: () => void
+  rematch: boolean
   showAnswer: boolean
   lang: any
   choices?: any[]

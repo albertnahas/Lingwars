@@ -17,7 +17,15 @@ export const GameContainer = () => {
   const [showAnswer, setShowAnswer] = useState<boolean>(false)
   const [score, setScore] = useState<Score>({ accuracy: 0, timed: 0 })
   const [turn, setTurn] = useState(1)
-  const { players, writeScore, error, leaveChallenge } = useChallenge(gameId)
+  const {
+    players,
+    writeScore,
+    error,
+    leaveChallenge,
+    rematch,
+    requestRematch,
+    cancelRematch,
+  } = useChallenge(gameId)
 
   const navigate = useNavigate()
 
@@ -104,9 +112,22 @@ export const GameContainer = () => {
     setTurn((l) => l + 1)
   }
 
-  const onClicLeave = () => {
+  const onReset = () => {
+    setLang(null)
+    setShowAnswer(false)
+    setTurn(0)
+    setScore({ timed: 0, accuracy: 0 })
+  }
+
+  const onClickLeave = () => {
+    if (rematch) {
+      cancelRematch()
+    }
     leaveChallenge()
     navigate("/")
+  }
+  const onClickRematch = () => {
+    requestRematch().then(() => onReset())
   }
 
   return (
@@ -120,7 +141,9 @@ export const GameContainer = () => {
       lang={lang}
       choices={choices}
       onClickNext={onClickNext}
-      onClicLeave={onClicLeave}
+      onClickLeave={onClickLeave}
+      onClickRematch={onClickRematch}
+      rematch={rematch}
       onAnswer={onAnswer}
       error={error}
     />
