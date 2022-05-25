@@ -125,6 +125,7 @@ describe("Game starts for multi player - live mode", () => {
 
     cy.callFirestore("get", `requests/${requestId}`).then((r) => {
       cy.log("get returned: ", r)
+      
       const challengeId = r.challengeId
       cy.wrap(r).its("players").should("equal", 2)
 
@@ -134,18 +135,18 @@ describe("Game starts for multi player - live mode", () => {
         timedScore: 0,
         accuracy: 0,
       })
-    })
 
-    cy.get(`[aria-label="player chip"]`, { timeout: 5000 }).should(
-      "have.length",
-      2
-    )
-    // answer 2 rounds
-    cy.get(`[aria-label="choices"] button`).first().click()
-    cy.get(`[aria-label="result"]`).should("have.length", 1)
-    cy.get(`button[aria-label="next"]`).click()
-    cy.get(`[aria-label="choices"] button`).first().click()
-    cy.get(`[aria-label="done message"]`).contains("Done!")
-    cy.get(`[aria-label="winner"]`).should("have.length", 1)
+      cy.get(`[aria-label="player chip"]`, { timeout: 10000 }).should(
+        "have.length",
+        2
+      )
+      // answer 2 rounds
+      cy.get(`[aria-label="choices"] button`).first().click()
+      cy.get(`[aria-label="result"]`).should("have.length", 1)
+      cy.get(`button[aria-label="next"]`).click()
+      cy.get(`[aria-label="choices"] button`).first().click()
+      cy.get(`[aria-label="done message"]`).contains("Done!")
+      cy.get(`[aria-label="winner"]`).should("have.length", 1)
+    })
   })
 })
