@@ -125,7 +125,7 @@ describe("Game starts for multi player - live mode", () => {
 
     cy.callFirestore("get", `requests/${requestId}`).then((r) => {
       cy.log("get returned: ", r)
-      
+
       const challengeId = r.challengeId
       cy.wrap(r).its("players").should("equal", 2)
 
@@ -136,7 +136,7 @@ describe("Game starts for multi player - live mode", () => {
         accuracy: 0,
       })
 
-      cy.get(`[aria-label="player chip"]`, { timeout: 10000 }).should(
+      cy.get(`[aria-label="player chip"]`, { timeout: 20000 }).should(
         "have.length",
         2
       )
