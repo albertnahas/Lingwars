@@ -44,7 +44,13 @@ jobs:
           start: yarn emulators
           command: yarn test:emulate
           wait-on: "http://localhost:8081, http://localhost:9099"
-      - name: Upload artifact
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      - name: Upload videos
         uses: actions/upload-artifact@v2
         if: always()
         with:
