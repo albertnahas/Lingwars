@@ -55,6 +55,7 @@ exports.requestCreated = functions.runWith({
       .get()
       .then((snapshot) => {
         if (snapshot.size >= size) {
+          functions.logger.log("writing challenge for ...", snapshot.id)
           delete requestData.waiting
           delete requestData.rematchRequested
           delete requestData.id
