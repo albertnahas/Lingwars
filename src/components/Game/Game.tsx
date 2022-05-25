@@ -13,7 +13,7 @@ import {
 import { Box } from "@mui/system"
 import { getEval } from "../../utils/helpers"
 import { Round } from "../Round/Round"
-import { Player, Score } from "../../types/challenge"
+import { Player } from "../../types/challenge"
 import { User } from "../../types/user"
 import { PlayerChip } from "../../molecules/PlayerChip/PlayerChip"
 import ExitToAppIcon from "@mui/icons-material/ExitToApp"
@@ -45,7 +45,8 @@ export type GameStatus =
   | "finished"
 
 export const Game: FC<Props> = ({
-  score,
+  timedScore,
+  accuracy,
   turn,
   user,
   challenge,
@@ -64,7 +65,7 @@ export const Game: FC<Props> = ({
   const maxScore = useMemo(() => {
     if (!players || players.length < 2) return user?.displayName
     const mappedPlayers = players?.map((p: Player) => {
-      return { displayName: p?.displayName, score: p?.score?.timed }
+      return { displayName: p?.displayName, score: p?.timedScore }
     })
     return _.maxBy(mappedPlayers, "score")?.displayName
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -117,6 +118,7 @@ export const Game: FC<Props> = ({
             {gameStatus === "finished" && (
               <Typography
                 component="p"
+                aria-label="winner"
                 variant="h5"
                 color="success.main"
                 sx={{ m: 3 }}
@@ -125,7 +127,6 @@ export const Game: FC<Props> = ({
               </Typography>
             )}
 
-            {/* render players */}
             {["started", "finished"].includes(gameStatus) &&
               players &&
               renderPlayers()}
@@ -163,22 +164,23 @@ export const Game: FC<Props> = ({
                     variant="contained"
                     sx={{ mt: 1 }}
                     onClick={onClickNext}
+                    aria-label="next"
                   >
                     Next
                   </Button>
                 )}
                 {turn >= (challenge.rounds || 10) && (
-                  <Box sx={{ mt: 2 }}>
+                  <Box aria-label="done message" sx={{ mt: 2 }}>
                     <Typography variant="h6" color="primary.light">
-                      Done! you {getEval(score.accuracy, turn)}
+                      Done! you {getEval(accuracy, turn)}
                     </Typography>
                   </Box>
                 )}
 
                 <Box sx={{ mt: 2 }}>
-                  {!!score && (
+                  {!!accuracy && (
                     <Typography variant="body1">
-                      Your score: {score.accuracy}/{turn}
+                      Your score: {accuracy}/{turn}
                     </Typography>
                   )}
                 </Box>
@@ -245,7 +247,8 @@ export const Game: FC<Props> = ({
 }
 
 interface Props {
-  score: Score
+  timedScore: number
+  accuracy: number
   turn: number
   user?: User | null
   challenge: any

@@ -1,4 +1,10 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
+import {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useReducer,
+  useState,
+} from "react"
 import _ from "lodash"
 import { allLangs, getRandomFromSeed } from "../../utils/helpers"
 import { useNavigate, useParams } from "react-router-dom"
@@ -8,15 +14,72 @@ import { userSelector } from "../../store/userSlice"
 import { Game } from "./Game"
 import { useChallenge } from "../../hooks/useChallenge"
 import { maxHints, maxLevels } from "../../utils/constants"
-import { Score } from "../../types/challenge"
+
+enum GameActionType {
+  ANSWER = "ANSWER",
+  NEXT = "NEXT",
+  RESET = "RESET",
+}
+interface GameState {
+  turn: number
+  hintsUsed: number
+  timedScore: number
+  accuracy: number
+  answered: boolean
+}
+
+type GameAction =
+  | {
+      type: GameActionType.ANSWER
+      payload: { isCorrect: boolean; withHint: boolean; time: number }
+    }
+  | { type: GameActionType.NEXT }
+  | { type: GameActionType.RESET }
+
+let gameReducer = (state: GameState, action: GameAction): GameState => {
+  switch (action.type) {
+    case GameActionType.ANSWER:
+      return {
+        ...state,
+        answered: true,
+        accuracy: state.accuracy + Number(action.payload.isCorrect),
+        hintsUsed: state.hintsUsed + Number(action.payload.withHint),
+        timedScore: action.payload.isCorrect
+          ? state.timedScore +
+            Math.round((10 * 10) / (action.payload.time || 10)) /
+              (Number(action.payload.withHint) + 1)
+          : state.timedScore,
+      }
+    case GameActionType.NEXT:
+      return { ...state, turn: state.turn + 1, answered: false }
+    case GameActionType.RESET:
+      return {
+        ...state,
+        turn: 1,
+        answered: false,
+        timedScore: 0,
+        accuracy: 0,
+        hintsUsed: 0,
+      }
+    default:
+      return state
+  }
+}
 
 export const GameContainer = () => {
   let { gameId } = useParams()
 
   const [lang, setLang] = useState<any>()
-  const [showAnswer, setShowAnswer] = useState<boolean>(false)
-  const [score, setScore] = useState<Score>({ accuracy: 0, timed: 0 })
-  const [turn, setTurn] = useState(1)
+
+  const [{ turn, hintsUsed, timedScore, accuracy, answered }, dispatch] =
+    useReducer(gameReducer, {
+      turn: 1,
+      hintsUsed: 0,
+      timedScore: 0,
+      accuracy: 0,
+      answered: false,
+    })
+
   const {
     players,
     writeScore,
@@ -26,7 +89,7 @@ export const GameContainer = () => {
     requestRematch,
     cancelRematch,
   } = useChallenge(gameId)
-  const hintsUsed = useRef<number>(0)
+
   const navigate = useNavigate()
 
   const user = useSelector(userSelector)
@@ -75,51 +138,46 @@ export const GameContainer = () => {
   }, [lang, challenge])
 
   const onAnswer = (answer: any, time?: number, showHint?: boolean) => {
-    if (showHint) hintsUsed.current += 1
-    if (answer && answer.code1 === lang.code1) {
-      const timeScore = Math.round((10 * 10) / (time || 10))
-      const finalScore = showHint ? timeScore / 2 : timeScore
-      setScore((s) => {
-        return {
-          accuracy: s.accuracy + 1,
-          timed: s.timed + finalScore,
-        }
-      })
-    }
-    setShowAnswer(true)
+    dispatch({
+      type: GameActionType.ANSWER,
+      payload: {
+        isCorrect: answer && answer.code1 === lang.code1,
+        time: time || 1,
+        withHint: showHint || false,
+      },
+    })
   }
 
   useEffect(() => {
     if (!gameId || !challenge || !challenge.id || !user || !user.uid) return
-    if (!showAnswer && turn !== 1) return
+    if (!answered && turn !== 1) return
     if (players) {
       const currentPlayer = players.find((p) => p.id === user.uid)
       if (
         currentPlayer &&
         currentPlayer.turn === turn &&
-        currentPlayer.score &&
-        score &&
-        currentPlayer.score.timed === score.timed
+        currentPlayer.timedScore === timedScore &&
+        currentPlayer.accuracy === accuracy
       ) {
         return
       }
     }
-    writeScore(score, turn, hintsUsed.current)
+    writeScore(timedScore, accuracy, turn, hintsUsed)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, turn, showAnswer, score, challenge])
+  }, [user, turn, answered, timedScore, accuracy, challenge])
 
   const onClickNext = () => {
     setLang(null)
-    setShowAnswer(false)
-    setTurn((l) => l + 1)
+    dispatch({
+      type: GameActionType.NEXT,
+    })
   }
 
   const onReset = () => {
     setLang(null)
-    setShowAnswer(false)
-    setTurn(0)
-    hintsUsed.current = 0
-    setScore({ timed: 0, accuracy: 0 })
+    dispatch({
+      type: GameActionType.RESET,
+    })
   }
 
   const onClickLeave = () => {
@@ -135,12 +193,13 @@ export const GameContainer = () => {
 
   return (
     <Game
-      score={score}
+      accuracy={accuracy}
+      timedScore={timedScore}
       turn={turn}
       user={user}
       challenge={challenge}
       players={players}
-      showAnswer={showAnswer}
+      showAnswer={answered}
       lang={lang}
       choices={choices}
       onClickNext={onClickNext}
@@ -149,7 +208,7 @@ export const GameContainer = () => {
       rematch={rematch}
       onAnswer={onAnswer}
       error={error}
-      hintsLeft={maxHints - hintsUsed.current}
+      hintsLeft={maxHints - hintsUsed}
     />
   )
 }

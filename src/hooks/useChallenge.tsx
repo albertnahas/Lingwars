@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import firebase from "../config"
 import { userSelector } from "../store/userSlice"
 import { challengeSelector, setChallenge } from "../store/challengeSlice"
-import { Challenge, ChallengeSetup, Score } from "../types/challenge"
+import { Challenge, ChallengeSetup, Player } from "../types/challenge"
 
 export const useChallenge = (gameId?: string) => {
   const functions = firebase.functions()
@@ -15,7 +15,7 @@ export const useChallenge = (gameId?: string) => {
   const challenge = useSelector(challengeSelector)
 
   const [challengeId, setChallengeId] = useState<string | undefined>(gameId)
-  const [players, setPlayers] = useState<any[]>()
+  const [players, setPlayers] = useState<Player[]>()
   const [error, setError] = useState<string>()
   const [rematch, setRematch] = useState<boolean>(false)
 
@@ -69,7 +69,12 @@ export const useChallenge = (gameId?: string) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [challengeId, challenge?.id])
 
-  const writeScore = (score: Score, turn: number, hintsUsed: number) => {
+  const writeScore = (
+    timedScore: number,
+    accuracy: number,
+    turn: number,
+    hintsUsed: number
+  ) => {
     if (!user) {
       return
     }
@@ -83,7 +88,8 @@ export const useChallenge = (gameId?: string) => {
         displayName: user.displayName,
         photoURL: user.photoURL || "",
         joinedAt: firebase.firestore.FieldValue.serverTimestamp(),
-        score,
+        timedScore,
+        accuracy,
         hintsUsed,
         turn,
       })

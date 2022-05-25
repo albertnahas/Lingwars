@@ -22,14 +22,10 @@ export interface Player {
   displayName: string
   photoURL: string
   joinedAt: firebase.firestore.Timestamp
-  score: Score
+  timedScore: number
+  accuracy: number
   turn: number
   roundsScore: RoundScore[]
-}
-
-export interface Score {
-  accuracy: number
-  timed: number
 }
 
 export interface RoundScore {

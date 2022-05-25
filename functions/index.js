@@ -29,6 +29,7 @@ exports.requestCreated = functions.runWith({
   .onCreate(async (snap) => {
     const requestData = snap.data()
     const size = requestData.players
+    functions.logger.log("request size", size)
 
     if (requestData.rematchId) {
       const challengeId = requestData.rematchId

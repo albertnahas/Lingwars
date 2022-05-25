@@ -152,7 +152,11 @@ export var MainMenu: FC<Props> = function (props) {
           </>
         }
       >
-        <Stack sx={{ textAlign: "center", alignItems: "center" }} spacing={2}>
+        <Stack
+          aria-label="pairing"
+          sx={{ textAlign: "center", alignItems: "center" }}
+          spacing={2}
+        >
           <Typography variant="h5" color="primary">
             Pairing
           </Typography>
