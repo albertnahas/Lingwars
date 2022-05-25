@@ -134,19 +134,19 @@ describe("Game starts for multi player - live mode", () => {
         turn: 2,
         timedScore: 0,
         accuracy: 0,
+      }).then(() => {
+        cy.get(`[aria-label="player chip"]`, { timeout: 5000 }).should(
+          "have.length",
+          2
+        )
+        // answer 2 rounds
+        cy.get(`[aria-label="choices"] button`).first().click()
+        cy.get(`[aria-label="result"]`).should("have.length", 1)
+        cy.get(`button[aria-label="next"]`).click()
+        cy.get(`[aria-label="choices"] button`).first().click()
+        cy.get(`[aria-label="done message"]`).contains("Done!")
+        cy.get(`[aria-label="winner"]`).should("have.length", 1)
       })
-
-      cy.get(`[aria-label="player chip"]`, { timeout: 20000 }).should(
-        "have.length",
-        2
-      )
-      // answer 2 rounds
-      cy.get(`[aria-label="choices"] button`).first().click()
-      cy.get(`[aria-label="result"]`).should("have.length", 1)
-      cy.get(`button[aria-label="next"]`).click()
-      cy.get(`[aria-label="choices"] button`).first().click()
-      cy.get(`[aria-label="done message"]`).contains("Done!")
-      cy.get(`[aria-label="winner"]`).should("have.length", 1)
     })
   })
 })
