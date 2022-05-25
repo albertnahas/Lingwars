@@ -10,11 +10,11 @@ describe("Timer widget", function () {
 
   it("starts at 00:00", () => {
     const component = shallow(<Timer active={true} />)
-    expect(component.find("span.timer").text()).toContain("00:00")
+    expect(component.find(`[aria-label="timer"]`).text()).toContain("00:00")
   })
 
   it("starting time works", () => {
     const component = shallow(<Timer startingTime={30} active={true} />)
-    expect(component.find("span.timer").text()).toContain("00:30")
+    expect(component.find(`[aria-label="timer"]`).text()).toContain("00:30")
   })
 })

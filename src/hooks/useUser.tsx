@@ -3,13 +3,12 @@ import { User } from "../types/user"
 
 export const useUser = () => {
   const updateUser = (user: User) => {
-    return firebase
-      .firestore()
-      .collection("users")
-      .doc(user?.uid)
-      .update({
-        ...user,
-      })
+    const usersRef = firebase.firestore().collection("users").doc(user.uid)
+    usersRef.get().then((docSnapshot) => {
+      if (docSnapshot.exists) {
+        usersRef.update({ ...user })
+      }
+    })
   }
 
   const deleteAccount = () => {

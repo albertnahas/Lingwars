@@ -91,7 +91,7 @@ export const GameContainer = () => {
 
   useEffect(() => {
     if (!gameId || !challenge || !challenge.id || !user || !user.uid) return
-
+    if (!showAnswer && turn !== 1) return
     if (players) {
       const currentPlayer = players.find((p) => p.id === user.uid)
       if (
@@ -106,7 +106,7 @@ export const GameContainer = () => {
     }
     writeScore(score, turn, hintsUsed.current)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, turn, score, challenge])
+  }, [user, turn, showAnswer, score, challenge])
 
   const onClickNext = () => {
     setLang(null)

@@ -130,7 +130,7 @@ export const Game: FC<Props> = ({
               players &&
               renderPlayers()}
 
-            {lang && gameStatus === "started" && (
+            {lang && ["started", "finished"].includes(gameStatus) && (
               <Box sx={{ my: 2 }}>
                 <Round
                   lang={lang}

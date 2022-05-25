@@ -50,7 +50,11 @@ export const Timer: FC<Props> = ({
           .substr(14, 5)
       : new Date(timeRef * 1000).toISOString().substr(14, 5)
 
-  return <span className="timer"> {displayTime()} </span>
+  return (
+    <span aria-label="timer" className="timer">
+      {displayTime()}
+    </span>
+  )
 }
 
 interface Props {
