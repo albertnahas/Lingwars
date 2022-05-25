@@ -118,7 +118,10 @@ describe("Game starts for multi player - live mode", () => {
       waiting: true,
     })
 
-    cy.get(`[aria-label="waiting for players"]`).should("have.length", 1)
+    cy.get(`[aria-label="waiting for players"]`, { timeout: 10000 }).should(
+      "have.length",
+      1
+    )
 
     cy.callFirestore("get", `requests/${requestId}`).then((r) => {
       cy.log("get returned: ", r)
