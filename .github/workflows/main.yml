@@ -45,7 +45,8 @@ jobs:
           command: yarn test:emulate
           wait-on: "http://localhost:8081, http://localhost:9099"
       - name: Upload artifact
-        uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v2
+        if: always()
         with:
-          name: cypress-reports
-          path: /home/runner/work/Lingwars/Lingwars/cypress/
+          name: cypress-videos
+          path: cypress/videos
