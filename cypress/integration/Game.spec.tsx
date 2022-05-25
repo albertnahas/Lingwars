@@ -83,7 +83,10 @@ describe("Game starts for multi player - private mode", () => {
             timedScore: 0,
             accuracy: 0,
           })
-          cy.get(`[aria-label="player chip"]`).should("have.length", 2)
+          cy.get(`[aria-label="player chip"]`, { timeout: 10000 }).should(
+            "have.length",
+            2
+          )
           // answer 2 rounds
           cy.get(`[aria-label="choices"] button`).first().click()
           cy.get(`[aria-label="result"]`).should("have.length", 1)
