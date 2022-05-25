@@ -135,7 +135,7 @@ describe("Game starts for multi player - live mode", () => {
         timedScore: 0,
         accuracy: 0,
       }).then(() => {
-        cy.get(`[aria-label="player chip"]`, { timeout: 5000 }).should(
+        cy.get(`[aria-label="player chip"]`, { timeout: 15000 }).should(
           "have.length",
           2
         )
