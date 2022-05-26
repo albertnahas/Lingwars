@@ -87,7 +87,7 @@ const MUISwitch = function ({ style, ...props }: any) {
       <SwitchTrack>
         <SwitchThumb className={clsx(stateClasses)} />
       </SwitchTrack>
-      <SwitchInput {...getInputProps()} aria-label="Demo switch" />
+      <SwitchInput {...getInputProps()} aria-label="switch" />
     </SwitchRoot>
   )
 }
