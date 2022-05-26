@@ -69,12 +69,14 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
               <Box sx={{ my: 1 }}>
                 <ButtonGroup aria-label="outlined button group">
                   <Button
+                    aria-label="live"
                     variant={formik.values.live ? "contained" : "outlined"}
                     onClick={() => formik.setFieldValue("live", true)}
                   >
                     Live
                   </Button>
                   <Button
+                    aria-label="private"
                     variant={!formik.values.live ? "contained" : "outlined"}
                     onClick={() => formik.setFieldValue("live", false)}
                   >

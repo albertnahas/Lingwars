@@ -56,7 +56,10 @@ export const useCurrentUser = () => {
               })
           })
           if (!doc.data().messagingToken && user.messagingToken) {
-            doc.ref.update({ messagingToken: user.messagingToken })
+            doc.ref.set(
+              { messagingToken: user.messagingToken },
+              { merge: true }
+            )
           }
         }
       })

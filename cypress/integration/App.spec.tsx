@@ -13,7 +13,9 @@ describe("App renders", () => {
   })
 
   it("Adds document to test collection of Firestore", () => {
-    cy.callFirestore("add", "test", { some: "value" })
+    cy.callFirestore("add", "test", { some: "value" }).then(() =>
+      cy.callFirestore("delete", "test")
+    )
   })
 
   it("Renders landing page", () => {
