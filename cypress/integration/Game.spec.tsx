@@ -94,7 +94,7 @@ describe("Game starts for multi player - private mode", () => {
           cy.get(`[aria-label="choices"] button`).first().click()
           cy.get(`[aria-label="done message"]`).contains("Done!")
           cy.get(`[aria-label="winner"]`).should("have.length", 1)
-
+          cy.wait(1000)
           cy.callFirestore("delete", `challenges/${challengeId}`)
         })
       })
@@ -111,14 +111,19 @@ describe("Game starts for multi player - live mode", () => {
     cy.get(`[aria-label="pairing"]`).should("have.length", 1)
     const requestId = Date.now().toString()
 
-    cy.callFirestore("set", `requests/${requestId}`, {
-      level: 1,
-      live: true,
-      rounds: 2,
-      players: 2,
-      rematchId: null,
-      waiting: true,
-    })
+    cy.callFirestore(
+      "set",
+      `requests/${requestId}`,
+      {
+        level: 1,
+        live: true,
+        rounds: 2,
+        players: 2,
+        rematchId: null,
+        waiting: true,
+      },
+      { withMeta: true }
+    )
 
     cy.get(`[aria-label="waiting for players"]`, { timeout: 10000 }).should(
       "have.length",
@@ -137,7 +142,7 @@ describe("Game starts for multi player - live mode", () => {
         timedScore: 0,
         accuracy: 0,
       }).then(() => {
-        cy.get(`[aria-label="player chip"]`, { timeout: 30000 }).should(
+        cy.get(`[aria-label="player chip"]`, { timeout: 5000 }).should(
           "have.length",
           2
         )
@@ -148,7 +153,7 @@ describe("Game starts for multi player - live mode", () => {
         cy.get(`[aria-label="choices"] button`).first().click()
         cy.get(`[aria-label="done message"]`).contains("Done!")
         cy.get(`[aria-label="winner"]`).should("have.length", 1)
-
+        cy.wait(1000)
         cy.callFirestore("delete", `challenges/${challengeId}`)
         cy.callFirestore("delete", `requests/${requestId}`)
       })

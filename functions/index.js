@@ -52,28 +52,35 @@ exports.requestCreated = functions.runWith({
       .where("level", "==", requestData.level)
       .where("waiting", "==", true)
       .where("rematchId", "==", requestData.rematchId)
+      .orderBy("createdAt", "asc")
+      .limit(size)
       .get()
       .then((snapshot) => {
+        functions.logger.log("checking for request ...", snap.id, "and found", snapshot.size)
         if (snapshot.size >= size) {
-          functions.logger.log("writing challenge for ...", snapshot.id)
           delete requestData.waiting
           delete requestData.rematchRequested
           delete requestData.id
+
+          const requestsDocs = snapshot.docs.slice(0, size);
+          const cId = requestsDocs[0].id
           admin
             .firestore()
             .collection("challenges")
-            .add(
+            .doc(cId)
+            .set(
               Object.assign({}, requestData, {
                 status: "started",
                 createdAt: admin.firestore.FieldValue.serverTimestamp(),
               })
             )
-            .then(function (docRef) {
+            .then(function () {
               const batch = admin.firestore().batch()
-              snapshot.docs.slice(0, size).forEach((doc) => {
-                batch.update(doc.ref, "challengeId", docRef.id)
+              requestsDocs.forEach((doc) => {
+                batch.update(doc.ref, "challengeId", cId)
                 batch.update(doc.ref, "waiting", false)
               })
+              functions.logger.log("writing challenge with ...", cId)
               return batch.commit()
             })
             .catch((e) => {
