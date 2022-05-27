@@ -68,7 +68,7 @@ describe("Game starts for multi player - private mode", () => {
           cy.get(`[aria-label="start"]`).click()
           cy.get(`[aria-label="waiting for players"]`).should("have.length", 1)
           cy.log("get challengeId: ", challengeId)
-
+          cy.wait(500)
           cy.callFirestore(
             "get",
             `challenges/${challengeId}/players/${TEST_UID}`
