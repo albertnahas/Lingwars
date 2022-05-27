@@ -83,7 +83,11 @@ const MUISwitch = function ({ style, ...props }: any) {
   }
 
   return (
-    <SwitchRoot style={style} className={clsx(stateClasses)}>
+    <SwitchRoot
+      style={style}
+      className={clsx(stateClasses)}
+      aria-label="switch root"
+    >
       <SwitchTrack>
         <SwitchThumb className={clsx(stateClasses)} />
       </SwitchTrack>
