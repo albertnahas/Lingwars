@@ -14,7 +14,9 @@
     "test:unit": "jest",
     "emulators": "firebase emulators:start",
     "test:emulate": "cross-env FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" FIREBASE_DATABASE_EMULATOR_HOST=\"localhost:9000\" FIRESTORE_EMULATOR_HOST=\"localhost:8081\" yarn test",
-    "test:emulate-open": "cross-env FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" FIREBASE_DATABASE_EMULATOR_HOST=\"localhost:9000\" FIRESTORE_EMULATOR_HOST=\"localhost:8081\" yarn test:open"
+    "test:emulate-open": "cross-env FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" FIREBASE_DATABASE_EMULATOR_HOST=\"localhost:9000\" FIRESTORE_EMULATOR_HOST=\"localhost:8081\" yarn test:open",
+    "coverage:integration": "npx nyc report --reporter=text-summary",
+    "coverage:unit": "jest --coverage"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",

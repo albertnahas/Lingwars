@@ -12,7 +12,7 @@ export const Profile: FC<Props> = ({ signOut }) => {
   const [openDeleteAccount, setOpenDeleteAccount] = useState(false)
 
   return (
-    <Container maxWidth="lg">
+    <Container aria-label="profile container" maxWidth="lg">
       <Grid spacing={2} container>
         <Grid xs={12} item>
           <Box>
