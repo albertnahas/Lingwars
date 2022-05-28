@@ -26,6 +26,12 @@ export interface LevelDialogProps {
   onClose: (setup?: ChallengeSetup) => void
 }
 
+export const defaultChallengeSetup = {
+  level: 1,
+  players: 1,
+  rounds: 10,
+  live: false,
+}
 const LEVELS_COUNT = 5
 const ROUNDS_ARRAY = [5, 10, 15]
 
@@ -38,6 +44,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
 
   const formik = useFormik({
     initialValues: {
+      ...defaultChallengeSetup,
       ...setup,
     },
     validationSchema: Yup.object({
