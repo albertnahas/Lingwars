@@ -21,6 +21,7 @@ afterEach(() => {
 describe("Game starts for one player", () => {
   it("Starts single player challenge", () => {
     cy.get(`[aria-label="single player"]`).click()
+    cy.get(`[aria-label="rounds-controller"] input[value="custom"]`).click()
     cy.get(`[aria-label="rounds"]`).clear().type("2")
     cy.get(`[aria-label="submit setup"]`).click()
     // renders audio
@@ -52,6 +53,7 @@ describe("Game starts for multi player - private mode", () => {
 
   it("Starts multi player challenge", () => {
     cy.get(`[aria-label="multi player"]`).click()
+    cy.get(`[aria-label="rounds-controller"] input[value="custom"]`).click()
     cy.get(`[aria-label="rounds"]`).clear().type("2")
     cy.get(`[aria-label="submit setup"]`).click()
     cy.get(`[aria-label="Challenge Link"]`).should("have.length", 1)
@@ -108,6 +110,7 @@ describe("Game starts for multi player - private mode", () => {
 describe("Game starts for multi player - live mode", () => {
   it("Starts multi player challenge", () => {
     cy.get(`[aria-label="multi player"]`).click()
+    cy.get(`[aria-label="rounds-controller"] input[value="custom"]`).click()
     cy.get(`[aria-label="rounds"]`).clear().type("2")
     cy.get(`[aria-label="live"]`).click()
     cy.get(`[aria-label="submit setup"]`).click()
