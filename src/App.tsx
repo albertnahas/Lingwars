@@ -22,7 +22,6 @@ const firebaseAppAuth = firebase.auth()
 
 const googleProvider = new firebase.auth.GoogleAuthProvider()
 googleProvider.addScope("https://www.googleapis.com/auth/user.birthday.read")
-
 const facebookProvider = new firebase.auth.FacebookAuthProvider()
 
 const providers = {
