@@ -135,6 +135,7 @@ export var TopBar: FC<Props> = function (props) {
               }}
               src={user.photoURL}
               alt="profile photo"
+              aria-label="profile"
               onClick={() => navigate("/profile")}
             >
               <UserCircleIcon fontSize="small" />

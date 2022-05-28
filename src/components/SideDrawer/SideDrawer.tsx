@@ -50,28 +50,33 @@ export const SideDrawer: React.FC<Props> = (props) => {
           <ListItemText primary="Home" color="text.secondary" />
         </ListItem>
 
-        <ListItem button component={Link} to="/settings">
+        <ListItem
+          aria-label={"settings"}
+          button
+          component={Link}
+          to="/settings"
+        >
           <ListItemIcon>
             <SettingsIcon />
           </ListItemIcon>
           <ListItemText primary="Settings" color="text.secondary" />
         </ListItem>
 
-        <ListItem button component={Link} to="/contact">
+        <ListItem aria-label={"contact"} button component={Link} to="/contact">
           <ListItemIcon>
             <ForumOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Contact us" color="text.secondary" />
         </ListItem>
 
-        <ListItem button component={Link} to="/privacy">
+        <ListItem aria-label={"privacy"} button component={Link} to="/privacy">
           <ListItemIcon>
             <PrivacyTipOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="Privacy policy" color="text.secondary" />
         </ListItem>
 
-        <ListItem button component={Link} to="/terms">
+        <ListItem aria-label={"terms"} button component={Link} to="/terms">
           <ListItemIcon>
             <GradingOutlinedIcon />
           </ListItemIcon>
@@ -84,7 +89,7 @@ export const SideDrawer: React.FC<Props> = (props) => {
       <Divider />
       {user && (
         <List>
-          <ListItem button onClick={props.signOut}>
+          <ListItem aria-label={"signout"} button onClick={props.signOut}>
             <ListItemIcon>
               <LogoutIcon />
             </ListItemIcon>

@@ -44,6 +44,11 @@ jobs:
           start: yarn emulators
           command: yarn test:emulate
           wait-on: "http://localhost:8081, http://localhost:9099"
+      - name: Upload coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-coverage
+          path: coverage
       - name: Upload screenshots
         uses: actions/upload-artifact@v2
         if: always()

@@ -144,6 +144,7 @@ export var Login: FC<Props> = function (props) {
                 color="primary"
                 disabled={formik.isSubmitting}
                 fullWidth
+                aria-label="sign in"
                 size="large"
                 type="submit"
                 variant="contained"

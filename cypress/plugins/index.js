@@ -13,5 +13,7 @@ module.exports = (on, config) => {
     })
   })
   const extendedConfig = cypressFirebasePlugin(on, config, admin)
+  require("@cypress/code-coverage/task")(on, extendedConfig)
+
   return extendedConfig
 }

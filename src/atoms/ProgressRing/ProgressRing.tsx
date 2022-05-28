@@ -43,7 +43,12 @@ export var ProgressRing: FC<Props> = function ({ color, ...props }) {
         }}
       >
         {props.label && (
-          <Typography variant="h6" component="div" color="text.secondary">
+          <Typography
+            aria-label="ring value"
+            variant="h6"
+            component="div"
+            color="text.secondary"
+          >
             {`${Math.floor((props.value || 0) / 10)}/10`}
           </Typography>
         )}
@@ -55,7 +60,7 @@ export var ProgressRing: FC<Props> = function ({ color, ...props }) {
 
 interface Props {
   value?: number
-  label?: string
+  label?: boolean
   children?: JSX.Element
   size?: number
   color?: string
