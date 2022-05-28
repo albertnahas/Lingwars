@@ -127,7 +127,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
             <RadioGroup
               row
               name="rounds"
-              aria-label="rounds"
+              aria-label="rounds-controller"
               value={roundsController}
               onChange={(e) => setRoundsController(e.target.value)}
             >
