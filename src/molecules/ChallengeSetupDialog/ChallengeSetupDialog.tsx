@@ -18,6 +18,7 @@ import * as Yup from "yup"
 import { Box } from "@mui/system"
 import { ChallengeSetup } from "../../types/challenge"
 import React, { useEffect, useMemo, useState } from "react"
+import { defaultRounds } from "../../utils/constants"
 
 export interface LevelDialogProps {
   open: boolean
@@ -59,13 +60,15 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     [formik]
   )
 
-  const [roundsController, setRoundsController] = useState<number | string>(10)
+  const [roundsController, setRoundsController] = useState<number | string>(
+    defaultRounds
+  )
   const [customRoundsInput, setCustomRoundsInput] = useState<boolean>(false)
 
   useEffect(() => {
     if (roundsController === "custom") {
       setCustomRoundsInput(true)
-      formik.setFieldValue("rounds", 10)
+      formik.setFieldValue("rounds", defaultRounds)
     } else {
       setCustomRoundsInput(false)
       formik.setFieldValue("rounds", roundsController)
@@ -123,10 +126,10 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
             </>
           )}
           <FormControl>
-            <FormLabel id="rounds-label">Rounds</FormLabel>
+            <FormLabel id="rounds-controller-label">Rounds</FormLabel>
             <RadioGroup
               row
-              name="rounds"
+              name="roundsController"
               aria-label="rounds-controller"
               value={roundsController}
               onChange={(e) => setRoundsController(e.target.value)}
