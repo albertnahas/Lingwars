@@ -85,6 +85,22 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
     hintsLeft - 1 === 1 ? "hint" : "hints"
   }`
 
+  const renderChoices = () =>
+    choices?.map(
+      (c) =>
+        c && (
+          <Button
+            key={c.name}
+            variant="outlined"
+            aria-label={`${c}-choice`}
+            sx={{ m: 1 }}
+            onClick={() => setAnswer(c)}
+          >
+            {c.name}
+          </Button>
+        )
+    )
+
   const timeColor =
     time >= 25
       ? "error.light"
@@ -93,7 +109,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
       : "secondary.light"
 
   return (
-    <Container>
+    <Container aria-label="round container">
       <Box sx={{ mb: 2 }}>
         <Typography color={timeColor} variant="h2" sx={{ textAlign: "center" }}>
           <Timer onTimeChange={onTimerChange} active={active} />
@@ -116,21 +132,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
           />
         )}
       </BoxContainer>
-      {choices &&
-        !answer &&
-        choices?.map(
-          (c) =>
-            c && (
-              <Button
-                key={c.name}
-                variant="outlined"
-                sx={{ m: 1 }}
-                onClick={() => setAnswer(c)}
-              >
-                {c.name}
-              </Button>
-            )
-        )}
+      {choices && !answer && <Box aria-label="choices">{renderChoices()}</Box>}
       {langInfo && showHint && (
         <Alert sx={{ mt: 2, textAlign: "left" }} severity="info">
           <Typography sx={{ mb: 1 }} variant="body2">
@@ -151,6 +153,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
         <>
           <Alert
             severity={answer.code1 === lang.code1 ? "success" : "error"}
+            aria-label="result"
             action={
               <Button
                 color="inherit"

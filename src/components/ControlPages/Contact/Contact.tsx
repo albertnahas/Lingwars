@@ -77,6 +77,7 @@ export var Contact = function () {
               fullWidth
               size="large"
               type="submit"
+              aria-label="submit"
               variant="contained"
             >
               Submit

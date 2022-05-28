@@ -86,7 +86,11 @@ export var Register: FC<Props> = function (props) {
       <Container maxWidth="sm">
         <form onSubmit={formik.handleSubmit}>
           <Box sx={{ my: 3 }}>
-            <Typography color="textPrimary" variant="h4">
+            <Typography
+              color="textPrimary"
+              aria-label="create account"
+              variant="h4"
+            >
               Create a new account
             </Typography>
             <Typography color="textSecondary" gutterBottom variant="body2">
@@ -100,6 +104,7 @@ export var Register: FC<Props> = function (props) {
             label="First Name"
             margin="dense"
             name="firstName"
+            aria-label="firstName"
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.firstName}
@@ -112,6 +117,7 @@ export var Register: FC<Props> = function (props) {
             label="Last Name"
             margin="dense"
             name="lastName"
+            aria-label="lastName"
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             value={formik.values.lastName}
@@ -124,6 +130,7 @@ export var Register: FC<Props> = function (props) {
             label="Email Address"
             margin="dense"
             name="email"
+            aria-label="email"
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             type="email"
@@ -137,6 +144,7 @@ export var Register: FC<Props> = function (props) {
             label="Password"
             margin="dense"
             name="password"
+            aria-label="password"
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             type="password"
@@ -150,6 +158,7 @@ export var Register: FC<Props> = function (props) {
             label="age"
             margin="dense"
             name="age"
+            aria-label="age"
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
             type="number"
@@ -181,6 +190,7 @@ export var Register: FC<Props> = function (props) {
               size="large"
               type="submit"
               variant="contained"
+              aria-label="sign up"
             >
               Sign Up
             </Button>

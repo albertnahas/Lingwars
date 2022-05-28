@@ -8,6 +8,7 @@ export const PlayerChip: FC<Props> = ({ player, isWinning }) => {
     <Chip
       variant="outlined"
       color={isWinning ? "success" : "warning"}
+      aria-label="player chip"
       icon={
         <Avatar
           sx={{
@@ -20,8 +21,8 @@ export const PlayerChip: FC<Props> = ({ player, isWinning }) => {
           <UserCircleIcon sx={{ color: "white" }} fontSize="small" />
         </Avatar>
       }
-      label={`${player.displayName}: ${player.score?.timed || 0} | ${
-        player.score?.accuracy || 0
+      label={`${player.displayName}: ${player?.timedScore || 0} | ${
+        player?.accuracy || 0
       } / ${player.turn}`}
     />
   )

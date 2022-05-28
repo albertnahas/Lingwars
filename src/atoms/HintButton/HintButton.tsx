@@ -17,6 +17,7 @@ export const HintButton: FC<Props> = ({ disabled, onClick, hintsLeft }) => {
         <IconButton
           size="large"
           color="primary"
+          aria-label="hint button"
           disabled={disabled}
           sx={{
             cursor: disabled ? "not-allowed !important" : "pointer",
@@ -31,7 +32,7 @@ export const HintButton: FC<Props> = ({ disabled, onClick, hintsLeft }) => {
 }
 
 export interface Props {
-  disabled: boolean
-  onClick: () => void
-  hintsLeft: number
+  disabled?: boolean
+  onClick?: () => void
+  hintsLeft?: number
 }

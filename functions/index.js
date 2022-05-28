@@ -29,31 +29,58 @@ exports.requestCreated = functions.runWith({
   .onCreate(async (snap) => {
     const requestData = snap.data()
     const size = requestData.players
+    functions.logger.log("request size", size)
+
+    if (requestData.rematchId) {
+      const challengeId = requestData.rematchId
+      admin
+        .firestore()
+        .collection("challenges")
+        .doc(challengeId)
+        .set(
+          {
+            rematchRequested: true,
+          },
+          { merge: true }
+        )
+    }
+
     admin
       .firestore()
       .collection("requests")
       .where("players", "==", size)
       .where("level", "==", requestData.level)
       .where("waiting", "==", true)
+      .where("rematchId", "==", requestData.rematchId)
+      .orderBy("createdAt", "asc")
+      .limit(size)
       .get()
       .then((snapshot) => {
+        functions.logger.log("checking for request ...", snap.id, "and found", snapshot.size)
         if (snapshot.size >= size) {
-          requestData.waiting
+          delete requestData.waiting
+          delete requestData.rematchRequested
+          delete requestData.id
+
+          const requestsDocs = snapshot.docs.slice(0, size);
+          const cId = requestsDocs[0].id
           admin
             .firestore()
             .collection("challenges")
-            .add(
+            .doc(cId)
+            .set(
               Object.assign({}, requestData, {
                 status: "started",
                 createdAt: admin.firestore.FieldValue.serverTimestamp(),
               })
             )
-            .then(function (docRef) {
+            .then(function () {
               const batch = admin.firestore().batch()
-              snapshot.docs.slice(0, size).forEach((doc) => {
-                batch.update(doc.ref, "challengeId", docRef.id)
+              requestsDocs.forEach((doc) => {
+                batch.update(doc.ref, "challengeId", cId)
                 batch.update(doc.ref, "waiting", false)
               })
+              functions.logger.log("writing challenge with ...", cId)
               return batch.commit()
             })
             .catch((e) => {
@@ -79,16 +106,45 @@ exports.playerRemoved = functions.firestore
   .document("/challenges/{id}/players/{playerId}")
   .onDelete(async (snap, context) => {
     const challengeId = context.params.id
+
+    // remove all rematch requests
+    admin.firestore()
+      .collection("requests")
+      .where("rematchId", "==", challengeId)
+      .get()
+      .then((snapshot) => {
+        if (snapshot.size > 0) {
+          const removeRequestsBatch = admin.firestore().batch()
+          snapshot.docs.forEach((doc) => {
+            removeRequestsBatch.delete(doc.ref)
+          })
+          return removeRequestsBatch.commit()
+        }
+      })
+
     const playersSnap = await admin
       .firestore()
       .collection(`challenges/${challengeId}/players`)
       .get()
     if (playersSnap.size == 0) {
+      // remove challenge with 0 players
       return admin
         .firestore()
         .collection("challenges")
         .doc(challengeId)
         .delete()
+    } else {
+      // turn off rematch request after player left
+      admin
+        .firestore()
+        .collection("challenges")
+        .doc(challengeId)
+        .set(
+          {
+            rematchRequested: false,
+          },
+          { merge: true }
+        )
     }
     return true
   })
