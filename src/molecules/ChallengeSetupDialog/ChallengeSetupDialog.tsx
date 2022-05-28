@@ -17,7 +17,8 @@ import { useFormik } from "formik"
 import * as Yup from "yup"
 import { Box } from "@mui/system"
 import { ChallengeSetup } from "../../types/challenge"
-import { useMemo } from "react"
+import React, { useEffect, useMemo, useState } from "react"
+import { defaultRounds } from "../../utils/constants"
 
 export interface LevelDialogProps {
   open: boolean
@@ -26,6 +27,7 @@ export interface LevelDialogProps {
 }
 
 const LEVELS_COUNT = 5
+const ROUNDS_ARRAY = [5, 10, 15]
 
 export function ChallengeSetupDialog(props: LevelDialogProps) {
   const { onClose, setup, open } = props
@@ -58,8 +60,30 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     [formik]
   )
 
+  const [roundsController, setRoundsController] = useState<number | string>(
+    defaultRounds
+  )
+  const [customRoundsInput, setCustomRoundsInput] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (roundsController === "custom") {
+      setCustomRoundsInput(true)
+      formik.setFieldValue("rounds", defaultRounds)
+    } else {
+      setCustomRoundsInput(false)
+      formik.setFieldValue("rounds", roundsController)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [roundsController])
+
   return (
-    <Dialog onClose={handleClose} aria-label={"Challenge Setup"} open={open}>
+    <Dialog
+      onClose={handleClose}
+      aria-label={"Challenge Setup"}
+      open={open}
+      fullWidth
+      maxWidth="xs"
+    >
       <DialogTitle>New Game</DialogTitle>
       <Container maxWidth="xs">
         <Typography variant="subtitle1">Choose your setup</Typography>
@@ -103,20 +127,47 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
               />
             </>
           )}
-          <TextField
-            error={Boolean(formik.touched.rounds && formik.errors.rounds)}
-            helperText={formik.touched.rounds && formik.errors.rounds}
-            fullWidth
-            label="Rounds"
-            margin="normal"
-            name="rounds"
-            aria-label="rounds"
-            onBlur={formik.handleBlur}
-            onChange={formik.handleChange}
-            value={formik.values.rounds}
-            variant="outlined"
-            type="number"
-          />
+          <FormControl>
+            <FormLabel id="rounds-controller-label">Rounds</FormLabel>
+            <RadioGroup
+              row
+              name="roundsController"
+              aria-label="rounds-controller"
+              value={roundsController}
+              onChange={(e) => setRoundsController(e.target.value)}
+            >
+              {ROUNDS_ARRAY.map((r) => (
+                <FormControlLabel
+                  key={r}
+                  value={r}
+                  control={<Radio size="small" />}
+                  label={r}
+                />
+              ))}
+              <FormControlLabel
+                key="custom"
+                value="custom"
+                control={<Radio size="small" />}
+                label="Custom"
+              />
+            </RadioGroup>
+          </FormControl>
+          {customRoundsInput && (
+            <TextField
+              error={Boolean(formik.touched.rounds && formik.errors.rounds)}
+              helperText={formik.touched.rounds && formik.errors.rounds}
+              fullWidth
+              label="Custom rounds"
+              margin="normal"
+              name="rounds"
+              aria-label="rounds"
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              value={formik.values.rounds}
+              variant="outlined"
+              type="number"
+            />
+          )}
           <FormControl>
             <FormLabel id="level-label">Level</FormLabel>
             <RadioGroup
