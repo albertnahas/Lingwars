@@ -9,14 +9,15 @@ import {
 } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { ChallengeSetupDialog } from "../../molecules/ChallengeSetupDialog/ChallengeSetupDialog"
+import {
+  ChallengeSetupDialog,
+  defaultChallengeSetup,
+} from "../../molecules/ChallengeSetupDialog/ChallengeSetupDialog"
 import { setChallenge } from "../../store/challengeSlice"
 import { ChallengeSetup } from "../../types/challenge"
 import { useChallengeSetup } from "../../hooks/useChallengeSetup"
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
 import { ChallengeLinkDialog } from "../../molecules/ChallengeLinkDialog/ChallengeLinkDialog"
-
-const defaultChallengeSetup = { level: 1, players: 1, rounds: 10, live: false }
 
 export var MainMenu: FC<Props> = function (props) {
   const navigate = useNavigate()
