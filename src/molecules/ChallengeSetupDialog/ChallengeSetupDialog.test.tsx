@@ -53,4 +53,17 @@ describe("ChallengeSetupDialog modal", function () {
     )
     expect(input.prop("value")).toEqual(10)
   })
+
+  it("shows custom rounds input when custom radio click", () => {
+    const component = mount(
+      <ChallengeSetupDialog open={true} onClose={mockFn} />
+    )
+    const radio = component.find(
+      `[aria-label="rounds-controller"] input[value="custom"]`
+    )
+    radio.simulate("change", { target: { value: "custom" } })
+    component.update()
+    const input = component.find(`[aria-label="rounds"] input`)
+    expect(input.prop("value")).toEqual(10)
+  })
 })
