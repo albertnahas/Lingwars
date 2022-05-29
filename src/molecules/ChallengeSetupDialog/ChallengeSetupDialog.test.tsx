@@ -1,6 +1,7 @@
 import React from "react"
 import { mount, shallow } from "enzyme"
 import { ChallengeSetupDialog } from "./ChallengeSetupDialog"
+import waitFor from "../../utils/waitFor"
 
 describe("ChallengeSetupDialog modal", function () {
   console.error = jest.fn()
@@ -53,5 +54,4 @@ describe("ChallengeSetupDialog modal", function () {
     )
     expect(input.prop("value")).toEqual(10)
   })
-
 })
