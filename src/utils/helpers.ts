@@ -66,7 +66,7 @@ export const getLanguageCountries = (language?: Language) => {
     c["Official language"]
       .split(";")
       .find((l) =>
-        language?.["all names"].split(";").find((name) => name === l)
+        language?.["all names"]?.split(";").find((name) => name === l)
       )
   )
 }
