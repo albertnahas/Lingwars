@@ -33,8 +33,8 @@ export const defaultChallengeSetup = {
   level: 1,
   players: 1,
   rounds: 10,
-  live: true,
-  variation: "speed",
+  live: false,
+  variation: "standard",
 }
 const LEVELS_COUNT = 5
 const ROUNDS_ARRAY = [5, 10, 15]
