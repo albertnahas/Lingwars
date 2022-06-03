@@ -164,7 +164,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
               </Button>
             }
           >
-            {lang.name}
+            <Typography variant="body1">{lang.name}</Typography>
           </Alert>
           {langCountries && showInfo && (
             <Box sx={{ my: 2 }}>

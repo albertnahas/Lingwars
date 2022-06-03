@@ -94,7 +94,7 @@ export var MainMenu: FC<Props> = function (props) {
         />
       </Zoom>
       <Typography
-        variant="h4"
+        variant="h3"
         aria-label="lingwars"
         color="primary"
         sx={{ mb: 4 }}

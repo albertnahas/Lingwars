@@ -29,7 +29,7 @@ export interface LevelDialogProps {
   onClose: (setup?: ChallengeSetup) => void
 }
 
-export const defaultChallengeSetup = {
+export const defaultChallengeSetup: ChallengeSetup = {
   level: 1,
   players: 1,
   rounds: 10,
@@ -195,6 +195,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
               type="number"
             />
           )}
+          <br />
           <FormControl>
             <FormLabel id="level-label">Level</FormLabel>
             <RadioGroup

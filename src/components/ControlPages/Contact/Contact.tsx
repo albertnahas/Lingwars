@@ -49,7 +49,7 @@ export var Contact = function () {
       <Container maxWidth="sm">
         <form onSubmit={formik.handleSubmit}>
           <Box sx={{ my: 3 }}>
-            <Typography color="textPrimary" variant="h4">
+            <Typography color="textPrimary" variant="h3">
               Send us a message
             </Typography>
             <Typography color="textSecondary" gutterBottom variant="body2">

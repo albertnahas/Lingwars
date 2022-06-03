@@ -49,7 +49,7 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
       container: "#waveform",
       backend: "WebAudio",
       height: 80,
-      progressColor: "#2D5BFF",
+      progressColor: "#42a5f5",
       responsive: true,
       waveColor: "#EFEFEF",
       cursorColor: "transparent",

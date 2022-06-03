@@ -16,15 +16,6 @@ import { Home } from "../Home/Home"
 import { GameContainer } from "../Game/GameContainer"
 import { Profile } from "../Profile/Profile"
 
-// const Wrapper = styled(Box)`
-//   text-align: center;
-//   display: flex;
-//   flex-direction: column;
-//   height: 100%;
-//   flex-grow: 1;
-//   margin-bottom: 60px;
-// `;
-
 const Wrapper = styled(Box, {
   shouldForwardProp: (prop) => prop !== "hasMarginBottom",
 })<{ hasMarginBottom?: boolean }>(({ theme, hasMarginBottom }) => ({
