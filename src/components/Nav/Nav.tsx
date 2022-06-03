@@ -43,6 +43,7 @@ const Nav: FC<Props> = function ({
   signInWithFacebook,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signInAnonymously,
   signOut,
   loading,
   error,
@@ -59,6 +60,7 @@ const Nav: FC<Props> = function ({
             <Login
               signInWithGoogle={signInWithGoogle}
               signInWithFacebook={signInWithFacebook}
+              signInAnonymously={signInAnonymously}
               signUp={() => navigate("/register")}
               error={error}
               onSubmit={signInWithEmailAndPassword}
@@ -137,6 +139,7 @@ interface Props {
   ) => Promise<any>
   signInWithGoogle?: () => void
   signInWithFacebook?: () => void
+  signInAnonymously?: () => Promise<any>
   signOut?: () => void
   error?: string
   loading?: boolean

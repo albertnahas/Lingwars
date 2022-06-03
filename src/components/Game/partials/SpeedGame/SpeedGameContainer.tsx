@@ -1,5 +1,6 @@
 import {
   FC,
+  useCallback,
   useEffect,
   useLayoutEffect,
   useMemo,
@@ -68,16 +69,19 @@ export const SpeedGameContainer: FC<Props> = ({ display, players }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang, challenge])
 
-  const onAnswer = (answer: any, time?: number, showHint?: boolean) => {
-    dispatch({
-      type: GameActionType.ANSWER,
-      payload: {
-        isCorrect: answer && answer.code1 === lang.code1,
-        time: time || 1,
-        withHint: showHint || false,
-      },
-    })
-  }
+  const onAnswer = useCallback(
+    (answer: any, time?: number, showHint?: boolean) => {
+      dispatch({
+        type: GameActionType.ANSWER,
+        payload: {
+          isCorrect: answer && answer.code1 === lang.code1,
+          time: time || 1,
+          withHint: showHint || false,
+        },
+      })
+    },
+    [lang]
+  )
 
   useEffect(() => {
     if (
