@@ -11,20 +11,20 @@ import {
   allLangs,
   generateLangChoices,
   getRandomFromSeed,
-} from "../../../utils/helpers"
+} from "../../../../utils/helpers"
 import { StandardGame } from "./StandardGame"
-import { maxHints, maxLevels } from "../../../utils/constants"
+import { maxHints, maxLevels } from "../../../../utils/constants"
 import { useSelector } from "react-redux"
-import { userSelector } from "../../../store/userSlice"
-import { challengeSelector } from "../../../store/challengeSlice"
-import { useScores } from "../../../hooks/useScores"
-import { Language } from "../../../types/language"
+import { userSelector } from "../../../../store/userSlice"
+import { challengeSelector } from "../../../../store/challengeSlice"
+import { useScores } from "../../../../hooks/useScores"
+import { Language } from "../../../../types/language"
 import {
   GameActionType,
   gameReducer,
   initialGameState,
   startingTurn,
-} from "../GameReducer"
+} from "../../GameReducer"
 
 export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   const [lang, setLang] = useState<any>()

@@ -2,10 +2,10 @@ import { FC } from "react"
 
 import { Button, Divider, Typography } from "@mui/material"
 import { Box } from "@mui/system"
-import { getEval } from "../../../utils/helpers"
-import { Round } from "../../Round/Round"
-import { User } from "../../../types/user"
-import { Challenge } from "../../../types/challenge"
+import { getEval } from "../../../../utils/helpers"
+import { Round } from "../../../Round/Round"
+import { User } from "../../../../types/user"
+import { Challenge } from "../../../../types/challenge"
 
 export const StandardGame: FC<Props> = ({
   accuracy,

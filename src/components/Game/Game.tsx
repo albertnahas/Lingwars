@@ -14,8 +14,8 @@ import { Player } from "../../types/challenge"
 import { User } from "../../types/user"
 import { PlayerChip } from "../../molecules/PlayerChip/PlayerChip"
 import ExitToAppIcon from "@mui/icons-material/ExitToApp"
-import { StandardGameContainer } from "./StandardGame/StandardGameContainer"
-import { SpeedGameContainer } from "./SpeedGame/SpeedGameContainer"
+import { StandardGameContainer } from "./partials/StandardGame/StandardGameContainer"
+import { SpeedGameContainer } from "./partials/SpeedGame/SpeedGameContainer"
 import { RematchButton } from "../../atoms/RematchButton/RematchButton"
 
 export type GameStatus =
