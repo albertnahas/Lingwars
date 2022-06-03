@@ -7,13 +7,6 @@ import { Round } from "../../Round/Round"
 import { User } from "../../../types/user"
 import { Challenge } from "../../../types/challenge"
 
-export type StandardGameStatus =
-  | "loading"
-  | "error"
-  | "waiting"
-  | "started"
-  | "finished"
-
 export const StandardGame: FC<Props> = ({
   accuracy,
   turn,

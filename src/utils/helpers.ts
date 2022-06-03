@@ -23,8 +23,8 @@ export const allLangs = _.sortBy<Language>(
     .map((l) => l.replace("_", " "))
     .map(
       (l) =>
-        languages.find(
-          (lan) => lan["all names"].split(";").filter((n) => n === l).length
+        (languages as Language[]).find(
+          (lan) => lan["all names"]?.split(";").filter((n) => n === l).length
         ) || defaultLanguage
     )
     .filter((l) => l.name !== "default"),
@@ -85,7 +85,7 @@ export const getLanguageCountries = (language?: Language) => {
     c["Official language"]
       .split(";")
       .find((l) =>
-        language?.["all names"].split(";").find((name) => name === l)
+        language?.["all names"]?.split(";").find((name) => name === l)
       )
   )
 }

@@ -14,27 +14,9 @@ import { Player } from "../../types/challenge"
 import { User } from "../../types/user"
 import { PlayerChip } from "../../molecules/PlayerChip/PlayerChip"
 import ExitToAppIcon from "@mui/icons-material/ExitToApp"
-import RepeatIcon from "@mui/icons-material/Repeat"
-import { keyframes } from "@emotion/react"
 import { StandardGameContainer } from "./StandardGame/StandardGameContainer"
 import { SpeedGameContainer } from "./SpeedGame/SpeedGameContainer"
-
-const pulse = keyframes`
-	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
-	}
-
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-	}
-
-	100% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 255, 0);
-	}
-  `
+import { RematchButton } from "../../atoms/RematchButton/RematchButton"
 
 export type GameStatus =
   | "loading"
@@ -89,6 +71,7 @@ export const Game: FC<Props> = ({
       ))}
     </Stack>
   )
+
   const renderGame = () => {
     switch (challenge?.variation) {
       case "standard":
@@ -187,23 +170,11 @@ export const Game: FC<Props> = ({
           direction="row"
         >
           {gameStatus === "finished" && players && (
-            <Button
-              variant="outlined"
-              color="info"
-              aria-label="rematch"
+            <RematchButton
               onClick={onClickRematch}
-              endIcon={<RepeatIcon />}
               disabled={rematch || players?.length === 1}
-              sx={{
-                m: 3,
-                animation: isAcceptRematch
-                  ? `${pulse} 1000ms infinite ease;`
-                  : "",
-                animationDirection: "alternate",
-              }}
-            >
-              {isAcceptRematch ? "Accept rematch" : "Rematch"}
-            </Button>
+              pulsing={isAcceptRematch}
+            />
           )}
           <Button
             variant="outlined"

@@ -19,69 +19,12 @@ import { userSelector } from "../../../store/userSlice"
 import { challengeSelector } from "../../../store/challengeSlice"
 import { useScores } from "../../../hooks/useScores"
 import { Language } from "../../../types/language"
-
-const startingTurn = 1
-
-enum StandardGameActionType {
-  ANSWER = "ANSWER",
-  SUBMIT = "SUBMIT",
-  NEXT = "NEXT",
-}
-interface StandardGameState {
-  turn: number
-  hintsUsed: number
-  timedScore: number
-  accuracy: number
-  answered: boolean
-  submitted: boolean
-  correct: boolean
-}
-
-const initialGameState: StandardGameState = {
-  turn: startingTurn,
-  answered: false,
-  submitted: false,
-  correct: false,
-  timedScore: 0,
-  accuracy: 0,
-  hintsUsed: 0,
-}
-
-type StandardGameAction =
-  | {
-      type: StandardGameActionType.ANSWER
-      payload: { isCorrect: boolean; withHint: boolean; time: number }
-    }
-  | { type: StandardGameActionType.NEXT }
-  | { type: StandardGameActionType.SUBMIT }
-
-let gameReducer = (
-  state: StandardGameState,
-  action: StandardGameAction
-): StandardGameState => {
-  switch (action.type) {
-    case StandardGameActionType.ANSWER:
-      return {
-        ...state,
-        answered: true,
-        submitted: false,
-        correct: action.payload.isCorrect,
-        accuracy: state.accuracy + Number(action.payload.isCorrect),
-        hintsUsed: state.hintsUsed + Number(action.payload.withHint),
-        timedScore: action.payload.isCorrect
-          ? state.timedScore +
-            Math.round((10 * 10) / (action.payload.time || 10)) /
-              (Number(action.payload.withHint) + 1)
-          : state.timedScore,
-      }
-    case StandardGameActionType.NEXT:
-      return { ...state, turn: state.turn + 1, answered: false }
-    case StandardGameActionType.SUBMIT:
-      return { ...state, submitted: true }
-    default:
-      return state
-  }
-}
+import {
+  GameActionType,
+  gameReducer,
+  initialGameState,
+  startingTurn,
+} from "../GameReducer"
 
 export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   const [lang, setLang] = useState<any>()
@@ -111,8 +54,7 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   }, [lang, levelLangs])
 
   useLayoutEffect(() => {
-    if (!challenge) return
-    if (lang) return
+    if (!challenge || lang) return
     if (challenge.id && challenge.seed) {
       const random = Math.floor(
         getRandomFromSeed((challenge.seed || 0) + turn) * levelLangs.length
@@ -128,7 +70,7 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
 
   const onAnswer = (answer: any, time?: number, showHint?: boolean) => {
     dispatch({
-      type: StandardGameActionType.ANSWER,
+      type: GameActionType.ANSWER,
       payload: {
         isCorrect: answer && answer.code1 === lang.code1,
         time: time || 1,
@@ -149,7 +91,7 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
     }
     writeScore(timedScore, accuracy, turn, hintsUsed)
     dispatch({
-      type: StandardGameActionType.SUBMIT,
+      type: GameActionType.SUBMIT,
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, turn, answered, submitted, timedScore, accuracy, challenge])
@@ -157,7 +99,7 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   const onClickNext = () => {
     setLang(null)
     dispatch({
-      type: StandardGameActionType.NEXT,
+      type: GameActionType.NEXT,
     })
   }
 

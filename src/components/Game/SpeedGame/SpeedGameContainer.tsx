@@ -19,69 +19,12 @@ import { userSelector } from "../../../store/userSlice"
 import { challengeSelector } from "../../../store/challengeSlice"
 import { useScores } from "../../../hooks/useScores"
 import { Language } from "../../../types/language"
-
-const startingTurn = 1
-
-enum SpeedGameActionType {
-  ANSWER = "ANSWER",
-  SUBMIT = "SUBMIT",
-  NEXT = "NEXT",
-}
-interface SpeedGameState {
-  turn: number
-  hintsUsed: number
-  timedScore: number
-  accuracy: number
-  answered: boolean
-  submitted: boolean
-  correct: boolean
-}
-
-const initialGameState: SpeedGameState = {
-  turn: startingTurn,
-  answered: false,
-  submitted: false,
-  correct: false,
-  timedScore: 0,
-  accuracy: 0,
-  hintsUsed: 0,
-}
-
-type SpeedGameAction =
-  | {
-      type: SpeedGameActionType.ANSWER
-      payload: { isCorrect: boolean; withHint: boolean; time: number }
-    }
-  | { type: SpeedGameActionType.SUBMIT }
-  | { type: SpeedGameActionType.NEXT }
-
-let gameReducer = (
-  state: SpeedGameState,
-  action: SpeedGameAction
-): SpeedGameState => {
-  switch (action.type) {
-    case SpeedGameActionType.ANSWER:
-      return {
-        ...state,
-        answered: true,
-        submitted: false,
-        correct: action.payload.isCorrect,
-        accuracy: state.accuracy + Number(action.payload.isCorrect),
-        hintsUsed: state.hintsUsed + Number(action.payload.withHint),
-        timedScore: action.payload.isCorrect
-          ? state.timedScore +
-            Math.round((10 * 10) / (action.payload.time || 10)) /
-              (Number(action.payload.withHint) + 1)
-          : state.timedScore,
-      }
-    case SpeedGameActionType.NEXT:
-      return { ...state, turn: state.turn + 1, answered: false, correct: false }
-    case SpeedGameActionType.SUBMIT:
-      return { ...state, submitted: true }
-    default:
-      return state
-  }
-}
+import {
+  GameActionType,
+  gameReducer,
+  initialGameState,
+  startingTurn,
+} from "../GameReducer"
 
 export const SpeedGameContainer: FC<Props> = ({ display, players }) => {
   const [lang, setLang] = useState<any>()
@@ -111,8 +54,7 @@ export const SpeedGameContainer: FC<Props> = ({ display, players }) => {
   }, [lang, levelLangs])
 
   useLayoutEffect(() => {
-    if (!challenge) return
-    if (lang) return
+    if (!challenge || lang) return
     if (challenge.id && challenge.seed) {
       const random = Math.floor(
         getRandomFromSeed((challenge.seed || 0) + turn) * levelLangs.length
@@ -128,7 +70,7 @@ export const SpeedGameContainer: FC<Props> = ({ display, players }) => {
 
   const onAnswer = (answer: any, time?: number, showHint?: boolean) => {
     dispatch({
-      type: SpeedGameActionType.ANSWER,
+      type: GameActionType.ANSWER,
       payload: {
         isCorrect: answer && answer.code1 === lang.code1,
         time: time || 1,
@@ -153,13 +95,9 @@ export const SpeedGameContainer: FC<Props> = ({ display, players }) => {
       (challenge.roundAnswers &&
         challenge.roundAnswers === (players?.length || 1) - 1) ||
       false
-    writeSpeedScore(timedScore, accuracy, next, answered, hintsUsed).then(
-      () => {
-        // console.log("written")
-      }
-    )
+    writeSpeedScore(timedScore, accuracy, next, answered, hintsUsed)
     dispatch({
-      type: SpeedGameActionType.SUBMIT,
+      type: GameActionType.SUBMIT,
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -183,7 +121,7 @@ export const SpeedGameContainer: FC<Props> = ({ display, players }) => {
   const handleNext = () => {
     setLang(null)
     dispatch({
-      type: SpeedGameActionType.NEXT,
+      type: GameActionType.NEXT,
     })
   }
 
