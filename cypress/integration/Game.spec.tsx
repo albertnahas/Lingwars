@@ -2,6 +2,7 @@ import React from "react"
 import { mount, unmount } from "@cypress/react"
 import App from "../../src/App"
 import { Providers } from "../../src/components/Providers/Providers"
+import { defaultChallengeSetup } from "../../src/molecules/ChallengeSetupDialog/ChallengeSetupDialog"
 
 beforeEach(() => {
   cy.login()
@@ -96,12 +97,17 @@ describe("Game starts for multi player - private mode", () => {
           cy.get(`[aria-label="choices"] button`).first().click()
           cy.get(`[aria-label="done message"]`).contains("Done!")
           cy.get(`[aria-label="winner"]`).should("have.length", 1)
+          // leave
+          cy.get(`button[aria-label="leave"]`).click()
           cy.wait(1000)
           cy.callFirestore("delete", `challenges/${challengeId}/players`).then(
             () => {
               cy.callFirestore("delete", `challenges/${challengeId}`)
             }
           )
+          cy.callFirestore("delete", `requests`, {
+            where: ["challengeId", "==", challengeId],
+          })
         })
       })
   })
@@ -122,6 +128,7 @@ describe("Game starts for multi player - live mode", () => {
       "set",
       `requests/${requestId}`,
       {
+        ...defaultChallengeSetup,
         level: 1,
         live: true,
         rounds: 2,
@@ -160,13 +167,17 @@ describe("Game starts for multi player - live mode", () => {
         cy.get(`[aria-label="choices"] button`).first().click()
         cy.get(`[aria-label="done message"]`).contains("Done!")
         cy.get(`[aria-label="winner"]`).should("have.length", 1)
+        // leave
+        cy.get(`button[aria-label="leave"]`).click()
         cy.wait(1000)
         cy.callFirestore("delete", `challenges/${challengeId}/players`).then(
           () => {
             cy.callFirestore("delete", `challenges/${challengeId}`)
           }
         )
-        cy.callFirestore("delete", `requests/${requestId}`)
+        cy.callFirestore("delete", `requests`, {
+          where: ["challengeId", "==", challengeId],
+        })
       })
     })
   })
