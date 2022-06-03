@@ -12,6 +12,9 @@ import {
   Typography,
   TextField,
   ButtonGroup,
+  InputLabel,
+  MenuItem,
+  Select,
 } from "@mui/material"
 import { useFormik } from "formik"
 import * as Yup from "yup"
@@ -31,6 +34,7 @@ export const defaultChallengeSetup = {
   players: 1,
   rounds: 10,
   live: false,
+  variation: "standard",
 }
 const LEVELS_COUNT = 5
 const ROUNDS_ARRAY = [5, 10, 15]
@@ -49,6 +53,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     },
     validationSchema: Yup.object({
       players: Yup.number().max(8).min(1).required("players is required"),
+      variation: Yup.string().required("variation is required"),
       rounds: Yup.number()
         .max(100)
         .min(2)
@@ -134,6 +139,21 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
               />
             </>
           )}
+          <FormControl sx={{ my: 1 }} fullWidth>
+            <InputLabel id="variation-label">Variation</InputLabel>
+            <Select
+              labelId="variation-label"
+              aria-label="variation"
+              name="variation"
+              value={formik.values.variation}
+              label="Variation"
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+            >
+              <MenuItem value="standard">Standard</MenuItem>
+              <MenuItem value="speed">Speed</MenuItem>
+            </Select>
+          </FormControl>
           <FormControl>
             <FormLabel id="rounds-controller-label">Rounds</FormLabel>
             <RadioGroup
