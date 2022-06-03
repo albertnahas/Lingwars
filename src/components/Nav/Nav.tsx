@@ -15,6 +15,7 @@ import { userSelector } from "../../store/userSlice"
 import { Home } from "../Home/Home"
 import { GameContainer } from "../Game/GameContainer"
 import { Profile } from "../Profile/Profile"
+import { Learn } from "../Learn/Learn"
 
 // const Wrapper = styled(Box)`
 //   text-align: center;
@@ -120,6 +121,7 @@ const Nav: FC<Props> = function ({
           <Route path="/profile" element={<Profile signOut={signOut} />} />
           <Route path="/play" element={<GameContainer />} />
           <Route path="/play/:gameId" element={<GameContainer />} />
+          <Route path="/learn" element={<Learn />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

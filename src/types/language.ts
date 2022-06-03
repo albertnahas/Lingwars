@@ -3,7 +3,7 @@ export interface Language {
   "all names"?: string
   code1?: string
   code2?: string
-  rank?: undefined
-  native?: undefined
-  percentage?: undefined
+  rank?: number
+  native?: string
+  percentage?: number
 }

@@ -80,6 +80,9 @@ export var MainMenu: FC<Props> = function (props) {
     setInitialSetup({ ...defaultChallengeSetup, players: 2 })
   }
 
+  const onClickLearn = () => {
+    navigate(`/learn`)
+  }
   const onStartChallenge = () => {
     navigate(`/play/${challenge?.id}`)
   }
@@ -120,6 +123,14 @@ export var MainMenu: FC<Props> = function (props) {
           onClick={onClickMultiplayer}
         >
           Multiplayer
+        </Button>
+        <Button
+          color="primary"
+          aria-label="learn"
+          variant="outlined"
+          onClick={onClickLearn}
+        >
+          Learn
         </Button>
       </Stack>
       {initialSetup && (
