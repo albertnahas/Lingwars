@@ -14,16 +14,35 @@ import _ from "lodash"
 const wikipediaURL =
   "https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&explaintext&redirects=1&titles="
 
-export const allLangs = _.sortBy(
+const defaultLanguage: Language = {
+  name: "default",
+}
+
+export const allLangs = _.sortBy<Language>(
   Array.from(new Set(files.map((f) => f.split("/")[0])))
     .map((l) => l.replace("_", " "))
-    .map((l) =>
-      languages.find(
-        (lan) => lan["all names"].split(";").filter((n) => n === l).length
-      )
-    ),
+    .map(
+      (l) =>
+        (languages as Language[]).find(
+          (lan) => lan["all names"]?.split(";").filter((n) => n === l).length
+        ) || defaultLanguage
+    )
+    .filter((l) => l.name !== "default"),
   "rank"
 )
+
+export const generateLangChoices = (
+  levelLangs?: Language[],
+  lang?: Language
+) => {
+  if (!lang) return []
+  let langChoices = _.sampleSize(levelLangs, 4)
+  while (langChoices.find((l) => l?.code1 === lang.code1)) {
+    langChoices = _.sampleSize(levelLangs, 4)
+  }
+  langChoices.push(lang)
+  return _.shuffle(langChoices)
+}
 
 export const getLevelLabel = (level: number) => {
   switch (level) {

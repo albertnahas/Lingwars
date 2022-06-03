@@ -61,6 +61,7 @@ exports.requestCreated = functions.runWith({
           delete requestData.waiting
           delete requestData.rematchRequested
           delete requestData.id
+          delete requestData.uid
 
           const requestsDocs = snapshot.docs.slice(0, size);
           const cId = requestsDocs[0].id

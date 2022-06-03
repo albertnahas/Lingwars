@@ -1,10 +1,15 @@
 import firebase from "../config"
-import { ChallengeStatus } from "../utils/constants"
+
+export type ChallengeStatus = "pending" | "started" | "finished" | "aborted"
+
+export const challengeVariations = ["standard", "speed"] as const
+export type ChallengeVariation = typeof challengeVariations[number]
 
 export interface Challenge {
   id?: string
   uid?: string
   level?: number
+  variation?: ChallengeVariation
   rounds?: number
   seed?: number
   status?: ChallengeStatus
@@ -15,6 +20,9 @@ export interface Challenge {
   live?: boolean
   full?: boolean
   rematchRequested?: boolean
+
+  turn?: number
+  roundAnswers?: number
 }
 
 export interface Player {
@@ -39,4 +47,5 @@ export interface ChallengeSetup {
   level?: number
   rounds?: number
   live?: boolean
+  variation?: string
 }

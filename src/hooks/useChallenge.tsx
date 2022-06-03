@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom"
 import firebase from "../config"
 import { userSelector } from "../store/userSlice"
 import { challengeSelector, setChallenge } from "../store/challengeSlice"
-import { Challenge, ChallengeSetup, Player } from "../types/challenge"
+import { ChallengeSetup, Player } from "../types/challenge"
+import _ from "lodash"
 
 export const useChallenge = (gameId?: string) => {
-  const functions = firebase.functions()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -69,54 +69,16 @@ export const useChallenge = (gameId?: string) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [challengeId, challenge?.id])
 
-  const writeScore = (
-    timedScore: number,
-    accuracy: number,
-    turn: number,
-    hintsUsed: number
-  ) => {
-    if (!user) {
-      return
-    }
-
-    firebase
-      .firestore()
-      .collection(`challenges/${challengeId}/players`)
-      .doc(user.uid)
-      .set({
-        id: user.uid,
-        displayName: user.displayName,
-        photoURL: user.photoURL || "",
-        joinedAt: firebase.firestore.FieldValue.serverTimestamp(),
-        timedScore,
-        accuracy,
-        hintsUsed,
-        turn,
-      })
-      .then(() => {
-        if (turn === challenge?.rounds) {
-          checkChallengeStatus()
-        }
-      })
-  }
-
-  const checkChallengeStatus = () => {
-    const checkChallengeStatusCallable = functions.httpsCallable(
-      "checkChallengeStatus"
-    )
-    return checkChallengeStatusCallable({ challengeId: challengeId })
-      .then((res: { data: Challenge }) => {
-        return new Promise<{ data: Challenge }>((resolve, reject) => {
-          resolve(res)
-        })
-      })
-      .catch((err) => {})
-  }
-
   const requestRematch = () => {
     return new Promise((resolve, reject) => {
       if (!challenge) reject()
-      const setup: ChallengeSetup = challenge as ChallengeSetup
+      const setup: ChallengeSetup = _.omit(challenge, [
+        "turn",
+        "roundAnswers",
+        "rematchRequested",
+        "status",
+        "seed",
+      ])
       return firebase
         .firestore()
         .collection("requests")
@@ -201,7 +163,6 @@ export const useChallenge = (gameId?: string) => {
 
   return {
     players,
-    writeScore,
     error,
     rematch,
     requestRematch,

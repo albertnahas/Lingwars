@@ -6,36 +6,17 @@ import {
   Button,
   CircularProgress,
   Container,
-  Divider,
   Stack,
   Typography,
 } from "@mui/material"
 import { Box } from "@mui/system"
-import { getEval } from "../../utils/helpers"
-import { Round } from "../Round/Round"
 import { Player } from "../../types/challenge"
 import { User } from "../../types/user"
 import { PlayerChip } from "../../molecules/PlayerChip/PlayerChip"
 import ExitToAppIcon from "@mui/icons-material/ExitToApp"
-import RepeatIcon from "@mui/icons-material/Repeat"
-import { keyframes } from "@emotion/react"
-
-const pulse = keyframes`
-	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
-	}
-
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-	}
-
-	100% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 255, 0);
-	}
-  `
+import { StandardGameContainer } from "./partials/StandardGame/StandardGameContainer"
+import { SpeedGameContainer } from "./partials/SpeedGame/SpeedGameContainer"
+import { RematchButton } from "../../atoms/RematchButton/RematchButton"
 
 export type GameStatus =
   | "loading"
@@ -45,22 +26,13 @@ export type GameStatus =
   | "finished"
 
 export const Game: FC<Props> = ({
-  timedScore,
-  accuracy,
-  turn,
   user,
   challenge,
   players,
-  showAnswer,
-  lang,
-  choices,
-  onClickNext,
   onClickLeave,
   onClickRematch,
   rematch,
-  onAnswer,
   error,
-  hintsLeft,
 }) => {
   const maxScore = useMemo(() => {
     if (!players || players.length < 2) return user?.displayName
@@ -73,10 +45,11 @@ export const Game: FC<Props> = ({
 
   const isGameDone = useMemo(
     () =>
-      players &&
-      challenge &&
-      challenge.id &&
-      players.every((p) => p.turn >= (challenge.rounds || 10)),
+      (players &&
+        challenge &&
+        challenge.id &&
+        players.every((p) => p.turn >= (challenge.rounds || 10))) ||
+      (challenge && challenge.id && challenge.status === "finished"),
     [players, challenge]
   )
 
@@ -98,6 +71,28 @@ export const Game: FC<Props> = ({
       ))}
     </Stack>
   )
+
+  const renderGame = () => {
+    switch (challenge?.variation) {
+      case "standard":
+        return (
+          <StandardGameContainer
+            display={gameStatus !== "waiting"}
+            players={players}
+          />
+        )
+      case "speed":
+        return (
+          <SpeedGameContainer
+            display={gameStatus !== "waiting"}
+            players={players}
+          />
+        )
+
+      default:
+        return <></>
+    }
+  }
 
   const isAcceptRematch = challenge?.rematchRequested && !rematch
 
@@ -131,16 +126,8 @@ export const Game: FC<Props> = ({
               players &&
               renderPlayers()}
 
-            {lang && ["started", "finished"].includes(gameStatus) && (
-              <Box sx={{ my: 2 }}>
-                <Round
-                  lang={lang}
-                  choices={choices}
-                  onAnswer={onAnswer}
-                  hintsLeft={hintsLeft}
-                />
-                <Divider sx={{ my: 3 }} />
-              </Box>
+            {!challenge?.rematchRequested && (
+              <Box sx={{ my: 2 }}>{renderGame()}</Box>
             )}
             {gameStatus === "waiting" && (
               <Box sx={{ mt: 2 }}>
@@ -157,36 +144,6 @@ export const Game: FC<Props> = ({
 
             {gameStatus === "error" && <Alert severity="error">{error}</Alert>}
 
-            {showAnswer && (
-              <>
-                {turn < (challenge.rounds || 10) && (
-                  <Button
-                    variant="contained"
-                    sx={{ mt: 1 }}
-                    onClick={onClickNext}
-                    aria-label="next"
-                  >
-                    Next
-                  </Button>
-                )}
-                {turn >= (challenge.rounds || 10) && (
-                  <Box aria-label="done message" sx={{ mt: 2 }}>
-                    <Typography variant="h6" color="primary.light">
-                      Done! you {getEval(accuracy, turn)}
-                    </Typography>
-                  </Box>
-                )}
-
-                <Box sx={{ mt: 2 }}>
-                  {!!accuracy && (
-                    <Typography variant="body1">
-                      Your score: {accuracy}/{turn}
-                    </Typography>
-                  )}
-                </Box>
-                <Divider sx={{ my: 3 }} />
-              </>
-            )}
             {challenge?.rematchRequested && (
               <>
                 <Typography
@@ -213,23 +170,11 @@ export const Game: FC<Props> = ({
           direction="row"
         >
           {gameStatus === "finished" && players && (
-            <Button
-              variant="outlined"
-              color="info"
-              aria-label="rematch"
+            <RematchButton
               onClick={onClickRematch}
-              endIcon={<RepeatIcon />}
               disabled={rematch || players?.length === 1}
-              sx={{
-                m: 3,
-                animation: isAcceptRematch
-                  ? `${pulse} 1000ms infinite ease;`
-                  : "",
-                animationDirection: "alternate",
-              }}
-            >
-              {isAcceptRematch ? "Accept rematch" : "Rematch"}
-            </Button>
+              pulsing={isAcceptRematch}
+            />
           )}
           <Button
             variant="outlined"
@@ -247,20 +192,11 @@ export const Game: FC<Props> = ({
 }
 
 interface Props {
-  timedScore: number
-  accuracy: number
-  turn: number
   user?: User | null
   challenge: any
   players?: any[]
-  onClickNext: () => void
   onClickLeave: () => void
   onClickRematch: () => void
   rematch: boolean
-  showAnswer: boolean
-  lang: any
-  choices?: any[]
-  onAnswer: (answer: any) => void
   error?: string
-  hintsLeft: number
 }

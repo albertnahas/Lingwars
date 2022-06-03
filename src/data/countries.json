@@ -57,7 +57,7 @@
   },
   {
     "Country": "Argentina",
-    "Official language": "None ",
+    "Official language": "Spanish",
     "Regional language": "Spanish;Guaraní;Kom;Moquoit;Wichi ",
     "Minority language": "",
     "National language": "",
@@ -81,7 +81,7 @@
   },
   {
     "Country": "Australia",
-    "Official language": "None ",
+    "Official language": "English",
     "Regional language": "",
     "Minority language": "",
     "National language": "",
@@ -177,7 +177,7 @@
   },
   {
     "Country": "Bolivia",
-    "Official language": "Spanish;37 other languages",
+    "Official language": "Spanish",
     "Regional language": "",
     "Minority language": "",
     "National language": "",
@@ -185,7 +185,7 @@
   },
   {
     "Country": "Bosnia and Herzegovina",
-    "Official language": "None ",
+    "Official language": "Bosnian;Croatian;Serbian ",
     "Regional language": "",
     "Minority language": "",
     "National language": "",
@@ -289,7 +289,7 @@
   },
   {
     "Country": "Chile",
-    "Official language": "None ",
+    "Official language": "Spanish",
     "Regional language": "",
     "Minority language": "",
     "National language": "Spanish",
@@ -721,7 +721,7 @@
   },
   {
     "Country": "Japan",
-    "Official language": "None ",
+    "Official language": "Japanese ",
     "Regional language": "",
     "Minority language": "",
     "National language": "Japanese",
@@ -785,7 +785,7 @@
   },
   {
     "Country": "Kuwait",
-    "Official language": "Standard Arabic",
+    "Official language": "Arabic",
     "Regional language": "",
     "Minority language": "",
     "National language": "Kuwaiti Sign Language;Kuwaiti Arabic;Kuwaiti Persian",
@@ -953,10 +953,10 @@
   },
   {
     "Country": "Mexico",
-    "Official language": "None ",
+    "Official language": "Spanish",
     "Regional language": "",
     "Minority language": "",
-    "National language": "None ",
+    "National language": "Spanish",
     "Widely spoken": ""
   },
   {
@@ -1057,7 +1057,7 @@
   },
   {
     "Country": "New Zealand",
-    "Official language": "None;;Maori;New Zealand Sign Language",
+    "Official language": "Maori;New Zealand Sign Language",
     "Regional language": "",
     "Minority language": "",
     "National language": "",
@@ -1153,7 +1153,7 @@
   },
   {
     "Country": "Palestine",
-    "Official language": "None ",
+    "Official language": "Arabic",
     "Regional language": "",
     "Minority language": "",
     "National language": "",
@@ -1248,7 +1248,7 @@
     "Widely spoken": ""
   },
   {
-    "Country": "Sahrawi Arab Democratic Republic",
+    "Country": "Western Sahara",
     "Official language": "Tamazight;Arabic;Spanish",
     "Regional language": "",
     "Minority language": "",
@@ -1384,14 +1384,6 @@
     "Widely spoken": ""
   },
   {
-    "Country": "Somaliland",
-    "Official language": "Arabic;English;Somali",
-    "Regional language": "",
-    "Minority language": "",
-    "National language": "",
-    "Widely spoken": ""
-  },
-  {
     "Country": "South Africa",
     "Official language": "Afrikaans;English;Southern Ndebele;Sotho;Northern Sotho;Swazi;Tsonga;Tswana;Venda;Xhosa;Zulu",
     "Regional language": "",
@@ -1473,7 +1465,7 @@
   },
   {
     "Country": "Taiwan",
-    "Official language": "None ",
+    "Official language": "Mandarin Chinese",
     "Regional language": "",
     "Minority language": "",
     "National language": "Taiwanese Mandarin;Taiwanese Hokkien;Taiwanese Hakka;Formosan languages;Taiwan Sign Language;Matsu dialect;Wuqiu dialect",
@@ -1512,24 +1504,8 @@
     "Widely spoken": ""
   },
   {
-    "Country": "Tokelau",
-    "Official language": "English;Tokelauan",
-    "Regional language": "",
-    "Minority language": "",
-    "National language": "",
-    "Widely spoken": ""
-  },
-  {
     "Country": "Tonga",
     "Official language": "English;Tongan",
-    "Regional language": "",
-    "Minority language": "",
-    "National language": "",
-    "Widely spoken": ""
-  },
-  {
-    "Country": "Transnistria",
-    "Official language": "Moldovan;Russian;Ukrainian",
     "Regional language": "",
     "Minority language": "",
     "National language": "",
@@ -1600,8 +1576,8 @@
     "Widely spoken": ""
   },
   {
-    "Country": "United Kingdom and Crown dependencies etc.",
-    "Official language": "None;Irish and Ulster-Scots;Scots and Scottish Gaelic;Welsh;Pitcairnese;Guernésiais and French;Jèrriais and French;Manx ",
+    "Country": "United Kingdom",
+    "Official language": "English;Irish and Ulster-Scots;Scots and Scottish Gaelic;Welsh;Pitcairnese;Guernésiais and French;Jèrriais and French;Manx ",
     "Regional language": "",
     "Minority language": "English",
     "National language": "",
@@ -1609,7 +1585,7 @@
   },
   {
     "Country": "United States",
-    "Official language": "None ",
+    "Official language": "English",
     "Regional language": "",
     "Minority language": "",
     "National language": "",
@@ -1617,7 +1593,7 @@
   },
   {
     "Country": "Uruguay",
-    "Official language": "None ",
+    "Official language": "Spanish",
     "Regional language": "",
     "Minority language": "",
     "National language": "",
@@ -1689,10 +1665,10 @@
   },
   {
     "Country": "Zimbabwe",
-    "Official language": "Chewa;Chibarwe;English;Kalanga;Khoisan;Nambya;Ndau;Ndebele;Shangani;Shona;Sign language;Sotho;Tonga;Tswana;Venda;Xhosa",
+    "Official language": "Chewa;English;Kalanga;Nambya;Ndebele;Shangani;Shona;Sign language;Sotho;Tonga",
     "Regional language": "",
     "Minority language": "",
     "National language": "",
-    "Widely spoken": ""
+    "Widely spoken": "Tswana"
   }
 ]
