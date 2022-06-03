@@ -6,3 +6,4 @@ export interface Language {
   rank?: number
   native?: string
   percentage?: number
+}
