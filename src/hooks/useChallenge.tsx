@@ -69,6 +69,15 @@ export const useChallenge = (gameId?: string) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [challengeId, challenge?.id])
 
+  useEffect(() => {
+    return () => {
+      if (challenge?.level) {
+        leaveChallenge()
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const requestRematch = () => {
     return new Promise((resolve, reject) => {
       if (!challenge) reject()
