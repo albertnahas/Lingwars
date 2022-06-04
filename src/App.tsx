@@ -10,6 +10,7 @@ import { State } from "./types/state"
 import { SplashScreen } from "./molecules/SplashScreen/SplashScreen"
 import { useCurrentUser } from "./hooks/useCurrentUser"
 import { setServerUser } from "./store/userSlice"
+import { challengeSelector } from "./store/challengeSlice"
 import Nav from "./components/Nav/Nav"
 import { usePwa } from "./hooks/usePwa"
 import { Alert, Box, Snackbar } from "@mui/material"
@@ -109,17 +110,21 @@ const App = function ({
     dispatch(setSnackbar({ open: false, message: "" }))
   }
 
+  const challenge = useSelector(challengeSelector)
+
   return currentUser === undefined ? (
     <SplashScreen />
   ) : (
     <Box sx={{ bgcolor: "background.paper" }}>
-      <TopBar
-        handleInstallClick={handleInstallClick}
-        signOut={signOutFromApp}
-        deferredPrompt={deferredPrompt}
-        notification={notification}
-        setNotification={setNotification}
-      />
+      {!challenge && (
+        <TopBar
+          handleInstallClick={handleInstallClick}
+          signOut={signOutFromApp}
+          deferredPrompt={deferredPrompt}
+          notification={notification}
+          setNotification={setNotification}
+        />
+      )}
       <Nav
         createUserWithEmailAndPassword={createUserWithEmailAndPassword}
         error={error}
