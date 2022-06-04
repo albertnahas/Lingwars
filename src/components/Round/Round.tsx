@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from "react"
+import React, { FC, useCallback, useEffect, useMemo, useState } from "react"
 import { Waveform } from "../../molecules/Waveform/Waveform"
 import files from "../../data/files.json"
 import _ from "lodash"
@@ -9,7 +9,7 @@ import { WorldDiagram } from "../../icons/worldDiagram"
 import { Timer } from "../../atoms/Timer/Timer"
 import { LanguageInfo } from "../../molecules/LanguageInfo/LanguageInfo"
 import { HintButton } from "../../atoms/HintButton/HintButton"
-import { maxHints } from "../../utils/constants"
+import { maxHints, roundTimeout } from "../../utils/constants"
 
 export const BoxContainer = styled("div")`
   display: flex;
@@ -69,13 +69,13 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answer])
 
-  const onTimerChange = (t: number) => {
+  const onTimerChange = useCallback((t: number) => {
     setTime(t)
-    if (t === 30) {
+    if (t === roundTimeout) {
       setActive(false)
       setAnswer(" ")
     }
-  }
+  }, [])
 
   const onActive = () => {
     setActive(true)

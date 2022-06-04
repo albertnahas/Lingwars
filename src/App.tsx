@@ -41,7 +41,7 @@ const App = function ({
   createUserWithEmailAndPassword,
   // signInWithGithub,
   // signInWithTwitter,
-  // signInAnonymously,
+  signInAnonymously,
   signOut,
   // setError,
   user,
@@ -130,6 +130,7 @@ const App = function ({
         error={error}
         loading={loading}
         signInWithEmailAndPassword={signInWithEmailAndPassword}
+        signInAnonymously={signInAnonymously}
         signInWithGoogle={signInWithGoogle}
         signInWithFacebook={signInWithFacebook}
         signOut={signOutFromApp}
@@ -164,7 +165,7 @@ interface Props {
   signInWithFacebook?: () => Promise<any>
   // signInWithGithub: PropTypes.object,
   // signInWithTwitter: PropTypes.object,
-  // signInAnonymously: PropTypes.object,
+  signInAnonymously?: () => Promise<any>
   signOut?: () => Promise<any>
   // setError: PropTypes.object,
   user?: User

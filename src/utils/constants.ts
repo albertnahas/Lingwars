@@ -6,4 +6,6 @@ export const maxHints = 3
 
 export const defaultRounds = 10
 
+export const roundTimeout = 30
+
 export const defaultUserSettings: UserSettings = {}

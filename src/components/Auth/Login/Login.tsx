@@ -7,6 +7,7 @@ import {
   Button,
   CircularProgress,
   Container,
+  Divider,
   Grid,
   TextField,
   Typography,
@@ -40,6 +41,22 @@ export var Login: FC<Props> = function (props) {
             setErrors({
               email: res.message,
             })
+            setSubmitting(false)
+          }
+        })
+        .catch((e: any) => {
+          console.log(e)
+        })
+    },
+  })
+
+  const guestFormik = useFormik({
+    initialValues: {},
+    onSubmit: (values, { resetForm, setErrors, setSubmitting }) => {
+      props
+        .signInAnonymously?.()
+        .then((res: any) => {
+          if (res.message) {
             setSubmitting(false)
           }
         })
@@ -162,6 +179,27 @@ export var Login: FC<Props> = function (props) {
             </Button>
           </Typography>
         </form>
+        <Divider />
+        <form onSubmit={guestFormik.handleSubmit}>
+          <Box sx={{ py: 1 }}>
+            <Typography align="center" color="textSecondary" variant="body1">
+              or
+            </Typography>
+          </Box>
+          <Box sx={{ py: 2 }}>
+            <Button
+              color="primary"
+              disabled={guestFormik.isSubmitting || props.loading}
+              fullWidth
+              aria-label="guest"
+              size="large"
+              variant="outlined"
+              type="submit"
+            >
+              Continue as guest
+            </Button>
+          </Box>
+        </form>
       </Container>
     </Box>
   ) : (
@@ -174,6 +212,7 @@ interface Props {
   signUp: () => void
   signInWithGoogle?: () => void
   signInWithFacebook?: () => void
+  signInAnonymously?: () => Promise<any>
   error?: string
   loading?: boolean
 }

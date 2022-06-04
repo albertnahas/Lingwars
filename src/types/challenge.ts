@@ -47,5 +47,5 @@ export interface ChallengeSetup {
   level?: number
   rounds?: number
   live?: boolean
-  variation?: string
+  variation?: ChallengeVariation
 }
