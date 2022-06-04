@@ -116,7 +116,7 @@ const App = function ({
     <SplashScreen />
   ) : (
     <Box sx={{ bgcolor: "background.paper" }}>
-      {!challenge && (
+      {(!challenge || !challenge?.level) && (
         <TopBar
           handleInstallClick={handleInstallClick}
           signOut={signOutFromApp}

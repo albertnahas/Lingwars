@@ -35,8 +35,14 @@ export const ConfirmDialog: React.FC<Props> = ({
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleConfirm}>Confirm</Button>
-        <Button onClick={handleClose} autoFocus>
+        <Button aria-label="confirm-dialog-confirm-btn" onClick={handleConfirm}>
+          Confirm
+        </Button>
+        <Button
+          aria-label="confirm-dialog-cancel-btn"
+          onClick={handleClose}
+          autoFocus
+        >
           Cancel
         </Button>
       </DialogActions>

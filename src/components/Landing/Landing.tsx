@@ -38,7 +38,7 @@ export var Landing: FC<Props> = function (props) {
         variant="h3"
         color="text.secondary"
       >
-        The best language identifing and guessing game
+        The best language identifying and guessing game
       </Typography>
       <Button
         color="primary"
