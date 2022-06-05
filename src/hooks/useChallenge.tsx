@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import firebase from "../config"
 import { userSelector } from "../store/userSlice"
-import { challengeSelector, setChallenge } from "../store/challengeSlice"
+import {
+  challengeSelector,
+  challengeSetupSelector,
+  setChallenge,
+} from "../store/challengeSlice"
 import { ChallengeSetup, Player } from "../types/challenge"
 import _ from "lodash"
 
@@ -13,6 +17,7 @@ export const useChallenge = (gameId?: string) => {
 
   const user = useSelector(userSelector)
   const challenge = useSelector(challengeSelector)
+  const challengeSetup = useSelector(challengeSetupSelector)
 
   const [challengeId, setChallengeId] = useState<string | undefined>(gameId)
   const [players, setPlayers] = useState<Player[]>()
@@ -57,6 +62,8 @@ export const useChallenge = (gameId?: string) => {
               setPlayers(playersArr)
             })
         })
+    } else if (challengeSetup) {
+      dispatch(setChallenge({ ...challengeSetup }))
     }
     return () => {
       if (subscribe) {

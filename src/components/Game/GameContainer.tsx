@@ -1,7 +1,10 @@
 import { useLayoutEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { challengeSelector } from "../../store/challengeSlice"
+import {
+  challengeSelector,
+  challengeSetupSelector,
+} from "../../store/challengeSlice"
 import { userSelector } from "../../store/userSlice"
 import { Game } from "./Game"
 import { useChallenge } from "../../hooks/useChallenge"
@@ -25,9 +28,10 @@ export const GameContainer = () => {
 
   const user = useSelector(userSelector)
   const challenge = useSelector(challengeSelector)
+  const challengeSetup = useSelector(challengeSetupSelector)
 
   useLayoutEffect(() => {
-    if (challenge && !gameId && !challenge?.level) {
+    if ((challenge || !challengeSetup) && !gameId && !challenge?.level) {
       navigate("/")
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

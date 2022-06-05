@@ -1,4 +1,4 @@
-import { Challenge } from "./challenge"
+import { Challenge, ChallengeSetup } from "./challenge"
 import { User } from "./user"
 
 export interface State {
@@ -16,6 +16,7 @@ export interface UserState {
 }
 export interface ChallengeState {
   value?: Challenge | null
+  setup?: ChallengeSetup | null
 }
 export interface AlertState {
   title?: string

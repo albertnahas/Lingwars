@@ -13,7 +13,7 @@ import {
   ChallengeSetupDialog,
   defaultChallengeSetup,
 } from "../../molecules/ChallengeSetupDialog/ChallengeSetupDialog"
-import { setChallenge } from "../../store/challengeSlice"
+import { setChallengeSetup } from "../../store/challengeSlice"
 import { ChallengeSetup } from "../../types/challenge"
 import { PairingStatus, useChallengeSetup } from "../../hooks/useChallengeSetup"
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
@@ -64,7 +64,7 @@ export var MainMenu: FC<Props> = function (props) {
     if (!setup || !setup.level) return
 
     if (setup.players === 1) {
-      dispatch(setChallenge({ ...setup }))
+      dispatch(setChallengeSetup({ ...setup }))
       navigate(`/play`)
     } else {
       if (!setup.live) {
