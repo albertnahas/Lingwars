@@ -17,6 +17,7 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp"
 import { StandardGameContainer } from "./partials/StandardGame/StandardGameContainer"
 import { SpeedGameContainer } from "./partials/SpeedGame/SpeedGameContainer"
 import { RematchButton } from "../../atoms/RematchButton/RematchButton"
+import ChallengeInfo from "../ChallengeInfo/ChallengeInfo"
 
 export type GameStatus =
   | "loading"
@@ -111,106 +112,7 @@ export const Game: FC<Props> = ({
         {gameStatus !== "loading" ? (
           <>
             {gameStatus !== "finished" && (
-              <Stack
-                direction="row"
-                sx={{
-                  justifyContent: "center",
-                  flexWrap: "wrap",
-                  gap: 2,
-                  mb: 2,
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    px: 1,
-                    py: 0.75,
-                    borderRadius: 16,
-                    backgroundColor: "#0c68d5",
-                    color: "#fff",
-                  }}
-                >
-                  <Typography component="span" sx={{ mr: 0.5, fontSize: 14 }}>
-                    Players:
-                  </Typography>
-                  <Typography
-                    sx={{
-                      py: 0.25,
-                      px: 1,
-                      backgroundColor: "#2ecb71",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: 12,
-                      fontWeight: 500,
-                      borderRadius: 16,
-                    }}
-                    component="span"
-                  >
-                    {challenge?.players}
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    px: 1,
-                    py: 0.75,
-                    borderRadius: 16,
-                    backgroundColor: "#0d69d5",
-                    color: "#fff",
-                  }}
-                >
-                  <Typography component="span" sx={{ mr: 0.5, fontSize: 14 }}>
-                    Rounds:
-                  </Typography>
-                  <Typography
-                    sx={{
-                      py: 0.25,
-                      px: 1,
-                      backgroundColor: "#2ecb71",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: 12,
-                      fontWeight: 500,
-                      borderRadius: 16,
-                    }}
-                    component="span"
-                  >
-                    {challenge?.rounds}
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    px: 1,
-                    py: 0.75,
-                    borderRadius: 16,
-                    backgroundColor: "#0d69d5",
-                    color: "#fff",
-                  }}
-                >
-                  <Typography component="span" sx={{ mr: 0.5, fontSize: 14 }}>
-                    Game Variation:
-                  </Typography>
-                  <Typography
-                    sx={{
-                      py: 0.25,
-                      px: 1,
-                      backgroundColor: "#2ecb71",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: 12,
-                      fontWeight: 500,
-                      borderRadius: 16,
-                    }}
-                    component="span"
-                  >
-                    {challenge?.variation}
-                  </Typography>
-                </Box>
-              </Stack>
+              <ChallengeInfo challenge={challenge} />
             )}
             {gameStatus === "finished" && (
               <Typography
