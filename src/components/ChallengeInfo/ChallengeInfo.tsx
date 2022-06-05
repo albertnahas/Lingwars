@@ -1,7 +1,6 @@
 import React from "react"
 import { Stack } from "@mui/material"
 import { styled } from "@mui/system"
-import { Challenge } from "../../types/challenge"
 
 const Wrapper = styled("div")(
   ({ theme }) => `
@@ -31,7 +30,7 @@ const InfoBadge = styled("span")(
 `
 )
 
-const ChallengeInfo = (challenge: Challenge) => {
+const ChallengeInfo = (challenge: any) => {
   const details = [
     {
       text: "Players",
@@ -59,7 +58,7 @@ const ChallengeInfo = (challenge: Challenge) => {
     >
       {details.map((d) => {
         return (
-          <Wrapper>
+          <Wrapper key={d.text} aria-label={d.text.toLowerCase()}>
             <InfoText>{d.text}</InfoText>
             <InfoBadge>{d.value}</InfoBadge>
           </Wrapper>
