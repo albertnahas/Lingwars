@@ -1,6 +1,7 @@
 import React from "react"
 import { Stack } from "@mui/material"
 import { styled } from "@mui/system"
+import { Challenge } from "../../types/challenge"
 
 const Wrapper = styled("div")(
   ({ theme }) => `
@@ -30,7 +31,7 @@ const InfoBadge = styled("span")(
 `
 )
 
-const ChallengeInfo = (challenge: any) => {
+const ChallengeInfo = ({ challenge }: { challenge: Challenge }) => {
   const details = [
     {
       text: "Players",
@@ -45,6 +46,7 @@ const ChallengeInfo = (challenge: any) => {
       value: challenge?.variation,
     },
   ]
+  console.log(details)
 
   return (
     <Stack

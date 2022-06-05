@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react"
+import { FC, useContext, useEffect } from "react"
 import styled from "@emotion/styled"
 import {
   AppBar,
@@ -21,6 +21,9 @@ import DownloadIcon from "@mui/icons-material/Download"
 import { useUser } from "../../hooks/useUser"
 import { setDrawer } from "../../store/drawerSlice"
 import MenuIcon from "@mui/icons-material/Menu"
+import Brightness4Icon from "@mui/icons-material/Brightness4"
+import Brightness7Icon from "@mui/icons-material/Brightness7"
+import { ColorModeContext } from "../Providers/Providers"
 
 export const StyledMenu = styled((props: any) => (
   <Menu
@@ -74,7 +77,7 @@ export var TopBar: FC<Props> = function (props) {
   const theme = useTheme()
   const dispatch = useDispatch()
 
-  // const colorMode = React.useContext(ColorModeContext);
+  const colorMode = useContext(ColorModeContext)
 
   const user = useSelector((state: State) => state.user.value)
   const { updateUser } = useUser()
@@ -127,6 +130,19 @@ export var TopBar: FC<Props> = function (props) {
                 </Button>
               </Tooltip>
             )}
+            <Tooltip title={`${theme.palette.mode} mode}`}>
+              <IconButton
+                sx={{ ml: 1 }}
+                onClick={colorMode.toggleColorMode}
+                color="default"
+              >
+                {theme.palette.mode === "dark" ? (
+                  <Brightness7Icon />
+                ) : (
+                  <Brightness4Icon />
+                )}
+              </IconButton>
+            </Tooltip>
             <Avatar
               sx={{
                 height: 40,
