@@ -65,7 +65,7 @@ export const GameContainer = () => {
         error={error}
       />
       <ConfirmDialog
-        title="Are you sure you want to leave the challenge?"
+        title="Are you sure you want to leave?"
         message="By clicking confirm, you will lose the ongoing challenge."
         open={open}
         setOpen={() => setOpen((o) => !o)}
