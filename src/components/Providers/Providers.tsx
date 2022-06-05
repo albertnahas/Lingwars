@@ -14,7 +14,7 @@ export const ColorModeContext = React.createContext({
 
 export const Providers: FC<Props> = ({ children }) => {
   const initialState =
-    JSON.parse(localStorage.getItem("mode") as string) || "light"
+    JSON.parse(localStorage.getItem("mode") as string) || "dark"
   const [mode, setMode] = React.useState<"light" | "dark">(initialState)
   const colorMode = React.useMemo(
     () => ({
