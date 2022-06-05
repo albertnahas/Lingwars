@@ -18,6 +18,7 @@ import { AlertDialog } from "./molecules/AlertDialog/AlertDialog"
 import { setSnackbar, snackbarSelector } from "./store/snackbarSlice"
 import { alertSelector, setAlertOpen } from "./store/alertSlice"
 import { SideDrawer } from "./components/SideDrawer/SideDrawer"
+import Footer from "./components/Footer/Footer"
 
 const firebaseAppAuth = firebase.auth()
 
@@ -135,6 +136,7 @@ const App = function ({
         signInWithFacebook={signInWithFacebook}
         signOut={signOutFromApp}
       />
+      <Footer />
       <SideDrawer signOut={signOutFromApp} />
       <AlertDialog
         title={alertWidget.title}
