@@ -15,6 +15,9 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  InputAdornment,
+  IconButton,
+  Popover,
 } from "@mui/material"
 import { useFormik } from "formik"
 import * as Yup from "yup"
@@ -22,6 +25,7 @@ import { Box } from "@mui/system"
 import { ChallengeSetup } from "../../types/challenge"
 import React, { useEffect, useMemo, useState } from "react"
 import { defaultRounds } from "../../utils/constants"
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined"
 
 export interface LevelDialogProps {
   open: boolean
@@ -42,9 +46,23 @@ const ROUNDS_ARRAY = [5, 10, 15]
 export function ChallengeSetupDialog(props: LevelDialogProps) {
   const { onClose, setup, open } = props
 
-  const handleClose = () => {
-    onClose()
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
+
+  const handleHelpClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
   }
+
+  const handleHelpClose = () => {
+    setAnchorEl(null)
+  }
+
+  const helpOpen = Boolean(anchorEl)
+  const id = helpOpen ? "help-popover" : undefined
+
+  const [roundsController, setRoundsController] = useState<number | string>(
+    defaultRounds
+  )
+  const [customRoundsInput, setCustomRoundsInput] = useState<boolean>(false)
 
   const formik = useFormik({
     initialValues: {
@@ -72,11 +90,6 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     [formik]
   )
 
-  const [roundsController, setRoundsController] = useState<number | string>(
-    defaultRounds
-  )
-  const [customRoundsInput, setCustomRoundsInput] = useState<boolean>(false)
-
   useEffect(() => {
     if (roundsController === "custom") {
       setCustomRoundsInput(true)
@@ -87,6 +100,10 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roundsController])
+
+  const handleClose = () => {
+    onClose()
+  }
 
   return (
     <Dialog
@@ -147,6 +164,18 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
                   label="Variation"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="variation help"
+                        sx={{ mr: 2 }}
+                        edge="start"
+                        onClick={handleHelpClick}
+                      >
+                        <InfoOutlinedIcon />
+                      </IconButton>
+                    </InputAdornment>
+                  }
                 >
                   <MenuItem value="standard">Standard</MenuItem>
                   <MenuItem value="speed">Speed</MenuItem>
@@ -154,7 +183,6 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
               </FormControl>
             </>
           )}
-
           <FormControl>
             <FormLabel id="rounds-controller-label">Rounds</FormLabel>
             <RadioGroup
@@ -229,6 +257,20 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
               Create
             </Button>
           </Box>
+          <Popover
+            id={id}
+            open={helpOpen}
+            anchorEl={anchorEl}
+            onClose={handleHelpClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+          >
+            <Typography variant="body2" sx={{ p: 2 }}>
+              The content of help message
+            </Typography>
+          </Popover>
         </form>
       </Container>
     </Dialog>
