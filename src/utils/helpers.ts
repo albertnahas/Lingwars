@@ -14,6 +14,8 @@ import _ from "lodash"
 const wikipediaURL =
   "https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&explaintext&redirects=1&titles="
 
+const avatarURL = "https://avatars.dicebear.com/api/identicon/"
+
 const defaultLanguage: Language = {
   name: "default",
 }
@@ -42,6 +44,11 @@ export const generateLangChoices = (
   }
   langChoices.push(lang)
   return _.shuffle(langChoices)
+}
+
+export const getAvatarURL = () => {
+  const seed = Math.round(Math.random() * 99999)
+  return `${avatarURL}${seed}.svg`
 }
 
 export const getLevelLabel = (level: number) => {

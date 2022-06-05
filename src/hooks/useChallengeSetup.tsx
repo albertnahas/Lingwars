@@ -4,14 +4,29 @@ import { Challenge, ChallengeSetup } from "../types/challenge"
 import { useSelector } from "react-redux"
 import { userSelector } from "../store/userSlice"
 
+export enum PairingStatus {
+  STALE = "STALE",
+  PAIRING = "PAIRING",
+  CANCELLED = "CANCELLED",
+}
+
 export const useChallengeSetup = () => {
   const [challenge, setChallenge] = React.useState<Challenge>()
-  const [pairing, setPairing] = React.useState<boolean>(false)
+  const [pairing, setPairing] = React.useState<PairingStatus>(
+    PairingStatus.STALE
+  )
+  const pairingRef = React.useRef<PairingStatus>(PairingStatus.STALE)
 
   const requrest = useRef()
   const requrestSubscribe = useRef<any>()
 
   const user = useSelector(userSelector)
+
+  const timeout = 20 * 1000
+
+  useEffect(() => {
+    pairingRef.current = pairing
+  }, [pairing])
 
   const createChallenge = (setup?: ChallengeSetup) => {
     firebase
@@ -43,7 +58,8 @@ export const useChallengeSetup = () => {
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(function (docRef: any) {
-        setPairing(true)
+        setPairing(PairingStatus.PAIRING)
+        checkAvailability(setup)
         console.log("Document written with ID: ", docRef.id)
         requrest.current = docRef.id
         requrestSubscribe.current = docRef.onSnapshot((querySnapshot: any) => {
@@ -53,7 +69,7 @@ export const useChallengeSetup = () => {
           const requestData = querySnapshot.data()
           if (requestData.challengeId) {
             console.log("Document written with ID: ", requestData.challengeId)
-            setPairing(false)
+            setPairing(PairingStatus.STALE)
             setChallenge({ id: requestData.challengeId, ...setup })
             requrestSubscribe.current?.()
           }
@@ -64,11 +80,33 @@ export const useChallengeSetup = () => {
       })
   }
 
-  useEffect(() => {
-    return () => {
-      requrestSubscribe.current?.()
-    }
-  }, [])
+  const checkAvailability = (setup?: ChallengeSetup) => {
+    setTimeout(() => {
+      if (pairingRef.current === PairingStatus.PAIRING) {
+        if (setup?.variation === "standard") {
+          requestBot(setup)
+        } else {
+          setPairing(PairingStatus.CANCELLED)
+          requrestSubscribe.current?.()
+        }
+        checkAvailability(setup)
+      }
+    }, timeout)
+  }
+
+  const requestBot = (setup?: ChallengeSetup) => {
+    firebase
+      .firestore()
+      .collection("requests")
+      .add({
+        uid: user?.uid || null,
+        ...setup,
+        waiting: true,
+        bot: true,
+        rematchId: null,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      })
+  }
 
   const cancelRequest = () => {
     if (requrest.current) {
@@ -78,7 +116,7 @@ export const useChallengeSetup = () => {
         .doc(requrest.current)
         .delete()
         .then(() => {
-          setPairing(false)
+          setPairing(PairingStatus.STALE)
           requrestSubscribe.current?.()
         })
     }

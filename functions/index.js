@@ -80,6 +80,11 @@ exports.requestCreated = functions.runWith({
               requestsDocs.forEach((doc) => {
                 batch.update(doc.ref, "challengeId", cId)
                 batch.update(doc.ref, "waiting", false)
+                if (doc.data().bot) {
+                  createBot(Object.assign({}, doc.data(), {
+                    challengeId: cId
+                  }))
+                }
               })
               functions.logger.log("writing challenge with ...", cId)
               return batch.commit()
@@ -92,6 +97,69 @@ exports.requestCreated = functions.runWith({
 
     return true
   })
+
+const createBot = (bot) => {
+  const botId = Date.now().toString()
+  const botName = Math.random().toString(36).substring(2, 7);
+  admin
+    .firestore()
+    .collection("bots")
+    .doc(botId)
+    .set(
+      Object.assign({}, bot, {
+        id: botId,
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        displayName: `guest_${botName}`
+      })
+    )
+}
+
+// Listens for bot creation
+exports.botCreated = functions.firestore
+  .document("/bots/{id}")
+  .onCreate(async (snap) => {
+    functions.logger.log("bot created ...")
+    const botData = snap.data()
+    if (!botData.challengeId) {
+      return
+    }
+
+    admin
+      .firestore()
+      .collection(`challenges/${botData.challengeId}/players`)
+      .add(
+        {
+          id: botData.uid,
+          displayName: botData.displayName,
+          updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+          timedScore: 0,
+          accuracy: 0,
+          hintsUsed: 0,
+          turn: 1,
+        }
+      ).then(async (docRef) => {
+        let timedScore = 0, accuracy = 0;
+        for (let i = 1; i <= botData.rounds; i++) {
+          const time = randomFrom(500, 15000)
+          await timeout(time)
+          functions.logger.log("bot next turn ...", i)
+          const isCorrect = Math.random() < 0.5
+          const withHint = Math.random() < 0.5
+
+          timedScore += isCorrect
+            ? timedScore +
+            Math.round((10 * 10) / (time / 1000)) /
+            (Number(withHint) + 1) : timedScore
+          accuracy = accuracy + Number(isCorrect)
+          docRef.set({ turn: i, accuracy, timedScore }, { merge: true })
+        }
+      })
+    return true
+  })
+
+function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 // Listens for player creation
 exports.playerCreated = functions.firestore
@@ -107,6 +175,7 @@ exports.playerRemoved = functions.firestore
   .document("/challenges/{id}/players/{playerId}")
   .onDelete(async (snap, context) => {
     const challengeId = context.params.id
+    const playerId = context.params.playerId
 
     // remove all rematch requests
     admin.firestore()
@@ -121,6 +190,20 @@ exports.playerRemoved = functions.firestore
           })
           return removeRequestsBatch.commit()
         }
+      })
+
+    // remove all bots
+    const removeBotsBatch = admin.firestore().batch()
+    admin
+      .firestore()
+      .collectionGroup("bots")
+      .where("uid", "==", playerId)
+      .get()
+      .then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+          removeBotsBatch.delete(doc.ref)
+        })
+        return removeBotsBatch.commit()
       })
 
     const playersSnap = await admin
@@ -251,4 +334,9 @@ const updateChallengeStatus = async (challengeId) => {
       },
       { merge: true }
     )
+}
+
+
+const randomFrom = (min, max) => { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
 }
