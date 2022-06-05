@@ -18,6 +18,10 @@ import {
   InputAdornment,
   IconButton,
   Popover,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material"
 import { useFormik } from "formik"
 import * as Yup from "yup"
@@ -26,6 +30,8 @@ import { ChallengeSetup } from "../../types/challenge"
 import React, { useEffect, useMemo, useState } from "react"
 import { defaultRounds } from "../../utils/constants"
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined"
+import SpeedOutlinedIcon from "@mui/icons-material/SpeedOutlined"
+import QuestionAnswerOutlinedIcon from "@mui/icons-material/QuestionAnswerOutlined"
 
 export interface LevelDialogProps {
   open: boolean
@@ -105,6 +111,21 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     onClose()
   }
 
+  const variationOptions = [
+    {
+      title: "Speed",
+      description:
+        "Answer fast and correctly: if your opponent was faster, you will lose the round and proceed to the next.",
+      icon: <SpeedOutlinedIcon />,
+    },
+    {
+      title: "Standard",
+      description:
+        "All players will get the round points if answered correctly. Boost your score by being fast!",
+      icon: <QuestionAnswerOutlinedIcon />,
+    },
+  ]
+
   return (
     <Dialog
       onClose={handleClose}
@@ -177,8 +198,16 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
                     </InputAdornment>
                   }
                 >
-                  <MenuItem value="standard">Standard</MenuItem>
-                  <MenuItem value="speed">Speed</MenuItem>
+                  {variationOptions.map((option) => {
+                    return (
+                      <MenuItem
+                        key={option.title}
+                        value={option.title.toLowerCase()}
+                      >
+                        {option.title}
+                      </MenuItem>
+                    )
+                  })}
                 </Select>
               </FormControl>
             </>
@@ -266,10 +295,27 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
               vertical: "bottom",
               horizontal: "left",
             }}
+            aria-label="help popover"
           >
-            <Typography variant="body2" sx={{ p: 2 }}>
-              The content of help message
-            </Typography>
+            <List
+              sx={{
+                width: "100%",
+                maxWidth: 350,
+                bgcolor: "background.paper",
+              }}
+            >
+              {variationOptions.map((option) => {
+                return (
+                  <ListItem key={option.title}>
+                    <ListItemIcon>{option.icon}</ListItemIcon>
+                    <ListItemText
+                      primary={option.title}
+                      secondary={option.description}
+                    />
+                  </ListItem>
+                )
+              })}
+            </List>
           </Popover>
         </form>
       </Container>
