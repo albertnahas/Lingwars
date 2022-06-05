@@ -81,7 +81,7 @@ export const SideDrawer: React.FC<Props> = (props) => {
             <GradingOutlinedIcon />
           </ListItemIcon>
           <ListItemText
-            primary="Terms &#38; Condictions"
+            primary="Terms &#38; Conditions"
             color="text.secondary"
           />
         </ListItem>

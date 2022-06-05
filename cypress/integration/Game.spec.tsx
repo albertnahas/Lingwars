@@ -99,6 +99,7 @@ describe("Game starts for multi player - private mode", () => {
           cy.get(`[aria-label="winner"]`).should("have.length", 1)
           // leave
           cy.get(`button[aria-label="leave"]`).click()
+          cy.get(`button[aria-label="confirm-dialog-confirm-btn"]`).click()
           cy.wait(1000)
           cy.callFirestore("delete", `challenges/${challengeId}/players`).then(
             () => {
@@ -169,6 +170,7 @@ describe("Game starts for multi player - live mode", () => {
         cy.get(`[aria-label="winner"]`).should("have.length", 1)
         // leave
         cy.get(`button[aria-label="leave"]`).click()
+        cy.get(`button[aria-label="confirm-dialog-confirm-btn"]`).click()
         cy.wait(1000)
         cy.callFirestore("delete", `challenges/${challengeId}/players`).then(
           () => {
