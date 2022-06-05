@@ -137,23 +137,24 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
                 variant="outlined"
                 type="number"
               />
+              <FormControl sx={{ my: 1 }} fullWidth>
+                <InputLabel id="variation-label">Variation</InputLabel>
+                <Select
+                  labelId="variation-label"
+                  aria-label="variation"
+                  name="variation"
+                  value={formik.values.variation}
+                  label="Variation"
+                  onBlur={formik.handleBlur}
+                  onChange={formik.handleChange}
+                >
+                  <MenuItem value="standard">Standard</MenuItem>
+                  <MenuItem value="speed">Speed</MenuItem>
+                </Select>
+              </FormControl>
             </>
           )}
-          <FormControl sx={{ my: 1 }} fullWidth>
-            <InputLabel id="variation-label">Variation</InputLabel>
-            <Select
-              labelId="variation-label"
-              aria-label="variation"
-              name="variation"
-              value={formik.values.variation}
-              label="Variation"
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-            >
-              <MenuItem value="standard">Standard</MenuItem>
-              <MenuItem value="speed">Speed</MenuItem>
-            </Select>
-          </FormControl>
+
           <FormControl>
             <FormLabel id="rounds-controller-label">Rounds</FormLabel>
             <RadioGroup

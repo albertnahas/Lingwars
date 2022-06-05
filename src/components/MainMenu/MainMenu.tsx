@@ -18,6 +18,9 @@ import { ChallengeSetup } from "../../types/challenge"
 import { PairingStatus, useChallengeSetup } from "../../hooks/useChallengeSetup"
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
 import { ChallengeLinkDialog } from "../../molecules/ChallengeLinkDialog/ChallengeLinkDialog"
+import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded"
+import PersonRoundedIcon from "@mui/icons-material/PersonRounded"
+import MenuBookRoundedIcon from "@mui/icons-material/MenuBookRounded"
 
 export var MainMenu: FC<Props> = function (props) {
   const navigate = useNavigate()
@@ -113,6 +116,7 @@ export var MainMenu: FC<Props> = function (props) {
           aria-label="single player"
           variant="outlined"
           onClick={onClickSinglePlayer}
+          startIcon={<PersonRoundedIcon />}
         >
           Single Player
         </Button>
@@ -121,6 +125,7 @@ export var MainMenu: FC<Props> = function (props) {
           aria-label="multi player"
           variant="outlined"
           onClick={onClickMultiplayer}
+          startIcon={<PeopleAltRoundedIcon />}
         >
           Multiplayer
         </Button>
@@ -129,6 +134,7 @@ export var MainMenu: FC<Props> = function (props) {
           aria-label="learn"
           variant="outlined"
           onClick={onClickLearn}
+          startIcon={<MenuBookRoundedIcon />}
         >
           Learn
         </Button>

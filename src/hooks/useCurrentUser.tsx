@@ -4,6 +4,7 @@ import firebase from "../config"
 import { removeUser, setUser } from "../store/userSlice"
 import { State } from "../types/state"
 import { defaultUserSettings } from "../utils/constants"
+import { getAvatarURL } from "../utils/helpers"
 
 export const useCurrentUser = () => {
   const dispatch = useDispatch()
@@ -25,13 +26,17 @@ export const useCurrentUser = () => {
       .get()
       .then((doc: any) => {
         if (!doc.exists) {
+          const displayName =
+            user.displayName ||
+            `guest_${Math.random().toString(36).substring(2, 7)}`
+
           firebase
             .firestore()
             .collection("users")
             .doc(user.uid)
             .set({
-              displayName: user.displayName,
-              photoURL: user.photoURL,
+              displayName,
+              photoURL: user.photoURL || getAvatarURL(),
               uid: user.uid,
               messagingToken: user.messagingToken || null,
             })
