@@ -131,6 +131,7 @@ const App = function ({
         signInWithFacebook={signInWithFacebook}
         signOut={signOutFromApp}
       />
+      <Footer />
       <SideDrawer signOut={signOutFromApp} />
       <AlertDialog
         title={alertWidget.title}
@@ -147,7 +148,6 @@ const App = function ({
           {snackbar.message}
         </Alert>
       </Snackbar>
-      <Footer />
     </Box>
   )
 }
