@@ -15,6 +15,13 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  InputAdornment,
+  IconButton,
+  Popover,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material"
 import { useFormik } from "formik"
 import * as Yup from "yup"
@@ -22,6 +29,9 @@ import { Box } from "@mui/system"
 import { ChallengeSetup } from "../../types/challenge"
 import React, { useEffect, useMemo, useState } from "react"
 import { defaultRounds } from "../../utils/constants"
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined"
+import SpeedOutlinedIcon from "@mui/icons-material/SpeedOutlined"
+import QuestionAnswerOutlinedIcon from "@mui/icons-material/QuestionAnswerOutlined"
 
 export interface LevelDialogProps {
   open: boolean
@@ -42,9 +52,23 @@ const ROUNDS_ARRAY = [5, 10, 15]
 export function ChallengeSetupDialog(props: LevelDialogProps) {
   const { onClose, setup, open } = props
 
-  const handleClose = () => {
-    onClose()
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
+
+  const handleHelpClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
   }
+
+  const handleHelpClose = () => {
+    setAnchorEl(null)
+  }
+
+  const helpOpen = Boolean(anchorEl)
+  const id = helpOpen ? "help-popover" : undefined
+
+  const [roundsController, setRoundsController] = useState<number | string>(
+    defaultRounds
+  )
+  const [customRoundsInput, setCustomRoundsInput] = useState<boolean>(false)
 
   const formik = useFormik({
     initialValues: {
@@ -72,11 +96,6 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     [formik]
   )
 
-  const [roundsController, setRoundsController] = useState<number | string>(
-    defaultRounds
-  )
-  const [customRoundsInput, setCustomRoundsInput] = useState<boolean>(false)
-
   useEffect(() => {
     if (roundsController === "custom") {
       setCustomRoundsInput(true)
@@ -87,6 +106,25 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roundsController])
+
+  const handleClose = () => {
+    onClose()
+  }
+
+  const variationOptions = [
+    {
+      title: "Speed",
+      description:
+        "Answer fast and correctly: if your opponent was faster, you will lose the round and proceed to the next.",
+      icon: <SpeedOutlinedIcon />,
+    },
+    {
+      title: "Standard",
+      description:
+        "All players will get the round points if answered correctly. Boost your score by being fast!",
+      icon: <QuestionAnswerOutlinedIcon />,
+    },
+  ]
 
   return (
     <Dialog
@@ -147,14 +185,33 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
                   label="Variation"
                   onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="variation help"
+                        sx={{ mr: 2 }}
+                        edge="start"
+                        onClick={handleHelpClick}
+                      >
+                        <InfoOutlinedIcon />
+                      </IconButton>
+                    </InputAdornment>
+                  }
                 >
-                  <MenuItem value="standard">Standard</MenuItem>
-                  <MenuItem value="speed">Speed</MenuItem>
+                  {variationOptions.map((option) => {
+                    return (
+                      <MenuItem
+                        key={option.title}
+                        value={option.title.toLowerCase()}
+                      >
+                        {option.title}
+                      </MenuItem>
+                    )
+                  })}
                 </Select>
               </FormControl>
             </>
           )}
-
           <FormControl>
             <FormLabel id="rounds-controller-label">Rounds</FormLabel>
             <RadioGroup
@@ -229,6 +286,37 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
               Create
             </Button>
           </Box>
+          <Popover
+            id={id}
+            open={helpOpen}
+            anchorEl={anchorEl}
+            onClose={handleHelpClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            aria-label="help popover"
+          >
+            <List
+              sx={{
+                width: "100%",
+                maxWidth: 350,
+                bgcolor: "background.paper",
+              }}
+            >
+              {variationOptions.map((option) => {
+                return (
+                  <ListItem key={option.title}>
+                    <ListItemIcon>{option.icon}</ListItemIcon>
+                    <ListItemText
+                      primary={option.title}
+                      secondary={option.description}
+                    />
+                  </ListItem>
+                )
+              })}
+            </List>
+          </Popover>
         </form>
       </Container>
     </Dialog>
