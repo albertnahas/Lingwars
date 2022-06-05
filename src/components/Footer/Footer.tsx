@@ -58,19 +58,19 @@ const Footer = () => {
           <BottomNavigation>
             <BottomNavigationAction
               component="a"
-              href="https://www.facebook.com/groups"
+              href="https://www.facebook.com/lingwars"
               target="_blank"
               icon={<FacebookIcon fontSize="small" />}
             />
             <BottomNavigationAction
               component="a"
-              href="https://www.instagram.com/repwatch_app/"
+              href="https://www.instagram.com/lingwars"
               target="_blank"
               icon={<InstagramIcon fontSize="small" />}
             />
             <BottomNavigationAction
               component="a"
-              href="https://www.tiktok.com/@edsheeran"
+              href="https://www.tiktok.com/lingwars"
               target="_blank"
               icon={<TiktokIcon fontSize="small" />}
             />
