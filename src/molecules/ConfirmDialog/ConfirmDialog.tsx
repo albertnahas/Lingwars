@@ -28,9 +28,14 @@ export const ConfirmDialog: React.FC<Props> = ({
       aria-labelledby="confirm-dialog-title"
       aria-describedby="confirm-dialog-description"
     >
-      <DialogTitle id="confirm-dialog-title">{title}</DialogTitle>
+      <DialogTitle id="confirm-dialog-title" color="primary">
+        {title}
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText id="confirm-dialog-description">
+        <DialogContentText
+          id="confirm-dialog-description"
+          color="text.secondary"
+        >
           {message}
         </DialogContentText>
       </DialogContent>
@@ -42,6 +47,7 @@ export const ConfirmDialog: React.FC<Props> = ({
           aria-label="confirm-dialog-cancel-btn"
           onClick={handleClose}
           autoFocus
+          color="error"
         >
           Cancel
         </Button>

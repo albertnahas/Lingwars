@@ -192,8 +192,8 @@ export var MainMenu: FC<Props> = function (props) {
                 Pairing timeout
               </Typography>
               <Typography variant="subtitle1" color="text.secondary">
-                oops!... We can't find you challengers at the moment, please try
-                a different setup or try again later
+                Oops!... We couldn't find you challengers at the moment. Please
+                try again later or use a different challenge setup.
               </Typography>
             </>
           )}
