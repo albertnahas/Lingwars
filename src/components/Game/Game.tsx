@@ -17,6 +17,7 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp"
 import { StandardGameContainer } from "./partials/StandardGame/StandardGameContainer"
 import { SpeedGameContainer } from "./partials/SpeedGame/SpeedGameContainer"
 import { RematchButton } from "../../atoms/RematchButton/RematchButton"
+import ChallengeInfo from "../ChallengeInfo/ChallengeInfo"
 
 export type GameStatus =
   | "loading"
@@ -110,6 +111,9 @@ export const Game: FC<Props> = ({
 
         {gameStatus !== "loading" ? (
           <>
+            {gameStatus !== "finished" && (
+              <ChallengeInfo challenge={challenge} />
+            )}
             {gameStatus === "finished" && (
               <Typography
                 component="p"
