@@ -15,7 +15,7 @@ import {
 } from "../../molecules/ChallengeSetupDialog/ChallengeSetupDialog"
 import { setChallenge } from "../../store/challengeSlice"
 import { ChallengeSetup } from "../../types/challenge"
-import { useChallengeSetup } from "../../hooks/useChallengeSetup"
+import { PairingStatus, useChallengeSetup } from "../../hooks/useChallengeSetup"
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
 import { ChallengeLinkDialog } from "../../molecules/ChallengeLinkDialog/ChallengeLinkDialog"
 
@@ -148,7 +148,7 @@ export var MainMenu: FC<Props> = function (props) {
         />
       )}
       <ModalDialog
-        open={pairing}
+        open={pairing !== PairingStatus.STALE}
         maxWidth="sm"
         onClose={cancelRequest}
         actions={
@@ -169,13 +169,28 @@ export var MainMenu: FC<Props> = function (props) {
           sx={{ textAlign: "center", alignItems: "center" }}
           spacing={2}
         >
-          <Typography variant="h5" color="primary">
-            Pairing
-          </Typography>
-          <CircularProgress />
-          <Typography variant="subtitle1" color="text.secondary">
-            Please wait while we're finding your challengers...
-          </Typography>
+          {pairing === PairingStatus.PAIRING && (
+            <>
+              <Typography variant="h5" color="primary">
+                Pairing
+              </Typography>
+              <CircularProgress />
+              <Typography variant="subtitle1" color="text.secondary">
+                Please wait while we're finding your challengers...
+              </Typography>
+            </>
+          )}
+          {pairing === PairingStatus.CANCELLED && (
+            <>
+              <Typography variant="h5" color="error">
+                Pairing timeout
+              </Typography>
+              <Typography variant="subtitle1" color="text.secondary">
+                oops!... We can't find you challengers at the moment, please try
+                a different setup or try again later
+              </Typography>
+            </>
+          )}
         </Stack>
       </ModalDialog>
     </Box>
