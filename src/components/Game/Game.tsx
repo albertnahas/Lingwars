@@ -201,7 +201,7 @@ export const Game: FC<Props> = ({
 
 interface Props {
   user?: User | null
-  challenge: Challenge
+  challenge?: Challenge
   players?: Player[]
   onClickLeave: () => void
   onClickRematch: () => void
