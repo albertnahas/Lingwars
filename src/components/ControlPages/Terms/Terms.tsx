@@ -57,7 +57,7 @@ export var Terms = function () {
           </li>
           <li>
             <p>
-              <strong>Country</strong> refers to: United Arab Emirates.
+              <strong>Country</strong> refers to: the United States of America.
             </p>
           </li>
           <li>
