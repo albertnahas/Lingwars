@@ -42,6 +42,8 @@ export var Login: FC<Props> = function (props) {
               email: res.message,
             })
             setSubmitting(false)
+          } else {
+            props.afterSubmit?.()
           }
         })
         .catch((e: any) => {
@@ -59,6 +61,7 @@ export var Login: FC<Props> = function (props) {
           if (res.message) {
             setSubmitting(false)
           }
+          props.afterSubmit?.()
         })
         .catch((e: any) => {
           console.log(e)
@@ -66,7 +69,7 @@ export var Login: FC<Props> = function (props) {
     },
   })
 
-  return user === null ? (
+  return user === null || props.modal ? (
     <Box
       component="main"
       sx={{
@@ -209,10 +212,12 @@ export var Login: FC<Props> = function (props) {
 
 interface Props {
   onSubmit?: (email: string, password: string) => Promise<any>
+  afterSubmit?: () => void
   signUp: () => void
   signInWithGoogle?: () => void
   signInWithFacebook?: () => void
   signInAnonymously?: () => Promise<any>
   error?: string
   loading?: boolean
+  modal?: boolean
 }

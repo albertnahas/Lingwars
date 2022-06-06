@@ -6,6 +6,7 @@ export interface State {
   challenge: ChallengeState
   alert: AlertState
   drawer: DrawerState
+  loginModal: LoginModalState
   feedback: FeedbackState
   snackbar: SnackbarState
 }
@@ -24,6 +25,9 @@ export interface AlertState {
   open?: boolean
 }
 export interface DrawerState {
+  open?: boolean
+}
+export interface LoginModalState {
   open?: boolean
 }
 export interface SnackbarState {

@@ -19,6 +19,11 @@ import { setSnackbar, snackbarSelector } from "./store/snackbarSlice"
 import { alertSelector, setAlertOpen } from "./store/alertSlice"
 import { SideDrawer } from "./components/SideDrawer/SideDrawer"
 import Footer from "./components/Footer/Footer"
+import ModalDialog from "./molecules/ModalDialog/ModalDialog"
+import { useNavigate } from "react-router-dom"
+import { loginModalSelector, setLoginModal } from "./store/loginModalSlice"
+import { Login } from "./components/Auth/Login/Login"
+import { DonationDialog } from "./molecules/DonationDialog/DonationDialog"
 
 const firebaseAppAuth = firebase.auth()
 
@@ -57,7 +62,11 @@ const App = function ({
   const dispatch = useDispatch()
 
   const [notification, setNotification] = useState({ title: "", body: "" })
+  const [openDonation, setOpenDonation] = useState(false)
+
   const alertWidget = useSelector(alertSelector)
+  const loginModal = useSelector(loginModalSelector)
+  const navigate = useNavigate()
 
   const signInWithGoogle = () => {
     firebase.auth().signInWithRedirect(googleProvider)
@@ -124,6 +133,7 @@ const App = function ({
           deferredPrompt={deferredPrompt}
           notification={notification}
           setNotification={setNotification}
+          donate={() => setOpenDonation(true)}
         />
       )}
       <Nav
@@ -144,6 +154,26 @@ const App = function ({
         open={alertWidget.open || false}
         setOpen={(open: boolean) => dispatch(setAlertOpen(open))}
       />
+      <ModalDialog
+        open={loginModal || false}
+        setOpen={(open: boolean) => dispatch(setLoginModal(open))}
+        maxWidth="md"
+      >
+        <Login
+          signInWithGoogle={signInWithGoogle}
+          signInWithFacebook={signInWithFacebook}
+          signInAnonymously={signInAnonymously}
+          signUp={() => {
+            dispatch(setLoginModal(false))
+            navigate("/register")
+          }}
+          error={error}
+          onSubmit={signInWithEmailAndPassword}
+          afterSubmit={() => dispatch(setLoginModal(false))}
+          loading={loading}
+          modal={true}
+        />
+      </ModalDialog>
       <Snackbar
         open={snackbar.open}
         autoHideDuration={1000}
@@ -153,6 +183,10 @@ const App = function ({
           {snackbar.message}
         </Alert>
       </Snackbar>
+      <DonationDialog
+        open={openDonation}
+        onClose={() => setOpenDonation(false)}
+      />
     </Box>
   )
 }
