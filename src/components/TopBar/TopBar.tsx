@@ -24,6 +24,7 @@ import MenuIcon from "@mui/icons-material/Menu"
 import Brightness4Icon from "@mui/icons-material/Brightness4"
 import Brightness7Icon from "@mui/icons-material/Brightness7"
 import { ColorModeContext } from "../Providers/Providers"
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism"
 
 export const StyledMenu = styled((props: any) => (
   <Menu
@@ -118,6 +119,15 @@ export var TopBar: FC<Props> = function (props) {
               </IconButton>
             </Tooltip> */}
             <Box sx={{ flexGrow: 1 }} />
+            <Button
+              variant="outlined"
+              color="secondary"
+              startIcon={<VolunteerActivismIcon />}
+              onClick={props.donate}
+              sx={{ ml: 1 }}
+            >
+              Donate
+            </Button>
             {props.deferredPrompt && (
               <Tooltip title="Install the app">
                 <Button
@@ -181,6 +191,7 @@ export var TopBar: FC<Props> = function (props) {
 interface Props {
   signOut: () => void
   handleInstallClick: () => void
+  donate: () => void
   deferredPrompt: any
   notification: { title: string; body: string }
   setNotification: any

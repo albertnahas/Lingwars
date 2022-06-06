@@ -23,6 +23,7 @@ import ModalDialog from "./molecules/ModalDialog/ModalDialog"
 import { useNavigate } from "react-router-dom"
 import { loginModalSelector, setLoginModal } from "./store/loginModalSlice"
 import { Login } from "./components/Auth/Login/Login"
+import { DonationDialog } from "./molecules/DonationDialog/DonationDialog"
 
 const firebaseAppAuth = firebase.auth()
 
@@ -61,6 +62,8 @@ const App = function ({
   const dispatch = useDispatch()
 
   const [notification, setNotification] = useState({ title: "", body: "" })
+  const [openDonation, setOpenDonation] = useState(false)
+
   const alertWidget = useSelector(alertSelector)
   const loginModal = useSelector(loginModalSelector)
   const navigate = useNavigate()
@@ -130,6 +133,7 @@ const App = function ({
           deferredPrompt={deferredPrompt}
           notification={notification}
           setNotification={setNotification}
+          donate={() => setOpenDonation(true)}
         />
       )}
       <Nav
@@ -179,6 +183,10 @@ const App = function ({
           {snackbar.message}
         </Alert>
       </Snackbar>
+      <DonationDialog
+        open={openDonation}
+        onClose={() => setOpenDonation(false)}
+      />
     </Box>
   )
 }
