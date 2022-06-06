@@ -118,12 +118,12 @@ const Nav: FC<Props> = function ({
             </ControlPage>
           }
         />
+        <Route path="/play" element={<GameContainer />} />
+        <Route path="/play/:gameId" element={<GameContainer />} />
+        <Route path="/learn" element={<Learn />} />
         <Route element={<RequireAuth />}>
           {/* <Route path="/settings" element={<Settings />} /> */}
           <Route path="/profile" element={<Profile signOut={signOut} />} />
-          <Route path="/play" element={<GameContainer />} />
-          <Route path="/play/:gameId" element={<GameContainer />} />
-          <Route path="/learn" element={<Learn />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

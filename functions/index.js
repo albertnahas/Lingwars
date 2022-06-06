@@ -4,6 +4,8 @@ admin.initializeApp()
 admin.firestore().settings({ ignoreUndefinedProperties: true })
 const cors = require("cors")({ origin: true });
 
+const avatarURL = "https://avatars.dicebear.com/api/identicon/"
+
 const seedRange = 999999
 
 // Listens for challenge creation
@@ -109,7 +111,8 @@ const createBot = (bot) => {
       Object.assign({}, bot, {
         id: botId,
         createdAt: admin.firestore.FieldValue.serverTimestamp(),
-        displayName: `guest_${botName}`
+        displayName: `guest_${botName}`,
+        photoURL: `${avatarURL}${Math.round(Math.random() * 99999)}.svg`,
       })
     )
 }

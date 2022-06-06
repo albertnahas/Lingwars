@@ -10,6 +10,7 @@ import {
 } from "../store/challengeSlice"
 import { ChallengeSetup, Player } from "../types/challenge"
 import _ from "lodash"
+import { setLoginModal } from "../store/loginModalSlice"
 
 export const useChallenge = (gameId?: string) => {
   const dispatch = useDispatch()
@@ -31,6 +32,10 @@ export const useChallenge = (gameId?: string) => {
     let subscribe: any
     let subscribePlayers: any
     if (challengeId) {
+      if (!user) {
+        dispatch(setLoginModal(true))
+        return
+      }
       subscribe = firebase
         .firestore()
         .collection("challenges")
@@ -74,7 +79,7 @@ export const useChallenge = (gameId?: string) => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [challengeId, challenge?.id])
+  }, [challengeId, challenge?.id, user])
 
   useEffect(() => {
     return () => {

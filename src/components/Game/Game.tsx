@@ -146,7 +146,11 @@ export const Game: FC<Props> = ({
               </Box>
             )}
 
-            {gameStatus === "error" && <Alert severity="error">{error}</Alert>}
+            {gameStatus === "error" && (
+              <Alert sx={{ my: 4 }} severity="error">
+                {error}
+              </Alert>
+            )}
 
             {challenge?.rematchRequested && (
               <>
