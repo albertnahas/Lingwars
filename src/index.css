@@ -33,3 +33,7 @@ body,
   flex-direction: column;
   align-items: stretch;
 }
+
+.paypal-buttons iframe {
+  left: 0 !important;
+}

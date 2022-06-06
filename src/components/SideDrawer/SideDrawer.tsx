@@ -50,7 +50,7 @@ export const SideDrawer: React.FC<Props> = (props) => {
           <ListItemText primary="Home" color="text.secondary" />
         </ListItem>
 
-        <ListItem
+        {/* <ListItem
           aria-label={"settings"}
           button
           component={Link}
@@ -60,7 +60,7 @@ export const SideDrawer: React.FC<Props> = (props) => {
             <SettingsIcon />
           </ListItemIcon>
           <ListItemText primary="Settings" color="text.secondary" />
-        </ListItem>
+        </ListItem> */}
 
         <ListItem aria-label={"contact"} button component={Link} to="/contact">
           <ListItemIcon>
