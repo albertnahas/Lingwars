@@ -9,7 +9,6 @@ import {
 } from "@mui/material"
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { Box } from "@mui/system"
 import { PayPalButtons } from "@paypal/react-paypal-js"
 
 export interface DonationDialogProps {
