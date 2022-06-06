@@ -9,7 +9,7 @@ import InstagramIcon from "@mui/icons-material/Instagram"
 import { Tiktok as TiktokIcon } from "../../icons/tiktok"
 import { Facebook as FacebookIcon } from "../../icons/facebook"
 import { Logo } from "../../icons/logo"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 const footerNavLinks = [
   {
@@ -41,15 +41,16 @@ const socialLinks = [
 const Footer = () => {
   const [value, setValue] = useState(null)
 
+  const location = useLocation()
+
   useEffect(() => {
     const footerNavPaths = footerNavLinks.map((link) => link.path)
 
-    return () => {
-      if (footerNavPaths.some((path) => window.location.href.includes(path))) {
-        setValue(null)
-      }
+    if (!footerNavPaths.some((path) => location.pathname.includes(path))) {
+      setValue(null)
+      return
     }
-  }, [])
+  }, [location])
 
   return (
     <Box>
