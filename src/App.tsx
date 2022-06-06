@@ -19,6 +19,10 @@ import { setSnackbar, snackbarSelector } from "./store/snackbarSlice"
 import { alertSelector, setAlertOpen } from "./store/alertSlice"
 import { SideDrawer } from "./components/SideDrawer/SideDrawer"
 import Footer from "./components/Footer/Footer"
+import ModalDialog from "./molecules/ModalDialog/ModalDialog"
+import { useNavigate } from "react-router-dom"
+import { loginModalSelector, setLoginModal } from "./store/loginModalSlice"
+import { Login } from "./components/Auth/Login/Login"
 
 const firebaseAppAuth = firebase.auth()
 
@@ -58,6 +62,8 @@ const App = function ({
 
   const [notification, setNotification] = useState({ title: "", body: "" })
   const alertWidget = useSelector(alertSelector)
+  const loginModal = useSelector(loginModalSelector)
+  const navigate = useNavigate()
 
   const signInWithGoogle = () => {
     firebase.auth().signInWithRedirect(googleProvider)
@@ -144,6 +150,26 @@ const App = function ({
         open={alertWidget.open || false}
         setOpen={(open: boolean) => dispatch(setAlertOpen(open))}
       />
+      <ModalDialog
+        open={loginModal || false}
+        setOpen={(open: boolean) => dispatch(setLoginModal(open))}
+        maxWidth="md"
+      >
+        <Login
+          signInWithGoogle={signInWithGoogle}
+          signInWithFacebook={signInWithFacebook}
+          signInAnonymously={signInAnonymously}
+          signUp={() => {
+            dispatch(setLoginModal(false))
+            navigate("/register")
+          }}
+          error={error}
+          onSubmit={signInWithEmailAndPassword}
+          afterSubmit={() => dispatch(setLoginModal(false))}
+          loading={loading}
+          modal={true}
+        />
+      </ModalDialog>
       <Snackbar
         open={snackbar.open}
         autoHideDuration={1000}
