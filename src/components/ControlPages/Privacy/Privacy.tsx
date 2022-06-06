@@ -1,6 +1,15 @@
 import React from "react"
 import { Typography } from "@mui/material"
 import { Box } from "@mui/system"
+import { styled } from "@mui/system"
+
+const Link = styled("a")(
+  ({ theme }) => `
+  text-decoration: none;
+  color: ${theme.palette.primary.main};
+  cursor: pointer;
+`
+)
 
 export var Privacy = function () {
   return (
@@ -9,7 +18,9 @@ export var Privacy = function () {
         Privacy Policy
       </Typography>
       <Box sx={{ textAlign: "left" }}>
-        <p>1. What information do we collect?</p>
+        <Typography variant="h6" color="primary">
+          Types of data collected
+        </Typography>
 
         <p>
           When registering on our site, as appropriate, we collect information
@@ -18,44 +29,65 @@ export var Privacy = function () {
 
         <p>We also may collect your:</p>
 
+        <ul>
+          <li>
+            <p>First name</p>
+          </li>
+          <li>
+            <p>Last name</p>
+          </li>
+          <li>
+            <p>Email address</p>
+          </li>
+          <li>
+            <p>Birth date or birth year</p>
+          </li>
+          <li>
+            <p>Gender</p>
+          </li>
+        </ul>
+
         <p>
-          First name Email address Birth date or birth year Gender Additionally,
-          if you register using Facebook or Google, you may be asked for further
-          information specific to your Facebook or Google account. (Typically
-          this will include your public profile information.) It is Facebook and
-          Google&apos;s responsibility that a list of this information be shown
-          to you, so that you can accept or deny those requests at the time of
-          registration.
+          Additionally, if you register using Facebook or Google, you may be
+          asked for further information specific to your Facebook or Google
+          account. (Typically this will include your public profile
+          information.) It is Facebook and Google&apos;s responsibility that a
+          list of this information be shown to you, so that you can accept or
+          deny those requests at the time of registration.
         </p>
 
-        <p>2. What do we use your information for?</p>
+        <Typography variant="h6" color="primary">
+          Purposes of collecting data
+        </Typography>
 
         <p>
           We collect your email address in order to send periodic emails, to
           contact you in regards to your Lingwars account, and to identify your
-          account. Do note that you may unsubcribe from our periodic emails at
+          account. Do note that you may unsubscribe from our periodic emails at
           any time, using the link at the bottom of any email you&apos;ve
           received from us.
         </p>
 
         <p>
-          We collect your first name, gender, and birth date or year in order to
-          customize your experience, ensure that you're having the best
-          workouts, and to conduct research.
+          We collect your first name, last name, gender, and birth date or year
+          in order to customize your experience, and to conduct research.
         </p>
 
         <p>
-          Any actions performed on RepWatch are collected and retained as a core
+          Any actions performed on Lingwars are collected and retained as a core
           function of providing and maintaining our service and may be used
           without identifying information in scientific research.
         </p>
 
-        <p>3. Deletion of personal data</p>
+        <Typography variant="h6" color="primary">
+          Deletion of personal data
+        </Typography>
 
         <p>
           Account deletion is as laid out in our Terms of Use. To have an
-          account registration deleted, use this form to contact customer
-          service.
+          account registration deleted, use
+          <Link href="/contact"> this form </Link>
+          to contact the customer service.
         </p>
 
         <p>
@@ -64,8 +96,12 @@ export var Privacy = function () {
           historical purposes, and for use in scientific research.
         </p>
 
+        <Typography variant="h6" color="primary">
+          Data sharing and third-parties
+        </Typography>
+
         <p>
-          4. We do not disclose any information to outside parties except as per
+          We do not disclose any information to outside parties except as per
           your request.
         </p>
 
@@ -82,13 +118,15 @@ export var Privacy = function () {
           our website, conducting our business, or servicing you, so long as
           those parties agree to keep this information confidential. We may also
           release your information when we believe release is appropriate to
-          comply with the law, enforce our site policies, or protect ours or
-          others rights, property, or safety. However, non-personally
+          comply with the law, enforce our site policies, or protect our or
+          others' rights, property, or safety. However, non-personally
           identifiable visitor information may be provided to other parties for
           marketing, advertising, or other uses.
         </p>
 
-        <p>5. How we protect your information</p>
+        <Typography variant="h6" color="primary">
+          Data protection security controls
+        </Typography>
 
         <p>
           We implement a variety of security measures to maintain the safety of
@@ -106,7 +144,7 @@ export var Privacy = function () {
 
         <p>
           After a transaction, sensitive information (such as credit card
-          numbers) are never stored on our servers.
+          numbers) is never stored on our servers.
         </p>
       </Box>
     </>

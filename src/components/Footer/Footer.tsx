@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import BottomNavigation from "@mui/material/BottomNavigation/BottomNavigation"
 import BottomNavigationAction from "@mui/material/BottomNavigationAction/BottomNavigationAction"
 import Box from "@mui/material/Box"
@@ -9,10 +9,48 @@ import InstagramIcon from "@mui/icons-material/Instagram"
 import { Tiktok as TiktokIcon } from "../../icons/tiktok"
 import { Facebook as FacebookIcon } from "../../icons/facebook"
 import { Logo } from "../../icons/logo"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+
+const footerNavLinks = [
+  {
+    label: "Terms & Conditions",
+    path: "/terms",
+  },
+  { label: "Privacy Policy", path: "/privacy" },
+  { label: "Contact Us", path: "/contact" },
+]
+
+const socialLinks = [
+  {
+    name: "facebook",
+    href: "https://www.facebook.com/lingwars",
+    icon: <FacebookIcon fontSize="small" />,
+  },
+  {
+    name: "instagram",
+    href: "https://www.instagram.com/lingwars",
+    icon: <InstagramIcon fontSize="small" />,
+  },
+  {
+    name: "tiktok",
+    href: "https://www.tiktok.com/@lingwars_official",
+    icon: <TiktokIcon fontSize="small" />,
+  },
+]
 
 const Footer = () => {
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState(null)
+
+  const location = useLocation()
+
+  useEffect(() => {
+    const footerNavPaths = footerNavLinks.map((link) => link.path)
+
+    if (!footerNavPaths.some((path) => location.pathname.includes(path))) {
+      setValue(null)
+      return
+    }
+  }, [location])
 
   return (
     <Box>
@@ -39,41 +77,29 @@ const Footer = () => {
               },
             }}
           >
-            <BottomNavigationAction
-              label="Terms &amp; Conditions"
-              component={Link}
-              to="/terms"
-            />
-            <BottomNavigationAction
-              label="Privacy Policy"
-              component={Link}
-              to="/privacy"
-            />
-            <BottomNavigationAction
-              label="Contact Us"
-              component={Link}
-              to="/contact"
-            />
+            {footerNavLinks.map((link) => {
+              return (
+                <BottomNavigationAction
+                  key={link.label.toLowerCase()}
+                  label={link.label}
+                  component={Link}
+                  to={link.path}
+                />
+              )
+            })}
           </BottomNavigation>
           <BottomNavigation>
-            <BottomNavigationAction
-              component="a"
-              href="https://www.facebook.com/groups"
-              target="_blank"
-              icon={<FacebookIcon fontSize="small" />}
-            />
-            <BottomNavigationAction
-              component="a"
-              href="https://www.instagram.com/repwatch_app/"
-              target="_blank"
-              icon={<InstagramIcon fontSize="small" />}
-            />
-            <BottomNavigationAction
-              component="a"
-              href="https://www.tiktok.com/@edsheeran"
-              target="_blank"
-              icon={<TiktokIcon fontSize="small" />}
-            />
+            {socialLinks.map((link) => {
+              return (
+                <BottomNavigationAction
+                  key={link.name}
+                  component="a"
+                  href={link.href}
+                  target="_blank"
+                  icon={link.icon}
+                />
+              )
+            })}
           </BottomNavigation>
         </Box>
         <Divider />

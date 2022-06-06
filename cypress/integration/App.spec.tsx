@@ -45,7 +45,7 @@ describe("App renders", () => {
     it("renders terms and conditions", () => {
       cy.get(`[aria-label="open drawer"]`).click()
       cy.get(`[aria-label="terms"]`).click()
-      cy.get(`h2`).contains("Terms and conditions")
+      cy.get(`h2`).contains("Terms and Conditions")
     })
   })
 
