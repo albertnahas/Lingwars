@@ -70,7 +70,7 @@ const Footer = () => {
             />
             <BottomNavigationAction
               component="a"
-              href="https://www.tiktok.com/lingwars"
+              href="https://www.tiktok.com/@lingwars_official"
               target="_blank"
               icon={<TiktokIcon fontSize="small" />}
             />
