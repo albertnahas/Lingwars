@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material"
 import { Box } from "@mui/system"
-import { Player } from "../../types/challenge"
+import { Challenge, Player } from "../../types/challenge"
 import { User } from "../../types/user"
 import { PlayerChip } from "../../molecules/PlayerChip/PlayerChip"
 import ExitToAppIcon from "@mui/icons-material/ExitToApp"
@@ -197,8 +197,8 @@ export const Game: FC<Props> = ({
 
 interface Props {
   user?: User | null
-  challenge: any
-  players?: any[]
+  challenge: Challenge
+  players?: Player[]
   onClickLeave: () => void
   onClickRematch: () => void
   rematch: boolean

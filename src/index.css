@@ -8,9 +8,6 @@ body {
 }
 body {
   position: relative;
-}
-
-body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -32,9 +29,6 @@ body,
 
 #root > div {
   min-height: 100%;
-}
-
-#root > div {
   display: flex;
   flex-direction: column;
   align-items: stretch;
