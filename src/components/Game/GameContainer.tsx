@@ -61,7 +61,7 @@ export const GameContainer = () => {
     <>
       <Game
         user={user}
-        challenge={challenge}
+        challenge={challenge || undefined}
         players={players}
         onClickLeave={onClickLeave}
         onClickRematch={onClickRematch}

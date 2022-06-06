@@ -11,6 +11,11 @@ export const Profile: FC<Props> = ({ signOut }) => {
   // const [editMode, setEditMode] = useState(false);
   const [openDeleteAccount, setOpenDeleteAccount] = useState(false)
 
+  // const PayPalButton = (window as any).paypal?.Buttons.driver("react", {
+  //   React,
+  //   ReactDOM,
+  // })
+
   return (
     <Container aria-label="profile container" maxWidth="lg">
       <Grid spacing={2} container>
@@ -62,11 +67,6 @@ export const Profile: FC<Props> = ({ signOut }) => {
             Delete Account
           </Button>
         </Grid>
-        {/* <PayPalButtons
-                createOrder={(data: any, actions: any) => createOrder(data, actions)}
-                onApprove={(data: any, actions: any) => onApprove(data, actions)}
-                style={{ layout: "horizontal" }}
-            /> */}
       </Grid>
       <ModalDialog
         closeButton={true}
