@@ -39,14 +39,14 @@ const socialLinks = [
 ]
 
 const Footer = () => {
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState(null)
 
   useEffect(() => {
     const footerNavPaths = footerNavLinks.map((link) => link.path)
 
     return () => {
       if (footerNavPaths.some((path) => window.location.href.includes(path))) {
-        setValue((e) => 0)
+        setValue(null)
       }
     }
   }, [])
