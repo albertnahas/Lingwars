@@ -65,7 +65,7 @@ export function DonationDialog(props: DonationDialogProps) {
         <Typography variant="subtitle1">
           If you enjoy playing Lingwars, please consider supporting us by making
           a donation. Every single dollar will help Lingwars to reach its full
-          potential
+          potential &#128522;
         </Typography>
         <form onSubmit={formik.handleSubmit}>
           <TextField
