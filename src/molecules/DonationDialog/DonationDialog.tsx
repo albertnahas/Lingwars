@@ -43,7 +43,6 @@ export function DonationDialog(props: DonationDialogProps) {
   const onApprove = (data: any, actions: any) => {
     // data.orderID
     const capture = actions.order.capture()
-    console.log(capture)
     onClose()
     return capture
   }

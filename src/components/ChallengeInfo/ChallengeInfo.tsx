@@ -46,7 +46,6 @@ const ChallengeInfo = ({ challenge }: { challenge: Challenge }) => {
       value: challenge?.variation,
     },
   ]
-  console.log(details)
 
   return (
     <Stack
