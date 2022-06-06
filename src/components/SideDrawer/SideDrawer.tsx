@@ -15,7 +15,7 @@ import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined"
 import GradingOutlinedIcon from "@mui/icons-material/GradingOutlined"
 import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined"
 import { userSelector } from "../../store/userSlice"
-import SettingsIcon from "@mui/icons-material/Settings"
+// import SettingsIcon from "@mui/icons-material/Settings"
 
 export const SideDrawer: React.FC<Props> = (props) => {
   const dispatch = useDispatch()
