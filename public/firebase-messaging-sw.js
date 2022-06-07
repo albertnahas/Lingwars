@@ -9,7 +9,7 @@ var firebaseConfig = {
     projectId: 'photorater-c5c6a',
     storageBucket: 'photorater-c5c6a.appspot.com',
     messagingSenderId: '1564450420',
-    appId: '1:1564450420:web:2b0bf08fd2f76c8e66bb21',
+  appId: "1:1564450420:web:2b0bf08fd2f76c8e66bb21",
     measurementId: 'G-6232FMVPW3'
 };
 
