@@ -98,7 +98,7 @@ export var Terms = function () {
           <li>
             <p>
               <strong>Website</strong> refers to Lingwars, accessible from{" "}
-              <Link href="/">https://lingwars.netlify.app</Link>.
+              <Link href="/">https://lingwars.com</Link>.
             </p>
           </li>
           <li>
@@ -518,7 +518,7 @@ export var Terms = function () {
           <li>
             <p>
               By visiting this page on our website:{" "}
-              <Link href="/contact">https://lingwars.netlify.app/contact</Link>
+              <Link href="/contact">https://lingwars.com/contact</Link>
             </p>
           </li>
         </ul>
