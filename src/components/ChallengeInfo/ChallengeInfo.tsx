@@ -31,7 +31,7 @@ const InfoBadge = styled("span")(
 `
 )
 
-const ChallengeInfo = ({ challenge }: { challenge: Challenge }) => {
+const ChallengeInfo = ({ challenge }: { challenge?: Challenge }) => {
   const details = [
     {
       text: "Players",
