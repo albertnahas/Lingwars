@@ -14,7 +14,7 @@ export var Landing: FC<Props> = function (props) {
         textAlign: "center",
         width: "100%",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
         flexDirection: "column",
         height: "calc( 100vh - 64px )",
