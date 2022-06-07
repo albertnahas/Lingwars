@@ -20,7 +20,9 @@ afterEach(() => {
 })
 
 describe("Game starts for one player", () => {
+  const TEST_UID = Cypress.env("TEST_UID")
   it("Starts single player challenge", () => {
+    cy.callFirestore("set", `users/${TEST_UID}`, { feedback: true })
     cy.get(`[aria-label="single player"]`).click()
     cy.get(`[aria-label="rounds-controller"] input[value="custom"]`).click()
     cy.get(`[aria-label="rounds"]`).clear().type("2")
