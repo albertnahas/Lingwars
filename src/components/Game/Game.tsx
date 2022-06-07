@@ -17,7 +17,7 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp"
 import { StandardGameContainer } from "./partials/StandardGame/StandardGameContainer"
 import { SpeedGameContainer } from "./partials/SpeedGame/SpeedGameContainer"
 import { RematchButton } from "../../atoms/RematchButton/RematchButton"
-import ChallengeInfo from "../ChallengeInfo/ChallengeInfo"
+import ChallengeInfo from "../../molecules/ChallengeInfo/ChallengeInfo"
 
 export type GameStatus =
   | "loading"

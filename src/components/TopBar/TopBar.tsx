@@ -140,7 +140,7 @@ export var TopBar: FC<Props> = function (props) {
                 </Button>
               </Tooltip>
             )}
-            <Tooltip title={`${theme.palette.mode} mode}`}>
+            <Tooltip title={`${theme.palette.mode} mode`}>
               <IconButton
                 sx={{ ml: 1 }}
                 onClick={colorMode.toggleColorMode}
