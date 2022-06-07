@@ -24,6 +24,8 @@ import { useNavigate } from "react-router-dom"
 import { loginModalSelector, setLoginModal } from "./store/loginModalSlice"
 import { Login } from "./components/Auth/Login/Login"
 import { DonationDialog } from "./molecules/DonationDialog/DonationDialog"
+import { FeedbackForm } from "./molecules/FeedbackForm/FeedbackForm"
+import { feedbackSelector, setFeedback } from "./store/feedbackSlice"
 
 const firebaseAppAuth = firebase.auth()
 
@@ -56,6 +58,7 @@ const App = function ({
 }: Props) {
   const currentUser = useSelector((state: State) => state.user.value)
   const snackbar = useSelector(snackbarSelector)
+  const openFeedbackModal = useSelector(feedbackSelector)
 
   const { signOutUser } = useCurrentUser()
   const { handleInstallClick, deferredPrompt } = usePwa()
@@ -173,6 +176,17 @@ const App = function ({
           loading={loading}
           modal={true}
         />
+      </ModalDialog>
+      <ModalDialog
+        closeButton={true}
+        open={openFeedbackModal || false}
+        setOpen={(open) => {
+          dispatch(setFeedback(open))
+        }}
+        title={"Feedback"}
+        maxWidth="xs"
+      >
+        <FeedbackForm />
       </ModalDialog>
       <Snackbar
         open={snackbar.open}
