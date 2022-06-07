@@ -20,7 +20,6 @@
     "src",
     "jest/mocks/cssMocks.js",
     "node_modules/vite-plugin-pwa/client.d.ts",
-    "node_modules/**/*.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
