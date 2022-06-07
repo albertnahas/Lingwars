@@ -88,7 +88,7 @@ export default function ModalDialog(props: Props) {
               )}
               <Box></Box>
               <Box sx={{ position: "absolute", right: 15 }}>
-                <IconButton onClick={handleClose}>
+                <IconButton aria-label="dialog close" onClick={handleClose}>
                   <CloseIcon />
                 </IconButton>
               </Box>
