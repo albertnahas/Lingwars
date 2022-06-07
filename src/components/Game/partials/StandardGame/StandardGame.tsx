@@ -6,7 +6,7 @@ import { getEval } from "../../../../utils/helpers"
 import { Round } from "../../../Round/Round"
 import { User } from "../../../../types/user"
 import { Challenge } from "../../../../types/challenge"
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateNextIcon from "@mui/icons-material/NavigateNext"
 
 export const StandardGame: FC<Props> = ({
   accuracy,
