@@ -78,7 +78,8 @@
     "typescript": "^4.6.4",
     "vite": "^2.9.5",
     "vite-plugin-eslint": "^1.6.1",
-    "vite-plugin-istanbul": "^2.7.3"
+    "vite-plugin-istanbul": "^2.7.3",
+    "vite-plugin-pwa": "^0.12.0"
   },
   "lint-staged": "lint-staged --config lint-staged.ts",
   "jest": {
