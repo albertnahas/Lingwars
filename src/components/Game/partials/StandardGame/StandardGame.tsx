@@ -6,6 +6,7 @@ import { getEval } from "../../../../utils/helpers"
 import { Round } from "../../../Round/Round"
 import { User } from "../../../../types/user"
 import { Challenge } from "../../../../types/challenge"
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 export const StandardGame: FC<Props> = ({
   accuracy,
@@ -36,9 +37,10 @@ export const StandardGame: FC<Props> = ({
           {turn < (challenge?.rounds || 10) && (
             <Button
               variant="contained"
-              sx={{ mt: 1 }}
+              sx={{ mt: 1, mb: 2 }}
               onClick={onClickNext}
               aria-label="next"
+              endIcon={<NavigateNextIcon />}
             >
               Next
             </Button>

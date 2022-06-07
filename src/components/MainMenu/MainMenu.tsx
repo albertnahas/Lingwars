@@ -27,7 +27,6 @@ export var MainMenu: FC<Props> = function (props) {
   const navigate = useNavigate()
 
   const [initialSetup, setInitialSetup] = useState<ChallengeSetup>()
-  const theme = useTheme()
 
   const {
     challenge,
