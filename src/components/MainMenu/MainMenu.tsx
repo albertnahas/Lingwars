@@ -93,11 +93,9 @@ export var MainMenu: FC<Props> = function (props) {
   return (
     <Box>
       <Zoom in={true}>
-        <img
-          alt="Spinning eart"
-          width="200"
-          src="https://r2.community.samsung.com/t5/image/serverpage/image-id/2858216iF966CF430D380489/image-size/large?v=v2&px=999"
-        />
+        <Box sx={{ m: 4 }}>
+          <img alt="Spinning eart" width="150" src="/assets/imgs/earth.webp" />
+        </Box>
       </Zoom>
       <Typography
         variant="h4"

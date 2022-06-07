@@ -15,7 +15,7 @@ import {
 } from "../../../../utils/helpers"
 import { StandardGame } from "./StandardGame"
 import { maxHints, maxLevels } from "../../../../utils/constants"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { userSelector } from "../../../../store/userSlice"
 import { challengeSelector } from "../../../../store/challengeSlice"
 import { useScores } from "../../../../hooks/useScores"
@@ -26,6 +26,7 @@ import {
   initialGameState,
   startingTurn,
 } from "../../GameReducer"
+import { setFeedback } from "../../../../store/feedbackSlice"
 
 export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   const [lang, setLang] = useState<any>()
@@ -36,6 +37,8 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   ] = useReducer(gameReducer, {
     ...initialGameState,
   })
+
+  const storeDispatch = useDispatch()
 
   const user = useSelector(userSelector)
   const challenge = useSelector(challengeSelector)
@@ -84,6 +87,9 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   )
 
   useEffect(() => {
+    if (challenge && answered && turn === challenge.rounds && !user?.feedback) {
+      storeDispatch(setFeedback(true))
+    }
     if (
       !challenge ||
       !challenge.id ||

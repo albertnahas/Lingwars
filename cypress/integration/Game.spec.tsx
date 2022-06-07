@@ -34,6 +34,8 @@ describe("Game starts for one player", () => {
     cy.get(`button[aria-label="next"]`).click()
     cy.get(`[aria-label="choices"] button`).first().click()
     cy.get(`[aria-label="done message"]`).contains("Done!")
+    // close feedback
+    cy.get(`button[aria-label="dialog close"]`).click()
     // leave
     cy.get(`button[aria-label="leave"]`).click()
     cy.get("h4").contains("Main Menu")
@@ -71,7 +73,7 @@ describe("Game starts for multi player - private mode", () => {
           cy.get(`[aria-label="start"]`).click()
           cy.get(`[aria-label="waiting for players"]`).should("have.length", 1)
           cy.log("get challengeId: ", challengeId)
-          cy.wait(500)
+          cy.wait(5000)
           cy.callFirestore(
             "get",
             `challenges/${challengeId}/players/${TEST_UID}`
@@ -97,6 +99,8 @@ describe("Game starts for multi player - private mode", () => {
           cy.get(`[aria-label="choices"] button`).first().click()
           cy.get(`[aria-label="done message"]`).contains("Done!")
           cy.get(`[aria-label="winner"]`).should("have.length", 1)
+          // close feedback
+          cy.get(`button[aria-label="dialog close"]`).click()
           // leave
           cy.get(`button[aria-label="leave"]`).click()
           cy.get(`button[aria-label="confirm-dialog-confirm-btn"]`).click()
@@ -168,6 +172,8 @@ describe("Game starts for multi player - live mode", () => {
         cy.get(`[aria-label="choices"] button`).first().click()
         cy.get(`[aria-label="done message"]`).contains("Done!")
         cy.get(`[aria-label="winner"]`).should("have.length", 1)
+        // close feedback
+        cy.get(`button[aria-label="dialog close"]`).click()
         // leave
         cy.get(`button[aria-label="leave"]`).click()
         cy.get(`button[aria-label="confirm-dialog-confirm-btn"]`).click()
