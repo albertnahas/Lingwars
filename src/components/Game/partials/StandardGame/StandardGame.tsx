@@ -28,7 +28,6 @@ export const StandardGame: FC<Props> = ({
             onAnswer={onAnswer}
             hintsLeft={hintsLeft}
           />
-          <Divider sx={{ my: 3 }} />
         </Box>
       )}
 
