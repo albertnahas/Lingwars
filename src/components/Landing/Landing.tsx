@@ -17,7 +17,7 @@ export var Landing: FC<Props> = function (props) {
         justifyContent: "flex-start",
         alignItems: "center",
         flexDirection: "column",
-        backgroundImage: `url('https://images.ctfassets.net/3viuren4us1n/3ZmnN0u53aCn5hiREoyAqW/e4962956cdda9da01d9eb090cf93ad6d/2020-09-03_nlp-non-english-language.webp') !important`,
+        backgroundImage: `url('/assets/imgs/world.jpg') !important`,
       }}
     >
       <Box sx={{ m: 8 }}>

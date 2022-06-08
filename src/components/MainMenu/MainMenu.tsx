@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import {
   Box,
   Button,
@@ -94,7 +94,12 @@ export var MainMenu: FC<Props> = function (props) {
     <Box>
       <Zoom in={true}>
         <Box sx={{ m: 4 }}>
-          <img alt="Spinning eart" width="150" src="/assets/imgs/earth.webp" />
+          <img
+            alt="Spinning eart"
+            style={{ filter: "drop-shadow(-10px 20px 20px rgba(0,0,0,0.2))" }}
+            width="150"
+            src="/assets/imgs/earth.webp"
+          />
         </Box>
       </Zoom>
       <Typography
