@@ -19,6 +19,14 @@ export const BoxContainer = styled("div")`
   width: 100%;
 `
 
+const RoundContainer = styled("div")(
+  ({ theme }) => `
+  padding: ${theme.spacing(3)};
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+`
+)
+
 export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
   const [langInfo, setLangInfo] = useState<any>()
   const [showInfo, setShowInfo] = useState<boolean>(false)
@@ -109,87 +117,96 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
       : "secondary.light"
 
   return (
-    <Container aria-label="round container">
-      <Box sx={{ mb: 2 }}>
-        <Typography color={timeColor} variant="h2" sx={{ textAlign: "center" }}>
-          {time !== roundTimeout && (
-            <Timer onTimeChange={onTimerChange} active={active} />
-          )}
-          {time === roundTimeout && (
-            <Typography
-              color="error.light"
-              variant="h6"
-              sx={{ textAlign: "center" }}
-            >
-              Oooops... The time is up!
-            </Typography>
-          )}
-        </Typography>
-        <Typography
-          color="secondary.light"
-          variant="body2"
-          sx={{ textAlign: "center" }}
-        >
-          {/* round score: {Math.round(100 / (time || 1))} */}
-        </Typography>
-      </Box>
-      <BoxContainer>
-        <Waveform url={langUrl} onActive={onActive} />
-        {!answer && active && (
-          <HintButton
-            disabled={hintsLeft === 0 || showHint}
-            onClick={() => setShowHint(true)}
-            hintsLeft={hintsLeft}
-          />
-        )}
-      </BoxContainer>
-      {choices && !answer && <Box aria-label="choices">{renderChoices()}</Box>}
-      {langInfo && showHint && (
-        <Alert sx={{ mt: 2, textAlign: "left" }} severity="info">
-          <Typography sx={{ mb: 1 }} variant="body2">
-            {hint}
+    <Container sx={{ p: 2 }} aria-label="round container">
+      <RoundContainer>
+        <Box sx={{ mb: 2 }}>
+          <Typography
+            color={timeColor}
+            variant="h2"
+            sx={{ textAlign: "center" }}
+          >
+            {time !== roundTimeout && (
+              <Timer onTimeChange={onTimerChange} active={active} />
+            )}
+            {time === roundTimeout && (
+              <Typography
+                color="error.light"
+                variant="h6"
+                sx={{ textAlign: "center" }}
+              >
+                Oooops... The time is up!
+              </Typography>
+            )}
           </Typography>
           <Typography
-            sx={{ fontWeight: 500 }}
-            color="primary.light"
-            variant="caption"
+            color="secondary.light"
+            variant="body2"
+            sx={{ textAlign: "center" }}
           >
-            Using hints is limited to {maxHints} per game and deducts your round
-            score by half. You have {hintsText} available.
+            {/* round score: {Math.round(100 / (time || 1))} */}
           </Typography>
-        </Alert>
-      )}
-
-      {answer && (
-        <>
-          <Alert
-            severity={answer.code1 === lang.code1 ? "success" : "error"}
-            aria-label="result"
-            action={
-              <Button
-                color="inherit"
-                size="small"
-                onClick={() => setShowInfo((si) => !si)}
-              >
-                Learn more
-              </Button>
-            }
-          >
-            {lang.name}
+        </Box>
+        <BoxContainer>
+          <Waveform url={langUrl} onActive={onActive} />
+          {!answer && active && (
+            <HintButton
+              disabled={hintsLeft === 0 || showHint}
+              onClick={() => setShowHint(true)}
+              hintsLeft={hintsLeft}
+            />
+          )}
+        </BoxContainer>
+        {choices && !answer && (
+          <Box aria-label="choices">{renderChoices()}</Box>
+        )}
+        {langInfo && showHint && (
+          <Alert sx={{ mt: 2, textAlign: "left" }} severity="info">
+            <Typography sx={{ mb: 1 }} variant="body2">
+              {hint}
+            </Typography>
+            <Typography
+              sx={{ fontWeight: 500 }}
+              color="primary.light"
+              variant="caption"
+            >
+              Using hints is limited to {maxHints} per game and deducts your
+              round score by half. You have {hintsText} available.
+            </Typography>
           </Alert>
-          {langCountries && showInfo && (
-            <Box sx={{ my: 2 }}>
-              <WorldDiagram
-                highlights={langCountries}
-                style={{ width: "100%", height: 400 }}
-              />
-            </Box>
-          )}
-          {langInfo && showInfo && (
-            <LanguageInfo name={langInfo.title} info={langInfo.extract} />
-          )}
-        </>
-      )}
+        )}
+
+        {answer && (
+          <>
+            <Alert
+              severity={answer.code1 === lang.code1 ? "success" : "error"}
+              aria-label="result"
+              action={
+                <Button
+                  color="inherit"
+                  size="small"
+                  onClick={() => setShowInfo((si) => !si)}
+                >
+                  Learn more
+                </Button>
+              }
+              x
+            >
+              {lang.name}
+            </Alert>
+            {langCountries && showInfo && (
+              <Box sx={{ my: 2 }}>
+                <WorldDiagram
+                  highlights={langCountries}
+                  style={{ width: "100%", height: 400 }}
+                />
+              </Box>
+            )}
+            {langInfo && showInfo && (
+              <LanguageInfo name={langInfo.title} info={langInfo.extract} />
+            )}
+          </>
+        )}
+      </RoundContainer>
     </Container>
   )
 }

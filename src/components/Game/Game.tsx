@@ -191,7 +191,7 @@ export const Game: FC<Props> = ({
             onClick={onClickLeave}
             endIcon={<ExitToAppIcon />}
           >
-            {challenge?.id ? "Leave" : "Return"}
+            {challenge?.id ? "Leave" : "Exit"}
           </Button>
         </Stack>
       </Container>
