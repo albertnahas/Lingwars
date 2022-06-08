@@ -189,7 +189,6 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
                   Learn more
                 </Button>
               }
-              x
             >
               {lang.name}
             </Alert>
