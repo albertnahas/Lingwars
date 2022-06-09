@@ -15,6 +15,7 @@ export interface User {
   gamesPlayed?: number
   colorMode?: "light" | "dark"
   settings?: UserSettings
+  isAnonymous?: boolean
 }
 
-export interface UserSettings {}
+export interface UserSettings { }

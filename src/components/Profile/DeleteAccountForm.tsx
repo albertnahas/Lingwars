@@ -1,5 +1,11 @@
 import React, { FC } from "react"
-import { Container, Typography, TextField, Button } from "@mui/material"
+import {
+  Container,
+  Typography,
+  TextField,
+  Button,
+  CircularProgress,
+} from "@mui/material"
 import { Box } from "@mui/system"
 import { useFormik } from "formik"
 import * as Yup from "yup"
@@ -73,6 +79,7 @@ export var DeleteAccountForm: FC<Props> = function (props) {
           />
 
           <Box sx={{ py: 2 }}>
+            {formik.isSubmitting && <CircularProgress />}
             <Button
               color="primary"
               disabled={formik.isSubmitting}
