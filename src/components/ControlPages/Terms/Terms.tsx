@@ -1,8 +1,9 @@
 import { Typography } from "@mui/material"
 import { styled, Box } from "@mui/system"
 import React from "react"
+import { Link } from "react-router-dom"
 
-const Link = styled("a")(
+const TermsLink = styled(Link)(
   ({ theme }) => `
   text-decoration: none;
   color: ${theme.palette.primary.main};
@@ -98,7 +99,7 @@ export var Terms = function () {
           <li>
             <p>
               <strong>Website</strong> refers to Lingwars, accessible from{" "}
-              <Link href="/">https://lingwars.com</Link>.
+              <TermsLink to="/">https://lingwars.com</TermsLink>.
             </p>
           </li>
           <li>
@@ -136,8 +137,8 @@ export var Terms = function () {
           collection, use and disclosure of Your personal information when You
           use the Application or the Website and tells You about Your privacy
           rights and how the law protects You. Please read Our{" "}
-          <Link href="/privacy">Privacy Policy</Link> carefully before using Our
-          Service.
+          <TermsLink to="/privacy">Privacy Policy</TermsLink> carefully before
+          using Our Service.
         </p>
         <Typography variant="h5" color="primary">
           Restrictions
@@ -344,8 +345,8 @@ export var Terms = function () {
         <p>
           You may choose to close your Account for any reason and at any time.
           If you choose to exercise this right, please inform Lingwars that you
-          wish to close your Account by submitting a deletion request in your
-          <Link href="/profile">profile</Link> page by clicking
+          wish to close your Account by submitting a deletion request in your{" "}
+          <TermsLink to="/profile">profile</TermsLink> page by clicking
           <strong> Delete</strong> button. You understand that if you close your
           Account, you may no longer have access to information previously
           associated with your Account (including, without limitation, your game
@@ -353,7 +354,8 @@ export var Terms = function () {
         </p>
         <p>
           If you believe your account has been terminated in error, contact our
-          customer service via <Link href="/contact">this contact form</Link>.
+          customer service via{" "}
+          <TermsLink to="/contact">this contact form</TermsLink>.
         </p>
         <p>
           When you request to delete content or your account, the deletion
@@ -533,7 +535,7 @@ export var Terms = function () {
           <li>
             <p>
               By visiting this page on our website:{" "}
-              <Link href="/contact">https://lingwars.com/contact</Link>
+              <TermsLink to="/contact">https://lingwars.com/contact</TermsLink>
             </p>
           </li>
         </ul>
