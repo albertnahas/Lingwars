@@ -1,8 +1,9 @@
 import { Typography } from "@mui/material"
 import { styled, Box } from "@mui/system"
 import React from "react"
+import { Link } from "react-router-dom"
 
-const Link = styled("a")(
+const TermsLink = styled(Link)(
   ({ theme }) => `
   text-decoration: none;
   color: ${theme.palette.primary.main};
@@ -98,7 +99,7 @@ export var Terms = function () {
           <li>
             <p>
               <strong>Website</strong> refers to Lingwars, accessible from{" "}
-              <Link href="/">https://lingwars.com</Link>.
+              <TermsLink to="/">https://lingwars.com</TermsLink>.
             </p>
           </li>
           <li>
@@ -136,8 +137,8 @@ export var Terms = function () {
           collection, use and disclosure of Your personal information when You
           use the Application or the Website and tells You about Your privacy
           rights and how the law protects You. Please read Our{" "}
-          <Link href="/privacy">Privacy Policy</Link> carefully before using Our
-          Service.
+          <TermsLink to="/privacy">Privacy Policy</TermsLink> carefully before
+          using Our Service.
         </p>
         <Typography variant="h5" color="primary">
           Restrictions
@@ -292,7 +293,7 @@ export var Terms = function () {
           As part of the Service, we offer you the opportunity to play with your
           friends or other matched opponents who generally align with your
           overall skill level in-game. These matched opponents may be
-          auto-generated players that look and play like real people.{" "}
+          auto-generated players that look and play like real people.
         </p>
         <p>
           You are solely responsible for your interactions with other users of
@@ -344,11 +345,27 @@ export var Terms = function () {
         <p>
           You may choose to close your Account for any reason and at any time.
           If you choose to exercise this right, please inform Lingwars that you
-          wish to close your Account by opening a help ticket directly in-game
-          via the Contact section and requesting that your Account be closed.
-          You understand that if you close your Account, you may no longer have
-          access to information previously associated with your Account
-          (including, without limitation, your game progress).
+          wish to close your Account by submitting a deletion request in your{" "}
+          <TermsLink to="/profile">profile</TermsLink> page by clicking
+          <strong> Delete</strong> button. You understand that if you close your
+          Account, you may no longer have access to information previously
+          associated with your Account (including, without limitation, your game
+          progress).
+        </p>
+        <p>
+          If you believe your account has been terminated in error, contact our
+          customer service via{" "}
+          <TermsLink to="/contact">this contact form</TermsLink>.
+        </p>
+        <p>
+          When you request to delete content or your account, the deletion
+          process will automatically begin no more than 30 days after your
+          request. It may take up to 90 days to delete your data after the
+          deletion process begins. While the deletion process for such data is
+          being undertaken, the data remains subject to these Terms and
+          Conditions and our Privacy Policy. After the data is deleted, it may
+          take us up to another 90 days to remove it from backups and disaster
+          recovery systems.
         </p>
         <p>
           We may terminate or suspend Your access immediately, without prior
@@ -518,7 +535,7 @@ export var Terms = function () {
           <li>
             <p>
               By visiting this page on our website:{" "}
-              <Link href="/contact">https://lingwars.com/contact</Link>
+              <TermsLink to="/contact">https://lingwars.com/contact</TermsLink>
             </p>
           </li>
         </ul>
