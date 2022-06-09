@@ -84,10 +84,14 @@ export var Privacy = function () {
         </Typography>
 
         <p>
-          Account deletion is as laid out in our Terms of Use. To have an
-          account registration deleted, use
-          <Link href="/contact"> this form </Link>
-          to contact the customer service.
+          Account deletion is as laid out in our
+          <Link href="/terms"> Terms and Conditions</Link>, paragraph
+          <strong> Termination</strong>. To have an account registration and
+          data associated with it deleted, use the <strong>Delete </strong>
+          option from your
+          <Link href="/profile"> profile</Link> page or contact our customer
+          service via this <Link href="/contact">contact form</Link> indicating
+          <i> Please delete my account</i> as a request text.
         </p>
 
         <p>
