@@ -27,6 +27,7 @@ import {
   startingTurn,
 } from "../../GameReducer"
 import { setFeedback } from "../../../../store/feedbackSlice"
+import { useUser } from "../../../../hooks/useUser"
 
 export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   const [lang, setLang] = useState<any>()
@@ -43,6 +44,7 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   const user = useSelector(userSelector)
   const challenge = useSelector(challengeSelector)
   const { writeScore } = useScores()
+  const { updateUser } = useUser()
 
   const levelLangs = useMemo<Language[]>(
     () =>
@@ -88,6 +90,10 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
 
   useEffect(() => {
     if (challenge && answered && turn === challenge.rounds && !user?.feedback) {
+      updateUser({
+        ...user,
+        gamesPlayed: user?.gamesPlayed ? user.gamesPlayed++ : 1,
+      })
       storeDispatch(setFeedback(true))
     }
     if (
