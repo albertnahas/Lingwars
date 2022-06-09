@@ -27,7 +27,11 @@ import {
   startingTurn,
 } from "../../GameReducer"
 
-export const SpeedGameContainer: FC<Props> = ({ display, players }) => {
+export const SpeedGameContainer: FC<Props> = ({
+  display,
+  players,
+  onComplete,
+}) => {
   const [lang, setLang] = useState<any>()
 
   const [
@@ -82,6 +86,13 @@ export const SpeedGameContainer: FC<Props> = ({ display, players }) => {
     },
     [lang]
   )
+
+  useEffect(() => {
+    if (challenge && answered && turn === challenge.rounds) {
+      onComplete?.()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answered, turn])
 
   useEffect(() => {
     if (
@@ -148,4 +159,5 @@ export const SpeedGameContainer: FC<Props> = ({ display, players }) => {
 interface Props {
   display?: boolean
   players?: any[]
+  onComplete?: () => void
 }
