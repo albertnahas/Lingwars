@@ -1,15 +1,7 @@
 import { Typography } from "@mui/material"
-import { styled, Box } from "@mui/system"
+import { Box } from "@mui/system"
 import React from "react"
-import { Link } from "react-router-dom"
-
-const TermsLink = styled(Link)(
-  ({ theme }) => `
-  text-decoration: none;
-  color: ${theme.palette.primary.main};
-  cursor: pointer;
-`
-)
+import { ControlLink } from "../ControlPage"
 
 export var Terms = function () {
   return (
@@ -99,7 +91,7 @@ export var Terms = function () {
           <li>
             <p>
               <strong>Website</strong> refers to Lingwars, accessible from{" "}
-              <TermsLink to="/">https://lingwars.com</TermsLink>.
+              <ControlLink to="/">https://lingwars.com</ControlLink>.
             </p>
           </li>
           <li>
@@ -137,8 +129,8 @@ export var Terms = function () {
           collection, use and disclosure of Your personal information when You
           use the Application or the Website and tells You about Your privacy
           rights and how the law protects You. Please read Our{" "}
-          <TermsLink to="/privacy">Privacy Policy</TermsLink> carefully before
-          using Our Service.
+          <ControlLink to="/privacy">Privacy Policy</ControlLink> carefully
+          before using Our Service.
         </p>
         <Typography variant="h5" color="primary">
           Restrictions
@@ -346,7 +338,7 @@ export var Terms = function () {
           You may choose to close your Account for any reason and at any time.
           If you choose to exercise this right, please inform Lingwars that you
           wish to close your Account by submitting a deletion request in your{" "}
-          <TermsLink to="/profile">profile</TermsLink> page by clicking
+          <ControlLink to="/profile">profile</ControlLink> page by clicking
           <strong> Delete</strong> button. You understand that if you close your
           Account, you may no longer have access to information previously
           associated with your Account (including, without limitation, your game
@@ -355,7 +347,7 @@ export var Terms = function () {
         <p>
           If you believe your account has been terminated in error, contact our
           customer service via{" "}
-          <TermsLink to="/contact">this contact form</TermsLink>.
+          <ControlLink to="/contact">this contact form</ControlLink>.
         </p>
         <p>
           When you request to delete content or your account, the deletion
@@ -535,7 +527,9 @@ export var Terms = function () {
           <li>
             <p>
               By visiting this page on our website:{" "}
-              <TermsLink to="/contact">https://lingwars.com/contact</TermsLink>
+              <ControlLink to="/contact">
+                https://lingwars.com/contact
+              </ControlLink>
             </p>
           </li>
         </ul>
