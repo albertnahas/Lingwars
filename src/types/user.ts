@@ -17,4 +17,4 @@ export interface User {
   settings?: UserSettings
 }
 
-export interface UserSettings { }
+export interface UserSettings {}
