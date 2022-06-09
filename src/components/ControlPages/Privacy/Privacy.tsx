@@ -1,16 +1,7 @@
 import React from "react"
 import { Typography } from "@mui/material"
 import { Box } from "@mui/system"
-import { styled } from "@mui/system"
-import { Link } from "react-router-dom"
-
-const PrivacyLink = styled(Link)(
-  ({ theme }) => `
-  text-decoration: none;
-  color: ${theme.palette.primary.main};
-  cursor: pointer;
-`
-)
+import { ControlLink } from "../ControlPage"
 
 export var Privacy = function () {
   return (
@@ -86,14 +77,14 @@ export var Privacy = function () {
 
         <p>
           Account deletion is as laid out in our
-          <PrivacyLink to="/terms"> Terms and Conditions</PrivacyLink>,
+          <ControlLink to="/terms"> Terms and Conditions</ControlLink>,
           paragraph
           <strong> Termination</strong>. To have an account registration and
           data associated with it deleted, use the <strong>Delete </strong>
           option from your
-          <PrivacyLink to="/profile"> profile</PrivacyLink> page or contact our
+          <ControlLink to="/profile"> profile</ControlLink> page or contact our
           customer service via this{" "}
-          <PrivacyLink to="/contact">contact form</PrivacyLink> indicating
+          <ControlLink to="/contact">contact form</ControlLink> indicating
           <i> Please delete my account</i> as a request text.
         </p>
 
