@@ -292,7 +292,7 @@ export var Terms = function () {
           As part of the Service, we offer you the opportunity to play with your
           friends or other matched opponents who generally align with your
           overall skill level in-game. These matched opponents may be
-          auto-generated players that look and play like real people.{" "}
+          auto-generated players that look and play like real people.
         </p>
         <p>
           You are solely responsible for your interactions with other users of
@@ -344,11 +344,26 @@ export var Terms = function () {
         <p>
           You may choose to close your Account for any reason and at any time.
           If you choose to exercise this right, please inform Lingwars that you
-          wish to close your Account by opening a help ticket directly in-game
-          via the Contact section and requesting that your Account be closed.
-          You understand that if you close your Account, you may no longer have
-          access to information previously associated with your Account
-          (including, without limitation, your game progress).
+          wish to close your Account by submitting a deletion request in your
+          <Link href="/profile">profile</Link> page by clicking
+          <strong> Delete</strong> button. You understand that if you close your
+          Account, you may no longer have access to information previously
+          associated with your Account (including, without limitation, your game
+          progress).
+        </p>
+        <p>
+          If you believe your account has been terminated in error, contact our
+          customer service via <Link href="/contact">this contact form</Link>.
+        </p>
+        <p>
+          When you request to delete content or your account, the deletion
+          process will automatically begin no more than 30 days after your
+          request. It may take up to 90 days to delete your data after the
+          deletion process begins. While the deletion process for such data is
+          being undertaken, the data remains subject to these Terms and
+          Conditions and our Privacy Policy. After the data is deleted, it may
+          take us up to another 90 days to remove it from backups and disaster
+          recovery systems.
         </p>
         <p>
           We may terminate or suspend Your access immediately, without prior
