@@ -15,7 +15,7 @@ import {
 } from "../../../../utils/helpers"
 import { StandardGame } from "./StandardGame"
 import { maxHints, maxLevels } from "../../../../utils/constants"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { userSelector } from "../../../../store/userSlice"
 import { challengeSelector } from "../../../../store/challengeSlice"
 import { useScores } from "../../../../hooks/useScores"
@@ -26,10 +26,8 @@ import {
   initialGameState,
   startingTurn,
 } from "../../GameReducer"
-import { setFeedback } from "../../../../store/feedbackSlice"
-import { useUser } from "../../../../hooks/useUser"
 
-export const StandardGameContainer: FC<Props> = ({ display, players }) => {
+export const StandardGameContainer: FC<Props> = ({ display, onComplete }) => {
   const [lang, setLang] = useState<any>()
 
   const [
@@ -39,12 +37,9 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
     ...initialGameState,
   })
 
-  const storeDispatch = useDispatch()
-
   const user = useSelector(userSelector)
   const challenge = useSelector(challengeSelector)
   const { writeScore } = useScores()
-  const { updateUser } = useUser()
 
   const levelLangs = useMemo<Language[]>(
     () =>
@@ -89,13 +84,13 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   )
 
   useEffect(() => {
-    if (challenge && answered && turn === challenge.rounds && !user?.feedback) {
-      updateUser({
-        ...user,
-        gamesPlayed: user?.gamesPlayed ? user.gamesPlayed++ : 1,
-      })
-      storeDispatch(setFeedback(true))
+    if (challenge && answered && turn === challenge.rounds) {
+      onComplete?.()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answered, turn])
+
+  useEffect(() => {
     if (
       !challenge ||
       !challenge.id ||
@@ -139,4 +134,5 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
 interface Props {
   display?: boolean
   players?: any[]
+  onComplete?: () => void
 }

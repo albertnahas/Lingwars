@@ -102,7 +102,7 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
       formik.setFieldValue("rounds", defaultRounds)
     } else {
       setCustomRoundsInput(false)
-      formik.setFieldValue("rounds", roundsController)
+      formik.setFieldValue("rounds", Number(roundsController))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roundsController])
