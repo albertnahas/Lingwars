@@ -120,24 +120,24 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
     <Container sx={{ p: 2 }} aria-label="round container">
       <RoundContainer>
         <Box sx={{ mb: 2 }}>
-          <Typography
-            color={timeColor}
-            variant="h2"
-            sx={{ textAlign: "center" }}
-          >
-            {time !== roundTimeout && (
+          {time !== roundTimeout && (
+            <Typography
+              color={timeColor}
+              variant="h2"
+              sx={{ textAlign: "center" }}
+            >
               <Timer onTimeChange={onTimerChange} active={active} />
-            )}
-            {time === roundTimeout && (
-              <Typography
-                color="error.light"
-                variant="h6"
-                sx={{ textAlign: "center" }}
-              >
-                Oooops... The time is up!
-              </Typography>
-            )}
-          </Typography>
+            </Typography>
+          )}
+          {time === roundTimeout && (
+            <Typography
+              color="error.light"
+              variant="h6"
+              sx={{ textAlign: "center" }}
+            >
+              Oooops... The time is up!
+            </Typography>
+          )}
           <Typography
             color="secondary.light"
             variant="body2"
@@ -189,7 +189,6 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
                   Learn more
                 </Button>
               }
-              x
             >
               {lang.name}
             </Alert>
