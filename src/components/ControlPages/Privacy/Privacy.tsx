@@ -3,6 +3,7 @@ import { Typography } from "@mui/material"
 import { Box } from "@mui/system"
 import { ControlLink } from "../ControlPage"
 
+
 export var Privacy = function () {
   return (
     <>
