@@ -12,6 +12,7 @@ export interface User {
   uid?: string
   messagingToken?: string
   feedback?: boolean
+  gamesPlayed?: number
   colorMode?: "light" | "dark"
   settings?: UserSettings
 }
