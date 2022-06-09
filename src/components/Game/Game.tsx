@@ -32,6 +32,7 @@ export const Game: FC<Props> = ({
   players,
   onClickLeave,
   onClickRematch,
+  onComplete,
   rematch,
   error,
 }) => {
@@ -80,6 +81,7 @@ export const Game: FC<Props> = ({
           <StandardGameContainer
             display={gameStatus !== "waiting"}
             players={players}
+            onComplete={onComplete}
           />
         )
       case "speed":
@@ -87,6 +89,7 @@ export const Game: FC<Props> = ({
           <SpeedGameContainer
             display={gameStatus !== "waiting"}
             players={players}
+            onComplete={onComplete}
           />
         )
 
@@ -205,6 +208,7 @@ interface Props {
   players?: Player[]
   onClickLeave: () => void
   onClickRematch: () => void
+  onComplete: () => void
   rematch: boolean
   error?: string
 }

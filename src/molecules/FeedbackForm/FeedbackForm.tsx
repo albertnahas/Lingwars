@@ -144,7 +144,7 @@ export var FeedbackForm: FC<Props> = function (props) {
               Thank you!
             </Typography>
             <Typography color="textSecondary" gutterBottom variant="body2">
-              Your feedback has been recieved
+              Your feedback has been received
             </Typography>
           </Stack>
         )}

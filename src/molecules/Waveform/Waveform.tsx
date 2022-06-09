@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react"
 import WaveSurfer from "wavesurfer.js"
 import PlayArrowIcon from "@mui/icons-material/PlayArrow"
 import PauseIcon from "@mui/icons-material/Pause"
+import { isiOS } from "../../utils/helpers"
 
 export const WaveformContainer = styled("div")`
   display: flex;
@@ -41,6 +42,9 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
   const [disabled, setDisabled] = useState(true)
   const waveform = useRef<WaveSurfer>()
   const waveformRef = useRef<HTMLMediaElement>(null)
+  const audioRef = useRef<HTMLMediaElement>(null)
+
+  const ios = isiOS()
 
   useEffect(() => {
     waveform.current = WaveSurfer.create({
@@ -56,6 +60,13 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
       hideScrollbar: true,
       normalize: true,
     })
+
+    if (audioRef && audioRef.current) {
+      audioRef.current.id = "audio-player-iosfix"
+      audioRef.current.src =
+        "data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU2LjM2LjEwMAAAAAAAAAAAAAAA//OEAAAAAAAAAAAAAAAAAAAAAAAASW5mbwAAAA8AAAAEAAABIADAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDV1dXV1dXV1dXV1dXV1dXV1dXV1dXV1dXV6urq6urq6urq6urq6urq6urq6urq6urq6v////////////////////////////////8AAAAATGF2YzU2LjQxAAAAAAAAAAAAAAAAJAAAAAAAAAAAASDs90hvAAAAAAAAAAAAAAAAAAAA//MUZAAAAAGkAAAAAAAAA0gAAAAATEFN//MUZAMAAAGkAAAAAAAAA0gAAAAARTMu//MUZAYAAAGkAAAAAAAAA0gAAAAAOTku//MUZAkAAAGkAAAAAAAAA0gAAAAANVVV"
+      audioRef.current.play()
+    }
 
     waveform.current?.load(waveformRef.current || "")
     setPlaying(false)
@@ -88,6 +99,7 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
       </PlayButton>
       <Wave id="waveform" />
       <audio ref={waveformRef} id="track" src={url} />
+      {ios && <audio ref={audioRef} />}
     </WaveformContainer>
   )
 }

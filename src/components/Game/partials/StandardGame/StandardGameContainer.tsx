@@ -15,7 +15,7 @@ import {
 } from "../../../../utils/helpers"
 import { StandardGame } from "./StandardGame"
 import { maxHints, maxLevels } from "../../../../utils/constants"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { userSelector } from "../../../../store/userSlice"
 import { challengeSelector } from "../../../../store/challengeSlice"
 import { useScores } from "../../../../hooks/useScores"
@@ -26,9 +26,8 @@ import {
   initialGameState,
   startingTurn,
 } from "../../GameReducer"
-import { setFeedback } from "../../../../store/feedbackSlice"
 
-export const StandardGameContainer: FC<Props> = ({ display, players }) => {
+export const StandardGameContainer: FC<Props> = ({ display, onComplete }) => {
   const [lang, setLang] = useState<any>()
 
   const [
@@ -37,8 +36,6 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   ] = useReducer(gameReducer, {
     ...initialGameState,
   })
-
-  const storeDispatch = useDispatch()
 
   const user = useSelector(userSelector)
   const challenge = useSelector(challengeSelector)
@@ -87,9 +84,13 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
   )
 
   useEffect(() => {
-    if (challenge && answered && turn === challenge.rounds && !user?.feedback) {
-      storeDispatch(setFeedback(true))
+    if (challenge && answered && turn === challenge.rounds) {
+      onComplete?.()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answered, turn])
+
+  useEffect(() => {
     if (
       !challenge ||
       !challenge.id ||
@@ -133,4 +134,5 @@ export const StandardGameContainer: FC<Props> = ({ display, players }) => {
 interface Props {
   display?: boolean
   players?: any[]
+  onComplete?: () => void
 }

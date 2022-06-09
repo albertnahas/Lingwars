@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import {
   challengeSelector,
   challengeSetupSelector,
@@ -9,6 +9,8 @@ import { userSelector } from "../../store/userSlice"
 import { Game } from "./Game"
 import { useChallenge } from "../../hooks/useChallenge"
 import { ConfirmDialog } from "../../molecules/ConfirmDialog/ConfirmDialog"
+import { useUser } from "../../hooks/useUser"
+import { setFeedback } from "../../store/feedbackSlice"
 
 export const GameContainer = () => {
   const [open, setOpen] = useState(false)
@@ -24,7 +26,10 @@ export const GameContainer = () => {
     cancelRematch,
   } = useChallenge(gameId)
 
+  const { updateUser } = useUser()
+
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const user = useSelector(userSelector)
   const challenge = useSelector(challengeSelector)
@@ -53,6 +58,19 @@ export const GameContainer = () => {
     }
   }
 
+  const onComplete = () => {
+    if (!user?.feedback) {
+      setTimeout(() => {
+        dispatch(setFeedback(true))
+      }, 1000)
+    }
+    const gamesPlayed = user?.gamesPlayed || 0
+    updateUser({
+      ...user,
+      gamesPlayed: gamesPlayed + 1,
+    })
+  }
+
   const onClickRematch = () => {
     requestRematch()
   }
@@ -65,6 +83,7 @@ export const GameContainer = () => {
         players={players}
         onClickLeave={onClickLeave}
         onClickRematch={onClickRematch}
+        onComplete={onComplete}
         rematch={rematch}
         error={error}
       />
