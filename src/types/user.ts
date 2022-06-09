@@ -18,4 +18,4 @@ export interface User {
   isAnonymous?: boolean
 }
 
-export interface UserSettings { }
+export interface UserSettings {}
