@@ -1,48 +1,48 @@
 import { FC, useState } from "react"
-import { Container, Box, Typography, Grid, Button, Avatar } from "@mui/material"
+import { Container, Box, Grid, Button } from "@mui/material"
 import { useSelector } from "react-redux"
-import { UserCircle as UserCircleIcon } from "../../icons/user-circle"
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
 import { DeleteAccountForm } from "./DeleteAccountForm"
 import { userSelector } from "../../store/userSlice"
+import { useUser } from "../../hooks/useUser"
+import { ProfilePhoto } from "./partials/ProfilePhoto/ProfilePhoto"
+import { EditableDisplay } from "./partials/EditableDisplay/EditableDisplay"
 
 export const Profile: FC<Props> = ({ signOut }) => {
   const user = useSelector(userSelector)
-  // const [editMode, setEditMode] = useState(false);
   const [openDeleteAccount, setOpenDeleteAccount] = useState(false)
 
-  // const PayPalButton = (window as any).paypal?.Buttons.driver("react", {
-  //   React,
-  //   ReactDOM,
-  // })
+  const { updateUser } = useUser()
+
+  const [imageAsUrl, setImageAsUrl] = useState<any>(user?.photoURL)
+
+  const onClickSubmitDisplayName = (name?: string) => {
+    return updateUser({ ...user, displayName: name || "" })
+  }
+
+  const onUploadPhoto = (photoURL: string) => {
+    return updateUser({ ...user, photoURL })
+  }
 
   return (
     <Container aria-label="profile container" maxWidth="lg">
       <Grid spacing={2} container>
         <Grid xs={12} item>
           <Box>
-            <Box
-              sx={{
-                position: "relative",
-                margin: "auto",
-                boxSizing: "border-box",
-              }}
-            >
-              <Avatar
-                sx={{
-                  height: 90,
-                  width: 90,
-                  m: "auto",
-                  my: 4,
-                }}
-                src={user?.photoURL}
-                alt="profile photo"
-              >
-                <UserCircleIcon fontSize="large" />
-              </Avatar>
-              <Typography variant="h5" color="text.secondary">
-                {user?.displayName}
-              </Typography>
+            <Box sx={{ mt: 4, mb: 2 }}>
+              <ProfilePhoto
+                imageAsUrl={imageAsUrl}
+                setImageAsUrl={setImageAsUrl}
+                onUpload={onUploadPhoto}
+              />
+            </Box>
+            <Box sx={{ mb: 2 }}>
+              <EditableDisplay
+                name="displayName"
+                label={"Type in the username you want others to see"}
+                onSubmit={onClickSubmitDisplayName}
+                text={user?.displayName}
+              />
             </Box>
           </Box>
           {/* <Divider sx={{ mt: 2, mb: 2 }} variant="middle" /> */}
@@ -57,12 +57,14 @@ export const Profile: FC<Props> = ({ signOut }) => {
             Sign out
           </Button>
         </Grid>
+
         <Grid xs={12} item>
           <Button
             onClick={() => setOpenDeleteAccount(true)}
             color="warning"
             size="small"
             variant="text"
+            sx={{ my: 1 }}
           >
             Delete Account
           </Button>

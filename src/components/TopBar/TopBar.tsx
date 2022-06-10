@@ -74,6 +74,13 @@ const DashboardNavbarRoot = styled(AppBar)(({ theme }: any) => ({
   boxShadow: theme.shadows[0],
 }))
 
+const SmallProfileAvatar = styled(Avatar)(({ theme }: any) => ({
+  height: 40,
+  width: 40,
+  ml: 1,
+  border: `2px solid ${theme.palette.action.disabledBackground}`,
+}))
+
 export var TopBar: FC<Props> = function (props) {
   const theme = useTheme()
   const dispatch = useDispatch()
@@ -153,19 +160,14 @@ export var TopBar: FC<Props> = function (props) {
                 )}
               </IconButton>
             </Tooltip>
-            <Avatar
-              sx={{
-                height: 40,
-                width: 40,
-                ml: 1,
-              }}
+            <SmallProfileAvatar
               src={user.photoURL}
-              alt="profile photo"
+              alt="profile"
               aria-label="profile"
               onClick={() => navigate("/profile")}
             >
               <UserCircleIcon fontSize="small" />
-            </Avatar>
+            </SmallProfileAvatar>
           </>
         ) : (
           <>
