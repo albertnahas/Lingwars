@@ -73,7 +73,9 @@ export function DonationDialog(props: DonationDialogProps) {
 
   useEffect(() => {
     if (donated) {
-      animation()
+      setTimeout(() => {
+        animation()
+      }, 500)
     }
     return () => {}
   }, [donated])
