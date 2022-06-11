@@ -39,6 +39,7 @@ export const useCurrentUser = () => {
               photoURL: user.photoURL || getAvatarURL(),
               uid: user.uid,
               messagingToken: user.messagingToken || null,
+              isAnonymous: user.isAnonymous || false,
             })
         } else {
           onlineRef.on("value", (snapshot) => {
