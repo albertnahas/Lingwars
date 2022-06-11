@@ -32,7 +32,7 @@ const sideDrawerLinks = [
     icon: <InfoIcon />,
   },
   {
-    ariaLable: "contact",
+    ariaLabel: "contact",
     path: "/contact",
     primary: "Contact us",
     icon: <ForumOutlinedIcon />,
