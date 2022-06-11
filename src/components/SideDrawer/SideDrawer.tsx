@@ -6,7 +6,7 @@ import Divider from "@mui/material/Divider"
 import ListItem from "@mui/material/ListItem"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
-import InfoIcon from "@mui/icons-material/Info"
+import GroupsIcon from "@mui/icons-material/Groups"
 import { drawerSelector, setDrawer } from "../../store/drawerSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
@@ -29,7 +29,7 @@ const sideDrawerLinks = [
     ariaLabel: "about",
     path: "/about",
     primary: "About us",
-    icon: <InfoIcon />,
+    icon: <GroupsIcon />,
   },
   {
     ariaLabel: "contact",
