@@ -6,6 +6,7 @@ import Divider from "@mui/material/Divider"
 import ListItem from "@mui/material/ListItem"
 import ListItemIcon from "@mui/material/ListItemIcon"
 import ListItemText from "@mui/material/ListItemText"
+import InfoIcon from "@mui/icons-material/Info"
 import { drawerSelector, setDrawer } from "../../store/drawerSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
@@ -16,6 +17,39 @@ import GradingOutlinedIcon from "@mui/icons-material/GradingOutlined"
 import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined"
 import { userSelector } from "../../store/userSlice"
 // import SettingsIcon from "@mui/icons-material/Settings"
+
+const sideDrawerLinks = [
+  {
+    ariaLabel: "Home",
+    path: "/",
+    primary: "Home",
+    icon: <HomeIcon />,
+  },
+  {
+    ariaLabel: "about",
+    path: "/about",
+    primary: "About us",
+    icon: <InfoIcon />,
+  },
+  {
+    ariaLable: "contact",
+    path: "/contact",
+    primary: "Contact us",
+    icon: <ForumOutlinedIcon />,
+  },
+  {
+    ariaLabel: "privacy",
+    path: "/privacy",
+    primary: "Privacy policy",
+    icon: <PrivacyTipOutlinedIcon />,
+  },
+  {
+    ariaLabel: "terms",
+    path: "/terms",
+    primary: "Terms & Conditions",
+    icon: <GradingOutlinedIcon />,
+  },
+]
 
 export const SideDrawer: React.FC<Props> = (props) => {
   const dispatch = useDispatch()
@@ -43,13 +77,23 @@ export const SideDrawer: React.FC<Props> = (props) => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        <ListItem aria-label={"Home"} button component={Link} to="/">
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="Home" color="text.secondary" />
-        </ListItem>
-
+        {sideDrawerLinks.map((link) => {
+          return (
+            <ListItem
+              key={link.ariaLabel}
+              aria-label={link.ariaLabel}
+              button
+              component={Link}
+              to={link.path}
+            >
+              <ListItemIcon>{link.icon}</ListItemIcon>
+              <ListItemText
+                primary={link.primary}
+                color="text.secondary"
+              ></ListItemText>
+            </ListItem>
+          )
+        })}
         {/* <ListItem
           aria-label={"settings"}
           button
@@ -61,30 +105,6 @@ export const SideDrawer: React.FC<Props> = (props) => {
           </ListItemIcon>
           <ListItemText primary="Settings" color="text.secondary" />
         </ListItem> */}
-
-        <ListItem aria-label={"contact"} button component={Link} to="/contact">
-          <ListItemIcon>
-            <ForumOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Contact us" color="text.secondary" />
-        </ListItem>
-
-        <ListItem aria-label={"privacy"} button component={Link} to="/privacy">
-          <ListItemIcon>
-            <PrivacyTipOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText primary="Privacy policy" color="text.secondary" />
-        </ListItem>
-
-        <ListItem aria-label={"terms"} button component={Link} to="/terms">
-          <ListItemIcon>
-            <GradingOutlinedIcon />
-          </ListItemIcon>
-          <ListItemText
-            primary="Terms &#38; Conditions"
-            color="text.secondary"
-          />
-        </ListItem>
       </List>
       <Divider />
       {user && (
