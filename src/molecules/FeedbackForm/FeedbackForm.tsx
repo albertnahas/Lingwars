@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react"
+import React, { FC, useEffect, useState } from "react"
 import { Container, Typography, TextField, Button, Stack } from "@mui/material"
 import { Box, useTheme } from "@mui/system"
 import { useFormik } from "formik"
@@ -42,7 +42,6 @@ export var FeedbackForm: FC<Props> = function (props) {
         .then(() => {
           setSent(true)
           updateUser({ ...user, feedback: true })
-          animation()
           setTimeout(() => {
             props.setOpen?.(false)
           }, 2500)
@@ -52,6 +51,13 @@ export var FeedbackForm: FC<Props> = function (props) {
         })
     },
   })
+
+  useEffect(() => {
+    if (sent) {
+      animation()
+    }
+    return () => {}
+  }, [sent])
 
   const onRatingChange = (
     event: React.SyntheticEvent<Element, Event>,
