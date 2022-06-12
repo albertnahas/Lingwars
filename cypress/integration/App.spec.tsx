@@ -49,6 +49,11 @@ describe("App renders", () => {
       cy.get(`[aria-label="terms"]`).click()
       cy.get(`h2`).contains("Terms and Conditions")
     })
+    it("renders about us", () => {
+      cy.get(`[aria-label="open drawer"]`).click()
+      cy.get(`[aria-label="about"]`).click()
+      cy.get(`h2`).contains("About us")
+    })
   })
 
   it("renders profile", () => {
