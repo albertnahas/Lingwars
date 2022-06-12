@@ -51,7 +51,7 @@ export var DeleteAccountForm: FC<Props> = function (props) {
         flexGrow: 1,
         minHeight: "100%",
         textAlign: "center",
-        p: 5,
+        p: 3,
       }}
     >
       <Container maxWidth="sm">

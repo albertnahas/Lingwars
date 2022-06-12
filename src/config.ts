@@ -34,8 +34,8 @@ if (window.location.hostname === "localhost") {
   })
   firebase.functions().useEmulator("localhost", 5001)
   firebase.database().useEmulator("localhost", 9000)
+  firebase.storage().useEmulator("localhost", 9199)
 }
-// const storage = firebase.storage();
 let messaging: any
 
 try {

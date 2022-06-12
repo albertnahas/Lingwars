@@ -20,17 +20,22 @@ const pulse = keyframes`
 	}
   `
 
-export const RematchButton: FC<Props> = ({ onClick, disabled, pulsing }) => {
+export const RematchButton: FC<Props> = ({
+  onClick,
+  disabled,
+  pulsing,
+  variant,
+  color,
+}) => {
   return (
     <Button
-      variant="outlined"
-      color="info"
+      variant={variant || "outlined"}
+      color={color || "info"}
       aria-label="rematch button"
       onClick={onClick}
       endIcon={<RepeatIcon />}
       disabled={disabled}
       sx={{
-        m: 3,
         animation: pulsing ? `${pulse} 1000ms infinite ease;` : "",
         animationDirection: "alternate",
       }}
@@ -44,4 +49,14 @@ interface Props {
   onClick: () => void
   disabled?: boolean
   pulsing?: boolean
+  variant?: "outlined" | "text"
+  color?:
+    | "inherit"
+    | "error"
+    | "success"
+    | "info"
+    | "warning"
+    | "primary"
+    | "secondary"
+    | undefined
 }

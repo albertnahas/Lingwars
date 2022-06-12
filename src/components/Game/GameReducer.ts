@@ -1,3 +1,5 @@
+import { Language } from "../../types/language"
+
 export const startingTurn = 1
 
 export enum GameActionType {
@@ -13,6 +15,7 @@ interface GameState {
   answered: boolean
   submitted: boolean
   correct: boolean
+  languages: Language[]
 }
 
 export const initialGameState: GameState = {
@@ -23,12 +26,18 @@ export const initialGameState: GameState = {
   timedScore: 0,
   accuracy: 0,
   hintsUsed: 0,
+  languages: [],
 }
 
 type GameAction =
   | {
       type: GameActionType.ANSWER
-      payload: { isCorrect: boolean; withHint: boolean; time: number }
+      payload: {
+        isCorrect: boolean
+        withHint: boolean
+        time: number
+        language: Language
+      }
     }
   | { type: GameActionType.SUBMIT }
   | { type: GameActionType.NEXT }
@@ -51,6 +60,9 @@ export const gameReducer = (
             Math.round((10 * 10) / (action.payload.time || 10)) /
               (Number(action.payload.withHint) + 1)
           : state.timedScore,
+        languages: action.payload.isCorrect
+          ? [...state.languages, action.payload.language]
+          : state.languages,
       }
     case GameActionType.NEXT:
       return { ...state, turn: state.turn + 1, answered: false, correct: false }

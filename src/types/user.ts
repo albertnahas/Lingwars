@@ -1,20 +1,33 @@
 import firebase from "../config"
 
-export interface User {
+export interface User extends UserStats {
+  uid?: string
   age?: number
   displayName?: string
   photoURL?: string
   email?: string
   gender?: "male" | "female"
   lastPlayedAt?: firebase.firestore.Timestamp
+  lastStreakUpdateAt?: firebase.firestore.Timestamp
   onBoarding?: boolean
-  streak?: number
-  uid?: string
-  messagingToken?: string
   feedback?: boolean
-  gamesPlayed?: number
+  isAnonymous?: boolean
   colorMode?: "light" | "dark"
   settings?: UserSettings
+  messagingToken?: string
+  history?: UserStats[]
+}
+
+export interface UserStats {
+  gamesPlayed?: number
+  roundsPlayed?: number
+  accuracy?: number
+  xp?: number
+  lifeScore?: number
+  streak?: number
+  level?: number
+  languages?: string[]
+  statDate?: Date
   isAnonymous?: boolean
 }
 

@@ -1,14 +1,14 @@
 import React from "react"
-import { Stack } from "@mui/material"
+import { Paper, Stack } from "@mui/material"
 import { styled } from "@mui/system"
 import { Challenge } from "../../types/challenge"
 
-const Wrapper = styled("div")(
+const Wrapper = styled(Paper)(
   ({ theme }) => `
   display: flex;
   padding: 4px 10px;
   border-radius: 16px;
-  background-color: ${theme.palette.primary.main};
+  background-color: ${theme.palette.primary.light};
   color: #fff;
 `
 )
@@ -34,10 +34,6 @@ const InfoBadge = styled("span")(
 const ChallengeInfo = ({ challenge }: { challenge?: Challenge }) => {
   const details = [
     {
-      text: "Players",
-      value: challenge?.players,
-    },
-    {
       text: "Rounds",
       value: challenge?.rounds,
     },
@@ -46,6 +42,13 @@ const ChallengeInfo = ({ challenge }: { challenge?: Challenge }) => {
       value: challenge?.variation,
     },
   ]
+
+  challenge?.players &&
+    challenge?.players > 1 &&
+    details.unshift({
+      text: "Players",
+      value: challenge?.players,
+    })
 
   return (
     <Stack
@@ -59,7 +62,7 @@ const ChallengeInfo = ({ challenge }: { challenge?: Challenge }) => {
     >
       {details.map((d) => {
         return (
-          <Wrapper key={d.text} aria-label={d.text.toLowerCase()}>
+          <Wrapper elevation={2} key={d.text} aria-label={d.text.toLowerCase()}>
             <InfoText>{d.text}</InfoText>
             <InfoBadge>{d.value}</InfoBadge>
           </Wrapper>

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react"
 import WaveSurfer from "wavesurfer.js"
 import PlayArrowIcon from "@mui/icons-material/PlayArrow"
 import PauseIcon from "@mui/icons-material/Pause"
-import { isiOS } from "../../utils/helpers"
+import { isiOS } from "../../utils/utils"
 
 export const WaveformContainer = styled("div")`
   display: flex;

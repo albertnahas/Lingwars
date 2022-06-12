@@ -2,7 +2,7 @@ import React, { FC, useCallback, useEffect, useMemo, useState } from "react"
 import { Waveform } from "../../molecules/Waveform/Waveform"
 import files from "../../data/files.json"
 import _ from "lodash"
-import { Alert, Button, Container, Typography } from "@mui/material"
+import { Alert, Button, Container, Paper, Typography } from "@mui/material"
 import { Box, styled } from "@mui/system"
 import { getLanguageCountries, getLanguageInfo } from "../../utils/helpers"
 import { WorldDiagram } from "../../icons/worldDiagram"
@@ -19,10 +19,9 @@ export const BoxContainer = styled("div")`
   width: 100%;
 `
 
-const RoundContainer = styled("div")(
+const RoundContainer = styled(Paper)(
   ({ theme }) => `
   padding: ${theme.spacing(3)};
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 10px;
 `
 )
@@ -119,7 +118,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
 
   return (
     <Container sx={{ p: 2 }} aria-label="round container">
-      <RoundContainer>
+      <RoundContainer elevation={24}>
         <Box sx={{ mb: 2 }}>
           {time !== roundTimeout && (
             <Typography
@@ -144,7 +143,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
             variant="body2"
             sx={{ textAlign: "center" }}
           >
-            {/* round score: {Math.round(100 / (time || 1))} */}
+            {/* round maximum score: {Math.round(100 / (time || 1))} */}
           </Typography>
         </Box>
         <BoxContainer>

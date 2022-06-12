@@ -343,3 +343,25 @@ const updateChallengeStatus = async (challengeId) => {
 const randomFrom = (min, max) => { // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
+
+
+exports.scheduledStreakCalculate = functions.pubsub.schedule("0 00 * * *")
+  .onRun(() => {
+    const date = new Date();
+    const pastDate = date.getDate() - 1;
+    date.setDate(pastDate);
+
+    const notPlayedUsersSnap = admin.firestore().collection("users")
+      .where("streak", ">", 0)
+      .where("lastPlayedAt", "<", admin.firestore.Timestamp.fromDate(date));
+
+    notPlayedUsersSnap.get().then((snapshot) => {
+      const batch = admin.firestore().batch();
+      snapshot.docs.forEach((doc) => {
+        batch.update(doc.ref, "streak", 0);
+      });
+      return batch.commit();
+    });
+
+    return null;
+  });

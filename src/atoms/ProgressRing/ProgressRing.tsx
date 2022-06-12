@@ -2,12 +2,12 @@ import { CircularProgress, Typography } from "@mui/material"
 import { Box } from "@mui/system"
 import React, { FC } from "react"
 
-export var ProgressRing: FC<Props> = function ({ color, ...props }) {
+export var ProgressRing: FC<Props> = function ({ color, thickness, ...props }) {
   const style = {
     position: "relative",
     display: "inline-flex",
     "& circle": {
-      strokeWidth: 1.1,
+      strokeWidth: thickness || 1.1,
       transition: "stroke-dashoffset 1000ms linear",
       strokeLinecap: "round",
       color: color || "primary.light",
@@ -63,5 +63,6 @@ interface Props {
   label?: boolean
   children?: JSX.Element
   size?: number
+  thickness?: number
   color?: string
 }

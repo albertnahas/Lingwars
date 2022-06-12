@@ -55,7 +55,7 @@ const Footer = () => {
 
   return (
     <Box>
-      <Container sx={{ py: 6, align: "center" }}>
+      <Container sx={{ pb: 6, pt: 3, align: "center" }}>
         <Box
           sx={{
             display: "flex",

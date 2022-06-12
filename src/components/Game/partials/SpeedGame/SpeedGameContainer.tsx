@@ -35,7 +35,16 @@ export const SpeedGameContainer: FC<Props> = ({
   const [lang, setLang] = useState<any>()
 
   const [
-    { turn, hintsUsed, timedScore, accuracy, answered, correct, submitted },
+    {
+      turn,
+      hintsUsed,
+      timedScore,
+      accuracy,
+      answered,
+      correct,
+      submitted,
+      languages,
+    },
     dispatch,
   ] = useReducer(gameReducer, {
     ...initialGameState,
@@ -81,6 +90,7 @@ export const SpeedGameContainer: FC<Props> = ({
           isCorrect: answer && answer.code1 === lang.code1,
           time: time || 1,
           withHint: showHint || false,
+          language: lang,
         },
       })
     },
@@ -89,7 +99,8 @@ export const SpeedGameContainer: FC<Props> = ({
 
   useEffect(() => {
     if (challenge && answered && turn === challenge.rounds) {
-      onComplete?.()
+      const langsNames = languages.map((l) => l.name)
+      onComplete?.(turn, accuracy, timedScore, langsNames)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answered, turn])
@@ -159,5 +170,10 @@ export const SpeedGameContainer: FC<Props> = ({
 interface Props {
   display?: boolean
   players?: any[]
-  onComplete?: () => void
+  onComplete?: (
+    turn?: number,
+    accuracy?: number,
+    score?: number,
+    languages?: string[]
+  ) => void
 }
