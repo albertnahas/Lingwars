@@ -102,7 +102,7 @@ export function ChallengeDoneDialog({
             color="primary"
           />
         )}
-        <Button onClick={handleClose} aria-label="start" autoFocus>
+        <Button onClick={handleClose} aria-label="leave dialog" autoFocus>
           Return to menu
         </Button>
       </DialogActions>
