@@ -10,6 +10,7 @@ import countries from "../data/countries.json"
 import languages from "../data/languages.json"
 import files from "../data/files.json"
 import _ from "lodash"
+import { MedalType } from "../icons/Medal/Medal"
 
 const wikipediaURL =
   "https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&explaintext&redirects=1&titles="
@@ -66,16 +67,47 @@ export const getLevelLabel = (level: number) => {
   }
 }
 
-export const getEval = (score: number, turn: number) => {
+export const gameEvals: {
+  medal: MedalType
+  message: string
+  color?: "primary" | "secondary" | "error" | "info" | "success" | "warning"
+}[] = [
+  { medal: "grey", message: "way to go", color: "error" },
+  { medal: "blue", message: "You still have a lot to learn", color: "warning" },
+  { medal: "silver", message: "You have a good knowledge!", color: "primary" },
+  { medal: "purple", message: "You are a polyglot!!", color: "primary" },
+  { medal: "gold", message: "You are unstoppable!!!", color: "success" },
+]
+
+export const getEval = (accuracy: number) => {
   switch (true) {
-    case score / turn < 0.4:
-      return "still have a lot to learn"
-    case score / turn < 0.6:
-      return "have a good knowledge!"
-    case score / turn < 0.8:
-      return "are a polyglot!!"
+    case accuracy < 0.2:
+      return gameEvals[0]
+    case accuracy < 0.4:
+      return gameEvals[1]
+    case accuracy < 0.6:
+      return gameEvals[2]
+    case accuracy < 0.8:
+      return gameEvals[3]
     default:
-      return "are unstoppable!!!"
+      return gameEvals[4]
+  }
+}
+
+export const getLv = (xp?: number) => {
+  const factor = 150
+  let n = factor,
+    lv = 1
+
+  while (n <= (xp || 0)) {
+    n += Math.round(factor * Math.pow(lv, 1.5))
+    lv++
+  }
+
+  return {
+    lv,
+    next: n,
+    progress: Math.round(((xp || 0) * 100) / (n || 1)),
   }
 }
 
@@ -103,20 +135,5 @@ export const getLanguageInfo = (language?: Language) => {
     {
       method: "GET",
     }
-  )
-}
-
-export const isiOS = () => {
-  return (
-    [
-      "iPad Simulator",
-      "iPhone Simulator",
-      "iPod Simulator",
-      "iPad",
-      "iPhone",
-      "iPod",
-    ].includes(navigator.platform) ||
-    // iPad on iOS 13 detection
-    (navigator.userAgent.includes("Mac") && "ontouchend" in document)
   )
 }

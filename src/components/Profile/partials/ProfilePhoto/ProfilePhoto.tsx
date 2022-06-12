@@ -3,7 +3,8 @@ import React, { FC, useEffect, useState } from "react"
 import EditIcon from "@mui/icons-material/Edit"
 import firebase from "../../../../config"
 import { userSelector } from "../../../../store/userSlice"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { setSnackbar } from "../../../../store/snackbarSlice"
 
 const ProfileAvatar = styled(Avatar)(({ theme }) => ({
   height: 90,
@@ -27,7 +28,7 @@ export const ProfilePhoto: FC<Props> = ({
   onUpload,
 }) => {
   const user = useSelector(userSelector)
-
+  const dispatch = useDispatch()
   const [imageAsFile, setImageAsFile] = useState<any>()
   const [uploading, setUploading] = useState<any>(false)
 
@@ -73,6 +74,13 @@ export const ProfilePhoto: FC<Props> = ({
               setImageAsUrl?.(fireBaseUrl)
               onUpload?.(fireBaseUrl).then(() => {
                 setUploading(false)
+                dispatch(
+                  setSnackbar({
+                    open: true,
+                    message: `Profile photo has been updated!`,
+                    type: "success",
+                  })
+                )
               })
             })
         }

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import firebase from "../config"
 import { userSelector } from "../store/userSlice"
 import {
@@ -27,6 +27,7 @@ export const useChallenge = (gameId?: string) => {
 
   const requrest = useRef()
   const requrestSubscribe = useRef<any>()
+  const location = useLocation()
 
   useEffect(() => {
     let subscribe: any
@@ -67,7 +68,7 @@ export const useChallenge = (gameId?: string) => {
               setPlayers(playersArr)
             })
         })
-    } else if (challengeSetup) {
+    } else if (challengeSetup && !challenge) {
       dispatch(setChallenge({ ...challengeSetup }))
     }
     return () => {
@@ -79,7 +80,7 @@ export const useChallenge = (gameId?: string) => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [challengeId, challenge?.id, user])
+  }, [challengeId, challenge?.id, user?.uid])
 
   useEffect(() => {
     return () => {
@@ -88,7 +89,7 @@ export const useChallenge = (gameId?: string) => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [location.pathname])
 
   const requestRematch = () => {
     return new Promise((resolve, reject) => {
@@ -167,6 +168,10 @@ export const useChallenge = (gameId?: string) => {
     })
   }
 
+  const completeChallenge = () => {
+    dispatch(setChallenge({ ...challenge, status: "finished" }))
+  }
+
   const leaveChallenge = () => {
     if (challengeId) {
       firebase
@@ -187,6 +192,7 @@ export const useChallenge = (gameId?: string) => {
     error,
     rematch,
     requestRematch,
+    completeChallenge,
     leaveChallenge,
     cancelRematch,
   }

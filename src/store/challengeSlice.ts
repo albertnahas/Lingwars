@@ -20,6 +20,7 @@ export const challengeSlice = createSlice({
       action: PayloadAction<ChallengeSetup | null>
     ) => {
       state.setup = action.payload
+      state.value = null
     },
   },
 })

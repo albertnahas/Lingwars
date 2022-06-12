@@ -27,11 +27,15 @@ import {
   startingTurn,
 } from "../../GameReducer"
 
-export const StandardGameContainer: FC<Props> = ({ display, onComplete }) => {
+export const StandardGameContainer: FC<Props> = ({
+  display,
+  players,
+  onComplete,
+}) => {
   const [lang, setLang] = useState<any>()
 
   const [
-    { turn, hintsUsed, timedScore, accuracy, answered, submitted },
+    { turn, hintsUsed, timedScore, accuracy, answered, submitted, languages },
     dispatch,
   ] = useReducer(gameReducer, {
     ...initialGameState,
@@ -77,6 +81,7 @@ export const StandardGameContainer: FC<Props> = ({ display, onComplete }) => {
           isCorrect: answer && answer.code1 === lang.code1,
           time: time || 1,
           withHint: showHint || false,
+          language: lang,
         },
       })
     },
@@ -85,7 +90,8 @@ export const StandardGameContainer: FC<Props> = ({ display, onComplete }) => {
 
   useEffect(() => {
     if (challenge && answered && turn === challenge.rounds) {
-      onComplete?.()
+      const langsNames = languages.map((l) => l.name)
+      onComplete?.(turn, accuracy, timedScore, langsNames)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answered, turn])
@@ -116,6 +122,7 @@ export const StandardGameContainer: FC<Props> = ({ display, onComplete }) => {
 
   return display ? (
     <StandardGame
+      timedScore={timedScore}
       accuracy={accuracy}
       turn={turn}
       user={user}
@@ -134,5 +141,10 @@ export const StandardGameContainer: FC<Props> = ({ display, onComplete }) => {
 interface Props {
   display?: boolean
   players?: any[]
-  onComplete?: () => void
+  onComplete?: (
+    turn?: number,
+    accuracy?: number,
+    score?: number,
+    languages?: string[]
+  ) => void
 }

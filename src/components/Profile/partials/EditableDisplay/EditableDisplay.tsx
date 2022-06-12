@@ -9,10 +9,14 @@ import {
   IconButton,
   FormHelperText,
 } from "@mui/material"
+import { useDispatch } from "react-redux"
+import { setSnackbar } from "../../../../store/snackbarSlice"
 
 export const EditableDisplay: FC<Props> = ({ name, label, text, onSubmit }) => {
   const [editMode, setEditMode] = useState(false)
   const [value, setValue] = useState(text)
+
+  const dispatch = useDispatch()
 
   const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
@@ -20,6 +24,13 @@ export const EditableDisplay: FC<Props> = ({ name, label, text, onSubmit }) => {
   const onClickSubmit = () => {
     onSubmit?.(value).then(() => {
       setEditMode(false)
+      dispatch(
+        setSnackbar({
+          open: true,
+          message: `${label} updated!`,
+          type: "success",
+        })
+      )
     })
   }
 

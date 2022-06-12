@@ -5,6 +5,7 @@ import { ConfirmProvider } from "material-ui-confirm"
 import { BrowserRouter } from "react-router-dom"
 import { PayPalScriptProvider } from "@paypal/react-paypal-js"
 import store from "../../store/store"
+import { themeShadows } from "../../utils/utils"
 
 export const useAppDispatch = () => store.dispatch
 
@@ -29,21 +30,31 @@ export const Providers: FC<Props> = ({ children }) => {
     localStorage.setItem("mode", JSON.stringify(mode))
   }, [mode])
 
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-          primary: {
-            main: "#0d69d5",
-          },
-          secondary: {
-            main: "#2ecb71",
+  const theme = React.useMemo(() => {
+    const customTheme = createTheme({
+      palette: {
+        mode,
+        primary: {
+          main: "#0d69d5",
+        },
+        secondary: {
+          main: "#2ecb71",
+        },
+      },
+      components: {
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+              borderRadius: 8,
+            },
           },
         },
-      }),
-    [mode]
-  )
+      },
+      shadows: themeShadows,
+    })
+
+    return customTheme
+  }, [mode])
 
   const paypalClientId = {
     sandbox:

@@ -7,7 +7,7 @@ export const PlayerChip: FC<Props> = ({ player, isWinning }) => {
   return (
     <Chip
       variant="outlined"
-      color={isWinning ? "success" : "warning"}
+      color={isWinning ? "success" : "error"}
       aria-label="player chip"
       icon={
         <Avatar
