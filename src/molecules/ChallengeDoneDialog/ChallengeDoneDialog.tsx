@@ -49,7 +49,7 @@ export function ChallengeDoneDialog({
     <Dialog onClose={handleClose} aria-label={"Challenge done"} open={open}>
       <DialogContent sx={{ minWidth: 300 }}>
         <Container sx={{ textAlign: "center" }}>
-          <Typography variant="body1">Game Complete</Typography>
+          <Typography variant="body1">Game Completed</Typography>
           <Typography color="primary" variant="h5">
             SCORED {stats?.xp}
           </Typography>
