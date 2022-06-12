@@ -26,7 +26,9 @@ describe("App renders", () => {
   it("sends contact us", () => {
     const testMessage = "send a contact test message..."
     cy.login()
-    cy.get(`[aria-label="open drawer"]`, { timeout: 10000 }).click()
+    cy.get(`[aria-label="open drawer"]`, { timeout: 10000 }).click({
+      force: true,
+    })
     cy.get(`[aria-label="contact"]`).click()
     cy.get(`[name="message"]`).clear().type(testMessage)
     cy.get(`[aria-label="submit"]`).click()
@@ -38,12 +40,12 @@ describe("App renders", () => {
 
   describe("renders control pages", () => {
     it("renders privacy policy", () => {
-      cy.get(`[aria-label="open drawer"]`).click()
+      cy.get(`[aria-label="open drawer"]`).click({ force: true })
       cy.get(`[aria-label="privacy"]`).click()
       cy.get(`h2`).contains("Privacy Policy")
     })
     it("renders terms and conditions", () => {
-      cy.get(`[aria-label="open drawer"]`).click()
+      cy.get(`[aria-label="open drawer"]`).click({ force: true })
       cy.get(`[aria-label="terms"]`).click()
       cy.get(`h2`).contains("Terms and Conditions")
     })
