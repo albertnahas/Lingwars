@@ -28,7 +28,6 @@ export interface UserStats {
   level?: number
   languages?: string[]
   statDate?: Date
-  isAnonymous?: boolean
 }
 
 export interface UserSettings {}
