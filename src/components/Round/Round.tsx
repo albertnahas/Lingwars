@@ -73,6 +73,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
     if (!answer) return
     onAnswer(answer, time, showHint)
     setShowHint(false)
+    setActive(false)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [answer])
 
