@@ -37,7 +37,7 @@ describe("Game starts for one player", () => {
     // close feedback
     cy.get(`button[aria-label="dialog close"]`).click()
     // leave
-    cy.get(`button[aria-label="leave"]`).click()
+    cy.get(`button[aria-label="leave dialog"]`).click()
     cy.get("h4").contains("Main Menu")
   })
 })
@@ -55,7 +55,7 @@ describe("Game starts for multi player - private mode", () => {
   let challengeId = ""
 
   it("Starts multi player challenge", () => {
-    cy.get(`[aria-label="multi player"]`).click()
+    cy.get(`[aria-label="multiplayer"]`).click()
     cy.get(`[aria-label="rounds-controller"] input[value="custom"]`).click()
     cy.get(`[aria-label="rounds"]`).clear().type("2")
     cy.get(`[aria-label="submit setup"]`).click()
@@ -102,7 +102,7 @@ describe("Game starts for multi player - private mode", () => {
           // close feedback
           cy.get(`button[aria-label="dialog close"]`).click()
           // leave
-          cy.get(`button[aria-label="leave"]`).click()
+          cy.get(`button[aria-label="leave dialog"]`).click()
           cy.get(`button[aria-label="confirm-dialog-confirm-btn"]`).click()
           cy.wait(1000)
           cy.callFirestore("delete", `challenges/${challengeId}/players`).then(
@@ -120,7 +120,7 @@ describe("Game starts for multi player - private mode", () => {
 
 describe("Game starts for multi player - live mode", () => {
   it("Starts multi player challenge", () => {
-    cy.get(`[aria-label="multi player"]`).click()
+    cy.get(`[aria-label="multiplayer"]`).click()
     cy.get(`[aria-label="rounds-controller"] input[value="custom"]`).click()
     cy.get(`[aria-label="rounds"]`).clear().type("2")
     cy.get(`[aria-label="live"]`).click()
@@ -175,7 +175,7 @@ describe("Game starts for multi player - live mode", () => {
         // close feedback
         cy.get(`button[aria-label="dialog close"]`).click()
         // leave
-        cy.get(`button[aria-label="leave"]`).click()
+        cy.get(`button[aria-label="leave dialog"]`).click()
         cy.get(`button[aria-label="confirm-dialog-confirm-btn"]`).click()
         cy.wait(1000)
         cy.callFirestore("delete", `challenges/${challengeId}/players`).then(

@@ -51,7 +51,7 @@ export const useCurrentUser = () => {
                 // Set the Firestore User's online status to true
                 firebase.firestore().collection("users").doc(user.uid).set(
                   {
-                    online: true,
+                    status: "online",
                   },
                   { merge: true }
                 )

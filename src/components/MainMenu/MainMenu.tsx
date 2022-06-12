@@ -18,9 +18,8 @@ import { ChallengeSetup } from "../../types/challenge"
 import { PairingStatus, useChallengeSetup } from "../../hooks/useChallengeSetup"
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
 import { ChallengeLinkDialog } from "../../molecules/ChallengeLinkDialog/ChallengeLinkDialog"
-import PeopleAltRoundedIcon from "@mui/icons-material/PeopleAltRounded"
-import PersonRoundedIcon from "@mui/icons-material/PersonRounded"
-import MenuBookRoundedIcon from "@mui/icons-material/MenuBookRounded"
+import { Container } from "@mui/system"
+import { MainMenuOption } from "./partials/MainMenuOption"
 
 export var MainMenu: FC<Props> = function (props) {
   const navigate = useNavigate()
@@ -93,55 +92,50 @@ export var MainMenu: FC<Props> = function (props) {
   return (
     <Box>
       <Zoom in={true}>
-        <Box sx={{ m: 4 }}>
+        <Box sx={{ m: 1 }}>
           <img
             alt="Spinning eart"
-            style={{ filter: "drop-shadow(-10px 20px 20px rgba(0,0,0,0.2))" }}
-            width="150"
+            style={{ filter: "drop-shadow(-10px 20px 20px rgba(0,0,0,0.15))" }}
+            width="130"
             src="/assets/imgs/earth.webp"
           />
         </Box>
       </Zoom>
-      <Typography
-        variant="h4"
-        aria-label="lingwars"
-        color="primary"
-        sx={{ mb: 4 }}
-      >
+      <Typography variant="h4" aria-label="lingwars" color="primary">
         Main Menu
       </Typography>
-      <Stack
-        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-        spacing={2}
+      <Container
+        sx={{
+          px: 4,
+          background: "url(/assets/imgs/bg.svg)",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+        }}
+        maxWidth="xs"
       >
-        <Button
-          color="primary"
-          aria-label="single player"
-          variant="outlined"
+        <MainMenuOption
+          title={"Single Player"}
+          subtitle={"Score as high as you can"}
+          image={"/assets/imgs/play-01.svg"}
           onClick={onClickSinglePlayer}
-          startIcon={<PersonRoundedIcon />}
-        >
-          Single Player
-        </Button>
-        <Button
-          color="primary"
-          aria-label="multi player"
-          variant="outlined"
+          animate={true}
+        />
+        <MainMenuOption
+          title={"MultiPlayer"}
+          subtitle={"Challenge others, and beat them all"}
+          image={"/assets/imgs/play-02.svg"}
           onClick={onClickMultiplayer}
-          startIcon={<PeopleAltRoundedIcon />}
-        >
-          Multiplayer
-        </Button>
-        <Button
-          color="primary"
-          aria-label="learn"
-          variant="outlined"
+          animate={true}
+        />
+        <MainMenuOption
+          title={" Learn"}
+          subtitle={"It's all about learning!"}
+          image={"/assets/imgs/play-03.svg"}
           onClick={onClickLearn}
-          startIcon={<MenuBookRoundedIcon />}
-        >
-          Learn
-        </Button>
-      </Stack>
+          animate={true}
+        />
+      </Container>
       {initialSetup && (
         <ChallengeSetupDialog
           setup={initialSetup}

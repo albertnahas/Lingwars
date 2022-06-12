@@ -18,6 +18,7 @@ import { StandardGameContainer } from "./partials/StandardGame/StandardGameConta
 import { SpeedGameContainer } from "./partials/SpeedGame/SpeedGameContainer"
 import { RematchButton } from "../../atoms/RematchButton/RematchButton"
 import ChallengeInfo from "../../molecules/ChallengeInfo/ChallengeInfo"
+import { ChallengeDoneDialog } from "../../molecules/ChallengeDoneDialog/ChallengeDoneDialog"
 
 export type GameStatus =
   | "loading"
@@ -38,12 +39,8 @@ export const Game: FC<Props> = ({
 }) => {
   const maxScore = useMemo(() => {
     if (!players || players.length < 2) return user?.displayName
-    const mappedPlayers = players?.map((p: Player) => {
-      return { displayName: p?.displayName, score: p?.timedScore }
-    })
-    return _.maxBy(mappedPlayers, "score")?.displayName
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [players])
+    return _.maxBy(players, "timedScore")?.displayName
+  }, [players, user?.displayName])
 
   const isGameDone = useMemo(
     () =>
@@ -51,7 +48,8 @@ export const Game: FC<Props> = ({
         challenge &&
         challenge.id &&
         players.every((p) => p.turn >= (challenge.rounds || 10))) ||
-      (challenge && challenge.id && challenge.status === "finished"),
+      (challenge && challenge.status === "finished") ||
+      false,
     [players, challenge]
   )
 
@@ -117,22 +115,9 @@ export const Game: FC<Props> = ({
             {gameStatus !== "finished" && (
               <ChallengeInfo challenge={challenge} />
             )}
-            {gameStatus === "finished" && (
-              <Typography
-                component="p"
-                aria-label="winner"
-                variant="h5"
-                color="success.main"
-                sx={{ m: 3 }}
-              >
-                {maxScore} is the winner!!
-              </Typography>
-            )}
-
             {["started", "finished"].includes(gameStatus) &&
               players &&
               renderPlayers()}
-
             {!challenge?.rematchRequested && (
               <Box sx={{ my: 2 }}>{renderGame()}</Box>
             )}
@@ -148,13 +133,11 @@ export const Game: FC<Props> = ({
                 <CircularProgress sx={{ my: 4 }} />
               </Box>
             )}
-
             {gameStatus === "error" && (
               <Alert sx={{ my: 4 }} severity="error">
                 {error}
               </Alert>
             )}
-
             {challenge?.rematchRequested && (
               <>
                 <Typography
@@ -197,6 +180,12 @@ export const Game: FC<Props> = ({
             {challenge?.id ? "Leave" : "Exit"}
           </Button>
         </Stack>
+        <ChallengeDoneDialog
+          open={isGameDone && !rematch}
+          onClose={onClickLeave}
+          onClickRematch={onClickRematch}
+          players={players}
+        />
       </Container>
     </>
   )
