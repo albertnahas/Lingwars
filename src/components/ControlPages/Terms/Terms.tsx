@@ -1,31 +1,35 @@
-import { Typography } from "@mui/material"
-import { Box } from "@mui/system"
 import React from "react"
-import { ControlLink } from "../ControlPage"
+import { Box } from "@mui/system"
+import {
+  ControlLink,
+  ControlHeading1,
+  ControlHeading2,
+  ControlHeading3,
+} from "../ControlPage"
 
 export var Terms = function () {
   return (
     <>
-      <Typography variant="h2" color="primary">
+      <ControlHeading1 variant="h1" color="primary">
         Terms and Conditions
-      </Typography>
+      </ControlHeading1>
       <Box sx={{ textAlign: "left" }}>
         <p>Last updated: June 05, 2022</p>
         <p>
           Please read these terms and conditions carefully before using Our
           Service.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Interpretation and Definition
-        </Typography>
-        <Typography variant="h6">Interpretation</Typography>
+        </ControlHeading2>
+        <ControlHeading3 variant="h3">Interpretation</ControlHeading3>
         <p>
           The words of which the initial letter is capitalized have meanings
           defined under the following conditions. The following definitions
           shall have the same meaning regardless of whether they appear in
           singular or in plural.
         </p>
-        <Typography variant="h6">Definitions</Typography>
+        <ControlHeading3 variant="h3">Definitions</ControlHeading3>
         <p>For the purposes of these Terms and Conditions:</p>
         <ul>
           <li>
@@ -102,9 +106,9 @@ export var Terms = function () {
             </p>
           </li>
         </ul>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Acknowledgement
-        </Typography>
+        </ControlHeading2>
         <p>
           These are the Terms and Conditions governing the use of this Service
           and the agreement that operates between You and the Company. These
@@ -132,9 +136,9 @@ export var Terms = function () {
           <ControlLink to="/privacy">Privacy Policy</ControlLink> carefully
           before using Our Service.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Restrictions
-        </Typography>
+        </ControlHeading2>
         <p>
           You specifically agree to the following restrictions in connection
           with the Service:
@@ -227,9 +231,9 @@ export var Terms = function () {
             </p>
           </li>
         </ul>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Links to Other Websites
-        </Typography>
+        </ControlHeading2>
         <p>
           Our Service may contain links to third-party web sites or services
           that are not owned or controlled by the Company.
@@ -247,18 +251,18 @@ export var Terms = function () {
           We strongly advise You to read the terms and conditions and privacy
           policies of any third-party web sites or services that You visit.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Cookies
-        </Typography>
+        </ControlHeading2>
         <p>
           Cookies are necessary to allow us to operate our services. For
           example, they let us recognize what type of account you use and then
           provide you with services accordingly. Besides, we use cookies to
           analyze how our services are used or are performing.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Access or Use of the Service Associated With Your Account
-        </Typography>
+        </ControlHeading2>
         <p>
           When you access or use the Service, you create an account with us
           (Account). In some cases, you may be asked to create a username and
@@ -305,9 +309,9 @@ export var Terms = function () {
           discretion at any time, for any reason. You may have only one Account
           per game on a properly supported device.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Termination
-        </Typography>
+        </ControlHeading2>
         <p>
           Without limiting any other remedies, we may suspend, terminate,
           delete, limit, or modify Accounts or access to the Service or any
@@ -368,9 +372,9 @@ export var Terms = function () {
           Upon termination, Your right to use the Service will cease
           immediately.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Limitation of Liability
-        </Typography>
+        </ControlHeading2>
         <p>
           Notwithstanding any damages that You might incur, the entire liability
           of the Company and any of its suppliers under any provision of this
@@ -398,9 +402,9 @@ export var Terms = function () {
           states, each party's liability will be limited to the greatest extent
           permitted by law.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; Disclaimer
-        </Typography>
+        </ControlHeading2>
         <p>
           The Service is provided to You &quot;AS IS&quot; and &quot;AS
           AVAILABLE&quot; and with all faults and defects without warranty of
@@ -439,33 +443,33 @@ export var Terms = function () {
           set forth in this section shall be applied to the greatest extent
           enforceable under applicable law.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Governing Law
-        </Typography>
+        </ControlHeading2>
         <p>
           The laws of the Country, excluding its conflicts of law rules, shall
           govern this Terms and Your use of the Service. Your use of the
           Application may also be subject to other local, state, national, or
           international laws.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Disputes Resolution
-        </Typography>
+        </ControlHeading2>
         <p>
           If You have any concern or dispute about the Service, You agree to
           first try to resolve the dispute informally by contacting the Company.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           For European Union (EU) Users
-        </Typography>
+        </ControlHeading2>
         <p>
           If You are a European Union consumer, you will benefit from any
           mandatory provisions of the law of the country in which you are
           resident in.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           United States Legal Compliance
-        </Typography>
+        </ControlHeading2>
         <p>
           You represent and warrant that (i) You are not located in a country
           that is subject to the United States government embargo, or that has
@@ -473,10 +477,10 @@ export var Terms = function () {
           supporting&quot; country, and (ii) You are not listed on any United
           States government list of prohibited or restricted parties.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Severability and Waiver
-        </Typography>
-        <Typography variant="h6">Severability</Typography>
+        </ControlHeading2>
+        <ControlHeading3 variant="h3">Severability</ControlHeading3>
         <p>
           If any provision of these Terms is held to be unenforceable or
           invalid, such provision will be changed and interpreted to accomplish
@@ -484,7 +488,7 @@ export var Terms = function () {
           applicable law and the remaining provisions will continue in full
           force and effect.
         </p>
-        <Typography variant="h6">Waiver</Typography>
+        <ControlHeading3 variant="h3">Waiver</ControlHeading3>
         <p>
           Except as provided herein, the failure to exercise a right or to
           require performance of an obligation under these Terms shall not
@@ -492,17 +496,17 @@ export var Terms = function () {
           performance at any time thereafter nor shall the waiver of a breach
           constitute a waiver of any subsequent breach.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Translation Interpretation
-        </Typography>
+        </ControlHeading2>
         <p>
           These Terms and Conditions may have been translated if We have made
           them available to You on our Service. You agree that the original
           English text shall prevail in the case of a dispute.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Changes to These Terms and Conditions
-        </Typography>
+        </ControlHeading2>
         <p>
           We reserve the right, at Our sole discretion, to modify or replace
           these Terms at any time. If a revision is material We will make
@@ -516,9 +520,9 @@ export var Terms = function () {
           do not agree to the new terms, in whole or in part, please stop using
           the website and the Service.
         </p>
-        <Typography variant="h5" color="primary">
+        <ControlHeading2 variant="h2" color="primary">
           Contact Us
-        </Typography>
+        </ControlHeading2>
         <p>
           If you have any questions about these Terms and Conditions, You can
           contact us:
