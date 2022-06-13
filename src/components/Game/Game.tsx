@@ -124,9 +124,10 @@ export const Game: FC<Props> = ({
             {gameStatus === "waiting" && (
               <Box sx={{ mt: 2 }}>
                 <Typography
-                  variant="h5"
+                  variant="h2"
                   aria-label="waiting for players"
                   color="primary.light"
+                  sx={{ fontWeight: 400, fontSize: "1.5rem" }}
                 >
                   Waiting for players to join
                 </Typography>

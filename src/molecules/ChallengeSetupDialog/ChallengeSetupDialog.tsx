@@ -136,7 +136,9 @@ export function ChallengeSetupDialog(props: LevelDialogProps) {
     >
       <DialogTitle>New Game</DialogTitle>
       <Container maxWidth="xs">
-        <Typography variant="subtitle1">Choose your setup</Typography>
+        <Typography variant="h3" sx={{ fontSize: "1rem", lineHeight: 1.7 }}>
+          Choose your setup
+        </Typography>
         <form onSubmit={formik.handleSubmit}>
           {setup?.players !== 1 && (
             <>

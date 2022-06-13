@@ -102,7 +102,12 @@ export var MainMenu: FC<Props> = function (props) {
           />
         </Box>
       </Zoom>
-      <Typography variant="h4" aria-label="lingwars" color="primary">
+      <Typography
+        variant="h1"
+        aria-label="lingwars"
+        color="primary"
+        sx={{ fontSize: "2.2rem", fontWeight: 400 }}
+      >
         Main Menu
       </Typography>
       <Container
@@ -175,21 +180,37 @@ export var MainMenu: FC<Props> = function (props) {
         >
           {pairing === PairingStatus.PAIRING && (
             <>
-              <Typography variant="h5" color="primary">
+              <Typography
+                variant="h3"
+                color="primary"
+                sx={{ fontWeight: 400, fontSize: "1.5rem" }}
+              >
                 Pairing
               </Typography>
               <CircularProgress />
-              <Typography variant="subtitle1" color="text.secondary">
+              <Typography
+                variant="h4"
+                color="text.secondary"
+                sx={{ fontWeight: 400, fontSize: "1rem" }}
+              >
                 Please wait while we're finding your challengers...
               </Typography>
             </>
           )}
           {pairing === PairingStatus.CANCELLED && (
             <>
-              <Typography variant="h5" color="error">
+              <Typography
+                variant="h3"
+                color="error"
+                sx={{ fontWeight: 400, fontSize: "1.5rem" }}
+              >
                 Pairing timeout
               </Typography>
-              <Typography variant="subtitle1" color="text.secondary">
+              <Typography
+                variant="h4"
+                color="text.secondary"
+                sx={{ fontWeight: 400, fontSize: "1rem" }}
+              >
                 Oops!... We couldn't find you challengers at the moment. Please
                 try again later or use a different challenge setup.
               </Typography>
