@@ -52,7 +52,7 @@ describe("App renders", () => {
     it("renders about us", () => {
       cy.get(`[aria-label="open drawer"]`).click()
       cy.get(`[aria-label="about"]`).click()
-      cy.get(`h2`).contains("About us")
+      cy.get(`h1`).contains("About us")
     })
   })
 
