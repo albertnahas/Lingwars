@@ -6,6 +6,7 @@ export interface User extends UserStats {
   displayName?: string
   photoURL?: string
   email?: string
+  emailVerified?: boolean
   gender?: "male" | "female"
   lastPlayedAt?: firebase.firestore.Timestamp
   lastStreakUpdateAt?: firebase.firestore.Timestamp
@@ -16,6 +17,7 @@ export interface User extends UserStats {
   settings?: UserSettings
   messagingToken?: string
   history?: UserStats[]
+  providers?: string[]
 }
 
 export interface UserStats {

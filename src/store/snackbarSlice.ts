@@ -6,6 +6,7 @@ const initialState: SnackbarState = {
   open: false,
   message: "",
   type: "success",
+  duration: 1000,
 }
 
 export const snackbarSlice = createSlice({
@@ -17,8 +18,9 @@ export const snackbarSlice = createSlice({
       action: PayloadAction<SnackbarState>
     ) => {
       state.message = action.payload.message
-      state.type = action.payload.type
+      state.type = action.payload.type || initialState.type
       state.open = action.payload.open
+      state.duration = action.payload.duration || initialState.duration
     },
   },
 })

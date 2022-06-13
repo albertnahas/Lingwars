@@ -21,10 +21,31 @@ export const useUser = () => {
     })
   }
 
+  const linkAccount = (
+    provider: firebase.auth.AuthProvider,
+    user?: User | null
+  ) => {
+    return firebase
+      .auth()
+      .currentUser?.linkWithPopup(provider)
+      .then((res: any) => {
+        const providers =
+          res.user.providerData?.map((p: any) => p.providerId) || []
+        return updateUser({
+          ...user,
+          email: res.user?.email || user?.email || "",
+          emailVerified:
+            res.user?.emailVerified || user?.emailVerified || false,
+          isAnonymous: res.user?.isAnonymous,
+          providers,
+        })
+      })
+  }
+
   const deleteAccount = () => {
     const user = firebase.auth().currentUser
     return user?.delete()
   }
 
-  return { updateUser, deleteAccount }
+  return { updateUser, linkAccount, deleteAccount }
 }

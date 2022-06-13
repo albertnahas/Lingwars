@@ -29,17 +29,21 @@ export const useCurrentUser = () => {
           const displayName =
             user.displayName ||
             `guest_${Math.random().toString(36).substring(2, 7)}`
-
+          const providers =
+            user.providerData?.map((p: any) => p.providerId) || []
           firebase
             .firestore()
             .collection("users")
             .doc(user.uid)
             .set({
               displayName,
+              email: user.email || "",
+              emailVerified: user.emailVerified || false,
               photoURL: user.photoURL || getAvatarURL(),
               uid: user.uid,
               messagingToken: user.messagingToken || null,
               isAnonymous: user.isAnonymous || false,
+              providers,
             })
         } else {
           onlineRef.on("value", (snapshot) => {
