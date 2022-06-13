@@ -98,7 +98,6 @@ const App = function ({
           if (messagingToken) {
             user.messagingToken = messagingToken
           }
-          console.log(user)
 
           dispatch(setServerUser(user))
           initNotificationListener()
