@@ -88,7 +88,7 @@ export const GoldMedal = ({ label, ...props }: MedalProps) => (
       r="33.5"
       fill="#DBDFE7"
       stroke="#FCD977"
-      stroke-width="8"
+      strokeWidth="8"
     />
     <circle
       className="badge_circle"
@@ -97,7 +97,7 @@ export const GoldMedal = ({ label, ...props }: MedalProps) => (
       r="29.5"
       fill="#FCD977"
       stroke="#FFA826"
-      stroke-width="4"
+      strokeWidth="4"
     />
     {!!label && (
       <text
@@ -119,8 +119,8 @@ export const GoldMedal = ({ label, ...props }: MedalProps) => (
         y2="90.8654"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#A31523" />
-        <stop offset="1" stop-color="#F04152" stop-opacity="0" />
+        <stop stopColor="#A31523" />
+        <stop offset="1" stopColor="#F04152" stopOpacity="0" />
       </linearGradient>
       <linearGradient
         id="paint1_linear"
@@ -130,8 +130,8 @@ export const GoldMedal = ({ label, ...props }: MedalProps) => (
         y2="90.8654"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#27539F" />
-        <stop offset="1" stop-color="#71A1F4" stop-opacity="0" />
+        <stop stopColor="#27539F" />
+        <stop offset="1" stopColor="#71A1F4" stopOpacity="0" />
       </linearGradient>
       <linearGradient
         id="paint2_linear"
@@ -141,8 +141,8 @@ export const GoldMedal = ({ label, ...props }: MedalProps) => (
         y2="90.4407"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#A31523" />
-        <stop offset="1" stop-color="#F04152" stop-opacity="0" />
+        <stop stopColor="#A31523" />
+        <stop offset="1" stopColor="#F04152" stopOpacity="0" />
       </linearGradient>
       <linearGradient
         id="paint3_linear"
@@ -152,8 +152,8 @@ export const GoldMedal = ({ label, ...props }: MedalProps) => (
         y2="90.4407"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#27539F" />
-        <stop offset="1" stop-color="#71A1F4" stop-opacity="0" />
+        <stop stopColor="#27539F" />
+        <stop offset="1" stopColor="#71A1F4" stopOpacity="0" />
       </linearGradient>
     </defs>
   </svg>
