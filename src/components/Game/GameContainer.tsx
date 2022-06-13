@@ -79,7 +79,7 @@ export const GameContainer = () => {
     const accRatio = (accuracy || 0) / (turn || 1)
     const userAccuracy = user?.accuracy
       ? (user.accuracy * gamesPlayed + (accRatio || 0)) / (gamesPlayed + 1)
-      : accuracy || 0
+      : accRatio || 0
     const xp = (user?.xp || 0) + (score || 0) * (challenge?.level || 0)
     const lifeScore =
       (user?.lifeScore || 0) +
