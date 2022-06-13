@@ -34,6 +34,7 @@ export interface SnackbarState {
   open?: boolean
   message?: string
   type?: "success" | "warning" | "error"
+  duration?: number
 }
 export interface FeedbackState {
   open?: boolean
