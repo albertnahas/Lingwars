@@ -117,7 +117,7 @@ const Nav: FC<Props> = function ({
           {/* <Route path="/settings" element={<Settings />} /> */}
           <Route path="/profile" element={<Profile signOut={signOut} />} />
         </Route>
-        <Route path="/test*" element={<Navigate to="/" />} />
+        <Route path="/__cypress*" element={<Navigate to="/" />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Wrapper>
