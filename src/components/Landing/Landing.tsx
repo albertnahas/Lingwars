@@ -21,7 +21,12 @@ export var Landing: FC<Props> = function (props) {
       }}
     >
       <Box sx={{ m: 8 }}>
-        <img alt="Spinning eart" width="250" src="/assets/imgs/earth.webp" />
+        <img
+          alt="Spinning Earth"
+          title="Earth"
+          width="250"
+          src="/assets/imgs/earth.webp"
+        />
       </Box>
       <Typography
         sx={{ fontWeight: "400", fontSize: "4em" }}

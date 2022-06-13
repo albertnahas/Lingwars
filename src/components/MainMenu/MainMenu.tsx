@@ -94,7 +94,8 @@ export var MainMenu: FC<Props> = function (props) {
       <Zoom in={true}>
         <Box sx={{ m: 1 }}>
           <img
-            alt="Spinning eart"
+            alt="Spinning Earth"
+            title="Earth"
             style={{ filter: "drop-shadow(-10px 20px 20px rgba(0,0,0,0.15))" }}
             width="130"
             src="/assets/imgs/earth.webp"
