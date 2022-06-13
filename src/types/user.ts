@@ -32,4 +32,4 @@ export interface UserStats {
   statDate?: Date
 }
 
-export interface UserSettings { }
+export interface UserSettings {}
