@@ -16,6 +16,7 @@ import { Home } from "../Home/Home"
 import { GameContainer } from "../Game/GameContainer"
 import { Profile } from "../Profile/Profile"
 import { Learn } from "../Learn/Learn"
+import PageNotFound from "../ControlPages/PageNotFound/PageNotFound"
 
 const Wrapper = styled(Box, {
   shouldForwardProp: (prop) => prop !== "hasMarginBottom",
@@ -116,7 +117,7 @@ const Nav: FC<Props> = function ({
           {/* <Route path="/settings" element={<Settings />} /> */}
           <Route path="/profile" element={<Profile signOut={signOut} />} />
         </Route>
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Wrapper>
   )

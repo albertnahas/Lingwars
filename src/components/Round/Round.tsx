@@ -135,7 +135,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
               variant="h6"
               sx={{ textAlign: "center" }}
             >
-              Oooops... The time is up!
+              Oops... The time is up!
             </Typography>
           )}
           <Typography
