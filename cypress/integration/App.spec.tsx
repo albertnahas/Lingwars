@@ -42,7 +42,7 @@ describe("App renders", () => {
     it("renders privacy policy", () => {
       cy.get(`[aria-label="open drawer"]`).click({ force: true })
       cy.get(`[aria-label="privacy"]`).click()
-      cy.get(`h2`).contains("Privacy Policy")
+      cy.get(`h1`).contains("Privacy Policy")
     })
     it("renders terms and conditions", () => {
       cy.get(`[aria-label="open drawer"]`).click({ force: true })
