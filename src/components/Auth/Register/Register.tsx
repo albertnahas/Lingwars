@@ -89,7 +89,8 @@ export var Register: FC<Props> = function (props) {
             <Typography
               color="textPrimary"
               aria-label="create account"
-              variant="h4"
+              variant="h1"
+              sx={{ fontSize: "2.1rem", fontWeight: 400 }}
             >
               Create a new account
             </Typography>
