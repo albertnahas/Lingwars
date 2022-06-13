@@ -1,5 +1,4 @@
 import * as React from "react"
-import "./PageNotFoundImg.css"
 
 export const PageNotFoundImg = () => (
   <svg
@@ -7,6 +6,7 @@ export const PageNotFoundImg = () => (
     data-name="Layer 1"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 1777 1048"
+    style={{ maxHeight: "70vh" }}
   >
     <defs>
       <clipPath id="clip-path">
