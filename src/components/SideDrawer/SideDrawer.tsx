@@ -15,6 +15,7 @@ import LogoutIcon from "@mui/icons-material/Logout"
 import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined"
 import GradingOutlinedIcon from "@mui/icons-material/GradingOutlined"
 import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined"
+import SchoolIcon from "@mui/icons-material/School"
 import { userSelector } from "../../store/userSlice"
 // import SettingsIcon from "@mui/icons-material/Settings"
 
@@ -26,9 +27,15 @@ const sideDrawerLinks = [
     icon: <HomeIcon />,
   },
   {
+    ariaLabel: "learn",
+    path: "/learn",
+    primary: "Learn",
+    icon: <SchoolIcon />,
+  },
+  {
     ariaLabel: "about",
     path: "/about",
-    primary: "About us",
+    primary: "About Lingwars",
     icon: <GroupsIcon />,
   },
   {

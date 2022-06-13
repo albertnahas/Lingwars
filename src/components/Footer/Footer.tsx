@@ -17,7 +17,7 @@ const footerNavLinks = [
     path: "/terms",
   },
   { label: "Privacy Policy", path: "/privacy" },
-  { label: "About Us", path: "/about" },
+  { label: "About", path: "/about" },
   { label: "Contact Us", path: "/contact" },
 ]
 
