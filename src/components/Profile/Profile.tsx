@@ -6,9 +6,9 @@ import {
   Button,
   Paper,
   Typography,
-  Chip,
+  Stack,
 } from "@mui/material"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
 import { DeleteAccountForm } from "./DeleteAccountForm"
 import { userSelector } from "../../store/userSlice"
@@ -20,14 +20,20 @@ import LogoutIcon from "@mui/icons-material/Logout"
 
 import moment from "moment"
 import { ProgressRing } from "../../atoms/ProgressRing/ProgressRing"
-import { ProgressLine } from "../../atoms/ProgressLine/ProgressLine"
-import { getLv } from "../../utils/helpers"
+import { ProfileHeadlines } from "./partials/ProfileHeadlines/ProfileHeadlines"
+import { LvInfo } from "./partials/LvInfo/LvInfo"
+import { facebookProvider, googleProvider } from "../../App"
+import { Google } from "../../icons/google"
+import { Facebook } from "@mui/icons-material"
+import { setSnackbar } from "../../store/snackbarSlice"
+import firebase from "../../config"
 
 export const Profile: FC<Props> = ({ signOut }) => {
   const user = useSelector(userSelector)
+  const dispatch = useDispatch()
   const [openDeleteAccount, setOpenDeleteAccount] = useState(false)
 
-  const { updateUser } = useUser()
+  const { updateUser, linkAccount } = useUser()
 
   const [imageAsUrl, setImageAsUrl] = useState<any>(user?.photoURL)
 
@@ -52,9 +58,30 @@ export const Profile: FC<Props> = ({ signOut }) => {
       : "No games yet"
   }, [user])
 
-  const lvInfo = useMemo(() => {
-    return getLv(user?.xp)
-  }, [user])
+  const linkSocialAccount = (provider: firebase.auth.AuthProvider) =>
+    linkAccount(provider, user)
+      ?.then(() => {
+        dispatch(
+          setSnackbar({
+            open: true,
+            message: `Account has been linked!`,
+            type: "success",
+          })
+        )
+      })
+      .catch((e: any) => {
+        dispatch(
+          setSnackbar({
+            open: true,
+            message: `${e.message}`,
+            duration: 2000,
+            type: "error",
+          })
+        )
+      })
+
+  const linkWithFacebook = () => linkSocialAccount(facebookProvider)
+  const linkWithGoogle = () => linkSocialAccount(googleProvider)
 
   return (
     <Container aria-label="profile container" maxWidth="sm">
@@ -78,36 +105,14 @@ export const Profile: FC<Props> = ({ signOut }) => {
             </Box>
           </Box>
           {/* <Divider sx={{ mt: 2, mb: 2 }} variant="middle" /> */}
+          {user?.isAnonymous ? "Hey! I am anonnymous" : ""}
         </Grid>
-        <Grid sx={{ textALign: "center" }} xs={12} container>
-          <Grid xs={4} item>
-            <Typography color="text.secondary" variant="body1">
-              Streak
-            </Typography>
-            <Typography color="info.main" variant="h4">
-              {user?.streak || 0}
-            </Typography>
-          </Grid>
-          <Grid xs={4} item>
-            <Typography color="text.secondary" variant="body1">
-              Games
-            </Typography>
-            <Typography color="info.main" variant="h4">
-              {user?.gamesPlayed || 0}
-            </Typography>
-          </Grid>
-          <Grid xs={4} item>
-            <Typography color="text.secondary" variant="body1">
-              Languages
-            </Typography>
-            <Typography color="info.main" variant="h4">
-              {user?.languages?.length || 0}
-            </Typography>
-          </Grid>
+        <Grid xs={12} item>
+          <ProfileHeadlines />
         </Grid>
         <Grid xs={6} item>
           <Paper
-            elevation={12}
+            elevation={6}
             sx={{
               p: 2,
               backgroundColor: "info.light",
@@ -162,44 +167,34 @@ export const Profile: FC<Props> = ({ signOut }) => {
               textAlign: "left",
             }}
           >
-            <Grid sx={{ alignItems: "center" }} container>
-              <Grid xs={8} item>
-                <Chip
-                  color="secondary"
-                  sx={{ fontWeight: "bold", color: "white", mr: 1 }}
-                  size="small"
-                  label={`LV${lvInfo?.lv}`}
-                />
-
-                <Typography
-                  color="text.secondary"
-                  variant="caption"
-                  component="span"
-                >
-                  XP {user?.xp}/{lvInfo?.next}
-                </Typography>
-                <ProgressLine
-                  variant="determinate"
-                  value={lvInfo?.progress}
-                  color="secondary"
-                  sx={{ my: 1 }}
-                />
-                <Typography
-                  color="text.secondary"
-                  component="div"
-                  variant="caption"
-                >
-                  {lvInfo?.next - (user?.xp || 0)} to LV{lvInfo?.lv + 1}
-                </Typography>
-              </Grid>
-              <Grid xs={1} item></Grid>
-              <Grid xs={3} item>
-                <Typography color="secondary" variant="h6">
-                  {lvInfo?.progress}%
-                </Typography>
-              </Grid>
-            </Grid>
+            <LvInfo />
           </Paper>
+        </Grid>
+        <Grid xs={12} item>
+          <Stack direction="row" sx={{ justifyContent: "center" }} spacing={1}>
+            {!user?.providers?.includes("google.com") && (
+              <Button
+                onClick={linkWithGoogle}
+                color="error"
+                size="medium"
+                variant="text"
+                endIcon={<Google />}
+              >
+                Connect
+              </Button>
+            )}
+            {!user?.providers?.includes("facebook.com") && (
+              <Button
+                onClick={linkWithFacebook}
+                color="info"
+                size="medium"
+                variant="text"
+                endIcon={<Facebook />}
+              >
+                Connect
+              </Button>
+            )}
+          </Stack>
         </Grid>
         <Grid xs={12} sx={{ mt: 4 }} item>
           <Button

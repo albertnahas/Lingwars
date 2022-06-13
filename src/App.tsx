@@ -29,11 +29,11 @@ import { feedbackSelector, setFeedback } from "./store/feedbackSlice"
 
 const firebaseAppAuth = firebase.auth()
 
-const googleProvider = new firebase.auth.GoogleAuthProvider()
+export const googleProvider = new firebase.auth.GoogleAuthProvider()
 googleProvider.addScope("https://www.googleapis.com/auth/user.birthday.read")
-const facebookProvider = new firebase.auth.FacebookAuthProvider()
+export const facebookProvider = new firebase.auth.FacebookAuthProvider()
 
-const providers = {
+export const providers = {
   googleProvider,
   facebookProvider,
 }
@@ -98,6 +98,7 @@ const App = function ({
           if (messagingToken) {
             user.messagingToken = messagingToken
           }
+
           dispatch(setServerUser(user))
           initNotificationListener()
         } else if (user === null) {
@@ -120,7 +121,9 @@ const App = function ({
     if (reason === "clickaway") {
       return
     }
-    dispatch(setSnackbar({ open: false, message: "" }))
+    setTimeout(() => {
+      dispatch(setSnackbar({ open: false, message: "" }))
+    }, 1000)
   }
 
   const challenge = useSelector(challengeSelector)
@@ -190,7 +193,7 @@ const App = function ({
       </ModalDialog>
       <Snackbar
         open={snackbar.open}
-        autoHideDuration={1000}
+        autoHideDuration={snackbar.duration}
         onClose={handleSnackbarClose}
       >
         <Alert severity={snackbar.type} sx={{ bottom: "72px" }}>

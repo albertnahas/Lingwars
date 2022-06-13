@@ -85,7 +85,7 @@ export const GameContainer = () => {
       (user?.lifeScore || 0) +
       Math.round(Math.pow(score || 0, 2) / (user?.lifeScore || score || 1))
     const newLanguages = user?.languages
-      ? [...user.languages, ...(languages || [])]
+      ? Array.from(new Set([...user.languages, ...(languages || [])]))
       : languages || []
 
     let streak = user?.streak || 0
