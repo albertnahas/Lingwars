@@ -20,7 +20,6 @@ import { alertSelector, setAlertOpen } from "./store/alertSlice"
 import { SideDrawer } from "./components/SideDrawer/SideDrawer"
 import Footer from "./components/Footer/Footer"
 import ModalDialog from "./molecules/ModalDialog/ModalDialog"
-import { useNavigate } from "react-router-dom"
 import { loginModalSelector, setLoginModal } from "./store/loginModalSlice"
 import { Login } from "./components/Auth/Login/Login"
 import { DonationDialog } from "./molecules/DonationDialog/DonationDialog"
@@ -74,7 +73,6 @@ const App = function ({
 
   const alertWidget = useSelector(alertSelector)
   const loginModal = useSelector(loginModalSelector)
-  const navigate = useNavigate()
 
   const signInWithGoogle = () => {
     firebase.auth().signInWithRedirect(googleProvider)
