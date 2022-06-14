@@ -20,6 +20,7 @@ export var ProgressRing: FC<Props> = function ({ color, thickness, ...props }) {
         variant="determinate"
         size={props.size || 120}
         {...props}
+        aria-label="accuracy progressbar"
       />
       <CircularProgress
         variant="determinate"
@@ -29,6 +30,7 @@ export var ProgressRing: FC<Props> = function ({ color, thickness, ...props }) {
           position: "absolute",
           "& circle": { strokeWidth: "0.2 !important" },
         }}
+        aria-label="accuracy progressbar"
       />
       <Box
         sx={{
