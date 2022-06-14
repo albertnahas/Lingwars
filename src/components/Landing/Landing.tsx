@@ -1,5 +1,13 @@
 import { FC } from "react"
 import { Box, Button, Typography } from "@mui/material"
+import { styled } from "@mui/material/styles"
+
+const EarthImg = styled("img")`
+  width: 250px;
+  @media (max-width: 767px) {
+    width: 150px;
+  }
+`
 
 export var Landing: FC<Props> = function (props) {
   return (
@@ -20,16 +28,15 @@ export var Landing: FC<Props> = function (props) {
         backgroundImage: `url('/assets/imgs/world.jpg') !important`,
       }}
     >
-      <Box sx={{ m: 8 }}>
-        <img
+      <Box sx={{ m: 4 }}>
+        <EarthImg
           alt="Spinning Earth"
           title="Earth"
-          width="250"
           src="/assets/imgs/earth.webp"
         />
       </Box>
       <Typography
-        sx={{ fontWeight: "400", fontSize: "4em" }}
+        sx={{ fontWeight: "400", fontSize: { md: "4em", xs: "3em" } }}
         variant="h1"
         aria-label="Lingwars"
         color="primary.light"
@@ -37,11 +44,25 @@ export var Landing: FC<Props> = function (props) {
         Lingwars
       </Typography>
       <Typography
-        sx={{ m: 2, fontSize: "18px", fontWeight: 400 }}
+        sx={{
+          m: 2,
+          fontSize: "18px",
+          fontWeight: 400,
+          px: { xs: "2.5rem", md: 0 },
+        }}
         variant="h2"
-        color="text.secondary"
+        color="text.primary"
       >
         The best language identifying and guessing game
+      </Typography>
+      <Typography variant="body2" color="textSecondary" align="left">
+        &#11088; Discover more than 300 languages
+        <br />
+        &#11088; Invite your friends
+        <br />
+        &#11088; Challenge random players
+        <br />
+        &#11088; Improve your linguistic knowledge
       </Typography>
       <Button
         color="primary"
