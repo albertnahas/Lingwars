@@ -10,12 +10,14 @@ import {
 } from "@mui/material"
 import { useDispatch, useSelector } from "react-redux"
 import ModalDialog from "../../molecules/ModalDialog/ModalDialog"
+import { ControlLink } from "../ControlPages/ControlPage"
 import { DeleteAccountForm } from "./DeleteAccountForm"
 import { userSelector } from "../../store/userSlice"
 import { useUser } from "../../hooks/useUser"
 import { ProfilePhoto } from "./partials/ProfilePhoto/ProfilePhoto"
 import { EditableDisplay } from "./partials/EditableDisplay/EditableDisplay"
 import AccessTimeIcon from "@mui/icons-material/AccessTime"
+import SchoolIcon from "@mui/icons-material/School"
 import LogoutIcon from "@mui/icons-material/Logout"
 
 import moment from "moment"
@@ -174,6 +176,27 @@ export const Profile: FC<Props> = ({ signOut }) => {
             }}
           >
             <LvInfo />
+          </Paper>
+        </Grid>
+        <Grid xs={12} item>
+          <Paper
+            elevation={6}
+            sx={{
+              p: 2,
+              textAlign: "left",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-start",
+            }}
+          >
+            <SchoolIcon fontSize="large" color="primary" sx={{ mr: 2 }} />
+            <Typography variant="body2" color="textSecondary">
+              Boost your knowledge: check languages info in the{" "}
+              <ControlLink sx={{ fontWeight: 500 }} to="/learn">
+                Learn
+              </ControlLink>{" "}
+              section.
+            </Typography>
           </Paper>
         </Grid>
         <Grid xs={12} item>
