@@ -17,6 +17,7 @@ import firebase from "../../../config"
 import { useSelector } from "react-redux"
 import { State } from "../../../types/state"
 import { Navigate } from "react-router"
+import { Link } from "react-router-dom"
 
 export var Register: FC<Props> = function (props) {
   const user = useSelector((state: State) => state.user.value)
@@ -196,8 +197,17 @@ export var Register: FC<Props> = function (props) {
               Sign Up
             </Button>
           </Box>
+
           <Typography color="textSecondary" variant="body2">
-            Have an account? <Button onClick={props.login}>Login</Button>
+            Have an account?{" "}
+            <Link
+              role="button"
+              aria-label="login"
+              style={{ textDecoration: "none" }}
+              to="/login"
+            >
+              <Button>Login</Button>
+            </Link>
           </Typography>
         </form>
       </Container>
@@ -209,5 +219,4 @@ export var Register: FC<Props> = function (props) {
 
 interface Props {
   onSubmit?: (email: string, password: string) => Promise<any>
-  login: () => void
 }

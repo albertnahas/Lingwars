@@ -60,7 +60,12 @@ const App = function ({
   const snackbar = useSelector(snackbarSelector)
   const openFeedbackModal = useSelector(feedbackSelector)
 
-  const { signOutUser } = useCurrentUser()
+  const {
+    signOutUser,
+    forgotPassword,
+    verifyPasswordResetCode,
+    confirmPasswordReset,
+  } = useCurrentUser()
   const { handleInstallClick, deferredPrompt } = usePwa()
   const dispatch = useDispatch()
 
@@ -150,6 +155,9 @@ const App = function ({
         signInAnonymously={signInAnonymously}
         signInWithGoogle={signInWithGoogle}
         signInWithFacebook={signInWithFacebook}
+        forgotPassword={forgotPassword}
+        verifyPasswordResetCode={verifyPasswordResetCode}
+        confirmPasswordReset={confirmPasswordReset}
         signOut={signOutFromApp}
       />
       <Footer />

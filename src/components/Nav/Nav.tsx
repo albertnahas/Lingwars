@@ -17,6 +17,8 @@ import { GameContainer } from "../Game/GameContainer"
 import { Profile } from "../Profile/Profile"
 import { Learn } from "../Learn/Learn"
 import PageNotFound from "../ControlPages/PageNotFound/PageNotFound"
+import { ForgotPassword } from "../Auth/ForgotPassword/ForgotPassword"
+import { ResetPassword } from "../Auth/ResetPassword/ResetPassword"
 
 const Wrapper = styled(Box, {
   shouldForwardProp: (prop) => prop !== "hasMarginBottom",
@@ -37,6 +39,9 @@ const Nav: FC<Props> = function ({
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signInAnonymously,
+  forgotPassword,
+  verifyPasswordResetCode,
+  confirmPasswordReset,
   signOut,
   loading,
   error,
@@ -54,7 +59,6 @@ const Nav: FC<Props> = function ({
               signInWithGoogle={signInWithGoogle}
               signInWithFacebook={signInWithFacebook}
               signInAnonymously={signInAnonymously}
-              signUp={() => navigate("/register")}
               error={error}
               onSubmit={signInWithEmailAndPassword}
               loading={loading}
@@ -63,10 +67,27 @@ const Nav: FC<Props> = function ({
         />
         <Route
           path="/register"
+          element={<Register onSubmit={createUserWithEmailAndPassword} />}
+        />
+        <Route
+          path="/forgotPassword"
           element={
-            <Register
-              onSubmit={createUserWithEmailAndPassword}
-              login={() => navigate("/login")}
+            <ForgotPassword
+              error={error}
+              onSubmit={forgotPassword}
+              loading={loading}
+              afterSubmit={() => navigate("/")}
+            />
+          }
+        />
+        <Route
+          path="/resetPassword"
+          element={
+            <ResetPassword
+              verifyPasswordResetCode={verifyPasswordResetCode}
+              confirmPasswordReset={confirmPasswordReset}
+              loading={loading}
+              afterSubmit={() => navigate("/login")}
             />
           }
         />
@@ -133,6 +154,9 @@ interface Props {
     email: string,
     password: string
   ) => Promise<any>
+  forgotPassword?: (email: string) => Promise<any>
+  confirmPasswordReset?: (code: string, password: string) => Promise<any>
+  verifyPasswordResetCode?: (code: string) => Promise<any>
   signInWithGoogle?: () => void
   signInWithFacebook?: () => void
   signInAnonymously?: () => Promise<any>
