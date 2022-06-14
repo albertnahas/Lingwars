@@ -177,10 +177,6 @@ const App = function ({
           signInWithGoogle={signInWithGoogle}
           signInWithFacebook={signInWithFacebook}
           signInAnonymously={signInAnonymously}
-          signUp={() => {
-            dispatch(setLoginModal(false))
-            navigate("/register")
-          }}
           error={error}
           onSubmit={signInWithEmailAndPassword}
           afterSubmit={() => dispatch(setLoginModal(false))}
