@@ -53,7 +53,7 @@ export const GreyMedal = ({ label, ...props }: MedalProps) => (
       r="33.5"
       fill="#C0C6CF"
       stroke="#C0C6CF"
-      stroke-width="8"
+      strokeWidth="8"
     />
     <circle
       className="badge_circle"
@@ -62,7 +62,7 @@ export const GreyMedal = ({ label, ...props }: MedalProps) => (
       r="29.5"
       fill="#C0C6CF"
       stroke="#EAEDF2"
-      stroke-width="4"
+      strokeWidth="4"
     />
     {!!label && (
       <text
@@ -84,8 +84,8 @@ export const GreyMedal = ({ label, ...props }: MedalProps) => (
         y2="89.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#27539F" />
-        <stop offset="1" stop-color="#71A1F4" stop-opacity="0" />
+        <stop stopColor="#27539F" />
+        <stop offset="1" stopColor="#71A1F4" stopOpacity="0" />
       </linearGradient>
       <linearGradient
         id="paint1_linear"
@@ -95,8 +95,8 @@ export const GreyMedal = ({ label, ...props }: MedalProps) => (
         y2="89.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#27539F" />
-        <stop offset="1" stop-color="#71A1F4" stop-opacity="0" />
+        <stop stopColor="#27539F" />
+        <stop offset="1" stopColor="#71A1F4" stopOpacity="0" />
       </linearGradient>
     </defs>
   </svg>

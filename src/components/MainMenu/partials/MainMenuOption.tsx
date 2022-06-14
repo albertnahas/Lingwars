@@ -26,7 +26,11 @@ export const MainMenuOption: FC<Props> = ({
       <ListItemButton aria-label={title?.toLocaleLowerCase()} onClick={onClick}>
         <Grid sx={{ alignItems: "center" }} container>
           <Grid sx={{ textAlign: "left", pl: 1 }} item xs={6}>
-            <Typography variant="h6" color="primary">
+            <Typography
+              variant="h2"
+              color="primary"
+              sx={{ fontWeight: 500, fontSize: "1.25rem", lineHeight: 1.6 }}
+            >
               {title}
             </Typography>
             <Typography variant="caption" color="text.secondary">

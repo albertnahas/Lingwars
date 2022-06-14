@@ -105,7 +105,13 @@ export const Profile: FC<Props> = ({ signOut }) => {
             </Box>
           </Box>
           {/* <Divider sx={{ mt: 2, mb: 2 }} variant="middle" /> */}
-          {user?.isAnonymous ? "Hey! I am anonnymous" : ""}
+          <Typography
+            variant="h1"
+            color="textPrimary"
+            sx={{ fontSize: "1rem", fontWeight: 400 }}
+          >
+            {user?.isAnonymous ? "Hey! I am anonymous" : ""}
+          </Typography>
         </Grid>
         <Grid xs={12} item>
           <ProfileHeadlines />

@@ -1,14 +1,13 @@
 import React from "react"
-import { Typography } from "@mui/material"
 import { Box } from "@mui/system"
-import { ControlLink } from "../ControlPage"
+import { ControlLink, ControlHeading1 } from "../ControlPage"
 
 export var About = function () {
   return (
     <>
-      <Typography variant="h2" color="primary">
+      <ControlHeading1 variant="h1" color="primary">
         About us
-      </Typography>
+      </ControlHeading1>
       <Box sx={{ textAlign: "left" }}>
         <p>
           Lingwars is a language guessing game that offers audio samples of more

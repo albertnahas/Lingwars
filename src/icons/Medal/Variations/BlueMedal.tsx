@@ -53,7 +53,7 @@ export const BlueMedal = ({ label, ...props }: MedalProps) => (
       r="33.5"
       fill="#71A1F4"
       stroke="#CEDCF5"
-      stroke-width="8"
+      strokeWidth="8"
     />
     {!!label && (
       <text
@@ -75,8 +75,8 @@ export const BlueMedal = ({ label, ...props }: MedalProps) => (
         y2="89.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#27539F" />
-        <stop offset="1" stop-color="#71A1F4" stop-opacity="0" />
+        <stop stopColor="#27539F" />
+        <stop offset="1" stopColor="#71A1F4" stopOpacity="0" />
       </linearGradient>
       <linearGradient
         id="paint1_linear"
@@ -86,8 +86,8 @@ export const BlueMedal = ({ label, ...props }: MedalProps) => (
         y2="89.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#27539F" />
-        <stop offset="1" stop-color="#71A1F4" stop-opacity="0" />
+        <stop stopColor="#27539F" />
+        <stop offset="1" stopColor="#71A1F4" stopOpacity="0" />
       </linearGradient>
     </defs>
   </svg>

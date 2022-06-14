@@ -18,7 +18,7 @@ describe("Auth functions work", () => {
   it("registers new user and signout", () => {
     cy.get(`[aria-label="get started"]`).click({ force: true })
     cy.get(`[aria-label="sign up"]`).click()
-    cy.get("h4").contains("Create")
+    cy.get("h1").contains("Create")
     cy.get(`input[name="firstName"]`).clear().type("test")
     cy.get(`input[name="lastName"]`).clear().type("test")
     cy.get(`input[name="email"]`).clear().type(`${random}@test.com`)
@@ -33,7 +33,7 @@ describe("Auth functions work", () => {
 
   it("login user", () => {
     cy.get(`[aria-label="get started"]`).click({ force: true })
-    cy.get("h4").contains("Sign in")
+    cy.get("h1").contains("Sign in")
     cy.get(`input[name="email"]`).clear().type(`${random}@test.com`)
     cy.get(`input[name="password"]`).clear().type("123456")
     cy.get(`[aria-label="sign in"]`).click()

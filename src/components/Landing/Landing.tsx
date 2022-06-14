@@ -21,7 +21,12 @@ export var Landing: FC<Props> = function (props) {
       }}
     >
       <Box sx={{ m: 8 }}>
-        <img alt="Spinning eart" width="250" src="/assets/imgs/earth.webp" />
+        <img
+          alt="Spinning Earth"
+          title="Earth"
+          width="250"
+          src="/assets/imgs/earth.webp"
+        />
       </Box>
       <Typography
         sx={{ fontWeight: "400", fontSize: "4em" }}
@@ -32,8 +37,8 @@ export var Landing: FC<Props> = function (props) {
         Lingwars
       </Typography>
       <Typography
-        sx={{ m: 2, fontSize: "18px" }}
-        variant="h3"
+        sx={{ m: 2, fontSize: "18px", fontWeight: 400 }}
+        variant="h2"
         color="text.secondary"
       >
         The best language identifying and guessing game
