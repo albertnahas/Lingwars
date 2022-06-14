@@ -94,9 +94,23 @@ export const useCurrentUser = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [serverUser])
 
+  const forgotPassword = (email: string) =>
+    firebase.auth().sendPasswordResetEmail(email)
+
+  const verifyPasswordResetCode = (code: string) =>
+    firebase.auth().verifyPasswordResetCode(code)
+
+  const confirmPasswordReset = (code: string, newPassword: string) =>
+    firebase.auth().confirmPasswordReset(code, newPassword)
+
   const signOutUser = () => {
     dispatch(removeUser())
   }
 
-  return { signOutUser }
+  return {
+    signOutUser,
+    forgotPassword,
+    verifyPasswordResetCode,
+    confirmPasswordReset,
+  }
 }

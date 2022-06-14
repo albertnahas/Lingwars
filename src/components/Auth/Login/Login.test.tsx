@@ -7,10 +7,9 @@ describe("Login", function () {
   console.error = jest.fn()
 
   it("renders without crashing", () => {
-    const signUpMock = jest.fn()
     shallow(
       <Providers>
-        <Login signUp={signUpMock} />
+        <Login />
       </Providers>
     )
   })

@@ -16,11 +16,10 @@ import { Facebook as FacebookIcon } from "../../../icons/facebook"
 import { Google as GoogleIcon } from "../../../icons/google"
 import { useSelector } from "react-redux"
 import { State } from "../../../types/state"
-import { Navigate } from "react-router"
+import { Link, Navigate } from "react-router-dom"
 
 export var Login: FC<Props> = function (props) {
   const user = useSelector((state: State) => state.user.value)
-
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -179,12 +178,31 @@ export var Login: FC<Props> = function (props) {
               <CircularProgress />
             )}
           </Box>
-          <Typography color="textSecondary" variant="body2">
-            Don&apos;t have an account?{" "}
-            <Button aria-label="sign up" onClick={props.signUp}>
-              Sign up
-            </Button>
-          </Typography>
+          <Grid container>
+            <Grid sx={{ textAlign: "left" }} item xs>
+              <Link
+                role="button"
+                style={{ textDecoration: "none" }}
+                to="/forgotPassword"
+                aria-label="forgot password"
+              >
+                <Button>Forgot Password</Button>
+              </Link>
+            </Grid>
+            <Grid item>
+              <Typography color="textSecondary" variant="body2">
+                Don't have an account?{" "}
+                <Link
+                  role="button"
+                  style={{ textDecoration: "none" }}
+                  to="/register"
+                  aria-label="sign up"
+                >
+                  <Button>Sign up</Button>
+                </Link>
+              </Typography>
+            </Grid>
+          </Grid>
         </form>
         <Divider />
         <form onSubmit={guestFormik.handleSubmit}>
@@ -217,7 +235,6 @@ export var Login: FC<Props> = function (props) {
 interface Props {
   onSubmit?: (email: string, password: string) => Promise<any>
   afterSubmit?: () => void
-  signUp: () => void
   signInWithGoogle?: () => void
   signInWithFacebook?: () => void
   signInAnonymously?: () => Promise<any>
