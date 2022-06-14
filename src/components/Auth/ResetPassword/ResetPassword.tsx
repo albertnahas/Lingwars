@@ -17,6 +17,7 @@ import { setSnackbar } from "../../../store/snackbarSlice"
 
 export var ResetPassword: FC<Props> = function (props) {
   const user = useSelector((state: State) => state.user.value)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [valid, setValid] = useState(true)
   const [searchParams] = useSearchParams()
   const dispatch = useDispatch()
