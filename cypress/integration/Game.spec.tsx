@@ -38,7 +38,7 @@ describe("Game starts for one player", () => {
     cy.get(`button[aria-label="dialog close"]`).click()
     // leave
     cy.get(`button[aria-label="leave dialog"]`).click()
-    cy.get("h4").contains("Main Menu")
+    cy.get("h1").contains("Main Menu")
   })
 })
 
@@ -46,7 +46,7 @@ describe("Side drawer returns to Main Menu", () => {
   it("Starts multi player challenge", () => {
     cy.get(`[aria-label="open drawer"]`).click()
     cy.get(`[aria-label="Home"]`).click()
-    cy.get("h4").contains("Main Menu")
+    cy.get("h1").contains("Main Menu")
   })
 })
 

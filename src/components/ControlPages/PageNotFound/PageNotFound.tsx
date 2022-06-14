@@ -21,7 +21,7 @@ const PageNotFound = () => {
         color="primary"
         sx={{ mt: 3, fontSize: "2em", fontWeight: 500 }}
       >
-        Oops, the page you are looking for, does not exist.
+        Oops, the page you are looking for, <br /> does not exist.
       </Typography>
     </Container>
   )

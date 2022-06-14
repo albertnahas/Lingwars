@@ -56,7 +56,7 @@ export const PurpleMedal = ({ label, ...props }: MedalProps) => (
       r="33.5"
       fill="#DBDFE7"
       stroke="#8C62F5"
-      stroke-width="8"
+      strokeWidth="8"
     />
     <circle
       className="badge_circle"
@@ -65,7 +65,7 @@ export const PurpleMedal = ({ label, ...props }: MedalProps) => (
       r="29.5"
       fill="#8C62F5"
       stroke="#D1C0FB"
-      stroke-width="4"
+      strokeWidth="4"
     />
     {!!label && (
       <text
@@ -87,8 +87,8 @@ export const PurpleMedal = ({ label, ...props }: MedalProps) => (
         y2="97.1461"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#DFAC28" />
-        <stop offset="1" stop-color="#FCC838" stop-opacity="0" />
+        <stop stopColor="#DFAC28" />
+        <stop offset="1" stopColor="#FCC838" stopOpacity="0" />
       </linearGradient>
       <linearGradient
         id="paint1_linear"
@@ -98,8 +98,8 @@ export const PurpleMedal = ({ label, ...props }: MedalProps) => (
         y2="97.1461"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#27539F" />
-        <stop offset="1" stop-color="#71A1F4" stop-opacity="0" />
+        <stop stopColor="#27539F" />
+        <stop offset="1" stopColor="#71A1F4" stopOpacity="0" />
       </linearGradient>
     </defs>
   </svg>

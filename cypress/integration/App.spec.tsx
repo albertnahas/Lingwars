@@ -42,17 +42,22 @@ describe("App renders", () => {
     it("renders privacy policy", () => {
       cy.get(`[aria-label="open drawer"]`).click({ force: true })
       cy.get(`[aria-label="privacy"]`).click()
-      cy.get(`h2`).contains("Privacy Policy")
+      cy.get(`h1`).contains("Privacy Policy")
     })
     it("renders terms and conditions", () => {
       cy.get(`[aria-label="open drawer"]`).click({ force: true })
       cy.get(`[aria-label="terms"]`).click()
-      cy.get(`h2`).contains("Terms and Conditions")
+      cy.get(`h1`).contains("Terms and Conditions")
     })
     it("renders about us", () => {
       cy.get(`[aria-label="open drawer"]`).click()
       cy.get(`[aria-label="about"]`).click()
-      cy.get(`h2`).contains("About us")
+      cy.get(`h1`).contains("About us")
+    })
+    it("renders learn", () => {
+      cy.get(`[aria-label="open drawer"]`).click()
+      cy.get(`[aria-label="learn"]`).click()
+      cy.get(`h1`).contains("Learn")
     })
   })
 
