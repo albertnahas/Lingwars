@@ -33,6 +33,7 @@ export const Game: FC<Props> = ({
   players,
   onClickLeave,
   onClickRematch,
+  onClickPlayAgain,
   onComplete,
   rematch,
   error,
@@ -118,7 +119,7 @@ export const Game: FC<Props> = ({
             {["started", "finished"].includes(gameStatus) &&
               players &&
               renderPlayers()}
-            {!challenge?.rematchRequested && (
+            {!challenge?.rematchRequested && gameStatus !== "finished" && (
               <Box sx={{ my: 2 }}>{renderGame()}</Box>
             )}
             {gameStatus === "waiting" && (
@@ -138,6 +139,16 @@ export const Game: FC<Props> = ({
               <Alert sx={{ my: 4 }} severity="error">
                 {error}
               </Alert>
+            )}
+            {gameStatus === "finished" && (
+              <Typography
+                component="p"
+                variant="h4"
+                color="secondary"
+                sx={{ m: 3 }}
+              >
+                Game Over!
+              </Typography>
             )}
             {challenge?.rematchRequested && (
               <>
@@ -185,6 +196,7 @@ export const Game: FC<Props> = ({
           open={isGameDone && !rematch}
           onClose={onClickLeave}
           onClickRematch={onClickRematch}
+          onClickPlayAgain={onClickPlayAgain}
           players={players}
         />
       </Container>
@@ -198,6 +210,7 @@ interface Props {
   players?: Player[]
   onClickLeave: () => void
   onClickRematch: () => void
+  onClickPlayAgain: () => void
   onComplete: () => void
   rematch: boolean
   error?: string

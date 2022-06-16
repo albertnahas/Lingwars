@@ -21,6 +21,7 @@ export const snackbarSlice = createSlice({
       state.type = action.payload.type || initialState.type
       state.open = action.payload.open
       state.duration = action.payload.duration || initialState.duration
+      state.cta = action.payload.cta
     },
   },
 })
