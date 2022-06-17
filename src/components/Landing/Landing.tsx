@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { Box, Button, Typography } from "@mui/material"
+import { Box, Button, Paper, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 
 const EarthImg = styled("img")`
@@ -13,11 +13,9 @@ export var Landing: FC<Props> = function (props) {
   return (
     <Box
       sx={{
-        backgroundColor: "#eee",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundSize: "contain",
         backgroundPosition: "center",
-        backgroundBlendMode: "lighten",
         flexGrow: 1,
         textAlign: "center",
         width: "100%",
@@ -25,10 +23,10 @@ export var Landing: FC<Props> = function (props) {
         justifyContent: "flex-start",
         alignItems: "center",
         flexDirection: "column",
-        backgroundImage: `url('/assets/imgs/world.jpg') !important`,
+        backgroundImage: `url('/assets/imgs/world.svg') !important`,
       }}
     >
-      <Box sx={{ m: 4 }}>
+      <Box sx={{ m: 3 }}>
         <EarthImg
           alt="Spinning Earth"
           title="Earth"
@@ -55,15 +53,17 @@ export var Landing: FC<Props> = function (props) {
       >
         The best language identifying and guessing game
       </Typography>
-      <Typography variant="body2" color="textSecondary" align="left">
-        &#11088; Discover more than 300 languages
-        <br />
-        &#11088; Invite your friends
-        <br />
-        &#11088; Challenge random players
-        <br />
-        &#11088; Improve your linguistic knowledge
-      </Typography>
+      <Paper elevation={0} sx={{ p: 1 }}>
+        <Typography variant="body2" color="textSecondary" align="left">
+          &#11088; Discover more than 300 languages
+          <br />
+          &#11088; Invite your friends
+          <br />
+          &#11088; Challenge random players
+          <br />
+          &#11088; Improve your linguistic knowledge
+        </Typography>
+      </Paper>
       <Button
         color="primary"
         fullWidth

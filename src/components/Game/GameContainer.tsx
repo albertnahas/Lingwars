@@ -1,5 +1,5 @@
 import { useLayoutEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import {
   challengeSelector,
@@ -14,6 +14,8 @@ import { setFeedback } from "../../store/feedbackSlice"
 import firebase from "../../config"
 import { isToday } from "../../utils/utils"
 import { UserStats } from "../../types/user"
+import { getLv } from "../../utils/helpers"
+import { setSnackbar } from "../../store/snackbarSlice"
 
 export const GameContainer = () => {
   const [open, setOpen] = useState(false)
@@ -28,6 +30,7 @@ export const GameContainer = () => {
     rematch,
     requestRematch,
     cancelRematch,
+    playAgain,
   } = useChallenge(gameId)
 
   const { updateUser } = useUser()
@@ -71,14 +74,15 @@ export const GameContainer = () => {
     if (!user?.feedback) {
       setTimeout(() => {
         dispatch(setFeedback(true))
-      }, 1000)
+      }, 1500)
     }
 
     const gamesPlayed = user?.gamesPlayed || 0
     const roundsPlayed = user?.roundsPlayed || 0
     const accRatio = (accuracy || 0) / (turn || 1)
-    const userAccuracy = user?.accuracy
-      ? (user.accuracy * gamesPlayed + (accRatio || 0)) / (gamesPlayed + 1)
+    const prevAccuracy = user?.accuracy || 0
+    const userAccuracy = prevAccuracy
+      ? (prevAccuracy * gamesPlayed + (accRatio || 0)) / (gamesPlayed + 1)
       : accRatio || 0
     const xp = (user?.xp || 0) + (score || 0) * (challenge?.level || 0)
     const lifeScore =
@@ -121,7 +125,7 @@ export const GameContainer = () => {
 
     const currDate =
       firebase.firestore.FieldValue.serverTimestamp() as firebase.firestore.Timestamp
-
+    const currLv = getLv(user?.xp).lv
     updateUser({
       ...user,
       lastPlayedAt: currDate,
@@ -138,11 +142,29 @@ export const GameContainer = () => {
       if (!players || players.length <= 1) {
         completeChallenge()
       }
-    })
-  }
+      const newLv = getLv(xp).lv
+      if (newLv > currLv) {
+        dispatch(
+          setSnackbar({
+            message: `You have reached level ${newLv}!`,
+            type: "success",
+            open: true,
+            cta: <Link to="/profile">check your profile!</Link>,
+            duration: 5000,
+          })
+        )
+      }
 
-  const onClickRematch = () => {
-    requestRematch()
+      // let accuracyMessage = ""
+      // let drop = false
+      // const accDiff = Math.abs(Math.round((prevAccuracy - userAccuracy) * 100))
+      // if (userAccuracy > prevAccuracy) {
+      //   accuracyMessage = `You have improved your accuracy by ${accDiff}%!`
+      // } else {
+      //   accuracyMessage = `Your accuracy has dropped by ${accDiff}%!`
+      //   drop = true
+      // }
+    })
   }
 
   return (
@@ -152,7 +174,8 @@ export const GameContainer = () => {
         challenge={challenge || undefined}
         players={players}
         onClickLeave={onClickLeave}
-        onClickRematch={onClickRematch}
+        onClickRematch={requestRematch}
+        onClickPlayAgain={playAgain}
         onComplete={onComplete}
         rematch={rematch}
         error={error}

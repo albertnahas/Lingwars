@@ -113,10 +113,10 @@ export var MainMenu: FC<Props> = function (props) {
       <Container
         sx={{
           px: 4,
-          background: "url(/assets/imgs/bg.svg)",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
+          // background: "url(/assets/imgs/bg.svg)",
+          // backgroundPosition: "center",
+          // backgroundRepeat: "no-repeat",
+          // backgroundSize: "contain",
         }}
         maxWidth="xs"
       >

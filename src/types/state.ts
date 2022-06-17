@@ -35,6 +35,7 @@ export interface SnackbarState {
   message?: string
   type?: "success" | "warning" | "error"
   duration?: number
+  cta?: JSX.Element
 }
 export interface FeedbackState {
   open?: boolean
