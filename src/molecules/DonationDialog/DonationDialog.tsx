@@ -15,6 +15,9 @@ import { PayPalButtons } from "@paypal/react-paypal-js"
 import { DoneOutline } from "../../icons/DoneOutline"
 import { useTheme } from "@mui/system"
 import anime from "animejs"
+import { useSelector } from "react-redux"
+import { useAnalytics } from "../../hooks/useAnalytics"
+import { userSelector } from "../../store/userSlice"
 
 export interface DonationDialogProps {
   open: boolean
@@ -25,6 +28,8 @@ export function DonationDialog(props: DonationDialogProps) {
   const theme = useTheme()
   const { onClose, open } = props
   const [donated, setDonated] = useState(false)
+  const user = useSelector(userSelector)
+  const { logEvent } = useAnalytics()
 
   const formik = useFormik({
     initialValues: {
@@ -79,6 +84,11 @@ export function DonationDialog(props: DonationDialogProps) {
     }
     return () => {}
   }, [donated])
+
+  useEffect(() => {
+    logEvent("donation_open", { userId: user?.uid })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Dialog

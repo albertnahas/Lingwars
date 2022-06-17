@@ -13,6 +13,9 @@ import {
 } from "@mui/material"
 import { Box } from "@mui/system"
 import { ControlHeading1, ControlHeading2 } from "../ControlPages/ControlPage"
+import { useAnalytics } from "../../hooks/useAnalytics"
+import { useSelector } from "react-redux"
+import { userSelector } from "../../store/userSlice"
 
 const adjustLangTitle = (a: string) => {
   return a.length > 0 ? a.replace(/languages|language/, "") : ""
@@ -23,6 +26,8 @@ export const Learn = () => {
   const [langInfo, setLangInfo] = useState<any>()
   const [searchTerm, setSearchTerm] = useState<string>("")
   const [filteredLangs, setFilteredLangs] = useState(allLangs)
+  const { logEvent } = useAnalytics()
+  const user = useSelector(userSelector)
 
   const handleListItemClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -59,6 +64,11 @@ export const Learn = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedIndex])
+
+  useEffect(() => {
+    logEvent("learn_view", { userId: user?.uid })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Container>

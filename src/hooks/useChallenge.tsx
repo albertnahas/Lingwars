@@ -91,6 +91,12 @@ export const useChallenge = (gameId?: string) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname])
 
+  const playAgain = () => {
+    if (challengeSetup) {
+      dispatch(setChallenge({ ...challengeSetup }))
+    }
+  }
+
   const requestRematch = () => {
     return new Promise((resolve, reject) => {
       if (!challenge) reject()
@@ -192,6 +198,7 @@ export const useChallenge = (gameId?: string) => {
     error,
     rematch,
     requestRematch,
+    playAgain,
     completeChallenge,
     leaveChallenge,
     cancelRematch,

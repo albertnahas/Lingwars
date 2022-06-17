@@ -199,7 +199,7 @@ const App = function ({
         onClose={handleSnackbarClose}
       >
         <Alert severity={snackbar.type} sx={{ bottom: "72px" }}>
-          {snackbar.message}
+          {snackbar.message} {snackbar.cta}
         </Alert>
       </Snackbar>
       <DonationDialog

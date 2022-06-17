@@ -18,12 +18,14 @@ export interface ChallengeDoneDialogProps {
   open: boolean
   onClose: () => void
   onClickRematch: () => void
+  onClickPlayAgain: () => void
   players?: Player[]
 }
 
 export function ChallengeDoneDialog({
   onClose,
   onClickRematch,
+  onClickPlayAgain,
   open,
   players,
 }: ChallengeDoneDialogProps) {
@@ -47,7 +49,7 @@ export function ChallengeDoneDialog({
   const evaluation = getEval(stats?.accuracy || 0)
   return (
     <Dialog onClose={handleClose} aria-label={"Challenge done"} open={open}>
-      <DialogContent sx={{ minWidth: 300 }}>
+      <DialogContent sx={{ minWidth: { xs: 240, sm: 300 } }}>
         <Container sx={{ textAlign: "center" }}>
           <Typography variant="body1">Game Completed</Typography>
           <Typography color="primary" variant="h5">
@@ -94,13 +96,17 @@ export function ChallengeDoneDialog({
       </DialogContent>
 
       <DialogActions>
-        {players && players.length > 1 && (
+        {players && players.length > 1 ? (
           <RematchButton
             onClick={onClickRematch}
             pulsing={challenge?.rematchRequested}
             variant="text"
             color="primary"
           />
+        ) : (
+          <Button onClick={onClickPlayAgain} aria-label="play again" autoFocus>
+            Play again
+          </Button>
         )}
         <Button onClick={handleClose} aria-label="leave dialog" autoFocus>
           Return to menu
