@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react"
+import { FC, useEffect, useMemo, useState } from "react"
 import {
   Container,
   Box,
@@ -29,6 +29,7 @@ import { Google } from "../../icons/google"
 import { Facebook } from "@mui/icons-material"
 import { setSnackbar } from "../../store/snackbarSlice"
 import firebase from "../../config"
+import { useAnalytics } from "../../hooks/useAnalytics"
 
 export const Profile: FC<Props> = ({ signOut }) => {
   const user = useSelector(userSelector)
@@ -36,7 +37,7 @@ export const Profile: FC<Props> = ({ signOut }) => {
   const [openDeleteAccount, setOpenDeleteAccount] = useState(false)
 
   const { updateUser, linkAccount } = useUser()
-
+  const { logEvent } = useAnalytics()
   const [imageAsUrl, setImageAsUrl] = useState<any>(user?.photoURL)
 
   const onClickSubmitDisplayName = (name?: string) => {
@@ -84,6 +85,11 @@ export const Profile: FC<Props> = ({ signOut }) => {
 
   const linkWithFacebook = () => linkSocialAccount(facebookProvider)
   const linkWithGoogle = () => linkSocialAccount(googleProvider)
+
+  useEffect(() => {
+    logEvent("profile_view", { userId: user?.uid })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Container aria-label="profile container" maxWidth="sm">

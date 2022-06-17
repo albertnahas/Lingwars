@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import {
@@ -16,9 +16,11 @@ import { isToday } from "../../utils/utils"
 import { UserStats } from "../../types/user"
 import { getLv } from "../../utils/helpers"
 import { setSnackbar } from "../../store/snackbarSlice"
+import { useAnalytics } from "../../hooks/useAnalytics"
 
 export const GameContainer = () => {
   const [open, setOpen] = useState(false)
+  const { logEvent } = useAnalytics()
 
   let { gameId } = useParams()
 
@@ -166,6 +168,10 @@ export const GameContainer = () => {
       // }
     })
   }
+  useEffect(() => {
+    logEvent("new_game", { userId: user?.uid })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>

@@ -1,8 +1,15 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Box } from "@mui/system"
 import { ControlLink, ControlHeading1 } from "../ControlPage"
+import { useAnalytics } from "../../../hooks/useAnalytics"
 
 export var About = function () {
+  const { logEvent } = useAnalytics()
+  useEffect(() => {
+    logEvent("about_page_viewed")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <>
       <ControlHeading1 variant="h1" color="primary">
