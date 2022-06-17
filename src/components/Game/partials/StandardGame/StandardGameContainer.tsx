@@ -26,6 +26,7 @@ import {
   initialGameState,
   startingTurn,
 } from "../../GameReducer"
+import { useAnalytics } from "../../../../hooks/useAnalytics"
 
 export const StandardGameContainer: FC<Props> = ({
   display,
@@ -33,7 +34,7 @@ export const StandardGameContainer: FC<Props> = ({
   onComplete,
 }) => {
   const [lang, setLang] = useState<any>()
-
+  const { logEvent } = useAnalytics()
   const [
     { turn, hintsUsed, timedScore, accuracy, answered, submitted, languages },
     dispatch,
@@ -84,7 +85,13 @@ export const StandardGameContainer: FC<Props> = ({
           language: lang,
         },
       })
+      logEvent("round_answer", {
+        userId: user?.uid,
+        language: lang.name,
+        answer: answer.name,
+      })
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [lang]
   )
 
