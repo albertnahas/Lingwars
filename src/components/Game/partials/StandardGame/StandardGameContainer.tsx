@@ -26,7 +26,6 @@ import {
   initialGameState,
   startingTurn,
 } from "../../GameReducer"
-import { useAnalytics } from "../../../../hooks/useAnalytics"
 
 export const StandardGameContainer: FC<Props> = ({
   display,
@@ -34,7 +33,6 @@ export const StandardGameContainer: FC<Props> = ({
   onComplete,
 }) => {
   const [lang, setLang] = useState<any>()
-  const { logEvent } = useAnalytics()
   const [
     { turn, hintsUsed, timedScore, accuracy, answered, submitted, languages },
     dispatch,
