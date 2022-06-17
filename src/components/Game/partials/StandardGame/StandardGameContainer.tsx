@@ -85,11 +85,6 @@ export const StandardGameContainer: FC<Props> = ({
           language: lang,
         },
       })
-      logEvent("round_answer", {
-        userId: user?.uid,
-        language: lang.name,
-        answer: answer.name,
-      })
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [lang]
