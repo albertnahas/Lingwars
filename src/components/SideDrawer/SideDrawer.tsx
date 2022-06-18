@@ -15,6 +15,7 @@ import LogoutIcon from "@mui/icons-material/Logout"
 import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined"
 import GradingOutlinedIcon from "@mui/icons-material/GradingOutlined"
 import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined"
+import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver"
 import SchoolIcon from "@mui/icons-material/School"
 import { userSelector } from "../../store/userSlice"
 // import SettingsIcon from "@mui/icons-material/Settings"
@@ -112,6 +113,20 @@ export const SideDrawer: React.FC<Props> = (props) => {
           </ListItemIcon>
           <ListItemText primary="Settings" color="text.secondary" />
         </ListItem> */}
+      </List>
+      <List sx={{ mt: -2 }}>
+        <ListItem
+          aria-label={"submit"}
+          button
+          component="a"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSct4WgpCtrGAHoN3LEcqpczHZPIkq75P7jXSpgMM9DolrUzyw/viewform"
+          target="_blank"
+        >
+          <ListItemIcon>
+            <RecordVoiceOverIcon />
+          </ListItemIcon>
+          <ListItemText primary="Submit your language" color="text.secondary" />
+        </ListItem>
       </List>
       <Divider />
       {user && (
