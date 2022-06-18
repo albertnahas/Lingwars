@@ -72,12 +72,12 @@ export const gameEvals: {
   message: string
   color?: "primary" | "secondary" | "error" | "info" | "success" | "warning"
 }[] = [
-    { medal: "grey", message: "way to go", color: "error" },
-    { medal: "blue", message: "You still have a lot to learn", color: "warning" },
-    { medal: "silver", message: "You have a good knowledge!", color: "primary" },
-    { medal: "purple", message: "You are a polyglot!!", color: "primary" },
-    { medal: "gold", message: "You are unstoppable!!!", color: "success" },
-  ]
+  { medal: "grey", message: "way to go", color: "error" },
+  { medal: "blue", message: "You still have a lot to learn", color: "warning" },
+  { medal: "silver", message: "You have a good knowledge!", color: "primary" },
+  { medal: "purple", message: "You are a polyglot!!", color: "primary" },
+  { medal: "gold", message: "You are unstoppable!!!", color: "success" },
+]
 
 export const getEval = (accuracy: number) => {
   switch (true) {
