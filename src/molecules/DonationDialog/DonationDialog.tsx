@@ -86,9 +86,9 @@ export function DonationDialog(props: DonationDialogProps) {
   }, [donated])
 
   useEffect(() => {
-    logEvent("donation_open", { userId: user?.uid })
+    open && logEvent("donation_open", { userId: user?.uid })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [open])
 
   return (
     <Dialog

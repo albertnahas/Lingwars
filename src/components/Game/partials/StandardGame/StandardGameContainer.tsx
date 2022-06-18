@@ -33,7 +33,6 @@ export const StandardGameContainer: FC<Props> = ({
   onComplete,
 }) => {
   const [lang, setLang] = useState<any>()
-
   const [
     { turn, hintsUsed, timedScore, accuracy, answered, submitted, languages },
     dispatch,
@@ -85,6 +84,7 @@ export const StandardGameContainer: FC<Props> = ({
         },
       })
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [lang]
   )
 
