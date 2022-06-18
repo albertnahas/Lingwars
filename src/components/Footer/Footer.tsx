@@ -10,6 +10,7 @@ import { Tiktok as TiktokIcon } from "../../icons/tiktok"
 import { Facebook as FacebookIcon } from "../../icons/facebook"
 import { Logo } from "../../icons/logo"
 import { Link, useLocation } from "react-router-dom"
+import { SubmitLink } from "../ControlPages/About/About"
 
 const footerNavLinks = [
   {
@@ -151,6 +152,23 @@ const Footer = () => {
             &copy; 2022 Lingwars. All rights reserved.
           </Typography>
         </Box>
+        <Typography
+          variant="caption"
+          component="div"
+          color="text.secondary"
+          sx={{ textAlign: { xs: "center", lg: "left" } }}
+        >
+          Contribute to Lingwars -
+          <SubmitLink
+            href="https://docs.google.com/forms/d/e/1FAIpQLSct4WgpCtrGAHoN3LEcqpczHZPIkq75P7jXSpgMM9DolrUzyw/viewform"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            Submit your language
+          </SubmitLink>
+          .
+        </Typography>
       </Container>
     </Box>
   )

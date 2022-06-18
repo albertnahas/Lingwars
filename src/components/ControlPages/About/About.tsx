@@ -1,7 +1,15 @@
 import React, { useEffect } from "react"
-import { Box } from "@mui/system"
+import { Box, styled } from "@mui/system"
 import { ControlLink, ControlHeading1 } from "../ControlPage"
 import { useAnalytics } from "../../../hooks/useAnalytics"
+
+export var SubmitLink = styled("a")(
+  ({ theme }) => `
+  text-decoration: none;
+  color: ${theme.palette.primary.main};
+  cursor: pointer;
+`
+)
 
 export var About = function () {
   const { logEvent } = useAnalytics()
@@ -76,7 +84,16 @@ export var About = function () {
         <p>
           You can contribute your language(s) to the Lingwars collection. Clear
           recordings of you (or a friend, relative, etc.) speaking the language
-          would help us to maintain and enrich our audio samples database.
+          would help us to maintain and enrich our audio samples database. If
+          you'd like to participate, please{" "}
+          <SubmitLink
+            href="https://docs.google.com/forms/d/e/1FAIpQLSct4WgpCtrGAHoN3LEcqpczHZPIkq75P7jXSpgMM9DolrUzyw/viewform"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Submit your language
+          </SubmitLink>
+          . You may add as many samples as you'd like.
         </p>
       </Box>
     </>

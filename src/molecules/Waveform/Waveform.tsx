@@ -1,18 +1,22 @@
 import { styled } from "@mui/system"
+import Box from "@mui/material/Box"
 import React, { useEffect, useRef, useState } from "react"
 import WaveSurfer from "wavesurfer.js"
 import PlayArrowIcon from "@mui/icons-material/PlayArrow"
 import PauseIcon from "@mui/icons-material/Pause"
 import { isiOS } from "../../utils/utils"
+import { LinearProgress, Typography } from "@mui/material"
 
 export const WaveformContainer = styled("div")`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   height: 100px;
   width: 100%;
   background: transparent;
+`
+
+export const PlayContainer = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Wave = styled("div")`
@@ -39,7 +43,7 @@ export const PlayButton = styled("button")`
 
 export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
   const [playing, setPlaying] = useState(false)
-  const [disabled, setDisabled] = useState(true)
+  const [loading, setLoading] = useState(true)
   const waveform = useRef<WaveSurfer>()
   const waveformRef = useRef<HTMLMediaElement>(null)
   const audioRef = useRef<HTMLMediaElement>(null)
@@ -72,7 +76,7 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
     setPlaying(false)
 
     waveform.current?.on("ready", function () {
-      setDisabled(false)
+      setLoading(false)
     })
 
     waveform.current?.on("play", onActive)
@@ -90,16 +94,25 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
 
   return (
     <WaveformContainer aria-label="audio container">
-      <PlayButton onClick={handlePlay} disabled={disabled}>
-        {!playing ? (
-          <PlayArrowIcon color={disabled ? "disabled" : "primary"} />
-        ) : (
-          <PauseIcon />
-        )}
-      </PlayButton>
-      <Wave id="waveform" />
-      <audio ref={waveformRef} id="track" src={url} />
-      {ios && <audio ref={audioRef} />}
+      {loading && (
+        <Box sx={{ width: "100%", mt: 3 }}>
+          <Typography variant="body2" color="textSecondary" mb={2}>
+            The audio is loading... Please wait.
+          </Typography>
+          <LinearProgress />
+        </Box>
+      )}
+      <PlayContainer>
+        <PlayButton
+          onClick={handlePlay}
+          sx={{ display: loading ? "none" : "flex" }}
+        >
+          {!playing ? <PlayArrowIcon color="primary" /> : <PauseIcon />}
+        </PlayButton>
+        <Wave id="waveform" />
+        <audio ref={waveformRef} id="track" src={url} />
+        {ios && <audio ref={audioRef} />}
+      </PlayContainer>
     </WaveformContainer>
   )
 }
