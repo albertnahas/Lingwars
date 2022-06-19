@@ -79,13 +79,19 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
       setLoading(false)
     })
 
-    waveform.current?.on("play", onActive)
-
     return () => {
       waveform.current?.destroy()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url])
+
+  useEffect(() => {
+    waveform.current?.on("play", onActive)
+
+    return () => {
+      waveform.current?.un("play", onActive)
+    }
+  }, [onActive])
 
   const handlePlay = () => {
     setPlaying((p) => !p)
