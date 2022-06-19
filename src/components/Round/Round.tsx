@@ -100,7 +100,6 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
     }
   }, [])
 
-
   const onError = (e: string) => {
     if (errorAttempts < maxAudioLoadingAttempts) {
       setErrorAttempts((errorAttempts) => errorAttempts + 1)
