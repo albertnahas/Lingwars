@@ -16,7 +16,6 @@ import {
   maxAudioLoadingAttempts,
 } from "../../utils/constants"
 
-
 export const BoxContainer = styled("div")`
   display: flex;
   flex-direction: row;
@@ -40,9 +39,6 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
   const [time, setTime] = useState(0)
   const [active, setActive] = useState<boolean>(false)
   const [errorAttempts, setErrorAttempts] = useState<number>(0)
-  const host =
-    window.location.hostname === "localhost" ? "../data" : `${cdnURL}files`
-
   const host =
     window.location.hostname === "localhost" ? "../data" : `${cdnURL}files`
 
