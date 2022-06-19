@@ -100,9 +100,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
     }
   }, [])
 
-  const onActive = () => {
-    setActive(true)
-  }
+
   const onError = (e: string) => {
     if (errorAttempts < maxAudioLoadingAttempts) {
       setErrorAttempts((errorAttempts) => errorAttempts + 1)
@@ -111,6 +109,10 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
       return false
     }
   }
+
+  const onActive = useCallback(() => {
+    !answer && setActive(true)
+  }, [answer])
 
   const hintsText = `${hintsLeft - 1 !== 0 ? hintsLeft - 1 : "no"} ${
     hintsLeft - 1 === 1 ? "hint" : "hints"

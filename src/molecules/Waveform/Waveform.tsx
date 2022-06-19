@@ -96,7 +96,6 @@ export const Waveform = ({
       loadingRef.current = false
     })
 
-    waveform.current?.on("play", onActive)
     waveform.current?.on("error", onAudioError)
 
     return () => {
@@ -114,6 +113,13 @@ export const Waveform = ({
     }
     console.log(e)
   }
+  useEffect(() => {
+    waveform.current?.on("play", onActive)
+
+    return () => {
+      waveform.current?.un("play", onActive)
+    }
+  }, [onActive])
 
   const handlePlay = () => {
     setPlaying((p) => !p)
