@@ -32,7 +32,7 @@ const EarthWrapper = styled(Box)`
   position: relative;
   display: flex;
   justify-content: center;
-  width: 350px;
+  width: 300px;
   @media (max-width: 767px) {
     width: 250px;
   }
