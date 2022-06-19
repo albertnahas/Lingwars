@@ -4,6 +4,8 @@ export const maxLevels = 5
 
 export const maxHints = 3
 
+export const maxAudioLoadingAttempts = 3
+
 export const defaultRounds = 10
 
 export const roundTimeout = 30

@@ -9,7 +9,12 @@ import { WorldDiagram } from "../../icons/worldDiagram"
 import { Timer } from "../../atoms/Timer/Timer"
 import { LanguageInfo } from "../../molecules/LanguageInfo/LanguageInfo"
 import { HintButton } from "../../atoms/HintButton/HintButton"
-import { cdnURL, maxHints, roundTimeout } from "../../utils/constants"
+import {
+  cdnURL,
+  maxHints,
+  roundTimeout,
+  maxAudioLoadingAttempts,
+} from "../../utils/constants"
 
 export const BoxContainer = styled("div")`
   display: flex;
@@ -33,7 +38,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
   const [answer, setAnswer] = useState<any>()
   const [time, setTime] = useState(0)
   const [active, setActive] = useState<boolean>(false)
-
+  const [errorAttempts, setErrorAttempts] = useState<number>(0)
   const host =
     window.location.hostname === "localhost" ? "../data" : `${cdnURL}files`
 
@@ -45,7 +50,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
           )}`
         : "",
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [lang]
+    [lang, errorAttempts]
   )
 
   const langCountries = useMemo<string[]>(
@@ -94,6 +99,15 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
       setAnswer(" ")
     }
   }, [])
+
+  const onError = (e: string) => {
+    if (errorAttempts < maxAudioLoadingAttempts) {
+      setErrorAttempts((errorAttempts) => errorAttempts + 1)
+      return true
+    } else {
+      return false
+    }
+  }
 
   const onActive = useCallback(() => {
     !answer && setActive(true)
@@ -157,7 +171,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
           </Typography>
         </Box>
         <BoxContainer>
-          <Waveform url={langUrl} onActive={onActive} />
+          <Waveform url={langUrl} onActive={onActive} onError={onError} />
           {!answer && active && (
             <HintButton
               disabled={hintsLeft === 0 || showHint}
