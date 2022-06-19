@@ -1,15 +1,70 @@
 import { FC } from "react"
 import { Box, Button, Paper, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
+import { keyframes } from "@emotion/react"
+import { useTheme } from "@mui/system"
+
+const rotate = keyframes`
+0% {
+  transform: rotate(360deg);
+
+}
+	100% {
+		transform: rotate(0deg);
+	}
+
+  `
 
 const EarthImg = styled("img")`
-  width: 250px;
+  width: 100%;
+  margin: 0 auto;
+  transition: all 1s ease;
+  animation: ${rotate} 25000ms infinite linear;
+  &:hover {
+    width: 110%;
+  }
+  &:active {
+    width: 120%;
+  }
+`
+
+const EarthWrapper = styled(Box)`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 350px;
   @media (max-width: 767px) {
-    width: 150px;
+    width: 250px;
+  }
+  margin: auto;
+  &:after,
+  &:before {
+    pointer-events: none;
+    content: "";
+    background: url("/assets/imgs/clouds.png");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+  &:after {
+    animation: ${rotate} 18000ms infinite linear;
+    background-size: 70%;
+    z-index: 10;
+    filter: drop-shadow(-10px 20px 15px rgba(0, 0, 0, 0.3));
+  }
+  &:before {
+    animation: ${rotate} 35000ms infinite linear;
   }
 `
 
 export var Landing: FC<Props> = function (props) {
+  const theme = useTheme()
   return (
     <Box
       sx={{
@@ -23,16 +78,18 @@ export var Landing: FC<Props> = function (props) {
         justifyContent: "flex-start",
         alignItems: "center",
         flexDirection: "column",
-        backgroundImage: `url('/assets/imgs/world.svg') !important`,
+        backgroundImage: `url('/assets/imgs/${
+          theme.palette.mode === "dark" ? "world-dark" : "world"
+        }.svg') !important`,
       }}
     >
-      <Box sx={{ m: 3 }}>
+      <EarthWrapper sx={{ m: 0 }}>
         <EarthImg
           alt="Spinning Earth"
           title="Earth"
-          src="/assets/imgs/earth.webp"
+          src="/assets/imgs/earth.png"
         />
-      </Box>
+      </EarthWrapper>
       <Typography
         sx={{ fontWeight: "400", fontSize: { md: "4em", xs: "3em" } }}
         variant="h1"
