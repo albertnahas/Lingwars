@@ -41,17 +41,27 @@ export const PlayButton = styled("button")`
   }
 `
 
-export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
+export const Waveform = ({
+  url,
+  onActive,
+  onError,
+}: {
+  url: string
+  onActive: any
+  onError?: (e: string) => Boolean
+}) => {
   const [playing, setPlaying] = useState(false)
   const [loading, setLoading] = useState(true)
+  const loadingRef = useRef<Boolean>(true)
+  const [error, setError] = useState<string>()
   const waveform = useRef<WaveSurfer>()
   const waveformRef = useRef<HTMLMediaElement>(null)
   const audioRef = useRef<HTMLMediaElement>(null)
 
   const ios = isiOS()
 
-  useEffect(() => {
-    waveform.current = WaveSurfer.create({
+  const loadAudio = () =>
+    (waveform.current = WaveSurfer.create({
       barWidth: 3,
       cursorWidth: 1,
       container: "#waveform",
@@ -63,7 +73,10 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
       cursorColor: "transparent",
       hideScrollbar: true,
       normalize: true,
-    })
+    }))
+
+  useEffect(() => {
+    loadAudio()
 
     if (audioRef && audioRef.current) {
       audioRef.current.id = "audio-player-iosfix"
@@ -77,15 +90,30 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
 
     waveform.current?.on("ready", function () {
       setLoading(false)
+      if (!!error) {
+        setError(undefined)
+      }
+      loadingRef.current = false
     })
 
     waveform.current?.on("play", onActive)
+    waveform.current?.on("error", onAudioError)
 
     return () => {
       waveform.current?.destroy()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url])
+
+  const onAudioError = (e: string) => {
+    const handled = onError?.(e)
+    if (!handled) {
+      setLoading(false)
+      loadingRef.current = false
+      setError(e)
+    }
+    console.log(e)
+  }
 
   const handlePlay = () => {
     setPlaying((p) => !p)
@@ -101,6 +129,11 @@ export const Waveform = ({ url, onActive }: { url: string; onActive: any }) => {
           </Typography>
           <LinearProgress />
         </Box>
+      )}
+      {!!error && (
+        <Typography variant="body1" color="textSecondary" mb={2}>
+          {error}
+        </Typography>
       )}
       <PlayContainer>
         <PlayButton

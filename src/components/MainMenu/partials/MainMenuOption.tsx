@@ -19,7 +19,7 @@ export const MainMenuOption: FC<Props> = ({
       elevation={16}
       sx={{
         borderRadius: 3,
-        my: 2.5,
+        my: 2.2,
         animation: animate ? `${slide} 800ms ease;` : "",
       }}
     >
@@ -37,9 +37,9 @@ export const MainMenuOption: FC<Props> = ({
               {subtitle}
             </Typography>
           </Grid>
-          <Grid sx={{ height: 115, textAlign: "right" }} item xs={6}>
+          <Grid sx={{ height: 105, textAlign: "right" }} item xs={6}>
             <img
-              width="125"
+              height="130"
               style={{ position: "relative", top: -5 }}
               alt="test"
               src={image}
