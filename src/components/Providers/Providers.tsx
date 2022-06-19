@@ -40,6 +40,15 @@ export const Providers: FC<Props> = ({ children }) => {
         secondary: {
           main: "#2ecb71",
         },
+        ...(mode === "light"
+          ? {
+              // palette values for light mode
+              // primary: { main: "#0d69d5" },
+            }
+          : {
+              // palette values for dark mode
+              // background: { default: "red", paper: "#000034" },
+            }),
       },
       components: {
         MuiPaper: {
