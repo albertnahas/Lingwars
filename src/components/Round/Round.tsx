@@ -56,8 +56,14 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
   const hint = useMemo<string>(() => {
     if (!langInfo) return ""
 
+    const hideLangName = (l: string) => l.replaceAll(lang.name, "***")
     const split = langInfo.extract.split(".")
-    return split.length > 0 ? `${split[1].replaceAll(lang.name, "***")}.` : ""
+    const hintMsg =
+      split.length > 1
+        ? hideLangName(split[1])
+        : (split[0] && hideLangName(split[0])) || ""
+
+    return `${hintMsg}.`
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [langInfo])
 
