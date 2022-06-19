@@ -96,7 +96,7 @@ export var MainMenu: FC<Props> = function (props) {
           <img
             alt="Earth"
             title="Earth"
-            width="150"
+            width="175"
             src="/assets/imgs/earth-full.png"
           />
         </Box>
