@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom"
 import { PayPalScriptProvider } from "@paypal/react-paypal-js"
 import store from "../../store/store"
 import { themeShadows } from "../../utils/utils"
+import { IntlProvider } from "react-intl"
 
 export const useAppDispatch = () => store.dispatch
 
@@ -79,7 +80,11 @@ export const Providers: FC<Props> = ({ children }) => {
             <PayPalScriptProvider
               options={{ "client-id": paypalClientId.live }}
             >
-              <Provider store={store}>{children}</Provider>
+              <Provider store={store}>
+                <IntlProvider locale={"en"} defaultLocale="en">
+                  {children}
+                </IntlProvider>
+              </Provider>
             </PayPalScriptProvider>
           </ConfirmProvider>
         </ThemeProvider>
