@@ -6,6 +6,7 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow"
 import PauseIcon from "@mui/icons-material/Pause"
 import { isiOS } from "../../utils/utils"
 import { LinearProgress, Typography } from "@mui/material"
+import { audioTimeout } from "../../utils/constants"
 
 export const WaveformContainer = styled("div")`
   height: 100px;
@@ -97,6 +98,12 @@ export const Waveform = ({
     })
 
     waveform.current?.on("error", onAudioError)
+
+    setTimeout(() => {
+      if (loadingRef.current) {
+        onAudioError("Error loading audio file")
+      }
+    }, audioTimeout)
 
     return () => {
       waveform.current?.destroy()
