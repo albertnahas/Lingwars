@@ -103,7 +103,8 @@ export const Waveform = ({
       if (loadingRef.current) {
         onAudioError("Error loading audio file")
       }
-    }, audioTimeout)
+    }, audioTimeout * 1000)
+
 
     return () => {
       waveform.current?.destroy()
