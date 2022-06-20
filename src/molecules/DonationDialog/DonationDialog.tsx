@@ -123,10 +123,10 @@ export function DonationDialog(props: DonationDialogProps) {
         )
         const details = await digitalGoodsService.getDetails(["coffees"])
         for (const item of details) {
-          const priceStr = new Intl.NumberFormat(intl.locale || "en", {
-            style: "currency",
-            currency: item.price.currency,
-          }).format(item.price.value)
+          // const priceStr = new Intl.NumberFormat(intl.locale || "en", {
+          //   style: "currency",
+          //   currency: item.price.currency,
+          // }).format(item.price.value)
           setCoffeeItem({
             id: item.itemId,
             title: item.title,
