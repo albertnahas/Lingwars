@@ -105,6 +105,7 @@ export const Waveform = ({
       }
     }, audioTimeout * 1000)
 
+
     return () => {
       waveform.current?.destroy()
     }
