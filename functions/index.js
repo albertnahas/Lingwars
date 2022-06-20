@@ -169,7 +169,7 @@ exports.playerCreated = functions.firestore
   .document("/challenges/{id}/players/{playerId}")
   .onCreate(async (snap, context) => {
     const challengeId = context.params.id
-    updateChallengeStatus(challengeId)
+    updateChallengeFull(challengeId)
     return true
   })
 
@@ -251,23 +251,28 @@ exports.checkChallengeStatus = functions.https.onRequest(async (req, res) => {
     if (!challenge.exists) {
       res.status(500).send("Invalid challenge id");
     }
+    const result = updateChallengeStatus(challenge)
+    res.json({ data: result });
 
-    const rounds = challenge.data().rounds
-    const unfinishedPlayersSnap = await admin
-      .firestore()
-      .collection(`challenges/${challengeId}/players`)
-      .where("turn", "!=", rounds)
-      .get()
-
-    if (unfinishedPlayersSnap.size === 0) {
-      const update = { status: "finished" }
-      challenge.ref.set(update, { merge: true })
-      res.json({ data: Object.assign(challenge.data(), update) });
-    } else {
-      res.json({ data: Object.assign(challenge.data()) });
-    }
   })
 })
+
+const updateChallengeStatus = async (challenge) => {
+  const rounds = challenge.data().rounds
+  const unfinishedPlayersSnap = await admin
+    .firestore()
+    .collection(`challenges/${challenge.id}/players`)
+    .where("turn", "!=", rounds)
+    .get()
+
+  if (unfinishedPlayersSnap.size === 0) {
+    const update = { status: "finished" }
+    challenge.ref.set(update, { merge: true })
+    return Object.assign(challenge.data(), update)
+  } else {
+    return challenge.data()
+  }
+}
 
 exports.onUserStatusChanged = functions.database
   .ref("/status/{uid}")
@@ -315,7 +320,8 @@ exports.onUserStatusChanged = functions.database
     })
   })
 
-const updateChallengeStatus = async (challengeId) => {
+
+const updateChallengeFull = async (challengeId) => {
   const playersSnap = await admin
     .firestore()
     .collection(`challenges/${challengeId}/players`)
