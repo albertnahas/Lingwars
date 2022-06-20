@@ -181,7 +181,7 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
             />
           )}
         </BoxContainer>
-        {errorAttempts <= maxAudioLoadingAttempts && (
+        {errorAttempts >= maxAudioLoadingAttempts && (
           <Button
             variant="text"
             color="error"
