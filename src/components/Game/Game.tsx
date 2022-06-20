@@ -24,6 +24,7 @@ export type GameStatus =
   | "loading"
   | "error"
   | "waiting"
+  | "waiting_others"
   | "started"
   | "finished"
 
@@ -31,6 +32,7 @@ export const Game: FC<Props> = ({
   user,
   challenge,
   players,
+  gameStatus,
   onClickLeave,
   onClickRematch,
   onClickPlayAgain,
@@ -42,25 +44,6 @@ export const Game: FC<Props> = ({
     if (!players || players.length < 2) return user?.displayName
     return _.maxBy(players, "timedScore")?.displayName
   }, [players, user?.displayName])
-
-  const isGameDone = useMemo(
-    () =>
-      (players &&
-        challenge &&
-        challenge.id &&
-        players.every((p) => p.turn >= (challenge.rounds || 10))) ||
-      (challenge && challenge.status === "finished") ||
-      false,
-    [players, challenge]
-  )
-
-  const gameStatus = useMemo<GameStatus>(() => {
-    if (isGameDone) return "finished"
-    if (error) return "error"
-    if (!challenge || !challenge.id || challenge.full) return "started"
-    if (challenge && challenge.id && !challenge.full) return "waiting"
-    return "loading"
-  }, [challenge, error, isGameDone])
 
   const renderPlayers = () => (
     <Stack
@@ -79,7 +62,6 @@ export const Game: FC<Props> = ({
         return (
           <StandardGameContainer
             display={gameStatus !== "waiting"}
-            players={players}
             onComplete={onComplete}
           />
         )
@@ -116,7 +98,8 @@ export const Game: FC<Props> = ({
             {gameStatus !== "finished" && (
               <ChallengeInfo challenge={challenge} />
             )}
-            {["started", "finished"].includes(gameStatus) &&
+            {gameStatus &&
+              ["started", "waiting_others", "finished"].includes(gameStatus) &&
               players &&
               renderPlayers()}
             {!challenge?.rematchRequested && gameStatus !== "finished" && (
@@ -133,6 +116,17 @@ export const Game: FC<Props> = ({
                   Waiting for players to join
                 </Typography>
                 <CircularProgress sx={{ my: 4 }} />
+              </Box>
+            )}
+            {gameStatus === "waiting_others" && (
+              <Box sx={{ mb: 3 }}>
+                <Typography
+                  variant="h6"
+                  aria-label="waiting for players to finish"
+                  color="primary.light"
+                >
+                  Waiting for players to finish...
+                </Typography>
               </Box>
             )}
             {gameStatus === "error" && (
@@ -193,7 +187,7 @@ export const Game: FC<Props> = ({
           </Button>
         </Stack>
         <ChallengeDoneDialog
-          open={isGameDone && !rematch}
+          open={gameStatus === "finished" && !rematch}
           onClose={onClickLeave}
           onClickRematch={onClickRematch}
           onClickPlayAgain={onClickPlayAgain}
@@ -208,6 +202,7 @@ interface Props {
   user?: User | null
   challenge?: Challenge
   players?: Player[]
+  gameStatus?: GameStatus
   onClickLeave: () => void
   onClickRematch: () => void
   onClickPlayAgain: () => void

@@ -27,11 +27,7 @@ import {
   startingTurn,
 } from "../../GameReducer"
 
-export const StandardGameContainer: FC<Props> = ({
-  display,
-  players,
-  onComplete,
-}) => {
+export const StandardGameContainer: FC<Props> = ({ display, onComplete }) => {
   const [lang, setLang] = useState<any>()
   const [
     { turn, hintsUsed, timedScore, accuracy, answered, submitted, languages },
@@ -140,7 +136,6 @@ export const StandardGameContainer: FC<Props> = ({
 }
 interface Props {
   display?: boolean
-  players?: any[]
   onComplete?: (
     turn?: number,
     accuracy?: number,
