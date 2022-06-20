@@ -106,7 +106,7 @@ export const Profile: FC<Props> = ({ signOut }) => {
             <Box sx={{ mb: 2 }}>
               <EditableDisplay
                 name="displayName"
-                label={"Type in the username you want others to see"}
+                label={"The username others will see"}
                 onSubmit={onClickSubmitDisplayName}
                 text={user?.displayName}
               />
