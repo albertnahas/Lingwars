@@ -19,7 +19,6 @@ import anime from "animejs"
 import { useSelector } from "react-redux"
 import { useAnalytics } from "../../hooks/useAnalytics"
 import { userSelector } from "../../store/userSlice"
-import { useIntl } from "react-intl"
 import { Coffee } from "@mui/icons-material"
 
 export interface DonationDialogProps {
@@ -50,7 +49,6 @@ export function DonationDialog(props: DonationDialogProps) {
   const [coffeeItem, setCoffeeItem] = useState<CoffeeItem>(defaultCoffee)
   const user = useSelector(userSelector)
   const { logEvent } = useAnalytics()
-  const intl = useIntl()
 
   const formik = useFormik({
     initialValues: {
