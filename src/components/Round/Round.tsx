@@ -15,6 +15,7 @@ import {
   roundTimeout,
   maxAudioLoadingAttempts,
 } from "../../utils/constants"
+import { Repeat } from "@mui/icons-material"
 
 export const BoxContainer = styled("div")`
   display: flex;
@@ -101,8 +102,8 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
   }, [])
 
   const onError = (e: string) => {
+    setErrorAttempts((errorAttempts) => errorAttempts + 1)
     if (errorAttempts < maxAudioLoadingAttempts) {
-      setErrorAttempts((errorAttempts) => errorAttempts + 1)
       return true
     } else {
       return false
@@ -180,6 +181,18 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
             />
           )}
         </BoxContainer>
+        {errorAttempts <= maxAudioLoadingAttempts && (
+          <Button
+            variant="text"
+            color="error"
+            sx={{ my: 1 }}
+            onClick={() => onError("")}
+            aria-label="retry"
+            endIcon={<Repeat />}
+          >
+            Retry
+          </Button>
+        )}
         {choices && !answer && (
           <Box aria-label="choices">{renderChoices()}</Box>
         )}
@@ -198,7 +211,6 @@ export const Round: FC<Props> = ({ lang, choices, onAnswer, hintsLeft }) => {
             </Typography>
           </Alert>
         )}
-
         {answer && (
           <>
             <Alert
