@@ -18,6 +18,7 @@ import PrivacyTipOutlinedIcon from "@mui/icons-material/PrivacyTipOutlined"
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver"
 import SchoolIcon from "@mui/icons-material/School"
 import { userSelector } from "../../store/userSlice"
+import { Coffee } from "@mui/icons-material"
 // import SettingsIcon from "@mui/icons-material/Settings"
 
 const sideDrawerLinks = [
@@ -102,19 +103,6 @@ export const SideDrawer: React.FC<Props> = (props) => {
             </ListItem>
           )
         })}
-        {/* <ListItem
-          aria-label={"settings"}
-          button
-          component={Link}
-          to="/settings"
-        >
-          <ListItemIcon>
-            <SettingsIcon />
-          </ListItemIcon>
-          <ListItemText primary="Settings" color="text.secondary" />
-        </ListItem> */}
-      </List>
-      <List sx={{ mt: -2 }}>
         <ListItem
           aria-label={"submit"}
           button
@@ -127,6 +115,23 @@ export const SideDrawer: React.FC<Props> = (props) => {
           </ListItemIcon>
           <ListItemText primary="Submit your language" color="text.secondary" />
         </ListItem>
+        <ListItem aria-label={"donate"} button onClick={props.donate}>
+          <ListItemIcon>
+            <Coffee />
+          </ListItemIcon>
+          <ListItemText primary="Buy us a coffee" color="text.secondary" />
+        </ListItem>
+        {/* <ListItem
+          aria-label={"settings"}
+          button
+          component={Link}
+          to="/settings"
+        >
+          <ListItemIcon>
+            <SettingsIcon />
+          </ListItemIcon>
+          <ListItemText primary="Settings" color="text.secondary" />
+        </ListItem> */}
       </List>
       <Divider />
       {user && (
@@ -155,4 +160,5 @@ export const SideDrawer: React.FC<Props> = (props) => {
 
 interface Props {
   signOut: () => void
+  donate?: () => void
 }

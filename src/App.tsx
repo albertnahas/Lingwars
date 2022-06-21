@@ -159,7 +159,10 @@ const App = function ({
         signOut={signOutFromApp}
       />
       <Footer />
-      <SideDrawer signOut={signOutFromApp} />
+      <SideDrawer
+        signOut={signOutFromApp}
+        donate={() => setOpenDonation(true)}
+      />
       <AlertDialog
         title={alertWidget.title}
         message={alertWidget.message}

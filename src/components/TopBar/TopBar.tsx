@@ -126,7 +126,7 @@ export var TopBar: FC<Props> = function (props) {
               </IconButton>
             </Tooltip> */}
             <Box sx={{ flexGrow: 1 }} />
-            <Button
+            {/* <Button
               variant="outlined"
               color="secondary"
               startIcon={<VolunteerActivismIcon />}
@@ -134,7 +134,7 @@ export var TopBar: FC<Props> = function (props) {
               sx={{ ml: 1 }}
             >
               Donate
-            </Button>
+            </Button> */}
             {props.deferredPrompt && (
               <Tooltip title="Install the app">
                 <Button
