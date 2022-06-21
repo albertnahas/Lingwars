@@ -33,20 +33,20 @@ export interface CoffeeItem {
   description?: string
 }
 
-const defaultCoffee = {
-  id: "test",
-  title: "Coffee",
-  price: "3.00",
-  currency: "USD",
-  description: "Coffee",
-}
+// const defaultCoffee = {
+//   id: "test",
+//   title: "Coffee",
+//   price: "3.00",
+//   currency: "USD",
+//   description: "Coffee",
+// }
 
 export function DonationDialog(props: DonationDialogProps) {
   const theme = useTheme()
   const { onClose, open } = props
   const [donated, setDonated] = useState(false)
   const [error, setError] = useState()
-  const [coffeeItem, setCoffeeItem] = useState<CoffeeItem>(defaultCoffee)
+  const [coffeeItem, setCoffeeItem] = useState<CoffeeItem>()
   const user = useSelector(userSelector)
   const { logEvent } = useAnalytics()
 
@@ -148,9 +148,12 @@ export function DonationDialog(props: DonationDialogProps) {
     if (!coffeeItem) {
       return
     }
-    const supportedInstruments = [
+    const supportedInstruments: PaymentMethodData[] = [
       {
         supportedMethods: "https://play.google.com/billing",
+        data: {
+          sku: coffeeItem.id,
+        },
       },
     ]
 
